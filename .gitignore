@@ -1,0 +1,22 @@
+.DS_Store
+Thumbs.db
+
+# Local/private research material. Keep raw user testing and competitor notes out of the portfolio repo.
+用户测试/
+用户体验作品竞品分析（名宿app）/
+
+# Draft resume variants. Only assets/Jamie_Zhou_Resume.docx is linked from the live site.
+assets/Jamie_Zhou_Resume_*.docx
+assets/Jamie_Zhou_Resume_Microsoft_ChanceAI.docx
+assets/research-*.png
+
+# Unlinked local prototypes. Move into the portfolio deliberately before publishing.
+cashflow.*
+
+# Local tooling/cache folders.
+node_modules/
+.env
+.env.*
+.vercel/
+dist/
+build/
