@@ -8,28 +8,38 @@
       content="Jamie Zhou is an AI Product & Growth Designer focused on frontier UX, intelligent products, and activation systems."
     />
     <title>Jamie Zhou | AI Product & Growth Designer</title>
-    <link rel="stylesheet" href="styles.css?v=structure-learn1" />
+    <link rel="stylesheet" href="styles.css?v=page-transition6" />
   </head>
-  <body class="portfolio-redesign">
+  <body class="portfolio-redesign" data-page-view="home">
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="cursor-light" aria-hidden="true"></div>
 
     <header class="site-header">
-      <a class="brand" href="#top" data-view-link="work" data-view-affordance aria-label="Jamie Zhou home">
+      <a class="brand" href="index.html" aria-label="Jamie Zhou home">
         <span class="brand-mark">JZ</span>
         <span>Jamie Zhou</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#top" data-view-link="work" aria-current="page">Home</a>
-        <a href="#work" data-view-link="work">Work</a>
-        <a href="#lab" data-view-link="work">Lab</a>
-        <a href="#about" data-view-link="work">About</a>
-        <a href="#contact" data-view-link="work">Contact</a>
+        <span class="nav-indicator" aria-hidden="true"></span>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="work.html">Work</a>
+        <a href="lab.html">Lab</a>
+        <a href="about.html">About</a>
       </nav>
+      <div class="site-utilities" aria-label="Portfolio utilities">
+        <button class="utility-action" type="button" data-contact-open>Contact</button>
+        <a
+          class="utility-action"
+          href="https://drive.google.com/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Open Jamie Zhou resume in Google Drive"
+        >Resume</a>
+      </div>
     </header>
 
     <main id="top">
-      <section class="ia-hero ia-hero--focused portfolio-hero reveal" data-view="work" aria-labelledby="home-title">
+      <section id="home" class="ia-hero ia-hero--focused portfolio-hero reveal" data-view="home" aria-labelledby="home-title">
         <div class="portfolio-hero__meta">
           <span>Jamie Zhou</span>
           <span>AI Product &amp; Growth Design</span>
@@ -48,7 +58,7 @@
             </p>
             <div class="ia-actions portfolio-actions" aria-label="Primary portfolio actions">
               <a class="ia-action ia-action--primary" href="axel.html">View Axel Case Study</a>
-              <a class="ia-action" href="#work">Browse Selected Work</a>
+              <a class="ia-action" href="work.html">Browse Selected Work</a>
             </div>
           </div>
 
@@ -99,143 +109,74 @@
         </div>
       </section>
 
-      <section id="work" class="project-browser portfolio-work reveal" data-view="work" aria-labelledby="work-title">
+      <section class="home-work-preview reveal" data-view="home" aria-labelledby="home-work-title">
         <div class="portfolio-section-heading">
-          <span>Selected Systems</span>
-          <h2 id="work-title">One primary case, two supporting signals.</h2>
-          <p>Work is ordered by job-search value: Axel first, then current AI product and NDA-safe client strategy.</p>
+          <span>Selected Work</span>
+          <h2 id="home-work-title">Start with the strongest job-search proof.</h2>
+          <p>Axel is the primary case study. Chance AI and Deloitte x SCADpro support the AI product and client strategy story.</p>
         </div>
 
-        <a
-          class="work-featured project-preview-trigger"
-          href="axel.html"
-          data-project-preview
-          data-preview-title="Axel SaaS"
-          data-preview-description="Restaurant operation SaaS shaped from 27-restaurant research."
-          data-preview-label="Open Case Study"
-          data-preview-image="assets/figma-axel-case-overview.png"
-          data-preview-visual="axel"
-          aria-label="Open Axel SaaS case study"
-        >
-          <div class="work-featured__copy">
+        <div class="home-work-preview__list" aria-label="Selected work preview">
+          <a
+            class="home-work-preview__primary project-preview-trigger"
+            href="axel.html"
+            data-project-preview
+            data-preview-title="Axel SaaS"
+            data-preview-description="Restaurant operation SaaS shaped from 27-restaurant research."
+            data-preview-label="Primary Case Study"
+            data-preview-image="assets/figma-axel-case-overview.png"
+            data-preview-visual="axel"
+          >
             <span class="work-index">01 / Primary Case Study</span>
-            <h3>Axel SaaS</h3>
-            <p>Restaurant operation SaaS</p>
-            <em>27-restaurant research, daily action center, unified order workflows</em>
-            <div class="work-tags" aria-label="Axel project tags">
-              <span>Product Strategy</span>
-              <span>UX Research</span>
-              <span>SaaS Systems</span>
+            <div>
+              <h3>Axel SaaS</h3>
+              <p>Restaurant operation SaaS</p>
+              <em>27-restaurant research, daily action center, unified order workflows</em>
             </div>
             <strong>Open Case Study</strong>
-          </div>
-          <div class="work-featured__media" aria-hidden="true">
-            <img class="work-featured__cover" src="assets/figma-axel-cover.png" alt="" />
-            <img class="work-featured__panel" src="assets/figma-axel-case-overview.png" alt="" />
-          </div>
-        </a>
-
-        <div class="work-supporting" aria-label="Supporting work">
-          <a
-            class="work-card work-card--chance project-preview-trigger"
-            href="#contact"
-            data-view-link="work"
-            data-project-preview
-            data-preview-title="Chance AI"
-            data-preview-description="Consumer AI workflow, activation logic, and commercial UI."
-            data-preview-label="Current Work"
-            data-preview-visual="chance"
-          >
-            <span class="work-index">02 / Supporting Work</span>
-            <div class="work-card__visual" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <h3>Chance AI</h3>
-            <p>Consumer AI product / current work</p>
-            <em>AI workflow, activation logic, commercial UI</em>
-            <div class="work-tags" aria-label="Chance AI project tags">
-              <span>AI UX</span>
-              <span>Growth</span>
-              <span>Commercial UI</span>
-            </div>
-            <strong>Request walkthrough</strong>
           </a>
 
-          <a
-            class="work-card work-card--deloitte project-preview-trigger"
-            href="#contact"
-            data-view-link="work"
-            data-project-preview
-            data-preview-title="Deloitte x SCADpro"
-            data-preview-description="Healthcare AI web experience, onboarding clarity, and AI guidance."
-            data-preview-label="NDA-Safe Case"
-            data-preview-visual="deloitte"
-          >
-            <span class="work-index">03 / Supporting Work</span>
-            <div class="work-card__visual" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <h3>Deloitte x SCADpro</h3>
-            <p>Healthcare AI web experience</p>
-            <em>Information clarity, onboarding, AI guidance</em>
-            <div class="work-tags" aria-label="Deloitte project tags">
-              <span>Client Strategy</span>
-              <span>Healthcare AI</span>
-              <span>Onboarding</span>
-            </div>
-            <strong>Request walkthrough</strong>
-          </a>
+          <div class="home-work-preview__supporting">
+            <a
+              class="home-work-preview__item project-preview-trigger"
+              href="#contact"
+              data-contact-open
+              data-project-preview
+              data-preview-title="Chance AI"
+              data-preview-description="Consumer AI workflow, activation logic, and commercial UI."
+              data-preview-label="Current Work"
+              data-preview-visual="chance"
+            >
+              <span class="work-index">02 / Supporting</span>
+              <div>
+                <h3>Chance AI</h3>
+                <p>Consumer AI product / current work</p>
+                <em>AI workflow, activation logic, commercial UI</em>
+              </div>
+            </a>
+
+            <a
+              class="home-work-preview__item project-preview-trigger"
+              href="#contact"
+              data-contact-open
+              data-project-preview
+              data-preview-title="Deloitte x SCADpro"
+              data-preview-description="Healthcare AI web experience, onboarding clarity, and AI guidance."
+              data-preview-label="NDA-Safe Case"
+              data-preview-visual="deloitte"
+            >
+              <span class="work-index">03 / Supporting</span>
+              <div>
+                <h3>Deloitte x SCADpro</h3>
+                <p>Healthcare AI web experience</p>
+                <em>Information clarity, onboarding, AI guidance</em>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
 
-      <section id="lab" class="portfolio-lab reveal" data-view="work" aria-labelledby="lab-title">
-        <div class="portfolio-section-heading">
-          <span>Lab / Play</span>
-          <h2 id="lab-title">Creative systems, motion studies, and experimental interfaces.</h2>
-          <p>
-            This section keeps expressive work separate from the job-search case studies,
-            while still showing interaction taste and motion range.
-          </p>
-        </div>
-        <div class="lab-index" aria-label="Creative lab index">
-          <article class="lab-card">
-            <span>01 / Motion Study</span>
-            <h3>Awakening Loop</h3>
-            <p>Atmospheric interaction and looping motion system for experimental storytelling.</p>
-            <div class="work-tags">
-              <span>Motion</span>
-              <span>Creative Tech</span>
-              <span>Editorial</span>
-            </div>
-          </article>
-          <article class="lab-card">
-            <span>02 / Student System</span>
-            <h3>Honda Ecosystem</h3>
-            <p>Speculative system mapping and interface thinking for a connected mobility experience.</p>
-            <div class="work-tags">
-              <span>Systems</span>
-              <span>Service UX</span>
-              <span>Concept</span>
-            </div>
-          </article>
-          <article class="lab-card">
-            <span>03 / Archive</span>
-            <h3>MoonLog</h3>
-            <p>Earlier coded HTML experiment, useful as a process archive rather than a primary case.</p>
-            <div class="work-tags">
-              <span>HTML</span>
-              <span>Archive</span>
-              <span>Interaction</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="frontier-thesis portfolio-thesis reveal" data-view="work" aria-labelledby="thesis-title">
+      <section class="frontier-thesis portfolio-thesis reveal" data-view="home" aria-labelledby="thesis-title">
         <div class="portfolio-section-heading">
           <span>Frontier UX Thesis</span>
           <h2 id="thesis-title">Intelligent products need behavior design, not AI decoration.</h2>
@@ -259,41 +200,25 @@
         </div>
       </section>
 
-      <section class="capabilities portfolio-capabilities reveal" data-view="work" aria-labelledby="capabilities-title">
-        <div class="portfolio-section-heading">
-          <span>Capabilities</span>
-          <h2 id="capabilities-title">From product direction to interface behavior.</h2>
-          <p>I am strongest when ambiguous product behavior needs to become a clear, reviewable system.</p>
-        </div>
-        <div class="capability-list">
-          <article><span>01</span><h3>Product Strategy</h3><p>Frame ambiguous opportunities into product direction and decisions.</p></article>
-          <article><span>02</span><h3>AI UX</h3><p>Translate intelligent capability into clear flows, states, and user agency.</p></article>
-          <article><span>03</span><h3>Growth &amp; Activation</h3><p>Design onboarding and habit moments that make value visible faster.</p></article>
-          <article><span>04</span><h3>Research Synthesis</h3><p>Turn interviews, VOC, surveys, and field notes into product logic.</p></article>
-          <article><span>05</span><h3>Interaction &amp; Motion Design</h3><p>Use motion as feedback for state, transition, and system clarity.</p></article>
-          <article><span>06</span><h3>Commercial UX</h3><p>Connect user needs with business outcomes through interface decisions.</p></article>
-        </div>
-      </section>
+    </main>
 
-      <section id="about" class="about-contact portfolio-contact reveal" data-view="work" aria-labelledby="about-title">
-        <div class="portfolio-contact__portrait" aria-hidden="true">
-          <img src="assets/jamie-avatar.jpg" alt="" />
-        </div>
-        <div class="about-contact__copy">
-          <p class="eyebrow">About / Contact</p>
-          <h2 id="about-title">I work from evidence to product behavior.</h2>
-          <p>
-            My work combines research synthesis, product strategy, AI UX, growth logic,
-            and interaction craft to make complex product systems feel usable.
-          </p>
-        </div>
-        <div id="contact" class="about-contact__links" aria-label="Contact links">
-          <a href="assets/Jamie_Zhou_Resume.docx" download><span>Resume</span><em aria-hidden="true">&#8599;</em></a>
+    <div id="contact" class="contact-modal" data-contact-modal hidden>
+      <button class="contact-modal__backdrop" type="button" data-contact-close aria-label="Close contact card"></button>
+      <section class="contact-modal__card" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+        <button class="contact-modal__close" type="button" data-contact-close aria-label="Close contact card">×</button>
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-modal-title">Let’s talk about AI product design roles.</h2>
+        <p>
+          Jamie is focused on UX/Product Design, AI Product Design, and growth-oriented
+          product teams building intelligent consumer or complex workflow systems.
+        </p>
+        <div class="contact-modal__links" aria-label="Contact actions">
           <a href="mailto:Jamiechou2004@outlook.com"><span>Email</span><em aria-hidden="true">&#8599;</em></a>
           <a href="https://www.linkedin.com/in/jamie-zihan-chou/" target="_blank" rel="noreferrer"><span>LinkedIn</span><em aria-hidden="true">&#8599;</em></a>
+          <a href="https://drive.google.com/" target="_blank" rel="noreferrer"><span>Resume</span><em aria-hidden="true">&#8599;</em></a>
         </div>
       </section>
-    </main>
+    </div>
 
     <aside class="agent-shell" aria-label="Jamie portfolio assistant">
       <button
@@ -377,6 +302,6 @@
     </div>
 
   <script src="assets/vendor/gsap.min.js"></script>
-  <script src="script.js?v=structure-learn1"></script>
+  <script src="script.js?v=page-transition6"></script>
   </body>
 </html>

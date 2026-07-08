@@ -14,6 +14,18 @@ const agentPrompts = document.querySelectorAll("[data-agent-prompt]");
 const agentShell = document.querySelector(".agent-shell");
 const viewLinks = document.querySelectorAll("[data-view-link]");
 const viewPanels = document.querySelectorAll("[data-view]");
+const primaryNav = document.querySelector(".site-nav");
+const navIndicator = primaryNav?.querySelector(".nav-indicator");
+const currentPageView = document.body.dataset.pageView || "";
+const pageRoutes = {
+  home: "index.html",
+  work: "work.html",
+  lab: "lab.html",
+  about: "about.html"
+};
+const contactModal = document.querySelector("[data-contact-modal]");
+const contactOpeners = document.querySelectorAll("[data-contact-open]");
+const contactClosers = document.querySelectorAll("[data-contact-close]");
 const contactCards = document.querySelectorAll("[data-contact-card]");
 const contactKicker = document.querySelector("[data-contact-kicker]");
 const contactTitle = document.querySelector("[data-contact-title]");
@@ -45,6 +57,218 @@ const projectCursorPreviewLabel = document.querySelector("[data-project-preview-
 const projectCursorPreviewTitle = document.querySelector("[data-project-preview-title]");
 const projectCursorPreviewDescription = document.querySelector("[data-project-preview-description]");
 const hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const portfolioTransitionPages = new Set(["index.html", "work.html", "lab.html", "about.html"]);
+const pageTransitionEase = "cubic-bezier(0.2, 0.8, 0.2, 1)";
+
+function getPortfolioPageName(url) {
+  const segments = url.pathname.split("/").filter(Boolean);
+  return segments.at(-1) || "index.html";
+}
+
+function isPortfolioPageLink(link) {
+  if (!(link instanceof HTMLAnchorElement)) return false;
+  if (link.target && link.target !== "_self") return false;
+  if (link.hasAttribute("download")) return false;
+
+  const href = link.getAttribute("href") || "";
+  if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return false;
+
+  const url = new URL(href, window.location.href);
+  if (url.origin !== window.location.origin) return false;
+  return portfolioTransitionPages.has(getPortfolioPageName(url));
+}
+
+function getPageTransitionTargets() {
+  const main = document.querySelector("main");
+  if (!main) return [];
+
+  const targets = Array.from(main.children).filter(element => {
+    if (!(element instanceof HTMLElement)) return false;
+    if (element.hidden) return false;
+    const rect = element.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  });
+
+  return targets.length ? targets : [main];
+}
+
+function cleanupPageTransitionTargets(targets = getPageTransitionTargets()) {
+  targets.forEach(target => {
+    target.getAnimations().forEach(animation => animation.cancel());
+    target.style.opacity = "";
+    target.style.transform = "";
+    target.style.filter = "";
+    target.style.willChange = "";
+  });
+}
+
+function animatePageIn() {
+  const targets = getPageTransitionTargets();
+  if (!targets.length || reducedMotion) {
+    cleanupPageTransitionTargets(targets);
+    return;
+  }
+
+  targets.forEach((target, index) => {
+    target.getAnimations().forEach(animation => animation.cancel());
+    target.style.willChange = "opacity, transform, filter";
+    const animation = target.animate(
+      [
+        { opacity: 0, transform: "translateY(12px) scale(0.992)", filter: "blur(2px)" },
+        { opacity: 1, transform: "translateY(0) scale(1)", filter: "blur(0)" }
+      ],
+      {
+        duration: 320,
+        delay: index * 24,
+        easing: pageTransitionEase,
+        fill: "none"
+      }
+    );
+
+    animation.addEventListener("finish", () => cleanupPageTransitionTargets([target]), { once: true });
+    animation.addEventListener("cancel", () => cleanupPageTransitionTargets([target]), { once: true });
+  });
+}
+
+function animatePageOut(onComplete) {
+  const targets = getPageTransitionTargets();
+  if (!targets.length || reducedMotion) {
+    onComplete();
+    return;
+  }
+
+  let completed = false;
+  const finish = () => {
+    if (completed) return;
+    completed = true;
+    onComplete();
+  };
+
+  const animations = targets.map((target, index) => {
+    target.getAnimations().forEach(animation => animation.cancel());
+    target.style.willChange = "opacity, transform, filter";
+    return target.animate(
+      [
+        { opacity: 1, transform: "translateY(0) scale(1)", filter: "blur(0)" },
+        { opacity: 0, transform: "translateY(8px) scale(0.992)", filter: "blur(2px)" }
+      ],
+      {
+        duration: 190,
+        delay: index * 14,
+        easing: pageTransitionEase,
+        fill: "forwards"
+      }
+    );
+  });
+
+  Promise.allSettled(animations.map(animation => animation.finished)).then(finish);
+  window.setTimeout(finish, 240);
+}
+
+function moveNavIndicatorToward(link) {
+  if (!primaryNav || !link?.closest(".site-nav")) return;
+  primaryNav.querySelectorAll("a").forEach(item => item.removeAttribute("aria-current"));
+  link.setAttribute("aria-current", "page");
+  window.requestAnimationFrame(updateNavIndicator);
+}
+
+function initPageTransitions() {
+  if (!document.body.classList.contains("portfolio-redesign")) return;
+
+  const entryRequested = sessionStorage.getItem("portfolio-page-transition") === "1";
+
+  document.body.classList.add("page-transition-ready");
+
+  if (entryRequested) {
+    sessionStorage.removeItem("portfolio-page-transition");
+    if (!reducedMotion) {
+      window.requestAnimationFrame(animatePageIn);
+    }
+  }
+
+  window.addEventListener("pageshow", () => {
+    document.body.classList.remove("is-leaving");
+    cleanupPageTransitionTargets();
+  });
+
+  if (reducedMotion) return;
+
+  document.addEventListener(
+    "click",
+    event => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target instanceof Element ? event.target.closest("a") : null;
+      if (!isPortfolioPageLink(link)) return;
+
+      const nextUrl = new URL(link.getAttribute("href") || "", window.location.href);
+      const currentUrl = new URL(window.location.href);
+      const samePage =
+        nextUrl.pathname === currentUrl.pathname &&
+        nextUrl.search === currentUrl.search &&
+        nextUrl.hash === currentUrl.hash;
+
+      event.preventDefault();
+
+      if (samePage) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      document.body.classList.remove("is-entering");
+      document.body.classList.add("is-leaving");
+      moveNavIndicatorToward(link);
+      sessionStorage.setItem("portfolio-page-transition", "1");
+
+      animatePageOut(() => {
+        window.location.href = nextUrl.href;
+      });
+    },
+    true
+  );
+}
+
+function updateNavIndicator() {
+  if (!primaryNav || !navIndicator) return;
+
+  const activeLink =
+    primaryNav.querySelector('a[aria-current="page"]') ||
+    primaryNav.querySelector('a[href="#top"]') ||
+    primaryNav.querySelector("a");
+
+  if (!activeLink) {
+    navIndicator.hidden = true;
+    return;
+  }
+
+  const navRect = primaryNav.getBoundingClientRect();
+  const activeRect = activeLink.getBoundingClientRect();
+
+  navIndicator.hidden = false;
+  primaryNav.style.setProperty("--nav-x", `${activeRect.left - navRect.left}px`);
+  primaryNav.style.setProperty("--nav-y", `${activeRect.top - navRect.top}px`);
+  primaryNav.style.setProperty("--nav-w", `${activeRect.width}px`);
+  primaryNav.style.setProperty("--nav-h", `${activeRect.height}px`);
+}
+
+let lastContactTrigger = null;
+
+function setContactModalOpen(open, options = {}) {
+  if (!contactModal) return;
+
+  contactModal.hidden = !open;
+  document.body.classList.toggle("contact-modal-open", open);
+
+  if (open) {
+    if (options.trigger instanceof HTMLElement) {
+      lastContactTrigger = options.trigger;
+    }
+    window.requestAnimationFrame(() => {
+      contactModal.querySelector("[data-contact-close]")?.focus();
+    });
+  } else if (options.returnFocus !== false && lastContactTrigger) {
+    lastContactTrigger.focus();
+  }
+}
 
 const canvasModes = {
   research: {
@@ -192,8 +416,9 @@ const heroModes = {
 };
 
 function getViewFromHash(hash = window.location.hash) {
-  const view = hash.replace("#", "") || "work";
-  return availableViews.has(view) ? view : "work";
+  const view = hash.replace("#", "");
+  if (!view || view === "top" || view === "contact") return currentPageView || "home";
+  return availableViews.has(view) ? view : "home";
 }
 
 function getTargetFromHash(hash = window.location.hash) {
@@ -202,9 +427,17 @@ function getTargetFromHash(hash = window.location.hash) {
 }
 
 function setActiveView(view, options = {}) {
-  if (!availableViews.size) return;
+  if (currentPageView && view && view !== currentPageView && pageRoutes[view]) {
+    window.location.href = pageRoutes[view];
+    return;
+  }
 
-  const activeView = availableViews.has(view) ? view : "work";
+  if (!availableViews.size) {
+    updateNavIndicator();
+    return;
+  }
+
+  const activeView = availableViews.has(view) ? view : (currentPageView || "work");
   const { hash = `#${activeView}`, scroll = true, replace = false } = options;
 
   viewPanels.forEach(panel => {
@@ -233,9 +466,11 @@ function setActiveView(view, options = {}) {
     }
   });
 
+  window.requestAnimationFrame(updateNavIndicator);
+
   document.body.dataset.activeView = activeView;
 
-  if (hash && window.location.hash !== hash) {
+  if (!currentPageView && hash && window.location.hash !== hash) {
     const nextUrl = `${window.location.pathname}${window.location.search}${hash}`;
     if (replace) {
       window.history.replaceState(null, "", nextUrl);
@@ -429,6 +664,19 @@ viewLinks.forEach(link => {
   });
 });
 
+contactOpeners.forEach(opener => {
+  opener.addEventListener("click", event => {
+    event.preventDefault();
+    setContactModalOpen(true, { trigger: opener });
+  });
+});
+
+contactClosers.forEach(closer => {
+  closer.addEventListener("click", () => {
+    setContactModalOpen(false);
+  });
+});
+
 availabilityToggle?.addEventListener("click", () => {
   setAvailabilityMenuOpen(availabilityMenu?.hidden ?? true);
 });
@@ -455,16 +703,34 @@ document.addEventListener("click", event => {
 
 document.addEventListener("keydown", event => {
   if (event.key !== "Escape") return;
+  if (contactModal && !contactModal.hidden) {
+    setContactModalOpen(false);
+    return;
+  }
   if (!availabilityMenu || availabilityMenu.hidden) return;
   setAvailabilityMenuOpen(false, { returnFocus: true });
 });
 
 function syncViewFromLocation() {
-  setActiveView(getViewFromHash(), { hash: window.location.hash || "#top", scroll: true, replace: true });
+  if (window.location.hash === "#contact") {
+    setContactModalOpen(true, { returnFocus: false });
+  }
+  if (currentPageView) {
+    updateNavIndicator();
+    return;
+  }
+  setActiveView(getViewFromHash(), { hash: window.location.hash || "#home", scroll: true, replace: true });
 }
 
 window.addEventListener("hashchange", syncViewFromLocation);
 window.addEventListener("popstate", syncViewFromLocation);
+window.addEventListener("resize", updateNavIndicator);
+
+if (primaryNav && navIndicator && "ResizeObserver" in window) {
+  const navResizeObserver = new ResizeObserver(updateNavIndicator);
+  navResizeObserver.observe(primaryNav);
+  primaryNav.querySelectorAll("a").forEach(link => navResizeObserver.observe(link));
+}
 
 function setPointerVars(event) {
   const x = event.clientX;
@@ -497,11 +763,25 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach(element => revealObserver.observe(element));
-setActiveView(getViewFromHash(), {
-  hash: window.location.hash || "#top",
-  scroll: Boolean(window.location.hash),
-  replace: true
-});
+if (currentPageView) {
+  viewPanels.forEach(panel => {
+    panel.hidden = false;
+    if (panel.classList.contains("reveal")) {
+      panel.classList.add("is-visible");
+    }
+  });
+  if (window.location.hash === "#contact") {
+    setContactModalOpen(true, { returnFocus: false });
+  }
+  updateNavIndicator();
+} else {
+  setActiveView(getViewFromHash(), {
+    hash: window.location.hash || "#home",
+    scroll: Boolean(window.location.hash),
+    replace: true
+  });
+}
+initPageTransitions();
 initHeroStoryIntro();
 
 const projectPreviewState = {
@@ -850,8 +1130,8 @@ function buildAgentReply(text) {
   }
 
   if (query.includes("contact") || query.includes("email") || query.includes("hire")) {
-    setActiveView("contact", { hash: "#contact", scroll: true });
-    return "Jamie is open to product design opportunities. Use the footer email or LinkedIn link for outreach; the strongest fit is UX/Product Design, AI Product Design, and consumer AI product teams.";
+    setContactModalOpen(true, { returnFocus: false });
+    return "Jamie is open to product design opportunities. Use email or LinkedIn for outreach; the strongest fit is UX/Product Design, AI Product Design, and consumer AI product teams.";
   }
 
   return "I would read Jamie as an AI-native Product Designer with a strong mix of research logic, commercial product judgment, and motion-led interaction taste. Ask me about Chance AI, Deloitte, Axel, research strength, or the creative lab for a more specific path.";
