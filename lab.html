@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Jamie Zhou's creative lab: motion studies, experimental interfaces, and creative coding explorations."
+      content="Jamie Zhou's playground archive: motion studies, experimental interfaces, creative coding, and visual explorations."
     />
-    <title>Lab | Jamie Zhou</title>
-    <link rel="stylesheet" href="styles.css?v=page-transition6" />
+    <title>Playground | Jamie Zhou</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <link rel="stylesheet" href="portfolio-2027.css?v=10" />
   </head>
   <body class="portfolio-redesign" data-page-view="lab">
     <div class="scroll-progress" aria-hidden="true"></div>
@@ -23,17 +25,16 @@
         <span class="nav-indicator" aria-hidden="true"></span>
         <a href="index.html">Home</a>
         <a href="work.html">Work</a>
-        <a href="lab.html" aria-current="page">Lab</a>
+        <a href="lab.html" aria-current="page">Playground</a>
         <a href="about.html">About</a>
       </nav>
       <div class="site-utilities" aria-label="Portfolio utilities">
         <button class="utility-action" type="button" data-contact-open>Contact</button>
         <a
           class="utility-action"
-          href="https://drive.google.com/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Open Jamie Zhou resume in Google Drive"
+          href="assets/Jamie_Zhou_Resume.docx"
+          download
+          aria-label="Download Jamie Zhou resume"
         >Resume</a>
       </div>
     </header>
@@ -41,42 +42,56 @@
     <main id="top">
       <section id="lab" class="portfolio-lab reveal" data-view="lab" aria-labelledby="lab-title">
         <div class="portfolio-section-heading">
-          <span>Lab / Play</span>
-          <h1 id="lab-title">Creative systems, motion studies, and experimental interfaces.</h1>
+          <span>Playground</span>
+          <h1 id="lab-title">Motion studies, interface states, and ideas in progress.</h1>
           <p>
-            This page is separate from job-search case studies. It shows creative range,
-            interaction taste, motion thinking, and experimental work.
+            Separate from case studies: a lighter place for creative range, interaction taste,
+            motion thinking, and unfinished ideas that still say something about craft.
           </p>
         </div>
         <div class="lab-index" aria-label="Creative lab index">
           <article class="lab-card">
-            <span>01 / Motion Study</span>
+            <div class="lab-card__visual lab-card__visual--loop" aria-hidden="true"></div>
+            <span>01 / Motion study / 2026</span>
             <h2>Awakening Loop</h2>
-            <p>Atmospheric interaction and looping motion system for experimental storytelling.</p>
+            <p>Atmospheric interaction loop exploring pacing, reveal, and cinematic UI mood.</p>
             <div class="work-tags">
               <span>Motion</span>
               <span>Creative Tech</span>
-              <span>Editorial</span>
+              <span>In progress</span>
             </div>
           </article>
           <article class="lab-card">
-            <span>02 / Student System</span>
+            <div class="lab-card__visual lab-card__visual--system" aria-hidden="true"></div>
+            <span>02 / System concept / 2025</span>
             <h2>Honda Ecosystem</h2>
-            <p>Speculative system mapping and interface thinking for a connected mobility experience.</p>
+            <p>Speculative mapping for connected mobility, service moments, and interface handoffs.</p>
             <div class="work-tags">
               <span>Systems</span>
               <span>Service UX</span>
-              <span>Concept</span>
+              <span>Student work</span>
             </div>
           </article>
           <article class="lab-card">
-            <span>03 / Archive</span>
+            <div class="lab-card__visual lab-card__visual--code" aria-hidden="true"></div>
+            <span>03 / HTML archive / earlier work</span>
             <h2>MoonLog</h2>
-            <p>Earlier coded HTML experiment, useful as a process archive rather than a primary case.</p>
+            <p>Earlier hand-coded web experiment kept as a record of learning interaction through making.</p>
             <div class="work-tags">
               <span>HTML</span>
               <span>Archive</span>
               <span>Interaction</span>
+            </div>
+          </article>
+          <article class="lab-card">
+            <div class="lab-card__visual lab-card__visual--pumpkin" aria-hidden="true"></div>
+            <span>04 / Pixel interaction / current</span>
+            <h2>Pumpy Agent</h2>
+            <p>A tiny pixel-personality experiment for making an assistant feel less generic.</p>
+            <div class="work-tags">
+              <span>Pixel art</span>
+              <span>Assistant UI</span>
+              <span>Microinteraction</span>
             </div>
           </article>
         </div>
@@ -96,7 +111,7 @@
         <div class="contact-modal__links" aria-label="Contact actions">
           <a href="mailto:Jamiechou2004@outlook.com"><span>Email</span><em aria-hidden="true">&#8599;</em></a>
           <a href="https://www.linkedin.com/in/jamie-zihan-chou/" target="_blank" rel="noreferrer"><span>LinkedIn</span><em aria-hidden="true">&#8599;</em></a>
-          <a href="https://drive.google.com/" target="_blank" rel="noreferrer"><span>Resume</span><em aria-hidden="true">&#8599;</em></a>
+          <a href="assets/Jamie_Zhou_Resume.docx" download><span>Resume</span><em aria-hidden="true">&#8595;</em></a>
         </div>
       </section>
     </div>
@@ -158,7 +173,7 @@
 
     <div class="project-cursor-preview" data-project-cursor-preview aria-hidden="true">
       <div class="project-cursor-preview__visual">
-        <img data-project-preview-image alt="" hidden />
+        <img data-project-preview-image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" hidden />
         <span class="project-cursor-preview__mock" data-project-preview-mock aria-hidden="true">
           <span></span>
           <span></span>
@@ -172,7 +187,6 @@
       </div>
     </div>
 
-    <script src="assets/vendor/gsap.min.js"></script>
-    <script src="script.js?v=page-transition6"></script>
+    <script src="portfolio-2027.js?v=10"></script>
   </body>
 </html>

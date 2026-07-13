@@ -8,9 +8,11 @@
       content="Axel is a restaurant operation SaaS case study by Jamie Zhou, focused on research-backed dashboards, unified orders, and action-centered restaurant decision support."
     />
     <title>Axel Case Study | Jamie Zhou</title>
-  <link rel="stylesheet" href="styles.css?v=page-transition6" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <link rel="stylesheet" href="portfolio-2027.css?v=10" />
   </head>
-  <body>
+  <body class="case-study-page">
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <header class="site-header">
@@ -21,8 +23,8 @@
       <nav class="site-nav" aria-label="Case navigation">
         <a href="work.html">Work</a>
         <a href="#research">Research</a>
-        <a href="#solution">Solution</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="#execution">Execution</a>
+        <a href="mailto:Jamiechou2004@outlook.com" data-contact-open>Contact</a>
       </nav>
     </header>
 
@@ -35,8 +37,7 @@
             <span class="hero-title-line">Stay centered. Move faster.</span>
           </h1>
           <p class="case-lede">
-            Streamlining restaurant operations through a unified, real-time dashboard for orders,
-            kitchen workflows, and delivery logistics.
+            A restaurant operation SaaS concept shaped from 27-restaurant research, designed to help managers move from scattered order channels to one daily action center.
           </p>
         </div>
         <aside class="case-brief" aria-label="Project brief">
@@ -68,11 +69,19 @@
         </aside>
       </section>
 
-      <section class="case-detail-strip reveal" aria-label="Axel project details">
-        <article>
-          <span>Project Detail</span>
-          <p>Restaurant operation SaaS case study</p>
-        </article>
+      <section class="case-tldr reveal" aria-labelledby="case-tldr-title">
+        <div>
+          <p class="eyebrow">TL;DR</p>
+          <h2 id="case-tldr-title">Axel turns fragmented restaurant work into a decision layer.</h2>
+        </div>
+        <p>
+          Research across 27 restaurants revealed that managers were not missing more analytics;
+          they were missing a calm way to notice urgent issues, unify orders, and turn operational
+          signals into next actions during service windows.
+        </p>
+      </section>
+
+      <section class="case-detail-strip case-snapshot reveal" aria-label="Axel case snapshot">
         <article>
           <span>Role</span>
           <p>UX Designer / Researcher, Business Strategist</p>
@@ -82,53 +91,53 @@
           <p>10 weeks, Sep - Nov 2025</p>
         </article>
         <article>
-          <span>Core Output</span>
+          <span>Methods</span>
+          <p>27-restaurant research, journey mapping, IA, dashboard prototyping</p>
+        </article>
+        <article>
+          <span>Output</span>
           <p>Today's Summary, Unified Order View, Define Actions</p>
+        </article>
+        <article>
+          <span>Learning</span>
+          <p>Managers needed action clarity more than another reporting dashboard.</p>
         </article>
       </section>
 
       <nav class="case-chapter-nav reveal" aria-label="Axel case study sections">
-        <a href="#overview">
-          <span>01</span>
-          Overview
-        </a>
-        <a href="#research">
-          <span>02</span>
-          Research
-        </a>
-        <a href="#architecture">
-          <span>03</span>
-          Architecture
-        </a>
-        <a href="#solution">
-          <span>04</span>
-          Solution
-        </a>
-        <a href="#validation">
-          <span>05</span>
-          Validation
-        </a>
+        <a href="#context"><span>01</span> Context</a>
+        <a href="#research"><span>02</span> Research</a>
+        <a href="#insights"><span>03</span> Insights</a>
+        <a href="#decisions"><span>04</span> Decisions</a>
+        <a href="#system"><span>05</span> System</a>
+        <a href="#execution"><span>06</span> Execution</a>
+        <a href="#validation"><span>07</span> Testing</a>
+        <a href="#outcome"><span>08</span> Outcome</a>
+        <a href="#reflection"><span>09</span> Reflection</a>
       </nav>
 
-      <section id="overview" class="case-section reveal" aria-labelledby="overview-title">
+      <section id="context" class="case-section reveal" aria-labelledby="context-title">
         <div class="case-section-heading">
-          <p class="eyebrow">Project overview</p>
-          <h2 id="overview-title">From restaurant data to daily decisions.</h2>
+          <p class="eyebrow">Context / Problem</p>
+          <h2 id="context-title">Restaurant managers were coordinating one service through many disconnected systems.</h2>
         </div>
-        <div class="case-copy">
-          <p>
-            Independent restaurant owners operate inside a dense mix of POS systems, delivery
-            tablets, kitchen displays, phone orders, staff handoffs, and inventory pressures. Axel
-            reframes that operational complexity into a daily action center that reduces cognitive
-            load and restores control during high-pressure service windows.
-          </p>
-          <p>
-            I led Axel's end-to-end product vision, from uncovering operational pain points in
-            independent restaurants to crafting an AI-driven system that turns complex data into
-            clear daily actions. I conducted field research, mapped workflows, defined the core
-            information architecture, and designed the full dashboard experience, including Today's
-            Summary, Insights, and Define Actions.
-          </p>
+        <div class="case-copy case-overview-logic">
+          <article>
+            <span>Problem</span>
+            <p>Independent restaurants operate across POS systems, delivery tablets, kitchen displays, phone orders, staff handoffs, and inventory pressure.</p>
+          </article>
+          <article>
+            <span>Insight</span>
+            <p>Owners and managers did not need more raw data. They needed a readable way to identify what matters now.</p>
+          </article>
+          <article>
+            <span>Design decision</span>
+            <p>Reframe the dashboard as a daily action center with unified order visibility and clear exception states.</p>
+          </article>
+          <article>
+            <span>Outcome</span>
+            <p>Axel became a SaaS system direction for clearer service recovery, order management, and manager decision-making.</p>
+          </article>
         </div>
       </section>
 
@@ -142,6 +151,7 @@
             <img
               src="assets/figma-axel-case-overview.png"
               alt="Long Figma case study board for Axel showing cover, persona, and journey map sections"
+              loading="lazy"
             />
           </figure>
           <div class="case-board-notes">
@@ -172,8 +182,25 @@
 
       <section id="research" class="case-section reveal" aria-labelledby="research-title">
         <div class="case-section-heading">
-          <p class="eyebrow">Research and discovery</p>
+          <p class="eyebrow">Research</p>
           <h2 id="research-title">27 restaurants, one fragmented workflow.</h2>
+        </div>
+        <div class="case-method-list" aria-label="Axel research approach">
+          <article>
+            <span>01</span>
+            <strong>Study the operation</strong>
+            <p>Gather evidence from owners, managers, and staff across restaurant service and order-management contexts.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>Map the handoffs</strong>
+            <p>Trace incoming orders, confirmation, preparation, and delivery to locate breakdowns between people and systems.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>Translate patterns</strong>
+            <p>Turn recurring pain points into opportunity areas for order visibility, issue resolution, and manager action.</p>
+          </article>
         </div>
         <div class="case-stat-grid" aria-label="Research sample">
           <article>
@@ -221,9 +248,9 @@
         </div>
       </section>
 
-      <section class="case-section reveal" aria-labelledby="journey-title">
+      <section id="insights" class="case-section reveal" aria-labelledby="journey-title">
         <div class="case-section-heading">
-          <p class="eyebrow">Persona and journey</p>
+          <p class="eyebrow">Insights / Persona / Journey</p>
           <h2 id="journey-title">The manager needs urgency without noise.</h2>
         </div>
         <div class="case-two-column">
@@ -273,6 +300,7 @@
           <img
             src="assets/figma-axel-persona-journey.png"
             alt="Axel persona and journey map from Figma showing manager goals, pain points, and order workflow stages"
+            loading="lazy"
           />
           <figcaption>
             Original persona and journey map from the Axel Figma board, condensed here as research evidence.
@@ -280,9 +308,9 @@
         </figure>
       </section>
 
-      <section class="case-section case-hmw-section reveal" aria-labelledby="hmw-title">
+      <section id="decisions" class="case-section case-hmw-section reveal" aria-labelledby="hmw-title">
         <div class="case-section-heading">
-          <p class="eyebrow">How Might We</p>
+          <p class="eyebrow">Design Decisions / How Might We</p>
           <h2 id="hmw-title">Reframing messy restaurant operations into design opportunities.</h2>
         </div>
         <div class="case-hmw-grid" aria-label="Axel design opportunities">
@@ -314,12 +342,12 @@
       </section>
 
       <section
-        id="architecture"
+        id="system"
         class="case-section case-architecture-section reveal"
         aria-labelledby="architecture-title"
       >
         <div class="case-section-heading">
-          <p class="eyebrow">Ideation and architecture</p>
+          <p class="eyebrow">System / Information Architecture</p>
           <h2 id="architecture-title">Research became a platform hierarchy.</h2>
         </div>
         <div class="case-architecture-body">
@@ -349,7 +377,7 @@
             </article>
             <article>
               <span>Staff management</span>
-              <strong>Roles & permissions</strong>
+              <strong>Roles &amp; permissions</strong>
               <p>Manager and staff access patterns were separated to reduce accidental edits.</p>
             </article>
             <article>
@@ -361,9 +389,9 @@
         </div>
       </section>
 
-      <section id="solution" class="case-section reveal" aria-labelledby="solution-title">
+      <section id="execution" class="case-section reveal" aria-labelledby="solution-title">
         <div class="case-section-heading">
-          <p class="eyebrow">Solution</p>
+          <p class="eyebrow">Execution</p>
           <h2 id="solution-title">Today's Summary becomes the action center.</h2>
         </div>
         <div class="case-solution-body">
@@ -448,6 +476,45 @@
         </div>
       </section>
 
+      <section id="outcome" class="case-section reveal" aria-labelledby="outcome-title">
+        <div class="case-section-heading">
+          <p class="eyebrow">Outcome</p>
+          <h2 id="outcome-title">The dashboard direction became an operational action system.</h2>
+        </div>
+        <div class="case-outcome-statement">
+          <p>Axel connected fragmented order channels, urgent issue states, and manager follow-up into one product direction. The final concept prioritized what needs attention now and gave teams a path from signal to action.</p>
+          <dl>
+            <div>
+              <dt>System outcome</dt>
+              <dd>Today's Summary, Unified Order View, Issue Resolution, and Define Actions.</dd>
+            </div>
+            <div>
+              <dt>Product shift</dt>
+              <dd>From passive reporting toward daily restaurant decision support.</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="reflection" class="case-section reveal" aria-labelledby="reflection-title">
+        <div class="case-section-heading">
+          <p class="eyebrow">Reflection</p>
+          <h2 id="reflection-title">Operational products become useful when hierarchy reflects real urgency.</h2>
+        </div>
+        <div class="case-two-column">
+          <article class="case-card">
+            <span>What I learned</span>
+            <h3>More data was not the answer</h3>
+            <p>The strongest product move was deciding which signals deserved immediate attention and which could stay in the background.</p>
+          </article>
+          <article class="case-card">
+            <span>Next iteration</span>
+            <h3>Validate the system across roles</h3>
+            <p>A next round should test permissions, automation rules, and handoffs across managers, front-of-house staff, and kitchen teams.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="case-prototype-cta reveal" aria-labelledby="prototype-title">
         <p class="eyebrow">Source board</p>
         <h2 id="prototype-title">Want to inspect the working board?</h2>
@@ -457,7 +524,7 @@
         </p>
         <a
           class="case-return"
-          href="https://www.figma.com/design/IW9qhWr15r1NTaLMgMdJpO/Figma-to-Webflow-framer---HTML--CSS-and-Website---Community-?node-id=0-1&t=huAm1eybr4z9Skhs-1"
+          href="https://www.figma.com/design/IW9qhWr15r1NTaLMgMdJpO/Figma-to-Webflow-framer---HTML--CSS-and-Website---Community-?node-id=0-1&amp;t=huAm1eybr4z9Skhs-1"
           target="_blank"
           rel="noreferrer"
         >
@@ -469,13 +536,13 @@
       <section class="case-footer reveal">
         <p class="eyebrow">Next</p>
         <h2>Back to selected work.</h2>
-        <a class="case-return" href="index.html#work">
+        <a class="case-return" href="work.html">
           Return to portfolio
           <span aria-hidden="true">&#8599;</span>
         </a>
       </section>
     </main>
 
-  <script src="script.js?v=page-transition6"></script>
+    <script src="portfolio-2027.js?v=10"></script>
   </body>
 </html>
