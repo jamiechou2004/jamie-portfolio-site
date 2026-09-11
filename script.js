@@ -57,7 +57,7 @@ const projectCursorPreviewLabel = document.querySelector("[data-project-preview-
 const projectCursorPreviewTitle = document.querySelector("[data-project-preview-title]");
 const projectCursorPreviewDescription = document.querySelector("[data-project-preview-description]");
 const hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-const portfolioTransitionPages = new Set(["index.html", "work.html", "lab.html", "about.html"]);
+const portfolioTransitionPages = new Set(["index.html", "work.html", "lab.html", "about.html", "axel.html", "chance.html", "deloitte.html"]);
 const pageTransitionEase = "cubic-bezier(0.2, 0.8, 0.2, 1)";
 
 function getPortfolioPageName(url) {
@@ -1494,3 +1494,117 @@ const canvas = document.getElementById("systemCanvas");
 if (canvas?.dataset.motion === "true") {
   new SystemCanvas(canvas);
 }
+
+function initScreenPet() {
+  if (!document.body.classList.contains("portfolio-redesign")) return;
+
+  const pet = document.createElement("button");
+  pet.className = "screen-pet";
+  pet.type = "button";
+  pet.setAttribute("aria-label", "Screen pet");
+  pet.innerHTML = `
+    <span class="screen-pet__shadow" aria-hidden="true"></span>
+    <span class="screen-pet__tail" aria-hidden="true"></span>
+    <span class="screen-pet__body" aria-hidden="true">
+      <span class="screen-pet__face">
+        <span class="screen-pet__eye screen-pet__eye--left"></span>
+        <span class="screen-pet__eye screen-pet__eye--right"></span>
+        <span class="screen-pet__nose"></span>
+      </span>
+      <span class="screen-pet__leg screen-pet__leg--front"></span>
+      <span class="screen-pet__leg screen-pet__leg--back"></span>
+    </span>
+    <span class="screen-pet__spark" aria-hidden="true"></span>
+  `;
+  document.body.append(pet);
+
+  const state = {
+    x: 16,
+    y: Math.max(82, window.innerHeight - 92),
+    direction: 1,
+    pointerX: null,
+    walkTarget: 120,
+    lastTargetAt: 0
+  };
+
+  function getPetMaxX() {
+    return Math.min(Math.max(16, window.innerWidth - 92), 22);
+  }
+
+  function clampPosition() {
+    state.x = Math.min(Math.max(state.x, 14), getPetMaxX());
+    state.y = Math.max(80, window.innerHeight - 92);
+  }
+
+  function renderPet() {
+    pet.style.setProperty("--pet-x", `${state.x.toFixed(2)}px`);
+    pet.style.setProperty("--pet-y", `${state.y.toFixed(2)}px`);
+    pet.style.setProperty("--pet-dir", state.direction);
+  }
+
+  function chooseWalkTarget(time) {
+    if (time - state.lastTargetAt < 2400) return;
+    state.lastTargetAt = time;
+    const min = 18;
+    const max = Math.max(min, getPetMaxX());
+    state.walkTarget = min + Math.random() * (max - min);
+  }
+
+  function animatePet(time) {
+    clampPosition();
+    chooseWalkTarget(time);
+
+    const target =
+      state.pointerX === null
+        ? state.walkTarget
+        : Math.min(Math.max(state.pointerX - 38, 14), getPetMaxX());
+
+    const delta = target - state.x;
+    if (Math.abs(delta) > 0.4) {
+      state.direction = delta >= 0 ? 1 : -1;
+      state.x += delta * (state.pointerX === null ? 0.012 : 0.035);
+      pet.classList.add("screen-pet--moving");
+    } else {
+      pet.classList.remove("screen-pet--moving");
+    }
+
+    renderPet();
+    requestAnimationFrame(animatePet);
+  }
+
+  window.addEventListener("pointermove", event => {
+    state.pointerX = event.clientX;
+  });
+
+  window.addEventListener("pointerleave", () => {
+    state.pointerX = null;
+  });
+
+  window.addEventListener("resize", () => {
+    clampPosition();
+    renderPet();
+  });
+
+  pet.addEventListener("click", () => {
+    pet.classList.remove("screen-pet--petted");
+    window.requestAnimationFrame(() => pet.classList.add("screen-pet--petted"));
+  });
+
+  pet.addEventListener("animationend", event => {
+    if (event.animationName === "screenPetPetted") {
+      pet.classList.remove("screen-pet--petted");
+    }
+  });
+
+  clampPosition();
+  renderPet();
+
+  if (reducedMotion) {
+    pet.classList.add("screen-pet--resting");
+    return;
+  }
+
+  requestAnimationFrame(animatePet);
+}
+
+initScreenPet();

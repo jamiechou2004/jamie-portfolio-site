@@ -3,358 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Chance AI is an NDA-safe AI product and growth case study by Jamie Zhou, focused on consumer AI workflows, activation logic, and commercial UI."
-    />
-    <title>Chance AI Case Study | Jamie Zhou</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#f7f8fa" />
-    <link rel="stylesheet" href="portfolio-2027.css?v=10" />
+    <meta name="description" content="Jamie Zhou’s Chance AI case study: structuring AI answers, contextual follow-up, and multimodal input states, illustrated through Skin Care." />
+    <meta name="theme-color" content="#0b0c0e" />
+    <title>Chance AI — From answers to next steps | Jamie Zhou</title>
+    <link rel="icon" href="favicon.svg?v=r2-20260911" type="image/svg+xml" />
+    <link rel="stylesheet" href="portfolio-2027.css?v=polish-20260911" />
+    <link rel="stylesheet" href="chance-case.css?v=2" />
   </head>
-  <body class="case-study-page">
+  <body class="case-study-page chance-case" data-custom-case-hero>
     <div class="scroll-progress" aria-hidden="true"></div>
-
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Jamie Zhou home">
-        <span class="brand-mark">JZ</span>
-        <span>Jamie Zhou</span>
-      </a>
+      <a class="brand" href="index.html" aria-label="Jamie Zhou home"><span class="brand-mark"><img src="assets/identity/r2-ribbon.svg" alt="" aria-hidden="true" width="32" height="32"></span><span>Jamie Zhou</span></a>
       <nav class="site-nav" aria-label="Case navigation">
-        <a href="work.html">Work</a>
-        <a href="#research">Signals</a>
-        <a href="#decisions">Decisions</a>
-        <a href="#validation">Validation</a>
-        <a href="deloitte.html">Next</a>
-        <a href="mailto:Jamiechou2004@outlook.com" data-contact-open>Contact</a>
+        <a href="work.html">Work</a><a href="#overview">Overview</a><a href="#followup">Follow-up</a><a href="mailto:Jamiechou2004@outlook.com" data-contact-open>Contact</a>
       </nav>
     </header>
-
-    <main class="case-page">
-      <section class="case-hero reveal" aria-labelledby="case-title">
-        <div>
-          <p class="eyebrow">AI product / Growth / Consumer workflow</p>
-          <h1 id="case-title">
-            <span class="hero-title-line hero-title-line-light">Chance AI</span>
-            <span class="hero-title-line">Making consumer AI feel actionable.</span>
-          </h1>
-          <p class="case-lede">
-            An NDA-safe case study on shaping consumer AI workflows, activation moments, and
-            commercial UI patterns so users can understand value faster and return with intent.
-          </p>
+    <main class="chance-page" id="main-content">
+      <section class="cc-hero" id="overview" aria-labelledby="case-title">
+        <div class="cc-hero-copy">
+          <p class="cc-kicker">CHANCE AI / CONSUMER AI</p>
+          <h1 id="case-title">An AI answer.<br /><span>A clearer next step.</span></h1>
+          <p class="cc-lede">Making complex AI responses easier to understand, act on, and continue.</p>
+          <p class="cc-intro">I designed the response structure, contextual follow-up, and multimodal feedback experience. Skin Care brings these decisions together in one continuous journey.</p>
+          <a class="cc-text-link" href="#context">Explore the case <span aria-hidden="true">↓</span></a>
         </div>
-        <aside class="case-brief" aria-label="Project brief">
-          <dl>
-            <div>
-              <dt>Role</dt>
-              <dd>AI Product &amp; Growth Designer</dd>
-            </div>
-            <div>
-              <dt>Status</dt>
-              <dd>Current work, public details limited</dd>
-            </div>
-            <div>
-              <dt>Type</dt>
-              <dd>Consumer AI product, activation, commercial UI</dd>
-            </div>
-            <div>
-              <dt>Output</dt>
-              <dd>Workflow concepts, activation surfaces, onboarding and monetization UI</dd>
-            </div>
-          </dl>
-        </aside>
+        <figure class="cc-hero-media">
+          <a class="cc-screen cc-screen--hero" href="assets/chance/2026-09-10/result-full.png" target="_blank" rel="noopener" aria-label="Open the complete Skin Care result screen">
+            <img src="assets/chance/2026-09-10/result-full.png" width="491" height="4096" alt="Skin Care result with a top focus, visible observations, and a Start Today’s Care action" fetchpriority="high" />
+          </a>
+          <figcaption>Skin Care / Result structure <span>View full screen ↗</span></figcaption>
+        </figure>
       </section>
-
-      <section class="case-tldr reveal" aria-labelledby="case-tldr-title">
-        <div>
-          <p class="eyebrow">TL;DR</p>
-          <h2 id="case-tldr-title">The design challenge was not adding AI. It was making AI feel useful fast.</h2>
-        </div>
-        <p>
-          For a consumer AI product, early product value depends on the user's first few
-          decisions: what to ask, what to trust, what to do next, and why to come back. My work
-          focused on turning AI capability into visible action paths and repeatable growth loops.
-        </p>
-      </section>
-
-      <section class="case-detail-strip case-snapshot reveal" aria-label="Chance AI case snapshot">
-        <article>
-          <span>Role</span>
-          <p>AI Product &amp; Growth Designer</p>
-        </article>
-        <article>
-          <span>Methods</span>
-          <p>Product signal review, workflow mapping, activation analysis, UI iteration</p>
-        </article>
-        <article>
-          <span>Output</span>
-          <p>AI-native flows, onboarding concepts, commercial surfaces, feedback states</p>
-        </article>
-        <article>
-          <span>Constraint</span>
-          <p>NDA-safe summary; sensitive metrics, screens, and roadmap details omitted.</p>
-        </article>
-      </section>
-
-      <nav class="case-chapter-nav reveal" aria-label="Chance AI case study sections">
-        <a href="#context"><span>01</span> Context</a>
-        <a href="#research"><span>02</span> Research</a>
-        <a href="#insights"><span>03</span> Insights</a>
-        <a href="#decisions"><span>04</span> Decisions</a>
-        <a href="#system"><span>05</span> System</a>
-        <a href="#execution"><span>06</span> Execution</a>
-        <a href="#validation"><span>07</span> Testing</a>
-        <a href="#outcome"><span>08</span> Outcome</a>
-        <a href="#reflection"><span>09</span> Reflection</a>
+      <dl class="cc-meta">
+        <div><dt>Role</dt><dd>Product Designer</dd></div>
+        <div><dt>Timeline</dt><dd>Jun 2026–Present</dd></div>
+        <div><dt>Collaboration</dt><dd>Product &amp; engineering</dd></div>
+        <div><dt>Focus</dt><dd>AI responses &amp; interaction states</dd></div>
+      </dl>
+      <nav class="case-chapter-nav" aria-label="Case study chapters">
+        <a href="#overview">01 Overview</a><a href="#contribution">02 My contribution</a><a href="#context">03 The challenge</a><a href="#architecture">04 Experience model</a><a href="#structure">05 Answer structure</a><a href="#followup">06 Follow-up</a><a href="#multimodal">07 Image context</a><a href="#boundaries">08 Input boundaries</a><a href="#recovery">09 AI states &amp; recovery</a><a href="#reflection">10 Reflection</a><a href="#design-boards">11 Complete boards</a>
       </nav>
-
-      <section id="context" class="case-section reveal" aria-labelledby="context-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Context / Problem</p>
-          <h2 id="context-title">A capable AI model still leaves a product question: where should the user begin?</h2>
+      <section class="cc-section" id="contribution"><div class="cc-section-heading"><p class="cc-kicker">MY CONTRIBUTION</p><h2>From an open question<br />to decisions ready for delivery.</h2><p>Chance is a consumer AI social product. My work connected the response, the next question, and the system states surrounding them.</p></div><div class="cc-work-rows"><article><h3>01 / Frame the problem</h3><div><p class="cc-label">PROBLEM</p><p>People still had to find the priority and decide what to do after reading the analysis.</p></div><div><p class="cc-label">MY RESPONSE</p><p>I mapped the result and follow-up journey to locate gaps in information order and action priority.</p></div></article><article><h3>02 / Structure the response</h3><div><p class="cc-label">PROBLEM</p><p>Long AI output left people to sort the information themselves.</p></div><div><p class="cc-label">MY RESPONSE</p><p>I organized the answer around current state, priority concerns, and care steps.</p></div></article><article><h3>03 / Align constraints</h3><div><p class="cc-label">PROBLEM</p><p>More images and longer answers introduce latency, model variability, and token costs.</p></div><div><p class="cc-label">MY RESPONSE</p><p>I worked with product and engineering to define response scope and a ten-image input limit.</p></div></article><article><h3>04 / Connect the journey</h3><div><p class="cc-label">PROBLEM</p><p>More specific questions emerge after a person sees a result.</p></div><div><p class="cc-label">MY RESPONSE</p><p>I connected suggested questions, free text, and additional images to the existing analysis context.</p></div></article><article><h3>05 / Follow through on delivery</h3><div><p class="cc-label">PROBLEM</p><p>Selection, generation, and failure all need explicit feedback.</p></div><div><p class="cc-label">MY RESPONSE</p><p>I defined the state coverage and followed implementation and design review. Context-preserving retry remains follow-up work.</p></div></article></div></section><section class="cc-section" id="context" aria-labelledby="context-title">
+        <div class="cc-section-heading"><p class="cc-kicker">THE CHALLENGE</p><h2 id="context-title">The analysis was ready.<br />The decision wasn’t.</h2></div>
+        <div class="cc-context-grid">
+          <p class="cc-body-large">An image analysis can describe a concern without making the next step clear. In Skin Care, the design question was how to move from reading a result to deciding what to do with it.</p>
+          <div><p>The team’s goal was to give people a reason to continue using Chance. I translated that goal into three connected design questions.</p><p class="cc-evidence">Continued use is a goal to validate, not a measured outcome of this case.</p></div>
         </div>
-        <div class="case-editorial-copy">
-          <article>
-            <span>Context</span>
-            <div>
-              <h3>Capability was broad; user intent was not always formed.</h3>
-              <p>Chance AI serves consumers who can arrive with different goals, levels of AI literacy, and expectations of what the product should do for them.</p>
-            </div>
-          </article>
-          <article id="problem">
-            <span>Problem</span>
-            <div>
-              <h3>Blank or generic entry points shifted too much work to the user.</h3>
-              <p>When the interface asked for a perfect prompt before demonstrating value, hesitation appeared before the product had earned attention or trust.</p>
-            </div>
-          </article>
-          <article>
-            <span>Constraint</span>
-            <div>
-              <h3>The public story must protect active product work.</h3>
-              <p>This case communicates the workflow logic and decision criteria. Sensitive screens, roadmap details, and performance metrics remain private.</p>
-            </div>
-          </article>
+        <ol class="cc-questions">
+          <li><span>01 / UNDERSTAND</span><h3>What matters here?</h3><p>Bring the priority forward instead of asking people to sort through a long answer.</p></li>
+          <li><span>02 / CONTINUE</span><h3>What can I ask next?</h3><p>Keep follow-up connected to the result, with room for a person’s own question.</p></li>
+          <li><span>03 / STAY IN CONTROL</span><h3>What is happening?</h3><p>Make input limits, waiting, and failed uploads visible before people get stuck.</p></li>
+        </ol>
+      </section>
+      <section class="cc-section" id="architecture"><div class="cc-section-heading"><p class="cc-kicker">EXPERIENCE MODEL</p><h2>Connect one analysis<br />to ongoing care.</h2></div><div class="cc-subsection"><p class="cc-label">PRODUCT ARCHITECTURE</p><h3>Understand → decide → keep caring.</h3><div class="cc-module-grid"><article><h3>Functional value</h3><p>Use uploaded visual context and skin feedback to organize visible redness, congestion, and texture concerns. The goal is to help someone identify what needs attention.</p></article><article><h3>Decision value</h3><p>Turn abstract analysis into a readable priority and care direction, with explanations before optional product support.</p></article><article><h3>Continuing value · hypothesis</h3><p>Translate one insight into a daily plan, completion records, and future adjustment. Continued care and repeat use are design goals to validate.</p></article></div><p class="cc-evidence">The intended progression is from having advice to having a plan that can be followed and recorded. It is not evidence of improved skin health or retention.</p></div></section><section class="cc-section" id="structure" aria-labelledby="structure-title">
+        <div class="cc-section-heading"><p class="cc-kicker">01 / ANSWER STRUCTURE</p><h2 id="structure-title">Organize the answer around<br />the person’s next decision.</h2><p>I moved from parallel content categories to a sequence of user questions: understand the state, find the priority, then choose an action.</p></div>
+        <div class="cc-comparison" aria-label="Information architecture before and after">
+          <div><span>BEFORE / CONTENT CATEGORIES</span><p>Status · Explanation · Advice · Routine · Products</p></div>
+          <div><span>AFTER / DECISION SEQUENCE</span><p>What’s happening? → What matters? → What can I do?</p></div>
+        </div>
+        <div class="cc-subsection"><p class="cc-label">THE ACTUAL BEFORE &amp; AFTER</p><h3>Change the order, not just the styling.</h3><p>The earlier layout lacked a clear action, sufficient explanation, and continuing status feedback. The new sequence answers five questions: current state, explanation, priority, today’s action, and optional support.</p><div class="cc-before-after"><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13072.png" target="_blank" rel="noopener"><img width="350" height="1564" src="assets/chance/2026-09-10-complete/2091-13072.png" loading="lazy" alt="Before / Original prototype. Placeholder product copy belongs to the earlier design, not the final experience." /></a><figcaption>Before / Original prototype. Placeholder product copy belongs to the earlier design, not the final experience. · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure"><a href="assets/chance/2026-09-10/result-full.png" target="_blank" rel="noopener"><img width="491" height="4096" src="assets/chance/2026-09-10/result-full.png" loading="lazy" alt="Complete redesigned result from summary through routine and follow-up" /></a><figcaption>After / Complete redesigned result, including every section · Open full size ↗</figcaption></figure></div></div><div class="cc-result-layout">
+          <figure class="cc-result-figure">
+            <a class="cc-screen cc-screen--result" href="assets/chance/2026-09-10/result-full.png" target="_blank" rel="noopener" aria-label="Open the complete redesigned result">
+              <img src="assets/chance/2026-09-10/result-full.png" width="491" height="4096" loading="lazy" alt="Redesigned result: top focus, skin observations, routine, optional product support, and follow-up" />
+            </a><figcaption>01 / Priority and explanation</figcaption>
+            <a class="cc-screen cc-screen--routine" href="assets/chance/2026-09-10/result-full.png" target="_blank" rel="noopener" aria-label="Open the complete result to inspect the routine">
+              <img src="assets/chance/2026-09-10/result-full.png" width="491" height="4096" loading="lazy" alt="Detail from the same result: the daily routine and its completion controls" />
+            </a><figcaption>02 / Routine detail from the same screen ↗</figcaption>
+          </figure>
+          <div class="cc-decisions">
+            <article><span class="cc-number">01</span><div><h3>Start with a priority</h3><p>The summary brings the overall state, top focus, and primary action together.</p></div></article>
+            <article><span class="cc-number">02</span><div><h3>Explain the observations</h3><p>Skin Snapshot and Skin Pattern give the analysis a readable structure. Separating visible observations from AI inference remains an important content check.</p></div></article>
+            <article><span class="cc-number">03</span><div><h3>Make the next action concrete</h3><p>The routine turns advice into ordered steps. Its completion controls communicate an intended action, not evidence of sustained use.</p></div></article>
+            <article><span class="cc-number">04</span><div><h3>Keep product support optional</h3><p>Recommendations follow the explanation and routine, so shopping does not lead the experience.</p></div></article>
+            <aside class="cc-rationale"><p class="cc-label">DESIGN REASONING</p><h3>Priority before completeness.<br />Action before shopping.</h3><p>The information order should help a person make a choice. More generated detail is useful only when they can understand what to do with it.</p></aside>
+          </div>
+        </div>
+        <p class="cc-bridge">A clearer answer creates a new question: how can someone go deeper without starting over?</p>
+      </section>
+      <section class="cc-section" id="followup" aria-labelledby="followup-title">
+        <div class="cc-section-heading"><p class="cc-kicker">02 / CONTEXTUAL FOLLOW-UP</p><h2 id="followup-title">The next question starts<br />with the answer they have.</h2><p>I connected follow-up to the current analysis, with suggested questions for people who need a starting point and free input for those who already know what they want to ask.</p></div>
+        <div class="cc-subsection"><p class="cc-label">REFERENCE STUDY</p><h3>Two patterns informed the decision.</h3><p>These are the references documented during the project, rather than a claim about the products’ current interfaces.</p><div class="cc-reference-group"><h3>ChatGPT / One composer for a complete question</h3><p>A shared entry for camera, photos, and files; attachments enter the current composer and can be previewed, removed, or supplemented before sending. Images and text belong to one question.</p><div class="cc-gallery-three"><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13417-imgImg66691.png" target="_blank" rel="noopener"><img width="1170" height="2532" src="assets/chance/2026-09-10-complete/2091-13417-imgImg66691.png" loading="lazy" alt="ChatGPT reference captured in the original design study" /></a><figcaption>ChatGPT reference captured in the original design study · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13417-imgImg66721.png" target="_blank" rel="noopener"><img width="1170" height="2532" src="assets/chance/2026-09-10-complete/2091-13417-imgImg66721.png" loading="lazy" alt="ChatGPT reference captured in the original design study" /></a><figcaption>ChatGPT reference captured in the original design study · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13417-imgImg66731.png" target="_blank" rel="noopener"><img width="1170" height="2532" src="assets/chance/2026-09-10-complete/2091-13417-imgImg66731.png" loading="lazy" alt="ChatGPT reference captured in the original design study" /></a><figcaption>ChatGPT reference captured in the original design study · Open full size ↗</figcaption></figure></div></div><div class="cc-reference-group"><h3>Perplexity / Continue from the answer</h3><p>The documented pattern moves from sources to the answer and related questions. Contextual suggestions provide a starting point, free input preserves individual intent, and each answer can lead to another question.</p><div class="cc-gallery-three"><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13417-imgPerplexityAi04Db1242C8Bc78480C85Db4618Ad97Dda21.png" target="_blank" rel="noopener"><img width="1500" height="803" src="assets/chance/2026-09-10-complete/2091-13417-imgPerplexityAi04Db1242C8Bc78480C85Db4618Ad97Dda21.png" loading="lazy" alt="Perplexity reference captured in the original design study" /></a><figcaption>Perplexity reference captured in the original design study · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13417-imgPerplexityAi05180Ff144519D4800A4698Cf81137F09A1.png" target="_blank" rel="noopener"><img width="1500" height="890" src="assets/chance/2026-09-10-complete/2091-13417-imgPerplexityAi05180Ff144519D4800A4698Cf81137F09A1.png" loading="lazy" alt="Perplexity reference captured in the original design study" /></a><figcaption>Perplexity reference captured in the original design study · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13417-imgPerplexityAiRelatedQuestions74Ee4A32C86C42088092164Cae8B30Ba1.png" target="_blank" rel="noopener"><img width="1312" height="776" src="assets/chance/2026-09-10-complete/2091-13417-imgPerplexityAiRelatedQuestions74Ee4A32C86C42088092164Cae8B30Ba1.png" loading="lazy" alt="Perplexity reference captured in the original design study" /></a><figcaption>Perplexity reference captured in the original design study · Open full size ↗</figcaption></figure></div></div><aside class="cc-rationale"><p class="cc-label">DESIGN DECISION</p><h3>Three inputs, one context.</h3><p>Suggested questions help someone begin. Free text carries a specific need. Additional images carry information that words cannot. All three extend the current analysis.</p></aside></div><div class="cc-intents"><div><span>NEEDS A STARTING POINT</span><p>“What else can I ask?”</p><strong>Relevant suggested questions</strong></div><div><span>HAS A SPECIFIC QUESTION</span><p>“I want to explain my situation.”</p><strong>Free text + optional images</strong></div></div>
+        <div class="cc-flow-display">
+          <figure><span class="cc-state">01 / REVIEW THE QUESTION</span><a href="assets/chance/2026-09-10/followup-draft.png" target="_blank" rel="noopener"><img src="assets/chance/2026-09-10/followup-draft.png" alt="A suggested skin care question appears in the composer for review before sending" width="1170" height="2532" loading="lazy" /></a><figcaption>A suggestion provides a starting point; the user controls sending.</figcaption></figure>
+          <figure><span class="cc-state">02 / CONTINUE IN CONTEXT</span><a href="assets/chance/2026-09-10/followup-response.png" target="_blank" rel="noopener"><img src="assets/chance/2026-09-10/followup-response.png" alt="The submitted question continues in the same Skin Care conversation" width="1170" height="2532" loading="lazy" /></a><figcaption>The next response builds on the existing analysis.</figcaption></figure>
+          <aside class="cc-rationale"><p class="cc-label">DESIGN REASONING</p><h3>Offer a start.<br />Leave room to change it.</h3><p>Suggested questions and free input serve different needs. They share the same context, so a guided start does not become a separate flow.</p><p class="cc-evidence">The material shows the interaction path. Whether suggestions help people ask a useful question still needs validation.</p></aside>
         </div>
       </section>
-
-      <section id="research" class="case-section reveal" aria-labelledby="research-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Research</p>
-          <h2 id="research-title">The work started by tracing where intent, trust, and momentum broke.</h2>
-        </div>
-        <div class="case-method-list" aria-label="Chance AI research approach">
-          <article>
-            <span>01</span>
-            <strong>Review product signals</strong>
-            <p>Read qualitative feedback and product behavior around first use, AI responses, value comprehension, and return intent.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <strong>Map the workflow</strong>
-            <p>Trace the journey from entry and prompt formation through result interpretation, refinement, and a meaningful next action.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <strong>Audit growth moments</strong>
-            <p>Evaluate where onboarding, feature discovery, and commercial prompts supported the task and where they interrupted it.</p>
-          </article>
+      <section class="cc-section" id="multimodal" aria-labelledby="multimodal-title">
+        <div class="cc-section-heading"><p class="cc-kicker">IMAGE CONTEXT</p><h2 id="multimodal-title">Add what words<br />can’t explain.</h2><p>Images and text form one follow-up. People can select, preview, remove, and supplement images before sending them with a question.</p></div>
+        <div class="cc-subsection"><p class="cc-label">COMPLETE INPUT FLOW</p><h3>Enter, select, preview, adjust.</h3><p>Start from the existing result. Open the composer or image entry, take a photo or choose from the library, then select and review attachments. Remove an image or add more before sending text and images together.</p><div class="cc-gallery-three"><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13504-imgImg66071.png" target="_blank" rel="noopener"><img width="1170" height="2532" src="assets/chance/2026-09-10-complete/2091-13504-imgImg66071.png" loading="lazy" alt="01 / Current result and follow-up entry" /></a><figcaption>01 / Current result and follow-up entry · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13504-imgImg66811.png" target="_blank" rel="noopener"><img width="1170" height="2532" src="assets/chance/2026-09-10-complete/2091-13504-imgImg66811.png" loading="lazy" alt="02 / Camera and library options" /></a><figcaption>02 / Camera and library options · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13504-imgFrame2147232981.png" target="_blank" rel="noopener"><img width="1170" height="2532" src="assets/chance/2026-09-10-complete/2091-13504-imgFrame2147232981.png" loading="lazy" alt="03 / Focus the text composer" /></a><figcaption>03 / Focus the text composer · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13504-imgImg66331.png" target="_blank" rel="noopener"><img width="1170" height="2532" src="assets/chance/2026-09-10-complete/2091-13504-imgImg66331.png" loading="lazy" alt="04 / Select images" /></a><figcaption>04 / Select images · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-13504-imgImg66341.png" target="_blank" rel="noopener"><img width="1170" height="2532" src="assets/chance/2026-09-10-complete/2091-13504-imgImg66341.png" loading="lazy" alt="05 / Preview and adjust selected images" /></a><figcaption>05 / Preview and adjust selected images · Open full size ↗</figcaption></figure></div></div><ol class="cc-path"><li><span>01</span>Keep the current analysis</li><li><span>02</span>Add text and images</li><li><span>03</span>Review, then send</li></ol>
+        <div class="cc-flow-display">
+          <figure><span class="cc-state">01 / COMPOSE &amp; REVIEW</span><a href="assets/chance/2026-09-10/multimodal-compose.png" target="_blank" rel="noopener"><img src="assets/chance/2026-09-10/multimodal-compose.png" width="1170" height="1681" loading="lazy" alt="Image attachments and a typed question together in the composer before sending" /></a><figcaption>Text and images can be combined; images are optional.</figcaption></figure>
+          <figure><span class="cc-state">02 / SEND TOGETHER</span><a href="assets/chance/2026-09-10/multimodal-response.png" target="_blank" rel="noopener"><img src="assets/chance/2026-09-10/multimodal-response.png" width="1170" height="2532" loading="lazy" alt="Submitted image attachments and question in the continued conversation" /></a><figcaption>The submitted question keeps the added visual context.</figcaption></figure>
+          <aside class="cc-rationale"><p class="cc-label">DESIGN REASONING</p><h3>Context carries forward.<br />Sending stays deliberate.</h3><p>Previewing attachments makes the contents of the next request visible. The user can adjust the message before asking the system to respond.</p></aside>
         </div>
       </section>
-
-      <section id="insights" class="case-section reveal" aria-labelledby="insights-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Insights</p>
-          <h2 id="insights-title">Three signals shaped the product direction.</h2>
+      <section class="cc-section" id="boundaries" aria-labelledby="boundaries-title">
+        <div class="cc-section-heading"><p class="cc-kicker">03 / LIMITS &amp; STATES</p><h2 id="boundaries-title">Make the boundary visible.<br />Make the state specific.</h2><p>Adding more images also adds constraints. I worked through the selection limit and upload feedback so people can see what is allowed and which step needs attention.</p></div>
+        <div class="cc-boundary-row">
+          <div class="cc-state-pair">
+            <figure><span class="cc-state">9 IMAGES / CAN ADD MORE</span><a href="assets/chance/2026-09-10/selection-nine.png" target="_blank" rel="noopener"><img src="assets/chance/2026-09-10/selection-nine.png" width="1170" height="2532" loading="lazy" alt="Photo picker showing nine selected images" /></a></figure>
+            <figure><span class="cc-state">10 IMAGES / LIMIT REACHED</span><a href="assets/chance/2026-09-10/selection-ten.png" target="_blank" rel="noopener"><img src="assets/chance/2026-09-10/selection-ten.png" width="1170" height="2532" loading="lazy" alt="Photo picker at the ten-image selection limit" /></a></figure>
+          </div>
+          <div><p class="cc-label">INTERACTION DETAIL</p><h3>Show the rule while selecting.</h3><p>The picker displays the selected count. At ten images, further selection is unavailable.</p><aside class="cc-rationale"><p class="cc-label">DESIGN REASONING</p><h3>Feedback before submission.</h3><p>The limit appears where people choose images, rather than after they have finished composing. Ten is the current design limit; its suitability still needs technical and usability validation.</p></aside></div>
         </div>
-        <div class="case-grid">
-          <article class="case-card">
-            <span>Insight 01</span>
-            <h3>Users need a reason to start</h3>
-            <p>Contextual starters and workflow anchors reduce the cost of first action when users cannot yet form a precise prompt.</p>
-          </article>
-          <article class="case-card">
-            <span>Insight 02</span>
-            <h3>Trust depends on feedback</h3>
-            <p>Users need to understand what the system is doing, why it is asking, and which assumptions or outputs they can change.</p>
-          </article>
-          <article class="case-card">
-            <span>Insight 03</span>
-            <h3>Growth needs a loop</h3>
-            <p>Activation becomes more durable when a useful first result naturally leads to refinement, saving, or a reason to return.</p>
-          </article>
+        <div class="cc-boundary-row">
+          <div class="cc-state-pair cc-state-pair--upload">
+            <figure><span class="cc-state">UPLOAD FAILED</span><a href="assets/chance/2026-09-10/upload-failed.png" target="_blank" rel="noopener"><img src="assets/chance/2026-09-10/upload-failed.png" width="1170" height="2411" loading="lazy" alt="An upload failure warning and failed image attachment in the composer" /></a></figure>
+            <figure><span class="cc-state">UPLOAD IN PROGRESS</span><a href="assets/chance/2026-09-10/upload-pending.png" target="_blank" rel="noopener"><img src="assets/chance/2026-09-10/upload-pending.png" width="1170" height="2242" loading="lazy" alt="A prompt to wait for images to finish uploading before sending" /></a></figure>
+          </div>
+          <div><p class="cc-label">INTERACTION DETAIL</p><h3>Waiting and failure need different feedback.</h3><p>Show the status on the relevant attachment. If someone sends before an upload completes, explain that they need to wait.</p><aside class="cc-rationale"><p class="cc-label">DESIGN REASONING</p><h3>Locate the problem.</h3><p>A specific state helps people distinguish a pending image from a failed one. Preserving context and retrying only the failed step remain proposed recovery work.</p></aside></div>
         </div>
+        <div class="cc-evidence-note"><strong>Recovery boundary</strong><p>The supplied generation-failure UI shows a retake entry. It does not yet demonstrate a complete context-preserving retry flow. Optional notifications also depend on permission and delivery behavior that still need validation.</p></div>
       </section>
-
-      <section id="decisions" class="case-section reveal" aria-labelledby="decisions-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Design Decisions</p>
-          <h2 id="decisions-title">Turn open-ended capability into directed progress.</h2>
-        </div>
-        <div class="case-decision-list">
-          <article>
-            <span>01 / Entry</span>
-            <div>
-              <h3>Offer guided starts instead of an empty canvas.</h3>
-              <p>Use contextual examples, templates, and sensible defaults that help users move before they know the perfect input.</p>
-            </div>
-            <strong>Reduces first-action effort</strong>
-          </article>
-          <article>
-            <span>02 / Feedback</span>
-            <div>
-              <h3>Make system status and user control visible.</h3>
-              <p>Clarify progress, intent, editable assumptions, and recovery paths so the AI feels responsive rather than opaque.</p>
-            </div>
-            <strong>Builds interaction trust</strong>
-          </article>
-          <article>
-            <span>03 / Growth</span>
-            <div>
-              <h3>Place commercial UI after demonstrated usefulness.</h3>
-              <p>Connect upgrade and feature discovery to moments when the product has made its value understandable.</p>
-            </div>
-            <strong>Aligns growth with value</strong>
-          </article>
-        </div>
+      <section class="cc-section" id="recovery"><div class="cc-section-heading"><p class="cc-kicker">AI STATES &amp; RECOVERY</p><h2>Explain the interruption.<br />Show a way forward.</h2><p>Invalid input, long processing, and generation failure are different situations. Each needs an explanation and a next step.</p></div><div class="cc-recovery-row"><div><p class="cc-label">01 / INVALID INPUT</p><h3>Translate a technical error into a useful instruction.</h3><p>The earlier message exposed a system variable. The revision names the required image, explains the mismatch, and offers a retake entry.</p><aside class="cc-rationale"><p class="cc-label">DESIGN REASONING</p><p>“Please use a skin photo” is actionable when paired with why the current image cannot be used. A technical identifier does not help someone correct the input.</p></aside></div><div><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-14295.png" target="_blank" rel="noopener"><img width="645" height="209" src="assets/chance/2026-09-10-complete/2091-14295.png" loading="lazy" alt="Before / Technical identifier exposed to the user" /></a><figcaption>Before / Technical identifier exposed to the user · Open full size ↗</figcaption></figure><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-14308.png" target="_blank" rel="noopener"><img width="816" height="318" src="assets/chance/2026-09-10-complete/2091-14308.png" loading="lazy" alt="After / Required photo, mismatch explanation, and retake" /></a><figcaption>After / Required photo, mismatch explanation, and retake · Open full size ↗</figcaption></figure></div></div><div class="cc-recovery-row"><div><p class="cc-label">02 / LONG PROCESSING</p><h3>Waiting should not require staying.</h3><p>The design offers an optional notification entry so people can choose to leave while processing continues.</p><aside class="cc-rationale"><p class="cc-label">DESIGN REASONING</p><p>Communicate that processing is ongoing while leaving the choice with the user. Notification permission, actual delivery, and whether this reduces waiting burden remain to be validated.</p></aside></div><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-14332.png" target="_blank" rel="noopener"><img width="879" height="420" src="assets/chance/2026-09-10-complete/2091-14332.png" loading="lazy" alt="Optional notification prompt / Requires user authorization" /></a><figcaption>Optional notification prompt / Requires user authorization · Open full size ↗</figcaption></figure></div><div class="cc-recovery-row"><div><p class="cc-label">03 / GENERATION FAILURE</p><h3>Move from starting over to continuing.</h3><p>The supplied interface currently offers “Snap Again” after failed recognition.</p><aside class="cc-rationale"><p class="cc-label">PROPOSED NEXT ITERATION</p><p>Preserve the question and images, then retry the failed step. This recovery flow is a design direction, not functionality demonstrated by the current screen.</p></aside></div><figure class="cc-evidence-figure "><a href="assets/chance/2026-09-10-complete/2091-14349.png" target="_blank" rel="noopener"><img width="879" height="489" src="assets/chance/2026-09-10-complete/2091-14349.png" loading="lazy" alt="Current generation-failure interface / Retake entry" /></a><figcaption>Current generation-failure interface / Retake entry · Open full size ↗</figcaption></figure></div><ol class="cc-path"><li>Explain what happened</li><li>Explain why</li><li>Offer the next action</li></ol></section><section class="cc-section cc-reflection" id="reflection" aria-labelledby="reflection-title">
+        <div class="cc-section-heading"><p class="cc-kicker">REFLECTION &amp; VALIDATION</p><h2 id="reflection-title">The screen is only one part<br />of the experience.</h2><p>This work connected answer structure, follow-up, image input, and system feedback. Each decision needed to hold together across the journey.</p></div>
+        <div class="cc-subsection"><p class="cc-label">MODULARITY &amp; SYSTEM THINKING</p><h3>Define shared rules before extending to other agents.</h3><div class="cc-module-strip"><span>Answer structure</span><span>Action plan</span><span>Follow-up</span><span>Image input</span><span>Recovery</span></div><p>Shared context, input rules, and recovery paths connect these modules. Skin Care is the current application; reuse across other agents is an extension direction.</p><div class="cc-module-grid"><article><h3>A complete journey</h3><p>Input → generation → understanding → action or follow-up. Waiting and failure return paths must be considered alongside success, with model capability, tokens, latency, and cost.</p></article><article><h3>Clear responsibility</h3><p>AI organizes, explains, and suggests. The system reports state and limits and supports recovery. The user judges, chooses, acts, and decides whether to continue.</p></article><article><h3>Delivery and evidence</h3><p>The feature entered production, while evidence of long-term user and business effects remains to be collected. Delivery is the starting point for validation and iteration.</p></article></div><div class="cc-rationale"><p class="cc-label">WHAT I WOULD DO EARLIER</p><p>Align image limits, waiting strategy, and recovery rules before high-fidelity design. Then observe whether people can identify the priority, explain their next step, continue with a relevant question, and return over time.</p></div></div><div class="cc-validation"><div><p class="cc-label">DESIGN CONTRIBUTION</p><h3>One continuous AI interaction.</h3><p>Response hierarchy, contextual questions, multimodal input rules, and feedback states, developed with product and engineering.</p><p class="cc-evidence">This case presents the design decisions and supplied interface evidence. It makes no measured retention or conversion claim.</p></div><div><p class="cc-label">NEXT TO VALIDATE</p><ul><li>Can someone find the main concern and explain their next step?</li><li>Can they ask a follow-up without repeating the analysis?</li><li>Can they distinguish waiting from failure and recover successfully?</li></ul></div></div>
       </section>
-
-      <section id="system" class="case-section reveal" aria-labelledby="system-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">System / IA</p>
-          <h2 id="system-title">One reusable structure connects onboarding, AI feedback, and return behavior.</h2>
-        </div>
-        <div class="case-flow case-flow--compact" aria-label="Chance AI experience architecture">
-          <div>
-            <span>01</span>
-            <strong>Intent</strong>
-            <p>Recognize the user's context and offer a relevant starting point.</p>
-          </div>
-          <div>
-            <span>02</span>
-            <strong>Action</strong>
-            <p>Guide input with examples, defaults, and low-friction decisions.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <strong>Feedback</strong>
-            <p>Show progress, assumptions, output, and available controls.</p>
-          </div>
-          <div>
-            <span>04</span>
-            <strong>Continuation</strong>
-            <p>Make refine, save, share, upgrade, or return the logical next step.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="execution" class="case-section reveal" aria-labelledby="activation-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Execution</p>
-          <h2 id="activation-title">The interaction loop: orient, act, refine, return.</h2>
-        </div>
-        <div class="case-flow" aria-label="Chance AI activation loop">
-          <div>
-            <span>01</span>
-            <strong>Orient</strong>
-            <p>Help users understand what the AI product can do in their current context.</p>
-          </div>
-          <div>
-            <span>02</span>
-            <strong>Act</strong>
-            <p>Reduce the number of decisions needed to create a useful first result.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <strong>Refine</strong>
-            <p>Give users control over tone, direction, output, and next steps.</p>
-          </div>
-          <div>
-            <span>04</span>
-            <strong>Return</strong>
-            <p>Convert a successful first task into a repeatable habit or saved workflow.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="validation" class="case-section reveal" aria-labelledby="validation-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Testing / Validation</p>
-          <h2 id="validation-title">Validate the sequence before polishing the surface.</h2>
-        </div>
-        <div class="case-flow" aria-label="Chance AI validation sequence">
-          <div>
-            <span>01</span>
-            <strong>Hypothesis</strong>
-            <p>Guided starting points should reduce blank-state hesitation and help users reach value sooner.</p>
-          </div>
-          <div>
-            <span>02</span>
-            <strong>Prototype</strong>
-            <p>Test onboarding, AI feedback, refinement controls, and upgrade moments as one connected journey.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <strong>Observe</strong>
-            <p>Look for uncertainty around system status, user control, value comprehension, and the next action.</p>
-          </div>
-          <div>
-            <span>04</span>
-            <strong>Adjust</strong>
-            <p>Reduce explanation, strengthen feedback, and place commercial prompts after demonstrated usefulness.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="outcome" class="case-section reveal" aria-labelledby="outcome-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Outcome</p>
-          <h2 id="outcome-title">The public outcome is a clearer activation direction, not an invented metric.</h2>
-        </div>
-        <div class="case-outcome-statement">
-          <p>The product direction shifted from generic prompting toward guided user progress: clearer starts, more legible AI feedback, and growth surfaces tied to moments of demonstrated value.</p>
-          <dl>
-            <div>
-              <dt>Design signal</dt>
-              <dd>Clarity became part of the activation model.</dd>
-            </div>
-            <div>
-              <dt>Public boundary</dt>
-              <dd>Specific screens and performance metrics remain private.</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section id="reflection" class="case-section reveal" aria-labelledby="reflection-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Reflection</p>
-          <h2 id="reflection-title">AI UX is product strategy expressed through interface behavior.</h2>
-        </div>
-        <div class="case-two-column">
-          <article class="case-card">
-            <span>What I learned</span>
-            <h3>Capability is not the same as clarity</h3>
-            <p>Strong AI features still need structure, defaults, and pacing so users can make decisions with confidence.</p>
-          </article>
-          <article class="case-card">
-            <span>Next step</span>
-            <h3>Deeper walkthrough available live</h3>
-            <p>Specific screens, experiments, and product metrics can be discussed privately when appropriate.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="case-footer reveal">
-        <p class="eyebrow">Next</p>
-        <h2>Continue to the healthcare AI case.</h2>
-        <a class="case-return" href="deloitte.html">
-          Open Deloitte x SCADpro
-          <span aria-hidden="true">&#8599;</span>
-        </a>
-      </section>
+      <section class="cc-section" id="design-boards"><div class="cc-section-heading"><p class="cc-kicker">COMPLETE DESIGN BOARDS</p><h2>The full design narrative.</h2><p>All ten main boards and three alternative explorations from the original Chinese portfolio. Expand a board to inspect its complete diagrams, annotations, and UI. Alternative boards remain identified as explorations.</p></div><div class="cc-board-list"><details><summary>01 / Overview and contribution</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-12487.png" target="_blank" rel="noopener"><img width="1731" height="3200" src="assets/chance/2026-09-10-complete/2091-12487.png" loading="lazy" alt="Overview and contribution / Original Chinese design board" /></a><figcaption>Overview and contribution / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>02 / Understanding and decisions</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-12639.png" target="_blank" rel="noopener"><img width="1329" height="3200" src="assets/chance/2026-09-10-complete/2091-12639.png" loading="lazy" alt="Understanding and decisions / Original Chinese design board" /></a><figcaption>Understanding and decisions / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>03 / Product architecture</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-12936.png" target="_blank" rel="noopener"><img width="1543" height="3200" src="assets/chance/2026-09-10-complete/2091-12936.png" loading="lazy" alt="Product architecture / Original Chinese design board" /></a><figcaption>Product architecture / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>04 / Before and after</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-12993.png" target="_blank" rel="noopener"><img width="1731" height="3200" src="assets/chance/2026-09-10-complete/2091-12993.png" loading="lazy" alt="Before and after / Original Chinese design board" /></a><figcaption>Before and after / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>05 / Follow-up intent and reference study</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-13417.png" target="_blank" rel="noopener"><img width="1377" height="3200" src="assets/chance/2026-09-10-complete/2091-13417.png" loading="lazy" alt="Follow-up intent and reference study / Original Chinese design board" /></a><figcaption>Follow-up intent and reference study / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>06 / Suggested questions</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-13471.png" target="_blank" rel="noopener"><img width="1920" height="2500" src="assets/chance/2026-09-10-complete/2091-13471.png" loading="lazy" alt="Suggested questions / Original Chinese design board" /></a><figcaption>Suggested questions / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>07 / Multimodal flow</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-13504.png" target="_blank" rel="noopener"><img width="1377" height="3200" src="assets/chance/2026-09-10-complete/2091-13504.png" loading="lazy" alt="Multimodal flow / Original Chinese design board" /></a><figcaption>Multimodal flow / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>08 / Input boundaries</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-13593.png" target="_blank" rel="noopener"><img width="1731" height="3200" src="assets/chance/2026-09-10-complete/2091-13593.png" loading="lazy" alt="Input boundaries / Original Chinese design board" /></a><figcaption>Input boundaries / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>09 / AI states and recovery</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-13631.png" target="_blank" rel="noopener"><img width="1731" height="3200" src="assets/chance/2026-09-10-complete/2091-13631.png" loading="lazy" alt="AI states and recovery / Original Chinese design board" /></a><figcaption>AI states and recovery / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>10 / Reflection</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-13799.png" target="_blank" rel="noopener"><img width="1920" height="2843" src="assets/chance/2026-09-10-complete/2091-13799.png" loading="lazy" alt="Reflection / Original Chinese design board" /></a><figcaption>Reflection / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>11 / Alternative / Reflection diagrams</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-13881.png" target="_blank" rel="noopener"><img width="1920" height="2843" src="assets/chance/2026-09-10-complete/2091-13881.png" loading="lazy" alt="Alternative / Reflection diagrams / Original Chinese design board" /></a><figcaption>Alternative / Reflection diagrams / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>12 / Alternative / Boundary detail</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-14078.png" target="_blank" rel="noopener"><img width="1731" height="3200" src="assets/chance/2026-09-10-complete/2091-14078.png" loading="lazy" alt="Alternative / Boundary detail / Original Chinese design board" /></a><figcaption>Alternative / Boundary detail / Original Chinese design board · Open full size ↗</figcaption></figure></details><details><summary>13 / Alternative / Recovery detail</summary><figure class="cc-evidence-figure cc-original-board"><a href="assets/chance/2026-09-10-complete/2091-14168.png" target="_blank" rel="noopener"><img width="1731" height="3200" src="assets/chance/2026-09-10-complete/2091-14168.png" loading="lazy" alt="Alternative / Recovery detail / Original Chinese design board" /></a><figcaption>Alternative / Recovery detail / Original Chinese design board · Open full size ↗</figcaption></figure></details></div></section><footer class="cc-footer"><p>Next / Complex systems</p><a href="axel.html">Explore Axel <span aria-hidden="true">↗</span></a><a class="cc-text-link" href="work.html">Back to selected work</a></footer>
     </main>
-
-    <script src="portfolio-2027.js?v=10"></script>
+    <script src="portfolio-2027.js?v=polish-20260911"></script>
   </body>
 </html>

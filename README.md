@@ -47,3 +47,17 @@ not loaded by the current pages.
 
 Chance AI and Deloitte x SCADpro intentionally omit private screens, metrics, and
 client details. Replace the NDA-safe diagrams only with approved public artifacts.
+
+## 2026-09-10 local Chance update
+
+`chance.html` now follows the supplied Chance AI portfolio: answer structure, contextual follow-up, multimodal input, and state boundaries. It uses scoped `chance-case.css` alongside the shared shell. Home and Work entries match this case. The earlier NDA-safe summary and all pre-existing local edits were backed up in the job-search workspace before this update.
+
+This local update is not a publication or a clearance of the UI/portrait assets for public use. Confirm their public scope and the existing domain’s deployment source before publishing. No new hosting site was created.
+
+## 2026-09-11 detail audit
+
+Shared navigation now owns the two-case preview as well; the copied preview-shell.js is retained as historical source and is no longer loaded. Current preview: `/previews/home-two-cases/index.html`. The formal homepage layout is still the earlier version pending separate approval of the proposed layout.
+
+Fixed skip-link targets, mobile menu focus/inert/Escape behavior, history restoration, dark contact/menu styling and inconsistent Work cover media. Cover videos offer pause/play, pause outside the viewport and honor reduced motion. Source UI metrics remain illustrative; numerical research claims in Work/About were generalized pending supporting records. Existing cases and source materials are preserved.
+
+Verified eight routes at 390/768/1440px, local resource/anchor integrity and targeted keyboard/video interactions. Full report and backups: job-search workspace `材料/网站/2026-09-11_全站细节_v1`.

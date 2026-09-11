@@ -24,9 +24,9 @@
     />
     <meta name="twitter:image" content="assets/og-portfolio.png" />
     <title>Jamie Zhou | AI-native Product Designer</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.svg?v=r2-20260911" type="image/svg+xml" />
     <meta name="theme-color" content="#f7f8fa" />
-    <link rel="stylesheet" href="portfolio-2027.css?v=10" />
+    <link rel="stylesheet" href="portfolio-2027.css?v=polish-20260911" />
   </head>
   <body class="portfolio-redesign" data-page-view="home">
     <div class="scroll-progress" aria-hidden="true"></div>
@@ -34,7 +34,7 @@
 
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Jamie Zhou home">
-        <span class="brand-mark">JZ</span>
+        <span class="brand-mark"><img src="assets/identity/r2-ribbon.svg" alt="" aria-hidden="true" width="32" height="32"></span>
         <span>Jamie Zhou</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
@@ -57,59 +57,19 @@
 
     <main id="top">
       <section id="home" class="ia-hero ia-hero--focused portfolio-hero reveal" data-view="home" aria-labelledby="home-title">
-        <div class="portfolio-hero__meta">
-          <span>Jamie Zhou</span>
-          <span>Product design / research / motion</span>
-          <span>2027 new grad portfolio</span>
-        </div>
-
         <div class="portfolio-hero__layout">
           <div class="portfolio-hero__copy">
-            <p class="eyebrow">Research-driven / Growth-minded / Systems-oriented</p>
-            <h1 id="home-title">
-              <span class="hero-name">Jamie Zhou</span>
-              <span class="hero-role">AI-native Product Designer</span>
+            <div class="audience-switcher" role="group" aria-label="Choose an introduction for your role">
+              <button type="button" aria-pressed="true" data-audience="anyone">For anyone</button>
+              <button type="button" aria-pressed="false" data-audience="recruiters">Recruiters</button>
+              <button type="button" aria-pressed="false" data-audience="leaders">Design leaders</button>
+              <button type="button" aria-pressed="false" data-audience="builders">Builders</button>
+            </div>
+            <h1 id="home-title" aria-live="polite">
+              <span data-audience-copy>I’m Jamie, an AI-native product designer turning complex systems into clear, useful experiences.</span>
             </h1>
-            <p class="portfolio-hero__lede">
-              I design intelligent product experiences that turn complex behavior, research signals, and growth opportunities into clear user-facing systems.
-            </p>
-            <p class="portfolio-hero__note">
-              Currently shaping consumer AI growth at Chance, while building a portfolio around systems that make messy behavior feel clear.
-            </p>
-            <div class="ia-actions portfolio-actions" aria-label="Primary portfolio actions">
-              <a class="ia-action ia-action--primary" href="work.html">View Selected Work</a>
-              <a class="ia-action" href="about.html">About Jamie</a>
-            </div>
           </div>
-
-          <a
-            class="portfolio-hero__showcase project-preview-trigger"
-            href="axel.html"
-            data-project-preview
-            data-preview-title="Axel SaaS"
-            data-preview-description="Restaurant operation SaaS shaped from 27-restaurant research."
-            data-preview-label="Primary Case Study"
-            data-preview-image="assets/figma-axel-cover.png"
-            data-preview-visual="axel"
-            aria-label="Open Axel SaaS case study"
-          >
-            <div class="portfolio-showcase__frame">
-              <div class="portfolio-showcase__bar">
-                <span>Primary case study</span>
-                <span>Restaurant ops SaaS</span>
-              </div>
-              <figure>
-                <img src="assets/figma-axel-cover.png" alt="Axel SaaS product interface preview" />
-              </figure>
-            </div>
-            <div class="portfolio-showcase__caption">
-              <span>Axel SaaS</span>
-              <strong>Restaurant operation SaaS</strong>
-            <em>27-restaurant research / daily action center / unified order workflows</em>
-            </div>
-          </a>
         </div>
-
       </section>
 
       <section class="home-work-preview reveal" data-view="home" aria-labelledby="home-work-title">
@@ -127,30 +87,22 @@
             data-preview-title="Axel SaaS"
             data-preview-description="Restaurant operation SaaS shaped from 27-restaurant research."
             data-preview-label="Primary Case Study"
-            data-preview-image="assets/figma-axel-cover.png"
+            data-preview-image="assets/axel-cover.svg"
             data-preview-visual="axel"
+            data-cursor-label="View Axel"
           >
             <div class="project-index__meta">
-              <span>01</span>
-              <span>2025</span>
-              <span>Primary case study</span>
+              <span>Restaurant operations</span>
+              <span>B2B SaaS</span>
             </div>
             <div class="project-index__body">
               <div class="project-index__copy">
-                <p class="project-index__type">Restaurant operations / B2B SaaS</p>
                 <h3>Axel SaaS</h3>
                 <p class="project-index__value">Turned research across 27 restaurants into one daily action center for orders, issues, and staff decisions.</p>
-                <div class="project-index__methods" aria-label="Axel methods">
-                  <span>Field Research</span><span>Journey Mapping</span><span>Information Architecture</span>
-                </div>
               </div>
               <figure class="project-index__media">
-                <img src="assets/figma-axel-cover.png" alt="Axel restaurant operations product interface" loading="lazy" />
+                <img src="assets/axel-cover.svg" alt="Axel restaurant operations product interface" loading="lazy" />
               </figure>
-            </div>
-            <div class="project-index__footer">
-              <span>Role / UX Designer + Researcher</span>
-              <strong>View case study <span aria-hidden="true">&#8599;</span></strong>
             </div>
           </a>
 
@@ -159,33 +111,25 @@
             href="chance.html"
             data-project-preview
             data-preview-title="Chance AI"
-            data-preview-description="Consumer AI workflow, activation logic, and commercial UI."
+            data-preview-description="AI response structure, contextual follow-up, and multimodal input states."
             data-preview-label="Current Work"
             data-preview-visual="chance"
+            data-cursor-label="View Chance"
           >
             <div class="project-index__meta">
-              <span>02</span>
-              <span>Current</span>
-              <span>NDA-safe process</span>
+              <span>Consumer AI</span>
+              <span>AI response design</span>
             </div>
             <div class="project-index__body">
               <div class="project-index__copy">
-                <p class="project-index__type">Consumer AI / Growth &amp; Activation</p>
                 <h3>Chance AI</h3>
-                <p class="project-index__value">Shaping AI-native workflows and activation moments that help users understand value, act, and return with intent.</p>
-                <div class="project-index__methods" aria-label="Chance AI methods">
-                  <span>Product Signals</span><span>Activation Loops</span><span>Interaction States</span>
-                </div>
+                <p class="project-index__value">Making complex AI responses easier to understand, act on, and continue.</p>
               </div>
-              <div class="project-index__media project-index__media--signal" aria-hidden="true">
-                <span>AI workflow</span>
-                <strong>Value</strong><i></i><strong>Action</strong><i></i><strong>Return</strong>
-                <em>Activation system</em>
-              </div>
-            </div>
-            <div class="project-index__footer">
-              <span>Role / AI Product + Growth Designer</span>
-              <strong>View process <span aria-hidden="true">&#8599;</span></strong>
+              <figure class="project-index__media project-index__media--chance">
+                <img src="assets/chance/2026-09-10/result-full.png" alt="Chance AI skin analysis result" loading="lazy" />
+                <img src="assets/chance/2026-09-10/multimodal-compose.png" alt="Chance AI multimodal question flow" loading="lazy" />
+                <img src="assets/chance/2026-09-10/followup-draft.png" alt="Chance AI contextual follow-up interface" loading="lazy" />
+              </figure>
             </div>
           </a>
 
@@ -197,30 +141,22 @@
             data-preview-description="Healthcare AI web experience, onboarding clarity, and AI guidance."
             data-preview-label="NDA-Safe Case"
             data-preview-visual="deloitte"
+            data-cursor-label="View Deloitte"
           >
             <div class="project-index__meta">
-              <span>03</span>
-              <span>2026</span>
-              <span>Client collaboration</span>
+              <span>Healthcare AI</span>
+              <span>Experience strategy</span>
             </div>
             <div class="project-index__body">
               <div class="project-index__copy">
-                <p class="project-index__type">Healthcare AI / Experience Strategy</p>
                 <h3>Deloitte x SCADpro</h3>
                 <p class="project-index__value">Structured onboarding and AI guidance around what people need to understand before they can trust the experience.</p>
-                <div class="project-index__methods" aria-label="Deloitte methods">
-                  <span>Research Synthesis</span><span>Onboarding IA</span><span>Trust Patterns</span>
-                </div>
               </div>
               <div class="project-index__media project-index__media--signal project-index__media--health" aria-hidden="true">
                 <span>Guided AI</span>
                 <strong>Understand</strong><i></i><strong>Trust</strong><i></i><strong>Act</strong>
                 <em>Healthcare journey</em>
               </div>
-            </div>
-            <div class="project-index__footer">
-              <span>Role / UX Designer + Experience Strategist</span>
-              <strong>View case study <span aria-hidden="true">&#8599;</span></strong>
             </div>
           </a>
         </div>
@@ -300,87 +236,10 @@
       </section>
     </div>
 
-    <aside class="agent-shell" aria-label="Jamie portfolio assistant">
-      <button
-        class="PixelPumpkinButton agent-launch"
-        data-agent-toggle
-        type="button"
-        aria-expanded="false"
-        aria-label="Open AI assistant"
-      >
-        <span class="PixelPumpkinButton__sprite" aria-hidden="true"></span>
-        <span class="PixelPumpkinButton__label">Ask Jamie</span>
-        <span class="PixelPumpkinButton__bubble" aria-hidden="true">
-          Ask about Jamie's work, fit, or case studies.
-        </span>
-      </button>
-
-      <section class="agent-panel" data-agent-panel hidden>
-        <header class="agent-header">
-          <span class="PixelPumpkinButton__panel-icon" aria-hidden="true"></span>
-          <div>
-            <p class="eyebrow">Portfolio assistant</p>
-            <h2>Ask Jamie</h2>
-          </div>
-          <button class="agent-close" data-agent-close type="button" aria-label="Close assistant">
-            ×
-          </button>
-        </header>
-
-        <div class="agent-thread" data-agent-thread aria-live="polite">
-          <div class="agent-message agent-message-bot">
-            <span>Agent</span>
-            <p>
-              Ask me what to look at first. I can brief Jamie's product work, motion lab,
-              research strength, or fit for AI product design roles.
-            </p>
-          </div>
-        </div>
-
-        <div class="agent-prompts" aria-label="Suggested prompts">
-          <button type="button" data-agent-prompt="What should a Google recruiter look at first?">
-            Recruiter path
-          </button>
-          <button type="button" data-agent-prompt="Summarize Jamie's AI product design strength.">
-            AI product fit
-          </button>
-          <button type="button" data-agent-prompt="Which project shows commercial value best?">
-            Best commercial proof
-          </button>
-        </div>
-
-        <form class="agent-form" data-agent-form>
-          <label class="sr-only" for="agent-input">Ask Jamie's portfolio agent</label>
-          <input
-            id="agent-input"
-            data-agent-input
-            type="text"
-            autocomplete="off"
-            placeholder="Ask about Jamie's work, AI UX, or fit..."
-          />
-          <button type="submit">
-            <span>Send</span>
-          </button>
-        </form>
-      </section>
-    </aside>
-
-    <div class="project-cursor-preview" data-project-cursor-preview aria-hidden="true">
-      <div class="project-cursor-preview__visual">
-        <img data-project-preview-image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="" hidden />
-        <span class="project-cursor-preview__mock" data-project-preview-mock aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </div>
-      <div class="project-cursor-preview__content">
-        <span data-project-preview-label>Case Study</span>
-        <strong data-project-preview-title>Axel SaaS</strong>
-        <p data-project-preview-description>Restaurant operation SaaS shaped from field research.</p>
-      </div>
+    <div class="portfolio-cursor" data-portfolio-cursor data-has-label="false" aria-hidden="true">
+      <span data-portfolio-cursor-label></span>
     </div>
 
-    <script src="portfolio-2027.js?v=10"></script>
+    <script src="portfolio-2027.js?v=polish-20260911"></script>
   </body>
 </html>
