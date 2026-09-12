@@ -74,10 +74,9 @@
   rail.setAttribute("aria-label", isCasePage ? "Case study navigation" : "Portfolio navigation");
 
   const primaryLinks = [
-    ["index.html", "Home"],
-    ["work.html", "Work"],
-    ["lab.html", "Playground"],
+    ["index.html", "Work"],
     ["about.html", "About"],
+    ["lab.html", "Playground"],
   ];
   const projectLinks = [
     ["axel.html", "Axel SaaS"],
@@ -102,7 +101,7 @@
 
   const railHeader = `
     <div class="portfolio-rail__header">
-      <a class="portfolio-rail__brand" href="${isCasePage ? "work.html" : "index.html"}" aria-label="${
+      <a class="portfolio-rail__brand" href="${"index.html"}" aria-label="${
         isCasePage ? "Back to selected work" : "Jamie Zhou home"
       }">
         ${
