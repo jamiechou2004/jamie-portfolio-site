@@ -36,7 +36,7 @@
   contactModal.querySelector(".contact-modal__backdrop")?.setAttribute("tabindex", "-1");
 
   const localPageNames = new Set([
-    "index.html",
+    "homepage.html",
     "work.html",
     "lab.html",
     "about.html",
@@ -47,7 +47,7 @@
 
   const pageName = (url) => {
     const pathname = new URL(url, window.location.href).pathname;
-    return pathname.split("/").filter(Boolean).pop() || "index.html";
+    return pathname.split("/").filter(Boolean).pop() || "homepage.html";
   };
 
   const currentPage = pageName(window.location.href);
@@ -74,7 +74,7 @@
   rail.setAttribute("aria-label", isCasePage ? "Case study navigation" : "Portfolio navigation");
 
   const primaryLinks = [
-    ["index.html", "Work"],
+    ["homepage.html", "Work"],
     ["about.html", "About"],
     ["lab.html", "Playground"],
   ];
@@ -101,7 +101,7 @@
 
   const railHeader = `
     <div class="portfolio-rail__header">
-      <a class="portfolio-rail__brand" href="${"index.html"}" aria-label="${
+      <a class="portfolio-rail__brand" href="${"homepage.html"}" aria-label="${
         isCasePage ? "Back to selected work" : "Jamie Zhou home"
       }">
         ${
@@ -681,7 +681,7 @@
     body.append(footer);
   }
   if (isHomePreview) {
-    document.querySelectorAll('a[href="index.html"]').forEach(link => {
+    document.querySelectorAll('a[href="homepage.html"]').forEach(link => {
       link.href = window.location.pathname;
     });
   }
