@@ -61,3 +61,7 @@ Shared navigation now owns the two-case preview as well; the copied preview-shel
 Fixed skip-link targets, mobile menu focus/inert/Escape behavior, history restoration, dark contact/menu styling and inconsistent Work cover media. Cover videos offer pause/play, pause outside the viewport and honor reduced motion. Source UI metrics remain illustrative; numerical research claims in Work/About were generalized pending supporting records. Existing cases and source materials are preserved.
 
 Verified eight routes at 390/768/1440px, local resource/anchor integrity and targeted keyboard/video interactions. Full report and backups: job-search workspace `材料/网站/2026-09-11_全站细节_v1`.
+
+
+## 2026-09-13 current architecture
+`homepage.html` is the public homepage; `index.html` and `work.html` redirect to it. Home, About, and Playground use the scoped `portfolio-editorial.css` horizontal navigation. Long case studies keep their reading table of contents. Deloitte is a V-safe public-health communication campaign, superseding the old healthcare-AI placeholder description. Earlier “formal homepage pending” notes are historical.
