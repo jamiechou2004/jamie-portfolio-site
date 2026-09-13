@@ -38,9 +38,8 @@ body{font-family:"SF Pro Display","SF Pro Text",-apple-system,"PingFang SC",sans
 @media(prefers-reduced-motion:reduce){.hp-closing-mark i{animation:none}.hp-caption h3 span{transition:none}}
 .hp-cover-video{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}.hp-cover.hp-chance{aspect-ratio:4/3;background:#9eafff}@media(prefers-reduced-motion:reduce){.hp-cover-video{visibility:hidden}.hp-cover.hp-chance{background:#9eafff url("assets/chance/cover/poster.png") center/contain no-repeat}}</style><style>
 .portfolio-hero .home-role{font-size:14px;font-weight:500;letter-spacing:.01em;color:#61655f;margin:0 0 32px;display:flex;gap:14px;align-items:center}.home-role span{color:#b0b3ac}.portfolio-hero .home-intro{font-size:clamp(16px,1.5vw,20px);line-height:1.6;max-width:690px;color:#686c65;margin:28px 0 0}.portfolio-hero #home-title{max-width:1080px}@media(max-width:650px){.home-break{display:none}.portfolio-hero .home-role{font-size:12px;gap:10px;margin-bottom:24px}}
-</style><link rel="stylesheet" href="portfolio-editorial.css?v=20260913">
-</head>
-  <body class="portfolio-redesign editorial-shell" data-page-view="home">
+</style></head>
+  <body class="portfolio-redesign" data-page-view="home">
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="cursor-light" aria-hidden="true"></div>
 
@@ -49,7 +48,12 @@ body{font-family:"SF Pro Display","SF Pro Text",-apple-system,"PingFang SC",sans
         <span class="brand-mark"><img src="assets/identity/r2-ribbon.svg" alt="" aria-hidden="true" width="32" height="32"></span>
         
       </a>
-      <nav class="site-nav" aria-label="Primary navigation"><a href="homepage.html" aria-current="page">Work</a><a href="about.html">About</a><a href="lab.html">Playground</a></nav>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <span class="nav-indicator" aria-hidden="true"></span>
+        <a href="homepage.html" aria-current="page">Work</a>
+        <a href="lab.html">Playground</a>
+        <a href="about.html">About</a>
+      </nav>
       <div class="site-utilities" aria-label="Portfolio utilities">
         <button class="utility-action" type="button" data-contact-open>Contact</button>
         <a
@@ -65,17 +69,23 @@ body{font-family:"SF Pro Display","SF Pro Text",-apple-system,"PingFang SC",sans
       <section id="home" class="ia-hero ia-hero--focused portfolio-hero reveal" data-view="home" aria-labelledby="home-title">
         <div class="portfolio-hero__layout">
           <div class="portfolio-hero__copy">
-            <p class="home-role">Jamie Zhou <span aria-hidden="true">/</span> Product Designer</p>
-            <h1 id="home-title">Designing clear interactions<br class="home-break"> for complex products.</h1>
-            <p class="home-intro">I design AI experiences and operational tools, connecting user research, interaction design, and prototyping.</p>
+            <div class="audience-switcher" role="group" aria-label="Choose an introduction for your role">
+              <button type="button" aria-pressed="true" data-audience="anyone">For anyone</button>
+              <button type="button" aria-pressed="false" data-audience="recruiters">Recruiters</button>
+              <button type="button" aria-pressed="false" data-audience="leaders">Design leaders</button>
+              <button type="button" aria-pressed="false" data-audience="builders">Builders</button>
+            </div>
+            <h1 id="home-title" aria-live="polite">
+              <span data-audience-copy>I’m Jamie, an AI-native product designer turning complex systems into clear, useful experiences.</span>
+            </h1>
           </div>
         </div>
       </section>
 
 <section class="hp-work" aria-labelledby="hp-title"><div class="hp-heading"><h2 id="hp-title">Selected work</h2><span>02 CASE STUDIES</span></div>
-<article class="hp-project"><div class="project-question"><span>Chance AI / Consumer AI</span><h3>How does an answer become a useful next step?</h3></div><a class="hp-cover hp-chance" href="chance.html" aria-label="View Chance AI case study"><video class="hp-cover-video" data-cover-video autoplay loop muted playsinline preload="metadata" poster="assets/chance/cover/poster.png" aria-label="Chance AI interface preview"><source src="assets/chance/cover/chance-cover.mp4" type="video/mp4"></video></a><div class="hp-caption"><div><a href="chance.html"><h4>View Chance AI <span aria-hidden="true">↗</span></h4></a><p>Response hierarchy, contextual follow-up, and multimodal input in one connected journey.</p></div></div></article>
-<article class="hp-project"><div class="project-question"><span>Axel / Restaurant operations</span><h3>How can managers act without losing control?</h3></div><a class="hp-cover hp-axel" href="axel.html" aria-label="View Axel case study"><img src="previews/home-two-cases/axel-original-0.png" width="3000" height="2250" alt="Axel restaurant operations dashboard on a tablet, showing orders and daily priorities" /></a><div class="hp-caption"><div><a href="axel.html"><h4>View Axel <span aria-hidden="true">↗</span></h4></a><p>From Today’s Summary to an Agent concept with review, approval, and recovery states.</p></div></div></article>
-</section><section class="hp-closing" aria-labelledby="hp-more"><h2 id="hp-more">More in the making.</h2><p>More projects and explorations are taking shape. Stay tuned.</p><a class="editorial-lab-link" href="lab.html">Explore interaction studies <span aria-hidden="true">↗</span></a></section>
+<article class="hp-project"><a class="hp-cover hp-chance" href="chance.html" aria-label="View Chance AI case study"><video class="hp-cover-video" data-cover-video autoplay loop muted playsinline preload="metadata" poster="assets/chance/cover/poster.png" aria-label="Chance AI interface preview"><source src="assets/chance/cover/chance-cover.mp4" type="video/mp4"></video></a><div class="hp-caption"><div><a href="chance.html"><h3>Chance AI <span aria-hidden="true">↗</span></h3></a><p>Making AI answers easier to understand, act on, and continue.</p></div><ul aria-label="Chance AI topics"><li>Consumer AI</li><li>Interaction design</li></ul></div></article>
+<article class="hp-project"><a class="hp-cover hp-axel" href="axel.html" aria-label="View Axel case study"><img src="previews/home-two-cases/axel-original-0.png" width="3000" height="2250" alt="Axel restaurant operations dashboard on a tablet, showing orders and daily priorities" /></a><div class="hp-caption"><div><a href="axel.html"><h3>Axel <span aria-hidden="true">↗</span></h3></a><p>Bringing restaurant orders, priorities, and daily decisions into one workspace.</p></div><ul aria-label="Axel topics"><li>B2B SaaS</li><li>Systems design</li></ul></div></article>
+</section><section class="hp-closing" aria-labelledby="hp-more"><div class="hp-closing-mark" aria-hidden="true"><i></i><span></span></div><h2 id="hp-more">More in the making.</h2><p>More projects and explorations are taking shape. Stay tuned.</p></section>
     </main>
 
     <div id="contact" class="contact-modal" data-contact-modal hidden>
