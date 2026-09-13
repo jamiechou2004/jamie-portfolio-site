@@ -258,10 +258,11 @@
     if (!cursorMedia.matches || motionMedia.matches || event.pointerType === 'touch' || !(el instanceof Element)) { hideCursor(); return; }
     const target = el.closest("a,button,[role='button'],[data-cursor-label]");
     const cover = target?.matches('.hp-cover,.project-index__row,[data-cursor-label]');
-    const native = el.closest('input,textarea,select,[contenteditable],iframe,button:disabled,[aria-disabled="true"]') || (!target && el.closest('p,h1,h2,h3,h4,li,blockquote,figcaption')) || (!cover && el.closest('video'));
+    const imageLink = target?.matches('.chance-page a[href$=".png"]');
+    const native = el.closest('dialog[open],input,textarea,select,[contenteditable],iframe,button:disabled,[aria-disabled="true"]') || (!target && el.closest('p,h1,h2,h3,h4,li,blockquote,figcaption')) || (!cover && el.closest('video'));
     if (native) { hideCursor(); return; }
-    portfolioCursorLabel.textContent = cover ? 'View work ↗' : '';
-    portfolioCursor.dataset.hasLabel = String(Boolean(cover));
+    portfolioCursorLabel.textContent = imageLink ? 'View image' : cover ? 'View work ↗' : '';
+    portfolioCursor.dataset.hasLabel = String(Boolean(imageLink || cover));
     portfolioCursor.dataset.interactive = String(Boolean(target));
     portfolioCursor.style.transform = `translate3d(${event.clientX}px,${event.clientY}px,0) translate(-50%,-50%)`;
     document.documentElement.classList.add('portfolio-cursor-active');
