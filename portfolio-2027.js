@@ -259,10 +259,11 @@
     const target = el.closest("a,button,[role='button'],[data-cursor-label]");
     const cover = target?.matches('.hp-cover,.project-index__row,[data-cursor-label]');
     const imageLink = target?.matches('.chance-page a[href$=".png"]');
+    const sectionLink = target?.matches('.chance-page [data-cursor-action="explore"]');
     const native = el.closest('dialog[open],input,textarea,select,[contenteditable],iframe,button:disabled,[aria-disabled="true"]') || (!target && el.closest('p,h1,h2,h3,h4,li,blockquote,figcaption')) || (!cover && el.closest('video'));
     if (native) { hideCursor(); return; }
-    portfolioCursorLabel.textContent = imageLink ? 'View image' : cover ? 'View work ↗' : '';
-    portfolioCursor.dataset.hasLabel = String(Boolean(imageLink || cover));
+    portfolioCursorLabel.textContent = sectionLink ? 'Explore ↓' : imageLink ? 'View image' : cover ? 'View work ↗' : '';
+    portfolioCursor.dataset.hasLabel = String(Boolean(sectionLink || imageLink || cover));
     portfolioCursor.dataset.interactive = String(Boolean(target));
     portfolioCursor.style.transform = `translate3d(${event.clientX}px,${event.clientY}px,0) translate(-50%,-50%)`;
     document.documentElement.classList.add('portfolio-cursor-active');
