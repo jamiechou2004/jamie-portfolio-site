@@ -107,7 +107,7 @@
         ${
           isCasePage
             ? '<span class="portfolio-rail__back" aria-hidden="true">←</span><span class="portfolio-rail__brand-name">Selected work</span>'
-            : '<span class="portfolio-rail__mark"><img src="assets/identity/r2-ribbon.svg" alt="" aria-hidden="true" width="32" height="32"></span><span class="portfolio-rail__brand-name">Jamie Zhou</span>'
+            : '<span class="portfolio-rail__mark"><img src="assets/identity/r2-ribbon.svg" alt="" aria-hidden="true" width="32" height="32"></span>'
         }
       </a>
       <button class="portfolio-rail__toggle" type="button" aria-label="Collapse navigation" aria-expanded="true">
