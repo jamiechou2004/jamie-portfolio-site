@@ -35,3 +35,11 @@
 .cr-next{margin-top:22px;padding:30px;border-radius:8px;background:#e5ebee}.cr-next-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:28px}.cr-next-grid span{font-size:11px;color:#36577c}.cr-next-grid h4{font-size:17px;margin:10px 0}.chance-page .cr-next-grid p{font-size:14px;margin:0}
 @media(max-width:900px){.cr-row{gap:28px}.cr-roles{gap:10px}}
 @media(max-width:700px){.cr-row{grid-template-columns:1fr;gap:22px;padding:28px 0}.cr-next{padding:24px 20px}.cr-next-grid{grid-template-columns:1fr;gap:24px}.cr-next-grid>div+div{border-top:1px solid #c2cfd7;padding-top:20px}.cr-copy p{max-width:none}.cr-evidence{gap:16px}.cr-flow ol{gap:14px}.cr-flow li{font-size:11px}.cr-roles{gap:12px}}
+
+/* Follow-up closing: use spacing instead of stacked divider rules. */
+#followup .cp-shared{border:0;margin-top:32px;padding:8px 0 0}
+#followup>.cp-details{border:0;margin-top:18px}
+#followup>.cp-details>summary{width:fit-content;max-width:100%;padding:12px 0}
+#followup>.cp-details>summary:hover{color:#1b2024}
+#followup>.cp-details[open]{padding-bottom:0}
+#followup>.cp-details>.cp-pair{margin-top:20px}
