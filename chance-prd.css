@@ -43,3 +43,25 @@
 #followup>.cp-details>summary:hover{color:#1b2024}
 #followup>.cp-details[open]{padding-bottom:0}
 #followup>.cp-details>.cp-pair{margin-top:20px}
+
+/* Organize the case with spacing, not repeated decorative rules. */
+.chance-page .cc-section,
+.chance-page .cc-decision-subsection,
+.chance-page .cp-top,
+.chance-page .cp-shared,
+.chance-page .cp-details,
+.chance-page .cp-status,
+.chance-page .cp-notes article,
+.chance-page .cp-path article,
+.chance-page .cp-steps li,
+.chance-page .cr-row,
+.chance-page .cr-roles>div,
+.chance-page .cr-evidence>div,
+.chance-page .cr-next-grid>div,
+.chance-page .cc-secondary,
+.chance-page .cc-work-rows article,
+.chance-page .cc-footer,
+#design-boards .cc-board-list details{border:0}
+.chance-page .cp-shared{padding:12px 0}
+.chance-page .cr-row+.cr-row{margin-top:12px}
+#design-boards .cc-board-list details{padding:12px 0}
