@@ -249,49 +249,34 @@
   const portfolioCursorLabel = portfolioCursor.querySelector("[data-portfolio-cursor-label]");
   const cursorMedia = matchMedia("(hover: hover) and (pointer: fine)");
   const motionMedia = matchMedia("(prefers-reduced-motion: reduce)");
-  let x = -100, y = -100, px = -100, py = -100, frame = 0, shown = false;
   const hideCursor = () => {
-    shown = false;
-    document.documentElement.classList.remove("portfolio-cursor-active");
-    portfolioCursor.dataset.pressed = "false";
-    if (frame) cancelAnimationFrame(frame);
-    frame = 0;
+    document.documentElement.classList.remove('portfolio-cursor-active');
+    portfolioCursor.dataset.pressed = 'false';
   };
-  const updateTarget = (el) => {
-    if (!cursorMedia.matches || motionMedia.matches || !(el instanceof Element) || el.closest('input,textarea,select,[contenteditable="true"],iframe,video')) { hideCursor(); return false; }
+  const updateCursor = (event) => {
+    const el = event.target;
+    if (!cursorMedia.matches || motionMedia.matches || event.pointerType === 'touch' || !(el instanceof Element)) { hideCursor(); return; }
     const target = el.closest("a,button,[role='button'],[data-cursor-label]");
-    const caseCover = target?.matches(".hp-cover,.project-index__row,[data-cursor-label]");
-    const label = caseCover ? "Read case study  ↗" : "";
-    if (portfolioCursorLabel.textContent !== label) portfolioCursorLabel.textContent = label;
-    portfolioCursor.dataset.hasLabel = String(Boolean(label));
+    const cover = target?.matches('.hp-cover,.project-index__row,[data-cursor-label]');
+    const native = el.closest('input,textarea,select,[contenteditable],iframe,button:disabled,[aria-disabled="true"]') || (!target && el.closest('p,h1,h2,h3,h4,li,blockquote,figcaption')) || (!cover && el.closest('video'));
+    if (native) { hideCursor(); return; }
+    portfolioCursorLabel.textContent = cover ? 'View work ↗' : '';
+    portfolioCursor.dataset.hasLabel = String(Boolean(cover));
     portfolioCursor.dataset.interactive = String(Boolean(target));
-    portfolioCursor.style.width = label ? "248px" : target ? "26px" : "16px";
-    return true;
+    portfolioCursor.style.transform = `translate3d(${event.clientX}px,${event.clientY}px,0) translate(-50%,-50%)`;
+    document.documentElement.classList.add('portfolio-cursor-active');
   };
-  const paint = () => {
-    px += (x-px)*.36; py += (y-py)*.36;
-    portfolioCursor.style.transform = `translate3d(${px}px,${py}px,0) translate(-50%,-50%)`;
-    frame = Math.abs(x-px)+Math.abs(y-py) > .2 ? requestAnimationFrame(paint) : 0;
-  };
-  window.addEventListener("pointermove", (event) => {
-    if (event.pointerType === "touch" || !updateTarget(event.target)) return;
-    const half = portfolioCursor.dataset.hasLabel === "true" ? 128 : 16;
-    x = Math.max(half,Math.min(innerWidth-half,event.clientX));
-    y = Math.max(34,Math.min(innerHeight-34,event.clientY));
-    if (!shown) { px=x; py=y; shown=true; }
-    document.documentElement.classList.add("portfolio-cursor-active");
-    if (!frame) frame=requestAnimationFrame(paint);
-  }, {passive:true});
-  window.addEventListener("pointerdown", () => {portfolioCursor.dataset.pressed="true";});
-  window.addEventListener("pointerup", () => {portfolioCursor.dataset.pressed="false";});
-  window.addEventListener("pointercancel", hideCursor);
-  window.addEventListener("scroll", hideCursor, {passive:true});
-  window.addEventListener("blur", hideCursor);
-  document.documentElement.addEventListener("pointerleave", hideCursor);
-  document.addEventListener("keydown", e => {if(e.key === "Tab") hideCursor();});
-  document.addEventListener("visibilitychange", () => {if(document.hidden) hideCursor();});
-  cursorMedia.addEventListener("change",hideCursor);
-  motionMedia.addEventListener("change",hideCursor);
+  window.addEventListener('pointermove', updateCursor, {passive:true});
+  window.addEventListener('pointerdown', event => { updateCursor(event); portfolioCursor.dataset.pressed = 'true'; });
+  window.addEventListener('pointerup', event => { portfolioCursor.dataset.pressed = 'false'; updateCursor(event); });
+  window.addEventListener('pointercancel', hideCursor);
+  window.addEventListener('scroll', hideCursor, {passive:true});
+  window.addEventListener('blur', hideCursor);
+  document.documentElement.addEventListener('pointerleave', hideCursor);
+  document.addEventListener('keydown', e => {if(e.key === 'Tab') hideCursor();});
+  document.addEventListener('visibilitychange', hideCursor);
+  cursorMedia.addEventListener('change', hideCursor);
+  motionMedia.addEventListener('change', hideCursor);
 
   if (isCasePage && !body.hasAttribute("data-custom-case-hero")) {
     const hero = document.querySelector(".case-hero");
