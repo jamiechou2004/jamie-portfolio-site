@@ -137,7 +137,11 @@
       .join("");
     rail.innerHTML = `${railHeader}
       <div class="portfolio-rail__section portfolio-rail__section--primary">
-        <nav class="portfolio-rail__nav" aria-label="Primary portfolio pages">${topLinks}</nav>
+        <nav class="portfolio-rail__nav" aria-label="Primary portfolio pages">${topLinks}
+          <a class="portfolio-rail__link" href="assets/Jamie_Zhou_Resume.docx" download aria-label="Download Jamie Zhou resume" data-label="Resume">
+            <span class="portfolio-rail__label">Resume</span><span class="portfolio-rail__index" aria-hidden="true">04</span>
+          </a>
+        </nav>
       </div>
       <div class="portfolio-rail__section portfolio-rail__section--projects">
         <p class="portfolio-rail__section-title">Product design</p>
