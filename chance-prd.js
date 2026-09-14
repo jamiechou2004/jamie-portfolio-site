@@ -7,13 +7,6 @@
       comparison.querySelectorAll('[data-compare-button]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
     });
   });
-  const rail = document.querySelector('.portfolio-rail');
-  if (rail) {
-    const group = document.createElement('div');
-    group.className = 'portfolio-rail__section portfolio-rail__section--projects';
-    group.innerHTML = '<p class="portfolio-rail__section-title">Product design</p><nav class="portfolio-rail__nav" aria-label="Other case studies"><a class="portfolio-rail__link" href="chance.html"><span class="portfolio-rail__label">Chance AI</span><span class="portfolio-rail__index" aria-hidden="true">01</span></a><a class="portfolio-rail__link" href="axel.html"><span class="portfolio-rail__label">Axel SaaS</span><span class="portfolio-rail__index" aria-hidden="true">02</span></a><a class="portfolio-rail__link" href="deloitte.html"><span class="portfolio-rail__label">Deloitte x SCADpro</span><span class="portfolio-rail__index" aria-hidden="true">03</span></a></nav>';
-    rail.append(group);
-  }
   const dialog = document.querySelector('.cp-full-dialog');
   if (!dialog || !dialog.showModal) return;
   let trigger;

@@ -27,3 +27,6 @@ body .portfolio-rail--case .portfolio-rail__brand{flex:0 0 44px;width:44px;heigh
 body .portfolio-rail__header{align-items:center}
 body .portfolio-rail--case .portfolio-rail__back{width:36px;height:36px;display:grid;place-items:center}
 body .portfolio-rail.is-collapsed .portfolio-rail__header{align-items:center}
+
+/* Visible project label; no link or hover invitation. */
+.portfolio-unavailable{cursor:default!important;text-decoration:none!important}.portfolio-rail__link.portfolio-unavailable:hover{background:transparent!important;transform:none!important}

@@ -1,7 +1,6 @@
 /* Scoped preview enhancement: ordinary images, states and links remain readable without JS. */
 (()=>{
  const rail=document.querySelector('.portfolio-rail');
- if(rail){const group=document.createElement('div');group.className='portfolio-rail__section portfolio-rail__section--projects';group.innerHTML='<p class="portfolio-rail__section-title">Product design</p><nav class="portfolio-rail__nav" aria-label="Other case studies"><a class="portfolio-rail__link" href="axel.html" data-label="Axel SaaS"><span class="portfolio-rail__label">Axel SaaS</span></a><a class="portfolio-rail__link" href="chance.html" data-label="Chance AI"><span class="portfolio-rail__label">Chance AI</span></a><a class="portfolio-rail__link" href="deloitte.html" data-label="Deloitte x SCADpro"><span class="portfolio-rail__label">Deloitte x SCADpro</span></a></nav>';rail.append(group);}
  const isPreview=location.pathname.includes('/previews/axel-editorial/');
  if(isPreview) document.querySelectorAll('.portfolio-rail a,.mobile-menu-panel a').forEach(a=>{const h=a.getAttribute('href');if(h&&!h.startsWith('#')&&!h.startsWith('/')&&!/^[a-z]+:/i.test(h))a.href='/'+h;});
  document.querySelectorAll('[data-state-study]').forEach(study=>{

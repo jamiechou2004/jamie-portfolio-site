@@ -733,6 +733,14 @@ for(const a of document.querySelectorAll('.portfolio-rail__link')){
  if(!a.hasAttribute('aria-label'))a.setAttribute('aria-label',a.dataset.label||a.textContent.trim());
 
 }
+// Unavailable work remains visible without offering a navigation action.
+for(const link of document.querySelectorAll('a[href]')){
+ if(new URL(link.href,location.href).pathname.endsWith('/deloitte.html')){
+  const label=document.createElement('span');
+  for(const attr of link.attributes)if(!['href','target','download','tabindex','role'].includes(attr.name))label.setAttribute(attr.name,attr.value);
+  label.innerHTML=link.innerHTML;label.setAttribute('aria-disabled','true');label.classList.add('portfolio-unavailable');label.title='Not available yet';link.replaceWith(label);
+ }
+}
 const rail=document.querySelector('.portfolio-rail');
 rail.addEventListener('pointerover',event=>{const status=event.target.closest('a[href="deloitte.html"]');document.documentElement.classList.toggle('np-native',!status);if(!status)document.documentElement.classList.remove('portfolio-cursor-active')});
 rail.addEventListener('pointerleave',()=>document.documentElement.classList.remove('np-native'));
