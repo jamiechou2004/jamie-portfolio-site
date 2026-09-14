@@ -4230,7 +4230,6 @@ body.page-leaving main {
   white-space: nowrap;
 }
 
-.portfolio-rail__brand:hover,
 .portfolio-rail__toggle:hover,
 .portfolio-rail__link:hover,
 .portfolio-rail__link:focus-visible {
@@ -5615,7 +5614,7 @@ html.portfolio-cursor-active :is(input,textarea,select,[contenteditable="true"])
 
 /* Sidebar header: bounded brand text and a stable, independently mirrored chevron. */
 .portfolio-rail__header{gap:8px;}
-.portfolio-rail__brand{flex:1 1 auto;min-width:0;gap:8px;}
+.portfolio-rail__brand{flex:0 0 44px;width:44px;height:44px;min-width:44px;justify-content:center;gap:0;}
 .portfolio-rail__brand-name{min-width:0;white-space:normal;line-height:1.25;}
 .portfolio-rail__toggle{flex:0 0 44px;color:var(--portfolio-shell-foreground);}
 .portfolio-rail__toggle svg{width:22px;height:22px;stroke-width:1.65;}
