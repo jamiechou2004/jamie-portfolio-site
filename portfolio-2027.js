@@ -1,3 +1,5 @@
+// Load the shared palette after page-specific styles.
+(() => { if (!document.querySelector('[data-portfolio-tokens]')) { const palette = document.createElement('link'); palette.rel = 'stylesheet'; palette.href = new URL('portfolio-tokens.css?v=20260913-1', document.currentScript.src).href; palette.dataset.portfolioTokens = ''; document.head.append(palette); } })();
 (() => {
   const body = document.body;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
