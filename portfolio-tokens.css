@@ -19,3 +19,6 @@ body .ab-muted,body .ab-now p,body .ab-principles p,body .ab-outside p,body .ax-
 body .chance-page figcaption,body .ax-page figcaption,body .dt-figure figcaption{color:var(--ds-secondary)}
 body .chance-page .cc-kicker,body .chance-page .cc-label,body .ax-page .ax-kicker,body .dt-page .eyebrow,body .about-editorial .eyebrow{color:var(--ds-accent);font-family:var(--ds-font)}
 body .portfolio-rail__section-title{font-size:10px;letter-spacing:.12em;font-weight:600}
+
+/* Expanded navigation uses leading icons/identifiers only. */
+body .portfolio-rail__index{display:none!important}
