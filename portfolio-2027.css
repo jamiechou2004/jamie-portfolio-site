@@ -5658,3 +5658,32 @@ body.menu-open{overflow:hidden}
 .portfolio-cursor[data-pressed="true"][data-has-label="true"]{scale:.95;}
 html.portfolio-cursor-active *{cursor:none!important;}
 :is(p,h1,h2,h3,h4,li,blockquote,figcaption){cursor:text;}
+
+/* Approved Notion-style sidebar. */
+:root{--portfolio-rail-closed:72px}
+.portfolio-rail{transition:width 200ms cubic-bezier(.2,.65,.3,1),min-width 200ms cubic-bezier(.2,.65,.3,1),padding 200ms ease;background:#eeefec;backdrop-filter:none}
+.portfolio-rail__link{justify-content:flex-start;gap:10px;border-radius:7px;transition:background-color 110ms ease,color 110ms ease;min-height:42px}
+.portfolio-rail__link:hover{background:#e3e4e1}.portfolio-rail__link:active{background:#d6d8d5;transform:none}
+.portfolio-rail__link.is-current{background:#dedfdb;color:#222522}
+.np-icon{width:24px;height:24px;flex:0 0 24px;display:grid;place-items:center;color:#666b66;font-size:15px;font-weight:600}.np-icon svg{width:20px;height:20px}.is-current .np-icon{color:#222522}
+.portfolio-rail__index{margin-left:auto}
+.portfolio-rail__label{opacity:1;transition:opacity 110ms ease 80ms}
+.portfolio-rail.is-collapsed .portfolio-rail__link{width:44px;height:44px;padding:0;gap:0;margin-inline:auto}
+.portfolio-rail.is-collapsed .portfolio-rail__index{display:none}
+.portfolio-rail.is-collapsed .portfolio-rail__label{display:block;max-width:0;opacity:0;transition:opacity 80ms ease}
+.portfolio-rail.is-collapsed .portfolio-rail__link::after{left:52px;border-radius:5px;padding:6px 9px;font-size:12px;font-weight:500;background:#30332f;color:#fff;transform:translate(0,-50%);transition:opacity 110ms ease;box-shadow:0 2px 6px #00000015}
+.portfolio-rail.is-collapsed .portfolio-rail__link:hover::after{transition-delay:220ms}
+.portfolio-rail.is-collapsed .portfolio-rail__link:focus-visible::after{transition-delay:0ms}
+.portfolio-rail__toggle{border-color:transparent!important;background:transparent!important;border-radius:7px;transition:background-color 110ms ease!important}
+.portfolio-rail__toggle:hover{background:#dedfdb!important}.portfolio-rail__toggle:active{background:#d6d8d5!important}
+.portfolio-rail__link:focus-visible{outline:2px solid #5b7288;outline-offset:2px}
+.np-native .portfolio-cursor{opacity:0!important}.np-native .portfolio-rail,.np-native .portfolio-rail *{cursor:pointer!important}
+@media(min-width:821px){body{transition:padding-left 200ms cubic-bezier(.2,.65,.3,1)}}
+@media(prefers-reduced-motion:reduce){.portfolio-rail,.portfolio-rail * ,body{transition:none!important}}
+
+/* One project identifier in both sidebar states. */
+.portfolio-rail .np-project .portfolio-rail__index{display:none}
+.portfolio-rail .np-project{gap:10px}
+.np-project-number{font-size:12px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.portfolio-rail:not(.is-collapsed) .np-project .portfolio-rail__label{font-size:12px;letter-spacing:-.015em}
+.portfolio-rail.is-collapsed .np-project{gap:0}
