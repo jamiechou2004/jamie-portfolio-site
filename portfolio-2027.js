@@ -745,3 +745,36 @@ const rail=document.querySelector('.portfolio-rail');
 rail.addEventListener('pointerover',event=>{const status=event.target.closest('a[href="deloitte.html"]');document.documentElement.classList.toggle('np-native',!status);if(!status)document.documentElement.classList.remove('portfolio-cursor-active')});
 rail.addEventListener('pointerleave',()=>document.documentElement.classList.remove('np-native'));
 });
+
+// Motion's hover/press gestures animate only the ribbon image, not its hit area.
+document.addEventListener('DOMContentLoaded', () => {
+  const logos = [...document.querySelectorAll('.portfolio-rail__brand, .site-header .brand')]
+    .filter(link => link.querySelector('img'));
+  if (!logos.length) return;
+  const script = document.createElement('script');
+  script.src = '/vendor/motion-12.23.24.js';
+  script.onload = () => {
+    const { animate, hover, press } = window.Motion;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    logos.forEach(link => {
+      const image = link.querySelector('img');
+      let over = false, down = false, animation;
+      const update = () => {
+        animation?.stop();
+        const state = reduced.matches ? { scale: 1, rotate: 0, y: 0 }
+          : down ? { scale: .96, rotate: 0, y: 0 }
+          : over ? { scale: 1.04, rotate: -3, y: -2 }
+          : { scale: 1, rotate: 0, y: 0 };
+        animation = animate(image, state, reduced.matches
+          ? { duration: 0 }
+          : { type: 'spring', stiffness: 380, damping: 27, mass: .6 });
+      };
+      hover(link, () => { over = true; update(); return () => { over = false; update(); }; });
+      press(link, () => { down = true; update(); return () => { down = false; update(); }; });
+      reduced.addEventListener('change', update);
+      addEventListener('blur', () => { over = down = false; update(); });
+      addEventListener('pageshow', () => { over = down = false; update(); });
+    });
+  };
+  document.head.append(script);
+});
