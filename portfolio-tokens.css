@@ -22,3 +22,8 @@ body .portfolio-rail__section-title{font-size:10px;letter-spacing:.12em;font-wei
 
 /* Expanded navigation uses leading icons/identifiers only. */
 body .portfolio-rail__index{display:none!important}
+
+body .portfolio-rail--case .portfolio-rail__brand{flex:0 0 44px;width:44px;height:44px;justify-content:center}
+body .portfolio-rail__header{align-items:center}
+body .portfolio-rail--case .portfolio-rail__back{width:36px;height:36px;display:grid;place-items:center}
+body .portfolio-rail.is-collapsed .portfolio-rail__header{align-items:center}
