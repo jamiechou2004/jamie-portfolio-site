@@ -28,7 +28,7 @@
         <div class="contact-modal__links" aria-label="Contact actions">
           <a href="mailto:Jamiechou2004@outlook.com"><span>Email</span><em aria-hidden="true">&#8599;</em></a>
           <a href="https://www.linkedin.com/in/jamie-zihan-chou/" target="_blank" rel="noreferrer"><span>LinkedIn</span><em aria-hidden="true">&#8599;</em></a>
-          <a href="assets/Jamie_Zhou_Resume.pdf?v=20260914" download><span>Resume</span><em aria-hidden="true">&#8595;</em></a>
+          <a href="https://drive.google.com/file/d/1mmD8iWq6h50B5IozDPuJcVBEg_1GVpnI/view?usp=sharing" target="_blank" rel="noopener noreferrer"><span>Resume</span><em aria-hidden="true">&#8599;</em></a>
         </div>
       </section>`;
     body.append(modal);
@@ -140,7 +140,7 @@
     rail.innerHTML = `${railHeader}
       <div class="portfolio-rail__section portfolio-rail__section--primary">
         <nav class="portfolio-rail__nav" aria-label="Primary portfolio pages">${topLinks}
-          <a class="portfolio-rail__link" href="assets/Jamie_Zhou_Resume.pdf?v=20260914" download aria-label="Download Jamie Zhou resume" data-label="Resume">
+          <a class="portfolio-rail__link" href="https://drive.google.com/file/d/1mmD8iWq6h50B5IozDPuJcVBEg_1GVpnI/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View Jamie Zhou resume in Google Drive (opens in a new tab)" data-label="Resume">
             <span class="portfolio-rail__label">Resume</span><span class="portfolio-rail__index" aria-hidden="true">04</span>
           </a>
         </nav>
@@ -466,10 +466,11 @@
     panel.append(contactButton);
 
     const resume = document.createElement("a");
-    resume.href = "assets/Jamie_Zhou_Resume.pdf?v=20260914";
+    resume.href = "https://drive.google.com/file/d/1mmD8iWq6h50B5IozDPuJcVBEg_1GVpnI/view?usp=sharing";
     resume.textContent = "Resume";
-    resume.setAttribute("download", "");
-    resume.setAttribute("aria-label", "Download Jamie Zhou resume");
+    resume.target = "_blank";
+    resume.rel = "noopener noreferrer";
+    resume.setAttribute("aria-label", "View Jamie Zhou resume in Google Drive (opens in a new tab)");
     panel.append(resume);
 
     header.insertAdjacentElement("afterend", panel);
@@ -726,7 +727,7 @@ const shapes={
  'email':'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/>'
 };
 for(const a of document.querySelectorAll('.portfolio-rail__link')){
- const href=a.getAttribute('href')||'';let key=href.split('/').pop();if(href.includes('Resume'))key='resume';if(href.includes('linkedin'))key='linkedin';if(a.hasAttribute('data-contact-open'))key='email';
+ const href=a.getAttribute('href')||'';let key=href.split('/').pop();if(a.dataset.label==='Resume'||href.includes('Resume'))key='resume';if(href.includes('linkedin'))key='linkedin';if(a.hasAttribute('data-contact-open'))key='email';
  const icon=document.createElement('span');icon.className='np-icon';icon.setAttribute('aria-hidden','true');
  icon.innerHTML=shapes[key]?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${shapes[key]}</svg>`:({ 'axel.html':'01','chance.html':'02','deloitte.html':'03'}[key]||a.querySelector('.portfolio-rail__index')?.textContent.trim()||'•');a.prepend(icon);
  if(['axel.html','chance.html','deloitte.html'].includes(key)||href.startsWith('#')){a.classList.add('np-project');icon.classList.add('np-project-number');}
