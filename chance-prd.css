@@ -113,3 +113,7 @@
 /* Keep the selection count and confirmation control visible in the detail crop. */
 #boundaries figure:first-child .cp-image{height:370px}
 #boundaries figure:first-child .cp-image img{height:100%;object-fit:cover;object-position:bottom}
+
+/* Official wordmark: frame removes source-image whitespace without altering artwork. */
+.cp-top .cp-brand{position:relative;display:block;width:160px;height:38px;flex:0 0 160px;overflow:hidden;mix-blend-mode:multiply}
+.cp-top .cp-brand img{position:absolute;display:block;width:300px;max-width:none;height:auto;left:-70px;top:-32px}
