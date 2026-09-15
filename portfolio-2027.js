@@ -262,16 +262,16 @@
   const updateCursor = (event) => {
     const el = event.target;
     if (!cursorMedia.matches || motionMedia.matches || event.pointerType === 'touch' || !(el instanceof Element)) { hideCursor(); return; }
-    const target = el.closest("a,button,[role='button'],[data-cursor-label]");
+    const target = el.closest("a,button,[role='button'],[data-cursor-label],[data-work-in-progress]");
     const cover = target?.matches('.hp-cover,.project-index__row,[data-cursor-label]');
     const imageLink = target?.matches('.chance-page a[href$=".png"]');
     const sectionLink = target?.matches('.chance-page [data-cursor-action="explore"]');
-    const inProgress = target?.matches('.portfolio-rail__link[href="deloitte.html"]');
+    const inProgress = target?.matches('[data-work-in-progress]');
     const native = el.closest('dialog[open],input,textarea,select,[contenteditable],iframe,button:disabled,[aria-disabled="true"]') || (!target && el.closest('p,h1,h2,h3,h4,li,blockquote,figcaption')) || (!cover && el.closest('video'));
-    if (native) { hideCursor(); return; }
+    if (native && !inProgress) { hideCursor(); return; }
     portfolioCursorLabel.textContent = inProgress ? 'Still working on it' : sectionLink ? 'Explore ↓' : imageLink ? 'View image' : cover ? 'View work ↗' : '';
     portfolioCursor.dataset.hasLabel = String(Boolean(inProgress || sectionLink || imageLink || cover));
-    portfolioCursor.dataset.interactive = String(Boolean(target));
+    portfolioCursor.dataset.interactive = String(Boolean(target && !inProgress));
     portfolioCursor.style.width = inProgress ? "200px" : "";
     portfolioCursor.style.transform = `translate3d(${event.clientX}px,${event.clientY}px,0) translate(-50%,-50%)`;
     document.documentElement.classList.add('portfolio-cursor-active');
@@ -739,11 +739,11 @@ for(const link of document.querySelectorAll('a[href]')){
  if(new URL(link.href,location.href).pathname.endsWith('/deloitte.html')){
   const label=document.createElement('span');
   for(const attr of link.attributes)if(!['href','target','download','tabindex','role'].includes(attr.name))label.setAttribute(attr.name,attr.value);
-  label.innerHTML=link.innerHTML;label.setAttribute('aria-disabled','true');label.classList.add('portfolio-unavailable');label.title='Not available yet';link.replaceWith(label);
+  label.innerHTML=link.innerHTML;label.setAttribute('aria-disabled','true');label.classList.add('portfolio-unavailable');label.removeAttribute('title');label.dataset.workInProgress='';label.setAttribute('aria-label','Deloitte x SCADpro — Still working on it');link.replaceWith(label);
  }
 }
 const rail=document.querySelector('.portfolio-rail');
-rail.addEventListener('pointerover',event=>{const status=event.target.closest('a[href="deloitte.html"]');document.documentElement.classList.toggle('np-native',!status);if(!status)document.documentElement.classList.remove('portfolio-cursor-active')});
+rail.addEventListener('pointerover',event=>{const status=event.target.closest('[data-work-in-progress]');document.documentElement.classList.toggle('np-native',!status);if(!status)document.documentElement.classList.remove('portfolio-cursor-active')});
 rail.addEventListener('pointerleave',()=>document.documentElement.classList.remove('np-native'));
 });
 
