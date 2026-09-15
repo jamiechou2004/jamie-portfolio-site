@@ -208,7 +208,7 @@
 
   const audienceStatements = {
     anyone: "I’m Jamie, an AI-native product designer turning complex systems into clear, useful experiences.",
-    recruiters: "I design AI products, growth journeys, and research-led systems—and make the impact easy to scan.",
+    recruiters: "I design AI products, growth journeys, and research-led systems, and make the impact easy to scan.",
     leaders: "I turn research signals into product direction, interaction systems, and decisions teams can ship.",
     builders: "I work with product and engineering to turn messy AI workflows into focused, buildable experiences.",
   };
