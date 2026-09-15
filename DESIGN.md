@@ -1,142 +1,97 @@
----
-version: alpha
-name: Jamie Editorial Systems
-description: Motion-led editorial portfolio for an AI-native product designer.
-colors:
-  primary: "#15120F"
-  secondary: "#5D574F"
-  tertiary: "#F05A28"
-  neutral: "#FFF8EC"
-  surface: "#FFFDF8"
-  line: "rgba(21, 18, 15, 0.12)"
-  accent-blue: "#315CFF"
-  accent-mint: "#00A884"
-  on-primary: "#FFFFFF"
-  on-tertiary: "#FFFFFF"
-typography:
-  display:
-    fontFamily: Notion Sans, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif
-    fontSize: clamp(66px, 8vw, 128px)
-    fontWeight: 650
-    lineHeight: 0.94
-    letterSpacing: 0
-  section-title:
-    fontFamily: Notion Sans, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif
-    fontSize: clamp(52px, 6vw, 94px)
-    fontWeight: 650
-    lineHeight: 0.95
-    letterSpacing: 0
-  body:
-    fontFamily: Notion Sans, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif
-    fontSize: 17px
-    fontWeight: 400
-    lineHeight: 1.55
-    letterSpacing: 0
-  label:
-    fontFamily: Notion Sans, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif
-    fontSize: 11px
-    fontWeight: 750
-    lineHeight: 1.3
-    letterSpacing: 0
-rounded:
-  sm: 11px
-  md: 16px
-  lg: 26px
-  pill: 999px
-spacing:
-  xs: 6px
-  sm: 10px
-  md: 16px
-  lg: 24px
-  xl: 34px
-  xxl: 56px
-components:
-  nav-shell:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.primary}"
-    rounded: 18px
-    padding: 5px
-  nav-item-active:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    rounded: 13px
-    padding: 10px 14px
-  project-panel:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.primary}"
-    rounded: "{rounded.lg}"
-    padding: 24px
-  action-primary:
-    backgroundColor: "{colors.tertiary}"
-    textColor: "{colors.on-tertiary}"
-    rounded: "{rounded.md}"
-    padding: 14px 18px
----
+# Jamie Zhou Portfolio Design System
 
-## Overview
+Version: 2027.1
 
-Jamie Editorial Systems should feel like an intelligent product-design magazine rather than a generic portfolio template. The site needs to communicate commercial product judgement first, then motion taste, research logic, and creative systems thinking.
+## Direction
 
-The visual language is editorial, warm, precise, and interactive. Motion should support orientation and state changes, not become visual noise.
+The portfolio positions Jamie as an AI-native product designer with strength in
+research, growth, systems thinking, and interaction craft. The visual system uses
+white hierarchy, precise typography, quiet glass depth, and motion that explains
+state rather than decorating the page.
 
-## Colors
+Reference principles carried into the system:
 
-The palette uses high-contrast ink, warm paper neutrals, and three controlled accents.
+- Let work and evidence carry more weight than interface chrome.
+- Use editorial spacing and alignment instead of wrapping every section in a card.
+- Keep project roles, methods, and outcomes easy to compare.
+- Add personality through motion studies and one-off details, not a loud palette.
 
-- **Primary (#15120F):** Deep ink for active navigation, major headings, and strong interface states.
-- **Secondary (#5D574F):** Warm gray for supporting copy, metadata, and quiet UI labels.
-- **Tertiary (#F05A28):** Primary interaction accent for progress, labels, and active details.
-- **Neutral (#FFF8EC):** Warm paper base that prevents the page from feeling like a blank white document.
-- **Accent Blue (#315CFF):** AI/product signal used in system lines and progress gradients.
-- **Accent Mint (#00A884):** Research/system signal used as a secondary gradient endpoint.
+## Color Tokens
 
-Do not let the palette become a single beige theme. Ink contrast and controlled blue/mint/coral accents should stay visible.
+- `#FFFFFF` clean white surface
+- `#F7F8FA` soft white page field
+- `#FAF9F7` warm white footer field
+- `#F3F6F8` cool white media field
+- `#121418` near-black primary text
+- `#31363E` graphite body text
+- `#707782` muted secondary text
+- `#5D718C` restrained blue-gray accent
+- `#667C6F` secondary signal accent
+- `rgba(23, 29, 38, 0.11)` default border
 
 ## Typography
 
-Typography is sans-serif, dense, and editorial. Large display type is reserved for hero and section-level statements. Cards, buttons, prompts, and chat UI use smaller text with stable line-height.
+The site uses the native system sans stack for speed and consistency with Apple-like
+product surfaces. Metadata uses the native monospace stack.
 
-All letter spacing should remain zero. Do not use viewport-width scaling for body text.
+- Home identity: 72px desktop, 58px tablet, 42px mobile
+- Case identity: 62px desktop, 52px tablet, 42px mobile
+- Section title: 48px desktop, 38px tablet, 32px mobile
+- Body: 16-21px depending on narrative importance
+- Metadata: 9-11px monospace
+
+Letter spacing stays at zero. Type changes only at explicit breakpoints.
 
 ## Layout
 
-The site uses four independent views: Work, Lab, Method, and Contact. Work is the default recruiter path. Lab, Method, and Contact should each feel like a focused screen, not sections in one long generic page.
+- Main portfolio width: 1280px maximum
+- Case-study width: 1180px maximum
+- Desktop page inset: 32px
+- Mobile page inset: 14px
+- Standard section spacing: 82-116px
+- Surface radius: 6-8px
+- Pills are reserved for navigation and tags
 
-The layout should use grid, strong section boundaries, and stable responsive widths. Important controls must not be covered by the Pumpy assistant.
+Sections remain unframed. Cards are used only for projects, snapshots, repeated
+findings, and modal surfaces.
 
-## Elevation & Depth
+## White Hierarchy
 
-Depth is subtle and functional. Panels can use soft shadows and translucent paper/glass surfaces when they establish hierarchy. Avoid stacked cards inside cards.
+1. Soft white establishes the page field.
+2. Clean white separates project and content surfaces.
+3. Cool white holds product media and system diagrams.
+4. Translucent white creates navigation, modal, and sticky section depth.
+5. Warm white closes the experience in the footer.
 
-## Shapes
+## Motion
 
-Use restrained radii:
+- Micro-interactions: 180-260ms
+- Page transition: 220-420ms
+- Section reveal: 520ms
+- Media movement: up to 600ms
+- Easing: `cubic-bezier(0.22, 1, 0.36, 1)` for soft deceleration
+- Properties: transform and opacity only for primary motion
 
-- Small controls: 11px.
-- Standard surfaces: 16px.
-- Feature panels: 26px.
-- Pills only for tags or segmented navigation.
+The experience respects `prefers-reduced-motion`. Mobile interactions never depend
+on hover.
 
-## Components
+## Core Components
 
-Navigation is a segmented control. The active view is high-contrast ink; inactive views are quiet and warm.
+- Fixed glass navigation with a segmented active state
+- Canonical mobile menu with 44px minimum targets
+- Identity-first home hero with an Axel artifact preview
+- Editorial project index with one primary and two supporting cases
+- Sticky case-study chapter navigation
+- Reusable Problem / Insight / Decision / Outcome cards
+- NDA-safe process flows for Chance AI and Deloitte x SCADpro
+- Focus-managed contact dialog
+- Motion playground cards with CSS and existing pixel-art assets
 
-Project browsing is an editorial index with active preview. The selected project should be obvious through text weight, progress color, and active dot.
+## Guardrails
 
-The Pumpy agent uses pixel-art affordance and pumpkin colors. Its panel should feel compatible with the pumpkin but should not distract from portfolio content.
-
-## Do's and Don'ts
-
-Do:
-
-- Preserve clear role, value, and project hierarchy for recruiters.
-- Use motion to explain state and system thinking.
-- Keep contrast high enough for small labels and controls.
-- Make every view feel intentionally composed.
-
-Don't:
-
-- Add decorative blobs, generic gradients, or stock-like visuals.
-- Make the website feel like a landing page.
-- Let motion or the assistant cover project controls.
-- Introduce more colors without assigning a role.
+- No cursor glow or decorative tracking effects
+- No global assistant competing with portfolio content
+- No saturated blue, orange, purple, or gradient blobs
+- No nested cards or dashboard-style page composition
+- No motion that delays reading or navigation
+- No private screens or metrics on NDA-safe case pages
