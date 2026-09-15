@@ -28,7 +28,7 @@
         <div class="contact-modal__links" aria-label="Contact actions">
           <a href="mailto:Jamiechou2004@outlook.com"><span>Email</span><em aria-hidden="true">&#8599;</em></a>
           <a href="https://www.linkedin.com/in/jamie-zihan-chou/" target="_blank" rel="noreferrer"><span>LinkedIn</span><em aria-hidden="true">&#8599;</em></a>
-          <a href="assets/Jamie_Zhou_Resume.docx" download><span>Resume</span><em aria-hidden="true">&#8595;</em></a>
+          <a href="assets/Jamie_Zhou_Resume.pdf?v=20260914" download><span>Resume</span><em aria-hidden="true">&#8595;</em></a>
         </div>
       </section>`;
     body.append(modal);
@@ -140,7 +140,7 @@
     rail.innerHTML = `${railHeader}
       <div class="portfolio-rail__section portfolio-rail__section--primary">
         <nav class="portfolio-rail__nav" aria-label="Primary portfolio pages">${topLinks}
-          <a class="portfolio-rail__link" href="assets/Jamie_Zhou_Resume.docx" download aria-label="Download Jamie Zhou resume" data-label="Resume">
+          <a class="portfolio-rail__link" href="assets/Jamie_Zhou_Resume.pdf?v=20260914" download aria-label="Download Jamie Zhou resume" data-label="Resume">
             <span class="portfolio-rail__label">Resume</span><span class="portfolio-rail__index" aria-hidden="true">04</span>
           </a>
         </nav>
@@ -466,7 +466,7 @@
     panel.append(contactButton);
 
     const resume = document.createElement("a");
-    resume.href = "assets/Jamie_Zhou_Resume.docx";
+    resume.href = "assets/Jamie_Zhou_Resume.pdf?v=20260914";
     resume.textContent = "Resume";
     resume.setAttribute("download", "");
     resume.setAttribute("aria-label", "Download Jamie Zhou resume");
