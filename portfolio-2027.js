@@ -236,7 +236,7 @@
     window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
-  if (audienceButtons.length && audienceCopy) {
+  if (audienceButtons.length && audienceCopy && !body.hasAttribute("data-home-motion")) {
     const requestedAudience = new URL(window.location.href).searchParams.get("audience");
     setAudience(audienceStatements[requestedAudience] ? requestedAudience : "anyone", { updateUrl: false });
     audienceButtons.forEach((button) => button.addEventListener("click", () => setAudience(button.dataset.audience)));
