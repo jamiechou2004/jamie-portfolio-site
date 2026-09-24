@@ -12,3 +12,7 @@
 .portfolio-cursor[data-portrait=true]::before{content:'☞';font:28px/1 Georgia,serif;display:block;animation:ab-hand-tap 1.2s ease-in-out 3;transform:rotate(-30deg)}
 @keyframes ab-hand-tap{0%,55%,100%{transform:rotate(-30deg) translate(0,0)}25%{transform:rotate(-20deg) translate(3px,-2px)}35%{transform:rotate(-30deg) translate(0,0)}}
 @media(prefers-reduced-motion:reduce){.portfolio-cursor[data-portrait=true]::before{animation:none}}
+
+.about-editorial .ab-portrait-hint{bottom:18px;left:22px;padding:0;background:none;border-radius:0;box-shadow:none;color:rgba(255,255,255,.72);font-size:12px;font-weight:400;letter-spacing:.02em;line-height:1.4;opacity:0;visibility:hidden;transition:opacity .2s ease;pointer-events:none}
+.about-editorial .ab-portrait-button[aria-pressed=true] .ab-portrait-hint{opacity:1;visibility:visible}
+@media(prefers-reduced-motion:reduce){.about-editorial .ab-portrait-hint{transition:none}}
