@@ -1,481 +1,78 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Axel is a restaurant operation SaaS case study by Jamie Zhou, focused on research-backed dashboards, unified orders, and action-centered restaurant decision support."
-    />
-    <title>Axel Case Study | Jamie Zhou</title>
-  <link rel="stylesheet" href="styles.css?v=structure-learn1" />
-  </head>
-  <body>
-    <div class="scroll-progress" aria-hidden="true"></div>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Axel — Jamie Zhou</title><meta name="description" content="Research-led design for restaurant operations: Today’s Summary, guided setup and manager-controlled actions."><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/portfolio-2027.css?v=0cb35b0c72"><link rel="stylesheet" href="/portfolio-tokens.css?v=606ed47e3b"><link rel="stylesheet" href="/chance-reflection.css"><link rel="stylesheet" href="/axel-editorial.css?v=20260913-clarify"><style>.delivery-summary{margin:30px 0 36px;padding:24px 0;border-top:1px solid #d7dcda;border-bottom:1px solid #d7dcda}.delivery-summary>p{font-size:11px;letter-spacing:.14em;color:#506875;margin:0 0 18px}.delivery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.delivery-grid h3{font-size:17px;line-height:1.35;margin:0 0 8px;color:#202526}.delivery-grid p{font-size:14px;line-height:1.65;color:#617079;margin:0;max-width:38ch}@media(max-width:650px){.delivery-grid{grid-template-columns:1fr;gap:20px}.delivery-summary{margin:24px 0}.delivery-grid p{max-width:none}}</style><style>
+.delivery-feature{position:relative;display:grid;grid-template-columns:minmax(185px,.85fr) 3fr;gap:40px;margin:36px 0 44px;padding:34px;border:1px solid #dce3e5;border-radius:24px;background:linear-gradient(120deg,#e7eef1,#edf1f0 55%,#e6ecef);overflow:hidden}.delivery-intro>p{margin:0 0 22px;font-size:10px;font-weight:600;letter-spacing:.17em;color:#486275}.delivery-intro h2{font-size:clamp(22px,2.1vw,31px);line-height:1.15;letter-spacing:-.045em;margin:0 0 17px;font-weight:650;color:#20282b}.delivery-intro>span{display:block;font-size:12px;line-height:1.6;color:#617079;max-width:24ch}.delivery-feature .delivery-grid{gap:26px;align-items:start}.delivery-label{display:flex;gap:10px;align-items:baseline;margin:18px 0 9px}.delivery-label>span{font-size:10px;font-weight:600;color:#6f8797;font-variant-numeric:tabular-nums}.delivery-feature .delivery-grid h3{font-size:16px;line-height:1.3;letter-spacing:-.025em;margin:0}.delivery-feature .delivery-grid p{font-size:14px;line-height:1.7;color:#586970}.delivery-visual{height:126px;position:relative;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(255,255,255,.4);overflow:hidden}.dv-sheet{width:96px;height:100px;background:#fcfdfc;border:1px solid #d9e1e4;border-radius:9px;box-shadow:0 7px 16px #3549590c;transform:rotate(-5deg);padding:14px}.dv-sheet i,.dv-sheet b,.dv-sheet span,.dv-sheet em{display:block;border-radius:2px;background:#dbe3e6;height:4px;margin-bottom:8px}.dv-sheet i{width:27px;background:#849cab;height:3px}.dv-sheet b{width:58px;background:#506c80;height:9px}.dv-sheet span{width:60px}.dv-sheet span+span{width:40px}.dv-sheet em{height:12px;background:#dce7ed;width:44px;margin-top:10px}.dv-priority{position:absolute;right:9%;bottom:17px;background:#45667c;border:1px solid #fff9;color:white;padding:7px 10px;border-radius:7px;font-size:9px;letter-spacing:.01em;box-shadow:0 5px 12px #38546915}.dv-answer{position:absolute;top:23px;left:18%;width:96px;height:42px;padding:13px;background:#fdfefd;border:1px solid #d9e1e4;border-radius:9px}.dv-answer i{display:block;height:4px;width:65px;background:#c6d4dc;border-radius:3px;margin-bottom:7px}.dv-answer i+i{width:42px}.dv-question{position:absolute;right:9%;bottom:20px;z-index:1;display:flex;align-items:center;gap:14px;background:#dce8ef;border:1px solid #c7d6df;color:#3c5b70;border-radius:9px;padding:11px;font-size:10px}.dv-question span{display:grid;place-items:center;width:17px;height:17px;background:#4a6c83;color:white;border-radius:50%;font-size:13px}.dv-thread{position:absolute;top:63px;left:27%;height:30px;width:30px;border-left:1px solid #8ca4b2;border-bottom:1px solid #8ca4b2;border-radius:0 0 0 10px}.dv-states{flex-direction:column;gap:7px}.dv-state{display:flex;align-items:center;gap:12px;padding:7px 11px;background:#fdfefd;border:1px solid #d9e1e4;border-radius:7px;width:116px}.dv-state:nth-child(2){transform:translateX(12px);background:#e3ebf0}.dv-state span{font-size:12px;color:#4a6c83;width:14px;text-align:center;line-height:1}.dv-state i{width:55px;height:4px;background:#bdcdd7;border-radius:3px}@media(max-width:1100px){.delivery-feature{grid-template-columns:1fr;gap:24px}.delivery-intro h2{font-size:27px}.delivery-intro h2 br{display:none}.delivery-intro h2 br:after{content:' '}.delivery-intro>span{max-width:none}.delivery-intro>p{margin-bottom:12px}}@media(max-width:650px){.delivery-feature{padding:24px 20px;border-radius:19px;gap:25px}.delivery-intro h2{font-size:26px;max-width:20ch}.delivery-feature .delivery-grid{grid-template-columns:1fr;gap:27px}.delivery-feature article{display:grid;grid-template-columns:92px 1fr;column-gap:16px}.delivery-visual{grid-row:1 / 3;height:105px}.delivery-label{margin:0 0 8px;gap:7px}.delivery-feature .delivery-grid h3{font-size:16px}.delivery-feature .delivery-grid p{font-size:13px}.dv-sheet{transform:rotate(-5deg) scale(.75)}.dv-priority{font-size:7px;padding:5px;right:2px;bottom:12px}.dv-answer{left:6%;width:70px;padding:10px;top:14px}.dv-answer i{width:48px}.dv-question{font-size:7px;gap:4px;right:3%;padding:7px;bottom:17px}.dv-thread{left:18%;top:55px}.dv-state{width:72px;padding:7px;gap:7px}.dv-state i{width:29px}.dv-state:nth-child(2){transform:translateX(4px)}}
 
-    <header class="site-header">
-      <a class="brand" href="index.html#top" aria-label="Jamie Zhou home">
-        <span class="brand-mark">JZ</span>
-        <span>Jamie Zhou</span>
-      </a>
-      <nav class="site-nav" aria-label="Case navigation">
-        <a href="index.html#work">Work</a>
-        <a href="#research">Research</a>
-        <a href="#solution">Solution</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
-    </header>
-
-    <main class="case-page">
-      <section class="case-hero reveal" aria-labelledby="case-title">
-        <div>
-          <p class="eyebrow">SaaS / Management / Restaurant operations</p>
-          <h1 id="case-title">
-            <span class="hero-title-line hero-title-line-light">Axel</span>
-            <span class="hero-title-line">Stay centered. Move faster.</span>
-          </h1>
-          <p class="case-lede">
-            Streamlining restaurant operations through a unified, real-time dashboard for orders,
-            kitchen workflows, and delivery logistics.
-          </p>
-        </div>
-        <aside class="case-brief" aria-label="Project brief">
-          <dl>
-            <div>
-              <dt>Role</dt>
-              <dd>UX Designer / Researcher, Business Strategist</dd>
-            </div>
-            <div>
-              <dt>Duration</dt>
-              <dd>10 weeks, Sep - Nov 2025</dd>
-            </div>
-            <div>
-              <dt>Type</dt>
-              <dd>Restaurant Operation System, SaaS</dd>
-            </div>
-            <div>
-              <dt>Core output</dt>
-              <dd>Today's Summary, Unified Order View, Define Actions</dd>
-            </div>
-          </dl>
-          <figure class="case-figma-cover">
-            <img
-              src="assets/figma-axel-cover.png"
-              alt="Axel Figma case cover showing a restaurant operations dashboard on a laptop"
-            />
-            <figcaption>Figma case board cover: SaaS management dashboard direction.</figcaption>
-          </figure>
-        </aside>
-      </section>
-
-      <section class="case-detail-strip reveal" aria-label="Axel project details">
-        <article>
-          <span>Project Detail</span>
-          <p>Restaurant operation SaaS case study</p>
-        </article>
-        <article>
-          <span>Role</span>
-          <p>UX Designer / Researcher, Business Strategist</p>
-        </article>
-        <article>
-          <span>Timeline</span>
-          <p>10 weeks, Sep - Nov 2025</p>
-        </article>
-        <article>
-          <span>Core Output</span>
-          <p>Today's Summary, Unified Order View, Define Actions</p>
-        </article>
-      </section>
-
-      <nav class="case-chapter-nav reveal" aria-label="Axel case study sections">
-        <a href="#overview">
-          <span>01</span>
-          Overview
-        </a>
-        <a href="#research">
-          <span>02</span>
-          Research
-        </a>
-        <a href="#architecture">
-          <span>03</span>
-          Architecture
-        </a>
-        <a href="#solution">
-          <span>04</span>
-          Solution
-        </a>
-        <a href="#validation">
-          <span>05</span>
-          Validation
-        </a>
-      </nav>
-
-      <section id="overview" class="case-section reveal" aria-labelledby="overview-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Project overview</p>
-          <h2 id="overview-title">From restaurant data to daily decisions.</h2>
-        </div>
-        <div class="case-copy">
-          <p>
-            Independent restaurant owners operate inside a dense mix of POS systems, delivery
-            tablets, kitchen displays, phone orders, staff handoffs, and inventory pressures. Axel
-            reframes that operational complexity into a daily action center that reduces cognitive
-            load and restores control during high-pressure service windows.
-          </p>
-          <p>
-            I led Axel's end-to-end product vision, from uncovering operational pain points in
-            independent restaurants to crafting an AI-driven system that turns complex data into
-            clear daily actions. I conducted field research, mapped workflows, defined the core
-            information architecture, and designed the full dashboard experience, including Today's
-            Summary, Insights, and Define Actions.
-          </p>
-        </div>
-      </section>
-
-      <section class="case-section case-board-section reveal" aria-labelledby="case-board-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Figma case board</p>
-          <h2 id="case-board-title">The case narrative is built from the original design board.</h2>
-        </div>
-        <div class="case-board-layout">
-          <figure class="case-board-image">
-            <img
-              src="assets/figma-axel-case-overview.png"
-              alt="Long Figma case study board for Axel showing cover, persona, and journey map sections"
-            />
-          </figure>
-          <div class="case-board-notes">
-            <article>
-              <span>Product thesis</span>
-              <p>
-                Axel turns scattered restaurant operations into a single decision layer for
-                managers who need urgency without noise.
-              </p>
-            </article>
-            <article>
-              <span>UX proof</span>
-              <p>
-                The board connects persona, journey map, research findings, dashboard IA, and
-                iteration requests into one public case story.
-              </p>
-            </article>
-            <article>
-              <span>Commercial value</span>
-              <p>
-                The strongest hiring signal is not the UI alone, but how research became a
-                daily action center with business positioning.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="research" class="case-section reveal" aria-labelledby="research-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Research and discovery</p>
-          <h2 id="research-title">27 restaurants, one fragmented workflow.</h2>
-        </div>
-        <div class="case-stat-grid" aria-label="Research sample">
-          <article>
-            <strong>27</strong>
-            <span>restaurants studied</span>
-          </article>
-          <article>
-            <strong>16</strong>
-            <span>Savannah participants</span>
-          </article>
-          <article>
-            <strong>11</strong>
-            <span>Seattle / Anchorage participants</span>
-          </article>
-          <article>
-            <strong>Owners, staff, managers</strong>
-            <span>primary research group</span>
-          </article>
-        </div>
-        <div class="case-grid">
-          <article class="case-card">
-            <span>Finding 01</span>
-            <h3>Order management issues</h3>
-            <p>
-              Staff struggled to track manual orders, digital inputs, kitchen updates, and delivery
-              handoffs in one mental model, which increased labeling and bagging mistakes.
-            </p>
-          </article>
-          <article class="case-card">
-            <span>Finding 02</span>
-            <h3>Outdated POS systems</h3>
-            <p>
-              Many teams still relied on legacy hardware that did not connect cleanly with modern
-              inventory tracking, reporting, and third-party delivery tools.
-            </p>
-          </article>
-          <article class="case-card">
-            <span>Finding 03</span>
-            <h3>Fragmented workflows</h3>
-            <p>
-              UberEats, DoorDash, phone orders, walk-ins, POS tickets, and kitchen displays often
-              lived in separate flows instead of one operational view.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="case-section reveal" aria-labelledby="journey-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Persona and journey</p>
-          <h2 id="journey-title">The manager needs urgency without noise.</h2>
-        </div>
-        <div class="case-two-column">
-          <article class="case-card">
-            <span>Persona</span>
-            <h3>Restaurant Manager, 34</h3>
-            <ul class="case-list">
-              <li>Monitor three locations simultaneously.</li>
-              <li>Reduce order errors during peak hours.</li>
-              <li>Train new staff quickly without adding more tabs.</li>
-              <li>See urgent issues at a glance.</li>
-            </ul>
-          </article>
-          <article class="case-card">
-            <span>Opportunity</span>
-            <h3>Turn scattered work into one decision layer</h3>
-            <p>
-              The journey exposed four high-friction moments: incoming orders, order confirmation,
-              preparation, and delivery handoff. Each stage needed better visibility, clearer
-              permissions, and faster issue resolution.
-            </p>
-          </article>
-        </div>
-        <div class="case-flow" aria-label="Restaurant order journey">
-          <div>
-            <span>01</span>
-            <strong>Incoming orders</strong>
-            <p>POS, tablets, delivery apps, and phone calls arrive in separate channels.</p>
-          </div>
-          <div>
-            <span>02</span>
-            <strong>Confirming order</strong>
-            <p>Staff verify items, allergy notes, and order details under time pressure.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <strong>Preparing order</strong>
-            <p>Kitchen display, POS tickets, queue status, and verbal updates compete for attention.</p>
-          </div>
-          <div>
-            <span>04</span>
-            <strong>Delivery handoff</strong>
-            <p>Packaging, labeling, pickup timing, and driver handoff create error risk.</p>
-          </div>
-        </div>
-        <figure class="case-evidence-figure">
-          <img
-            src="assets/figma-axel-persona-journey.png"
-            alt="Axel persona and journey map from Figma showing manager goals, pain points, and order workflow stages"
-          />
-          <figcaption>
-            Original persona and journey map from the Axel Figma board, condensed here as research evidence.
-          </figcaption>
-        </figure>
-      </section>
-
-      <section class="case-section case-hmw-section reveal" aria-labelledby="hmw-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">How Might We</p>
-          <h2 id="hmw-title">Reframing messy restaurant operations into design opportunities.</h2>
-        </div>
-        <div class="case-hmw-grid" aria-label="Axel design opportunities">
-          <article>
-            <span>HMW 01</span>
-            <h3>Unify scattered order channels without slowing staff down?</h3>
-            <p>
-              Phone orders, delivery apps, POS tickets, and kitchen display states needed one
-              operational layer that stayed readable during rush hours.
-            </p>
-          </article>
-          <article>
-            <span>HMW 02</span>
-            <h3>Help managers notice urgent issues before service breaks?</h3>
-            <p>
-              The interface needed to separate true operational risk from background data,
-              so managers could act without scanning every system.
-            </p>
-          </article>
-          <article>
-            <span>HMW 03</span>
-            <h3>Turn insight into follow-up action instead of passive analytics?</h3>
-            <p>
-              Axel became stronger when dashboard signals led to Define Actions, staff tasks,
-              reminders, and issue recovery paths.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section
-        id="architecture"
-        class="case-section case-architecture-section reveal"
-        aria-labelledby="architecture-title"
-      >
-        <div class="case-section-heading">
-          <p class="eyebrow">Ideation and architecture</p>
-          <h2 id="architecture-title">Research became a platform hierarchy.</h2>
-        </div>
-        <div class="case-architecture-body">
-          <div class="case-copy">
-            <p>
-              Translating the research into a coherent product required a multi-stage ideation
-              process. I moved from sketches and workflow relationships into formal information
-              architecture, defining how kitchen staff, front-of-house, managers, and delivery
-              handoff moments should connect inside one system.
-            </p>
-          </div>
-          <div class="case-system-grid" aria-label="Axel platform architecture priorities">
-            <article>
-              <span>Orders management</span>
-              <strong>Unified Order View</strong>
-              <p>Merged feeds for POS, phone, walk-in, UberEats, DoorDash, and kitchen display states.</p>
-            </article>
-            <article>
-              <span>Manual entry</span>
-              <strong>Phone / walk-in flow</strong>
-              <p>Manual inputs were treated as first-class operational data, not side notes.</p>
-            </article>
-            <article>
-              <span>Issue resolution</span>
-              <strong>Missing items</strong>
-              <p>Exception states became visible before they created delivery or service failures.</p>
-            </article>
-            <article>
-              <span>Staff management</span>
-              <strong>Roles & permissions</strong>
-              <p>Manager and staff access patterns were separated to reduce accidental edits.</p>
-            </article>
-            <article>
-              <span>Shift scheduling</span>
-              <strong>Task assignment</strong>
-              <p>Operational insight could become follow-up work instead of staying as passive data.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="solution" class="case-section reveal" aria-labelledby="solution-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Solution</p>
-          <h2 id="solution-title">Today's Summary becomes the action center.</h2>
-        </div>
-        <div class="case-solution-body">
-          <div class="case-solution-lead">
-            <article>
-              <span>From Data to Decision</span>
-              <h3>Testing transformed a dashboard into a high-stakes Action Center.</h3>
-              <p>
-                The product direction moved away from passive analytics and toward urgent,
-                manager-facing decisions for 27 independent restaurants.
-              </p>
-            </article>
-            <article>
-              <span>The Solution: Today's Summary</span>
-              <h3>Three core modules reduce cognitive load during service windows.</h3>
-              <p>
-                The final UI focuses on clarity and speed: high-contrast data, clear issue states,
-                and action paths that help managers digest the day in seconds.
-              </p>
-            </article>
-          </div>
-        </div>
-        <div class="case-grid case-grid-wide">
-          <article class="case-card">
-            <span>Module 01</span>
-            <h3>Today's Summary</h3>
-            <p>Condenses performance, urgent alerts, operational status, and next actions into a daily dashboard.</p>
-          </article>
-          <article class="case-card">
-            <span>Module 02</span>
-            <h3>Unified Order View</h3>
-            <p>Merges manual, phone, walk-in, POS, UberEats, and DoorDash flows into one readable order layer.</p>
-          </article>
-          <article class="case-card">
-            <span>Module 03</span>
-            <h3>Issue Resolution</h3>
-            <p>Surfaces missing items, delayed orders, allergy notes, and restricted edits before they become service failures.</p>
-          </article>
-          <article class="case-card">
-            <span>Module 04</span>
-            <h3>Staff Management</h3>
-            <p>Supports roles, permissions, shift scheduling, task assignment, and manager-vs-staff access clarity.</p>
-          </article>
-          <article class="case-card">
-            <span>Module 05</span>
-            <h3>Define Actions</h3>
-            <p>Lets teams turn insights into their own operating rules, reminders, and follow-up actions.</p>
-          </article>
-          <article class="case-card">
-            <span>Module 06</span>
-            <h3>AI decision support</h3>
-            <p>Positions Axel as an AI-powered system that translates operational data into understandable daily actions.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="validation" class="case-section reveal" aria-labelledby="validation-title">
-        <div class="case-section-heading">
-          <p class="eyebrow">Validation and iteration</p>
-          <h2 id="validation-title">Testing pushed the dashboard from analytics to action.</h2>
-        </div>
-        <div class="case-two-column">
-          <article class="case-card">
-            <span>User feedback</span>
-            <h3>Requests from testing</h3>
-            <ul class="case-list">
-              <li>Define actions directly on each page.</li>
-              <li>Send instant messages to customers when an issue appears.</li>
-              <li>Understand customer habits and repeat order patterns.</li>
-              <li>Trigger automatic supplier reminders when inventory is low.</li>
-            </ul>
-          </article>
-          <article class="case-card">
-            <span>Result</span>
-            <h3>From dashboard to operating system</h3>
-            <p>
-              The iteration moved Axel beyond passive reporting. The product became a high-stakes
-              action center for restaurant managers who need fewer tabs, clearer priorities, and
-              faster recovery from service issues.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="case-prototype-cta reveal" aria-labelledby="prototype-title">
-        <p class="eyebrow">Source board</p>
-        <h2 id="prototype-title">Want to inspect the working board?</h2>
-        <p>
-          The public portfolio page now uses selected material from the original Axel Figma board,
-          while the new case page keeps the story tighter for recruiters and product teams.
-        </p>
-        <a
-          class="case-return"
-          href="https://www.figma.com/design/IW9qhWr15r1NTaLMgMdJpO/Figma-to-Webflow-framer---HTML--CSS-and-Website---Community-?node-id=0-1&t=huAm1eybr4z9Skhs-1"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open Figma board
-          <span aria-hidden="true">&#8599;</span>
-        </a>
-      </section>
-
-      <section class="case-footer reveal">
-        <p class="eyebrow">Next</p>
-        <h2>Back to selected work.</h2>
-        <a class="case-return" href="index.html#work">
-          Return to portfolio
-          <span aria-hidden="true">&#8599;</span>
-        </a>
-      </section>
-    </main>
-
-  <script src="script.js?v=structure-learn1"></script>
-  </body>
-</html>
+.ax-delivery{background:linear-gradient(120deg,#e7ecf2,#edf0f3 60%,#e6ecf4);border-color:#dbe1e9}.ax-delivery .delivery-intro h2{color:#263c59}.ax-delivery .delivery-intro>p,.ax-delivery .delivery-label>span{color:#3c5e88}.av-research{flex-direction:column;padding:16px}.av-notes{display:flex;gap:6px;width:100%;justify-content:center}.av-notes i{font-style:normal;font-size:9px;background:#fff;padding:9px 10px;border-radius:5px;border:1px solid #d6dfe8;box-shadow:0 3px 5px #263c5905}.av-notes i:first-child{transform:rotate(-7deg)}.av-notes i:last-child{transform:rotate(6deg)}.av-bracket{height:17px;width:65%;border:1px solid #8ba1bc;border-top:0;border-radius:0 0 5px 5px;position:relative;margin-bottom:11px}.av-bracket:after{content:'';height:11px;position:absolute;top:16px;left:50%;border-left:1px solid #8ba1bc}.av-research>b{font-size:9px;font-weight:500;background:#3f5e83;color:#fff;border-radius:5px;padding:8px 13px}.av-window{width:136px;height:91px;background:#fff;border:1px solid #cbd6e1;border-radius:7px;box-shadow:0 7px 14px #243b5910;transform:rotate(-3deg)}.av-chrome{height:15px;border-bottom:1px solid #e2e7ed;display:flex;gap:3px;align-items:center;padding-left:7px}.av-chrome i{width:3px;height:3px;background:#a4b3c5;border-radius:50%}.av-layout{display:flex;height:73px;padding:7px;gap:8px}.av-layout>span{width:19px;background:#e8edf4;border-radius:2px}.av-layout>div{display:grid;flex:1;grid-template-columns:repeat(3,1fr);gap:4px}.av-layout b{grid-column:1/-1;background:#9fb4d0;border-radius:3px;height:23px}.av-layout i{height:24px;background:#e0e8f3;border-radius:3px}.av-config{position:absolute;bottom:12px;right:8%;font-size:8px;padding:6px 8px;border-radius:5px;color:#fff;background:#3f5e83}.av-recovery{flex-direction:column;padding:14px}.av-track{display:flex;align-items:center;width:95%;justify-content:center}.av-track span{font-size:8px;padding:10px 7px;border-radius:5px;background:#fff;border:1px solid #cfdbe5;white-space:nowrap}.av-track span:last-child{border-color:#be9f71;background:#f4ede2;color:#82623c}.av-track b{height:1px;width:17px;background:#a9b7c7}.av-return{width:90%;position:relative;display:flex;align-items:center;justify-content:flex-end;padding-top:21px}.av-return strong{font-size:8px;font-weight:500;color:#3f5e83}.av-return>span{font-size:19px;margin-left:8px;color:#3f5e83}.av-return i{position:absolute;height:14px;width:41%;border-right:1px solid #8ba1bc;border-bottom:1px solid #8ba1bc;right:15px;top:0;border-radius:0 0 5px 0}
+@media(max-width:650px){.av-research{padding:6px}.av-notes{gap:2px}.av-notes i{font-size:6px;padding:7px 4px}.av-research>b{font-size:6px;padding:7px 4px}.av-window{transform:rotate(-3deg) scale(.65);flex-shrink:0}.av-config{font-size:6px;padding:4px;right:3px;bottom:14px}.av-recovery{padding:4px}.av-track span{font-size:6px;padding:7px 3px}.av-track b{width:5px}.av-return{width:100%;padding-top:19px}.av-return strong{font-size:6px}.av-return>span{font-size:15px;margin-left:3px}}
+</style><style>.ax-delivery{grid-column:1 / -1;width:100%;box-sizing:border-box}</style><style>.delivery-feature .generated-visual{height:156px;padding:0;background:transparent;border-radius:14px}.delivery-feature .generated-visual img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:normal}@media(max-width:650px){.delivery-feature .generated-visual{height:105px;width:92px}.delivery-feature .generated-visual img{object-fit:contain}}</style></head><body class="case-study-page axel-case" data-custom-case-hero><div class="scroll-progress" aria-hidden="true"></div><header class="site-header"><a class="brand" href="/homepage.html" aria-label="Jamie Zhou home"><span class="brand-mark"><img src="/assets/identity/r2-ribbon.svg" alt="" width="32" height="32"></span></a><nav class="site-nav" aria-label="Main navigation"><a href="/homepage.html">Work</a><a href="mailto:Jamiechou2004@outlook.com" data-contact-open>Contact</a></nav></header><main class="ax-page chance-page" id="main-content"><nav class="case-chapter-nav" aria-label="Chapters">
+<a href="#overview">Overview</a>
+<a href="#research">Research & problem</a>
+<a href="#summary">Today’s Summary</a>
+<a href="#turning-point">Why an Agent?</a>
+<a href="#define-action">Guided setup</a>
+<a href="#exceptions">Handling exceptions</a>
+<a href="#reflection">Reflection</a>
+<a href="#scope">Full case study</a>
+</nav><section id="overview" class="ax-hero"><div class="ax-top"><strong>Axel</strong><span>RESTAURANT OPERATIONS / UX CASE STUDY</span></div><div class="ax-hero-intro"><div><p class="ax-kicker">01 / OVERVIEW</p><h1>See the day.<br>Decide what’s next.</h1><p class="ax-lede">From a shared overview to guided actions.<br>A research-led exploration of restaurant management.</p></div><dl class="ax-meta"><div><dt>My focus</dt><dd>UX research<br>Interaction design<br>Prototyping</dd></div><div><dt>Deliverable</dt><dd>Interface design &amp; interactive prototype<br>Summary · Guided setup · Exception handling</dd></div></dl><section class="delivery-summary delivery-feature ax-delivery" aria-labelledby="delivery-title"><div class="delivery-intro"><p>MY DELIVERED WORK</p><h2 id="delivery-title">See the work. <br>Shape the workspace. <br>Keep control.</h2><span>From restaurant research to connected operational flows.</span></div><div class="delivery-grid">
+<article><div class="delivery-visual generated-visual" aria-hidden="true"><img src="assets/delivery-20260923/axel-research-transparent.png" alt="" width="1254" height="1254" loading="eager"></div><div class="delivery-label"><span>01</span><h3>Research &amp; direction</h3></div><p>I synthesized restaurant POS interviews into a shared overview and a direction for guided actions.</p></article>
+<article><div class="delivery-visual generated-visual" aria-hidden="true"><img src="assets/delivery-20260923/axel-setup-transparent.png" alt="" width="1254" height="1254" loading="eager"></div><div class="delivery-label"><span>02</span><h3>Summary &amp; guided setup</h3></div><p>I designed the daily overview and the goal, preview, confirmation, and recovery flow.</p></article>
+<article><div class="delivery-visual generated-visual" aria-hidden="true"><img src="assets/delivery-20260923/axel-recovery-transparent.png" alt="" width="1254" height="1254" loading="eager"></div><div class="delivery-label"><span>03</span><h3>Exception handling</h3></div><p>I designed how managers clarify a problem, review a plan, recover a failed step, and resume the task.</p></article>
+</div></section></div><div class="ax-hero-stage">
+<figure class="ax-figure ax-summary-full"><a class="ax-image" href="/assets/axel/2026-09-13/summary.svg" data-ax-image aria-label="View image: Axel Today’s Summary: top viewport"><img src="/assets/axel/2026-09-13/summary.svg" alt="Axel Today’s Summary: top viewport" loading="eager" decoding="async" width="1329" height="554"/><span class="ax-image-hint">View image ↗</span></a><figcaption>Later Summary design · Sample operational data.</figcaption></figure>
+</div><div class="ax-journey-labels"><span>Research</span><span aria-hidden="true">→</span><span>Today’s Summary</span><span aria-hidden="true">→</span><span>Define Action</span></div></section><section id="research" class="ax-section">
+<div class="ax-heading"><p class="ax-kicker">02 / RESEARCH & PROBLEM</p><h2>The manager had to<br>connect the dots.</h2><p>I interviewed people about restaurant POS work. My synthesis pointed to a management task that crossed tools: understanding what needed attention across orders, delivery channels and the team.</p></div>
+<div class="ax-research-layout"><div class="ax-insight-copy"><p class="ax-kicker">FROM INTERVIEWS TO A DESIGN OPPORTUNITY</p><h3>Bring the working picture together.</h3><p>The opportunity emerged from interpreting the work people described. They did not need to ask for a new feature for me to identify a need.</p><p class="ax-note">Research synthesis · Individual interview records and sample details are not presented here.</p></div><div class="ax-map" role="img" aria-label="POS, delivery channels and team information must be connected by the restaurant manager to identify a priority."><div class="ax-sources"><span><b>POS</b><small>Restaurant operations</small></span><span><b>Delivery channels</b><small>Cross-platform orders</small></span><span><b>Team information</b><small>People and coordination</small></span></div><div class="ax-map-join" aria-hidden="true">↓</div><div class="ax-manager"><b>Manager / owner</b><span>Assemble the picture. Decide what matters.</span></div></div></div><div class="ax-reference"><div><p class="ax-kicker">REFERENCE FOUNDATION</p><h3>Toast’s structure</h3><p>A starting reference for organizing restaurant operations.</p></div><div><p class="ax-kicker">MY DESIGN RESPONSE</p><h3>Axel’s shared overview</h3><p>A branded Summary experience, followed by a goal-based Agent exploration.</p></div></div></section><section id="summary" class="ax-section">
+<div class="ax-heading"><p class="ax-kicker">03 / TODAY’S SUMMARY</p><h2>A useful overview<br>needs an order.</h2><p>I organized the view around three questions: what needs attention, what explains it, and where the manager can look next.</p></div>
+<div class="ax-summary-analysis"><div class="ax-summary-excerpt"><figure class="ax-figure ax-summary-detail"><a class="ax-image" href="/assets/axel/2026-09-13/order-context.png" data-ax-image aria-label="View image: In-store and online orders in the later Summary design"><img src="/assets/axel/2026-09-13/order-context.png" alt="In-store and online orders in the later Summary design" loading="lazy" decoding="async" width="961" height="605"/><span class="ax-image-hint">View image ↗</span></a><figcaption>Order context supports the priority shown above. Later Summary UI detail.</figcaption></figure></div><div class="ax-summary-notes"><article><span>01 / ORIENT</span><h3>Separate the channels.</h3><p>In-store and online orders remain distinct within one view, so the manager can compare both streams.</p></article><article><span>02 / UNDERSTAND</span><h3>Make status visible.</h3><p>Each order carries its state and timing. A total alone would hide where attention is needed.</p></article><article><span>03 / CONTINUE</span><h3>Keep the details nearby.</h3><p>Order-level context supports investigation after the overview identifies a priority.</p></article></div></div><p class="ax-bridge">A shared view was the first response. The work around it shaped the next one.</p></section><section id="turning-point" class="ax-section">
+<div class="ax-heading"><p class="ax-kicker">04 / WHY AN AGENT?</p><h2>Seeing the work<br>is only part of the job.</h2><p>Research informed the need for a shared overview. I then explored how managers could configure it around a goal and work through an urgent issue. These directions require their own evaluation.</p></div>
+<div class="ax-turning"><div><p class="ax-kicker">RESEARCH → INTERPRETATION</p><h3>The work continues<br>after the overview.</h3><p>Managers still need to prepare a useful view, interpret an exception and decide what to do.</p></div><div class="ax-turn-visual"><div class="ax-concept-card"><span>Today’s Summary</span><b>Make the situation visible.</b><i></i><i></i></div><span class="ax-turn-arrow" aria-hidden="true">↓</span><div class="ax-concept-card ax-concept-accent"><span>Define Action</span><b>Make a next step reviewable.</b><small>A design direction to test.</small></div></div></div><div class="ax-two-paths"><a href="#define-action"><span>A / BEFORE SERVICE</span><h3>Set up around a goal.</h3><p>Clarify → Preview → Confirm</p><b aria-hidden="true">↓</b></a><a href="#exceptions"><span>B / DURING SERVICE</span><h3>Work through an exception.</h3><p>Context → Proposal → Approval → Follow-up</p><b aria-hidden="true">↓</b></a></div><div class="ax-entry-change"><p class="ax-kicker">INTERACTION MODEL</p><div><span>Orders / Delivery / Kitchen</span><span aria-hidden="true">→</span><strong>One shared goal entry</strong></div><p>A shared entry lets the task establish the context. Guided starting points still matter: an open prompt alone can leave the manager unsure where to begin.</p></div></section><section id="define-action" class="ax-section">
+<div class="ax-heading"><p class="ax-kicker">05 / GUIDED SETUP</p><h2>Start with a goal.<br>Review before applying.</h2><p>In the dinner-delivery scenario, the Agent proposes an order of information and a reminder rule. The manager can inspect the proposal before it changes the workspace.</p></div>
+<div class="ax-state-study" data-state-study><div class="ax-state-controls" role="group" aria-label="Setup design states" hidden><button type="button" data-state="goal" aria-controls="setup-goal" aria-pressed="false">01 · Goal</button><button type="button" data-state="preview" aria-controls="setup-preview" aria-pressed="true">02 · Preview</button><button type="button" data-state="confirm" aria-controls="setup-confirm" aria-pressed="false">03 · Confirm</button><button type="button" data-state="applied" aria-controls="setup-applied" aria-pressed="false">04 · Applied</button></div>
+<article class="ax-state-panel" data-panel="goal" id="setup-goal"><div class="ax-state-image"><figure class="ax-figure "><a class="ax-image" href="/assets/axel/2026-09-15-hd/setup-goal.png" data-ax-image aria-label="View image: Axel guided setup: Offer a useful starting point."><img src="/assets/axel/2026-09-15-hd/setup-goal.png" alt="Axel guided setup: Offer a useful starting point." loading="lazy" decoding="async" width="658" height="426"/><span class="ax-image-hint">View image ↗</span></a></figure></div><div class="ax-state-copy"><p class="ax-kicker">GOAL / PROTOTYPE STATE</p><h3>Offer a useful starting point.</h3><p>Dinner delivery reliability provides a concrete scope. Manual configuration remains available.</p><small>Illustrative configuration and sample data.</small></div></article>
+<article class="ax-state-panel" data-panel="preview" id="setup-preview"><div class="ax-state-image"><figure class="ax-figure "><a class="ax-image" href="/assets/axel/2026-09-15-hd/setup-preview.png" data-ax-image aria-label="View image: Axel guided setup: Show what the configuration means."><img src="/assets/axel/2026-09-15-hd/setup-preview.png" alt="Axel guided setup: Show what the configuration means." loading="lazy" decoding="async" width="535" height="455"/><span class="ax-image-hint">View image ↗</span></a></figure></div><div class="ax-state-copy"><p class="ax-kicker">PREVIEW / PROTOTYPE STATE</p><h3>Show what the configuration means.</h3><p>The proposed metrics and reminder rule make the change inspectable. The rule remains disabled until confirmation.</p><small>Illustrative configuration and sample data.</small></div></article>
+<article class="ax-state-panel" data-panel="confirm" id="setup-confirm"><div class="ax-state-image"><figure class="ax-figure "><a class="ax-image" href="/assets/axel/2026-09-13/setup-confirm.png" data-ax-image aria-label="View image: Axel guided setup: Make approval specific."><img src="/assets/axel/2026-09-13/setup-confirm.png" alt="Axel guided setup: Make approval specific." loading="lazy" decoding="async" width="578" height="440"/><span class="ax-image-hint">View image ↗</span></a></figure></div><div class="ax-state-copy"><p class="ax-kicker">CONFIRM / PROTOTYPE STATE</p><h3>Make approval specific.</h3><p>Review the proposed configuration and its scope before applying it. The design also provides a return path.</p><small>Illustrative configuration and sample data.</small></div></article>
+<article class="ax-state-panel" data-panel="applied" id="setup-applied"><div class="ax-state-image"><figure class="ax-figure "><a class="ax-image" href="/assets/axel/2026-09-13/setup-applied.png" data-ax-image aria-label="View image: Axel guided setup: Keep recovery in context."><img src="/assets/axel/2026-09-13/setup-applied.png" alt="Axel guided setup: Keep recovery in context." loading="lazy" decoding="async" width="997" height="500"/><span class="ax-image-hint">View image ↗</span></a></figure></div><div class="ax-state-copy"><p class="ax-kicker">APPLIED / PROTOTYPE STATE</p><h3>Keep recovery in context.</h3><p>The applied workspace confirms the layout and reminder changes, with Undo configuration available beside that confirmation.</p><small>Illustrative configuration and sample data.</small></div></article>
+</div><div class="ax-inline-takeaway"><strong>Guidance gives a starting point.<br>A preview keeps the choice inspectable.</strong><p>To test: can a manager explain the changes, spot an unsuitable rule and return to a previous configuration?</p></div></section><section id="exceptions" class="ax-section ax-story">
+<div class="ax-heading"><p class="ax-kicker">06 / HANDLING EXCEPTIONS</p><h2>One delayed order.<br>A considered next step.</h2><p>Follow the task from an uncertain cause to a reviewed action—and see what happens when only part of it succeeds.</p><p class="ax-note">Prototype walkthrough · Sample data and simulated execution</p></div>
+<nav class="ax-story-nav" aria-label="Delivery story"><a href="#story-context"><span>01</span> Clarify</a><a href="#decisions"><span>02</span> Review</a><a href="#story-recovery"><span>03</span> Recover</a><a href="#story-resume"><span>04</span> Continue</a></nav>
+<div class="ax-story-scenes">
+<article id="story-context" class="ax-scene ax-clarify-scene"><div class="ax-scene-copy"><p class="ax-kicker">01 / CLARIFY</p><h3>Clarify the cause.<br>Keep the context.</h3><p>The drawer lets the manager choose where to investigate while the restaurant overview stays visible.</p><p class="ax-clarify-principle">No cause is assumed.<br><strong>The manager sets the scope.</strong></p></div><div class="ax-scene-visual ax-clarify-composition">
+<figure class="ax-story-figure ax-context-overview"><a class="ax-image" href="/assets/axel/2026-09-08/agent-context.png" data-ax-image aria-label="View full interface: Dashboard and clarification drawer"><img src="/assets/axel/2026-09-08/agent-context.png" alt="Full Axel dashboard with the clarification drawer open on the right" width="1920" height="1494" loading="lazy"><span class="ax-image-hint">View image ↗</span></a><figcaption>01 — The task opens beside Today’s Summary.</figcaption></figure>
+<figure class="ax-story-figure ax-context-detail"><p class="ax-detail-label">DRAWER DETAIL</p><a class="ax-image" href="/assets/axel/2026-09-08/agent-context.png" data-ax-image aria-label="View original image: Clarification drawer detail"><img src="/assets/axel/2026-09-08/agent-context.png" alt="Detail of the clarification drawer, showing kitchen preparation and courier handoff choices" width="1920" height="1494" loading="lazy"><span class="ax-image-hint">View image ↗</span></a><figcaption>Choose kitchen preparation or courier handoff. Neither is preselected.</figcaption></figure>
+</div></article>
+<article id="decisions" class="ax-scene"><span id="control" class="ax-anchor"></span><div class="ax-scene-copy"><p class="ax-kicker">02 / REVIEW</p><h3>Make the plan<br>inspectable.</h3><p>Expand the task to review the proposed steps, owners and limits before approving an action.</p><div class="ax-story-insight"><span>DESIGN DECISION</span><strong>Separate the plan from permission.</strong><p>A customer draft, a refund and a shift change do not share the same approval.</p></div></div><div class="ax-scene-visual">
+<figure class="ax-story-figure ax-story-proposal"><a class="ax-image" href="/assets/axel/2026-09-08/proposal.png" data-ax-image aria-label="View image: Proposed actions, guardrails and review approval entry"><img src="/assets/axel/2026-09-08/proposal.png" alt="Proposed actions, guardrails and review approval entry" loading="lazy" decoding="async" width="1920" height="1494"><span class="ax-image-hint">View image ↗</span></a><figcaption>02 — Verify pickup first, then prepare an update. The manager can edit the plan or handle it manually.</figcaption></figure>
+</div></article>
+<article id="story-recovery" class="ax-scene"><div class="ax-scene-copy"><p class="ax-kicker">03 / RECOVER</p><h3>Keep what worked.<br>Retry what didn’t.</h3><p>The internal task is created, but the customer draft fails to save. Recovery starts at the failed step.</p><div class="ax-story-insight"><span>DESIGN DECISION</span><strong>Preserve completed work.</strong><p>If automation cannot finish, carry the context into a human handoff.</p></div></div><div class="ax-scene-visual ax-story-recovery">
+<div class="ax-outcome-map" aria-label="Simulated outcome"><div><span aria-hidden="true">✓</span><p>Internal task<strong>Created</strong></p></div><div><span aria-hidden="true">↻</span><p>Customer draft<strong>Needs retry</strong></p></div></div>
+<figure class="ax-story-figure "><a class="ax-image" href="/assets/axel/2026-09-15-hd/partial-failure.png" data-ax-image aria-label="View image: Partial success: task created but customer draft could not be saved"><img src="/assets/axel/2026-09-15-hd/partial-failure.png" alt="Partial success: task created but customer draft could not be saved" loading="lazy" decoding="async" width="800" height="322"><span class="ax-image-hint">View image ↗</span></a><figcaption>03 — Retry only the failed draft. Successful actions remain intact.</figcaption></figure><div class="ax-handoff-label"><span aria-hidden="true">↳</span><p>Or continue with the team</p></div><figure class="ax-story-figure ax-story-handoff"><a class="ax-image" href="/assets/axel/2026-09-13/handoff.png" data-ax-image aria-label="View image: Human takeover with source order and context preserved"><img src="/assets/axel/2026-09-13/handoff.png" alt="Human takeover with source order and context preserved" loading="lazy" decoding="async" width="808" height="373"><span class="ax-image-hint">View image ↗</span></a><figcaption>Handoff retains the source order, evidence and plan.</figcaption></figure>
+</div></article>
+<article id="story-resume" class="ax-scene"><div class="ax-scene-copy"><p class="ax-kicker">04 / CONTINUE</p><h3>Step away.<br>Keep the thread.</h3><p>Minimizing returns the manager to the overview. Resume provides a way back to the existing task.</p><div class="ax-story-insight"><span>DESIGN DECISION</span><strong>Closing is not canceling.</strong><p>A saved step is also not proof that the delivery issue is resolved.</p></div></div><div class="ax-scene-visual">
+<figure class="ax-story-figure ax-story-resume"><a class="ax-image" href="/assets/axel/2026-09-13/resume.png" data-ax-image aria-label="View image: Minimized task and Resume entry in Axel overview"><img src="/assets/axel/2026-09-13/resume.png" alt="Minimized task and Resume entry in Axel overview" loading="lazy" decoding="async" width="1440" height="1120"><span class="ax-image-hint">View image ↗</span></a><figcaption>04 — Return to the task with its context, then check the real-world outcome.</figcaption></figure><details class="ax-details"><summary>View supporting receipts</summary><figure class="ax-story-figure "><a class="ax-image" href="/assets/axel/2026-09-08/receipts-board.png" data-ax-image aria-label="View image: Original board showing simulated receipts"><img src="/assets/axel/2026-09-08/receipts-board.png" alt="Original board showing simulated receipts" loading="lazy" decoding="async" width="1920" height="1080"><span class="ax-image-hint">View image ↗</span></a><figcaption>Original design board · Simulated execution</figcaption></figure></details></div></article></div>
+<div class="ax-story-ending"><span aria-hidden="true">↳</span><p>The design extends beyond the answer.<br><strong>It also defines how people review, recover and return.</strong></p></div>
+</section><section id="reflection" class="ax-section re-section">
+<div class="re-intro"><p class="ax-kicker">07 / REFLECTION</p><h2>Design around<br>the manager’s judgment.</h2><p>The project shifted my focus from organizing a screen to supporting the work around it.</p></div><article class="re-feature"><div class="re-feature-copy"><span class="re-icon re-path" aria-hidden="true"></span><p class="ax-kicker">RESEARCH & PRODUCT DIRECTION</p><h3>Study the work.<br>Find the need.<br>Shape the response.</h3><p>Interviews helped me see a wider coordination task. The feature direction came from interpreting that work, not waiting for someone to request an Agent.</p></div><div class="ax-reflection-diagram" role="img" aria-label="Interview synthesis informs a shared overview, then a hypothesis for guided actions."><div><span>01</span><strong>Understand the work</strong><small>POS · People · Delivery channels</small></div><b aria-hidden="true">↓</b><div><span>02</span><strong>Organize the picture</strong><small>Today’s Summary</small></div><b aria-hidden="true">↓</b><div class="ax-reflection-final"><span>03</span><strong>Support the next decision</strong><small>Guided actions · To be evaluated</small></div></div></article><div class="re-lessons">
+<article><span class="re-icon re-modules" aria-hidden="true"></span><p class="ax-kicker">PRODUCT JUDGMENT</p><h3>Give the Agent a purpose.</h3><p>Let a specific task explain the move beyond a dashboard. A new capability needs a clear role in the manager’s work.</p></article>
+<article><span class="re-icon re-control" aria-hidden="true"></span><p class="ax-kicker">USER CONTROL</p><h3>Design the way out, too.</h3><p>Editing, declining, minimizing and recovering belong alongside the proposed action.</p></article>
+<article><span class="re-icon re-evidence" aria-hidden="true"></span><p class="ax-kicker">EVIDENCE</p><h3>A prototype opens a question.</h3><p>A complete flow shows the interaction intent. It does not establish better decisions or less setup effort.</p></article>
+</div><div class="re-next"><div><p class="ax-kicker">NEXT VALIDATION</p><h3>Test the decisions,<br>not just completion.</h3></div><ol><li><span>01</span><div><h4>Set up a shift view</h4><p>Can managers explain and adjust the proposed configuration?</p></div></li><li><span>02</span><div><h4>Review an uncertain issue</h4><p>Can they separate known facts, assumptions and the action they approve?</p></div></li><li><span>03</span><div><h4>Recover and continue</h4><p>Can they retry the failed step or resume a task without repeating completed work?</p></div></li></ol></div></section><section id="scope" class="ax-section">
+<div class="ax-heading"><p class="ax-kicker">08 / SCOPE & FULL CASE STUDY</p><h2>The design, and<br>the questions still open.</h2></div>
+<div class="ax-scope"><div><span>DESIGN DELIVERED</span><h3>A connected interaction flow.</h3><p>Summary, guided setup, approvals, recovery and follow-through.</p></div><div><span>NEXT EVALUATION</span><h3>Production behavior and impact.</h3><p>Evaluate the delivered flow in its operational context, including live data, execution rules and task ownership.</p></div></div><details class="ax-details ax-archive"><summary>Explore the original 18-page case study</summary><p>The source sequence is preserved below. Earlier research and later prototypes represent different stages of the project.</p><div class="ax-board-list">
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-71083" target="_blank" rel="noopener"><span>01</span>Overview<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-71752" target="_blank" rel="noopener"><span>02</span>Research & discovery<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-71809" target="_blank" rel="noopener"><span>03</span>Understand the problem<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-71879" target="_blank" rel="noopener"><span>04</span>Reference & contribution<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-71940" target="_blank" rel="noopener"><span>05</span>Plan the solution<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-72298" target="_blank" rel="noopener"><span>06</span>Today’s Summary<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-72958" target="_blank" rel="noopener"><span>07</span>Validation & limitations<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-73017" target="_blank" rel="noopener"><span>08</span>Interaction architecture<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-73124" target="_blank" rel="noopener"><span>09</span>Define Action<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-73264" target="_blank" rel="noopener"><span>10</span>Daily setup<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-73544" target="_blank" rel="noopener"><span>11</span>Configuration review & recovery<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-74314" target="_blank" rel="noopener"><span>12</span>Operational exceptions<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-74555" target="_blank" rel="noopener"><span>13</span>Approval boundaries<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-74698" target="_blank" rel="noopener"><span>14</span>Recovery & human takeover<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-74941" target="_blank" rel="noopener"><span>15</span>Result tracking<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-75087" target="_blank" rel="noopener"><span>16</span>Reflection<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-75144" target="_blank" rel="noopener"><span>17</span>Validation plan<small>Figma ↗</small></a>
+<a href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-75210" target="_blank" rel="noopener"><span>18</span>Delivery scope<small>Figma ↗</small></a>
+</div></details></section><footer class="ax-end"><span>Next case</span><a href="/chance.html">Chance AI ↗</a></footer></main><dialog class="ax-dialog" aria-label="Full-size design image"><div class="ax-dialog-tools"><button type="button" data-zoom aria-pressed="false">Zoom in</button><a data-original target="_blank" rel="noopener">Open original ↗</a><button type="button" data-close autofocus>Close ×</button></div><div class="ax-dialog-scroll"><img alt=""/></div></dialog><script src="/portfolio-2027.js?v=d3f0f25f55"></script><script src="/axel-editorial.js?v=nav-20260914"></script></body></html>

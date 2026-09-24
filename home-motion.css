@@ -1,0 +1,18 @@
+body[data-page-view="home"] .audience-switcher{position:relative;isolation:isolate}
+body[data-page-view="home"] .audience-switcher button{z-index:1;transition:color 180ms ease;transform:none}
+body[data-page-view="home"] .audience-switcher button::before{display:none}
+.audience-glider{position:absolute;left:0;top:6px;height:32px;background:#212529;border-radius:10px;pointer-events:none;z-index:0;transition:transform 240ms cubic-bezier(.2,.8,.2,1),width 240ms cubic-bezier(.2,.8,.2,1),height 240ms ease}
+body[data-page-view="home"] [data-audience-copy]{display:block}
+#home-title{transition:min-height 200ms ease}
+.jamie-play{all:unset;display:inline-block;font:inherit;color:inherit;letter-spacing:inherit;line-height:inherit;cursor:pointer;position:relative;isolation:isolate}
+
+.jamie-shape{display:inline-flex;vertical-align:baseline}
+.jamie-letter{display:inline-block;position:relative;transform-origin:50% 90%;will-change:auto}
+.jamie-i{position:relative}
+.jamie-dot{position:absolute;width:.16em;height:.16em;background:currentColor;border-radius:50%;left:50%;top:.095em;transform:translateX(-50%)}
+.jamie-play:focus-visible{outline:2px solid #7994a9;outline-offset:6px;border-radius:4px}
+.jamie-play.is-waving .jamie-letter{animation:hello-letter 570ms cubic-bezier(.22,.7,.25,1) both;animation-delay:var(--delay)}
+.jamie-play.is-waving .jamie-dot{animation:hello-dot 600ms cubic-bezier(.22,.7,.25,1) 190ms both}
+@keyframes hello-letter{0%,100%{transform:translateY(0) rotate(0)}35%{transform:translateY(calc(-1 * var(--rise))) rotate(var(--tilt))}70%{transform:translateY(1px) rotate(0)}}
+@keyframes hello-dot{0%,100%{transform:translateX(-50%) translateY(0) scale(1);background:currentColor}18%{transform:translateX(-50%) translateY(.025em) scale(1.2,.75);background:#7895aa}48%{transform:translateX(-50%) translateY(-.32em) scale(1.18,1.28);background:#7895aa}76%{transform:translateX(-50%) translateY(.025em) scale(1.3,.75);background:#7895aa}90%{transform:translateX(-50%) translateY(-.04em) scale(.95,1.08);background:currentColor}}
+@media(prefers-reduced-motion:reduce){.audience-glider,#home-title{transition:none!important}.jamie-play *{animation:none!important}}
