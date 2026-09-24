@@ -7,3 +7,8 @@
 .ab-portrait-button[aria-pressed=true] .ab-doodle-hello path:first-child{animation:ab-write-hello .7s ease both}
 @keyframes ab-write-hello{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){.ab-doodle-aura{transition:none;transform:none}.ab-portrait-button[aria-pressed=true] .ab-doodle-hello path:first-child{animation:none}}
+
+.portfolio-cursor[data-portrait=true][data-has-label=true]{width:116px!important;height:42px!important;gap:8px;padding:0 13px;background:#202226;color:#f4ffb8;overflow:visible}
+.portfolio-cursor[data-portrait=true]::before{content:'☞';font:28px/1 Georgia,serif;display:block;animation:ab-hand-tap 1.2s ease-in-out 3;transform:rotate(-30deg)}
+@keyframes ab-hand-tap{0%,55%,100%{transform:rotate(-30deg) translate(0,0)}25%{transform:rotate(-20deg) translate(3px,-2px)}35%{transform:rotate(-30deg) translate(0,0)}}
+@media(prefers-reduced-motion:reduce){.portfolio-cursor[data-portrait=true]::before{animation:none}}
