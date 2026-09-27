@@ -78,7 +78,7 @@
   const primaryLinks = [
     ["homepage.html", "Work"],
     ["about.html", "About"],
-    ["lab.html", "Playground"],
+    ["lab.html", "Gallery"],
   ];
   const projectLinks = [
     ["axel.html", "Axel SaaS"],
@@ -668,7 +668,7 @@
         </div>
         <nav aria-label="Footer navigation">
           <a href="work.html">Work</a>
-          <a href="lab.html">Playground</a>
+          <a href="lab.html">Gallery</a>
           <a href="about.html">About</a>
           <a href="mailto:Jamiechou2004@outlook.com">Email</a>
           <a href="https://www.linkedin.com/in/jamie-zihan-chou/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -721,7 +721,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 const shapes={
  'homepage.html':'<rect x="3" y="5" width="18" height="15" rx="3"/><path d="M8 5V3h8v2M3 10h18M10 10v3h4v-3"/>',
  'about.html':'<circle cx="12" cy="8" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/>',
- 'lab.html':'<path d="M9 3h6M10 3v6l-6 10a1.4 1.4 0 0 0 1.2 2h13.6a1.4 1.4 0 0 0 1.2-2L14 9V3M7 15h10"/><path d="M10 18h.01M14 17h.01"/>',
+ 'lab.html':'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/>',
  'resume':'<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h5"/>',
  'linkedin':'<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 10v7M7 7h.01M11 17v-7M11 13a3 3 0 0 1 6 0v4"/>',
  'email':'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/>'
