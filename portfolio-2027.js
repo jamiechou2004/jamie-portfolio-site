@@ -41,6 +41,7 @@
     "homepage.html",
     "work.html",
     "lab.html",
+    "honda.html",
     "about.html",
     "axel.html",
     "chance.html",
@@ -83,6 +84,7 @@
   const projectLinks = [
     ["axel.html", "Axel SaaS"],
     ["chance.html", "Chance AI"],
+    ["honda.html", "HondaConnect"],
     ["deloitte.html", "Deloitte x SCADpro"],
   ].filter(([href]) => !isHomePreview || href !== "deloitte.html");
   const chapterSourceLinks = Array.from(document.querySelectorAll(".case-chapter-nav a[href^='#']"));
