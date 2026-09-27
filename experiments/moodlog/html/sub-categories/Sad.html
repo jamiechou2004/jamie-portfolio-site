@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodLog - Sad</title>
+    <!-- Pull from Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/Style.css">
+    <link rel="icon" type="image/png" href="../../assets/other/favicon.png">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="header-flex">
+            <div class="nav-wrapper" style="display: flex; align-items: center; gap: 12px; padding: 16px;">
+                <a href="javascript:history.back()" class="arrow-left">
+                  <img src="../../assets/other/arrow-left.svg" alt="Back" width="20" height="20" />
+                </a>
+                
+               <style>
+                    @media (max-width: 768px) {
+                      .main-content {
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 20px;
+                        gap: 20px;
+                      }
+
+                      .right-panel {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        order: 1;
+                        width: 100%;
+                      }
+
+                      .speech-bubble {
+                        order: 0;
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                        text-align: center;
+                      }
+                      .mascot-section {
+                        order: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                      }
+
+                      .definition-box {
+                        order: 2;
+                        width: 90%;
+                        font-size: 14px;
+                        text-align: center;
+                      }
+
+                      .mood-grid {
+                        order: 4;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 16px;
+                        width: 100%;
+                      }
+
+                      .tile {
+                        width: 100vpx;
+                        max-width: 4800px;
+                        margin: 0 auto;
+                      }
+                    }
+                    </style>
+          </header>
+    <div class="main-content">
+        <div class="mood-grid">
+            <a href="../single-emotion.html">
+                <div class="tile disappointed" style="--tile-color: #D1D7E7;"
+                data-definition="Feeling let down when hopes or expectations fall short."
+                data-dialog="What didn’t turn out as you wished? How are you processing that gap?"
+                data-journal-prompt="Explain the expectation that wasn’t met and why it mattered. Reflect on how you might recalibrate hopes or communicate needs differently next time."
+                data-alt="Disappointed light-blue character with arms loosely crossed and eyes closed sadly">                
+                    <div class="icon"><img src="../../assets/emotions/Disappointed.png" alt="Disappointed face with downturned mouth"></div>
+                    <div class="label">Disappointed</div>
+                </div>
+            </a>
+            <a href="../single-emotion.html">
+                <div class="tile lonely" style="--tile-color: #ABB6D3;"
+                data-definition="Sensing a lack of meaningful connection or companionship."
+                data-dialog="When do you feel most alone? What kind of connection are you craving?"
+                data-journal-prompt="Describe the flavor of your loneliness—social, emotional, or both. List practical ways to reach toward connection, even in small doses."
+                data-alt="Lonely medium-blue character with slumped shoulders and downturned mouth">
+                    <div class="icon"><img src="../../assets/emotions/Lonely.png" alt="Lonely face with small frown"></div>
+                    <div class="label">Lonely</div>
+                </div>
+            </a>
+            <a href="../single-emotion.html">
+                <div class="tile sad" style="--tile-color: #A1AECE;"
+                data-definition="Deep sorrow and adjustment after a significant loss."
+                data-dialog="What loss are you carrying? What memories or thoughts surface today?"
+                data-journal-prompt="Write freely about your loss—memories, emotions, unanswered questions. Notice any gentle comfort or support you can allow yourself in this moment."
+                data-alt="Grieving medium-blue character covering face with hands in tears">                
+                    <div class="icon"><img src="../../assets/emotions/Grieving.png" alt="Grieving face with tear"></div>
+                    <div class="label">Grieving</div>
+                </div>
+            </a>
+        </div>
+        <div class="right-panel">
+            <button onclick="togglePresenter()" aria-pressed="false" id="toggleBtn" aria-label="Toggle Presenter">
+                    <img src="../../assets/other/eye.svg" alt="Toggle Presenter Icon" width="24" height="24" alt="Eye Icon" id="eyeIcon">
+             </button>
+            <div class="mascot-section">
+                <div class="speech-bubble">Let's try to get a little bit more specific</div>
+                <img src="../../assets/other/presenter.png" alt="Mascot" class="mascot-image" />
+            </div>
+            <div class="definition-box" id="definition-box">
+                <strong>Definition</strong>
+                <p id="definition-text">Hover over an emotion to see definition</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="../../js/hover-script.js"></script>
+    <script src="../../js/storage-logic.js"></script>
+     <script>
+     const eyeBtn = document.getElementById('toggleBtn');
+      const eyeIcon = document.getElementById('eyeIcon');
+      let isOpen = true;
+      eyeBtn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      eyeIcon.src = isOpen ? '../../assets/other/eye.svg' : '../../assets/other/eye-slash.svg';
+      // toggle the visibility of the mascot
+       const mascot = document.querySelector('.mascot-section');
+       if (mascot) mascot.style.display = isOpen ? 'block' : 'none';
+      });
+     </script>
+</body>
+
+</html>
