@@ -687,7 +687,7 @@
   const coverVideos = [...document.querySelectorAll('[data-cover-video]')];
   let animationPaused = false;
   let animationToggle;
-  if (coverVideos.length) {
+  if (coverVideos.length && !body.hasAttribute("data-home-motion")) {
     animationToggle = document.createElement('button');
     animationToggle.type = 'button';
     animationToggle.className = 'cover-motion-toggle';
