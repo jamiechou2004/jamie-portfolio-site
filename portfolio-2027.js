@@ -244,7 +244,7 @@
     audienceButtons.forEach((button) => button.addEventListener("click", () => setAudience(button.dataset.audience)));
   }
 
-  // One contextual cursor across the site; native behavior remains for touch and editing.
+  // One contextual cursor across portfolio pages, with a dot as the default.
   let portfolioCursor = document.querySelector("[data-portfolio-cursor]");
   if (!portfolioCursor) {
     portfolioCursor = document.createElement("div");
@@ -263,14 +263,12 @@
   };
   const updateCursor = (event) => {
     const el = event.target;
-    if (!cursorMedia.matches || motionMedia.matches || event.pointerType === 'touch' || !(el instanceof Element)) { hideCursor(); return; }
+    if (!cursorMedia.matches || event.pointerType === 'touch' || !(el instanceof Element)) { hideCursor(); return; }
     const target = el.closest("a,button,[role='button'],[data-cursor-label],[data-work-in-progress]");
     const cover = target?.matches('.hp-cover,.project-index__row,[data-cursor-label]');
     const imageLink = target?.matches('.chance-page a[href$=".png"]');
     const sectionLink = target?.matches('.chance-page [data-cursor-action="explore"]');
     const inProgress = target?.matches('[data-work-in-progress]');
-    const native = el.closest('dialog[open],input,textarea,select,[contenteditable],iframe,button:disabled,[aria-disabled="true"]') || (!target && el.closest('p,h1,h2,h3,h4,li,blockquote,figcaption')) || (!cover && el.closest('video'));
-    if (native && !inProgress) { hideCursor(); return; }
     portfolioCursorLabel.textContent = inProgress ? 'Still working on it' : sectionLink ? 'Explore ↓' : imageLink ? 'View image' : cover ? 'View work ↗' : '';
     portfolioCursor.dataset.hasLabel = String(Boolean(inProgress || sectionLink || imageLink || cover));
     portfolioCursor.dataset.interactive = String(Boolean(target && !inProgress));
@@ -279,10 +277,11 @@
     document.documentElement.classList.add('portfolio-cursor-active');
   };
   window.addEventListener('pointermove', updateCursor, {passive:true});
+  window.addEventListener('pointerover', updateCursor, {passive:true});
   window.addEventListener('pointerdown', event => { updateCursor(event); portfolioCursor.dataset.pressed = 'true'; });
   window.addEventListener('pointerup', event => { portfolioCursor.dataset.pressed = 'false'; updateCursor(event); });
   window.addEventListener('pointercancel', hideCursor);
-  window.addEventListener('scroll', hideCursor, {passive:true});
+
   window.addEventListener('blur', hideCursor);
   document.documentElement.addEventListener('pointerleave', hideCursor);
   document.addEventListener('keydown', e => {if(e.key === 'Tab') hideCursor();});
@@ -744,9 +743,6 @@ for(const link of document.querySelectorAll('a[href]')){
   label.innerHTML=link.innerHTML;label.setAttribute('aria-disabled','true');label.classList.add('portfolio-unavailable');label.removeAttribute('title');label.dataset.workInProgress='';label.setAttribute('aria-label','Deloitte x SCADpro — Still working on it');link.replaceWith(label);
  }
 }
-const rail=document.querySelector('.portfolio-rail');
-rail.addEventListener('pointerover',event=>{const status=event.target.closest('[data-work-in-progress]');document.documentElement.classList.toggle('np-native',!status);if(!status)document.documentElement.classList.remove('portfolio-cursor-active')});
-rail.addEventListener('pointerleave',()=>document.documentElement.classList.remove('np-native'));
 });
 
 // Motion's hover/press gestures animate only the ribbon image, not its hit area.

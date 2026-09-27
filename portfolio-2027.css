@@ -5676,7 +5676,7 @@ html.portfolio-cursor-active *{cursor:none!important;}
 .portfolio-rail__toggle{border-color:transparent!important;background:transparent!important;border-radius:7px;transition:background-color 110ms ease!important}
 .portfolio-rail__toggle:hover{background:#dedfdb!important}.portfolio-rail__toggle:active{background:#d6d8d5!important}
 .portfolio-rail__link:focus-visible{outline:2px solid #5b7288;outline-offset:2px}
-.np-native .portfolio-cursor{opacity:0!important}.np-native .portfolio-rail,.np-native .portfolio-rail *{cursor:pointer!important}
+
 @media(min-width:821px){body{transition:padding-left 200ms cubic-bezier(.2,.65,.3,1)}}
 @media(prefers-reduced-motion:reduce){.portfolio-rail,.portfolio-rail * ,body{transition:none!important}}
 
@@ -5686,3 +5686,5 @@ html.portfolio-cursor-active *{cursor:none!important;}
 .np-project-number{font-size:12px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .portfolio-rail:not(.is-collapsed) .np-project .portfolio-rail__label{font-size:12px;letter-spacing:-.015em}
 .portfolio-rail.is-collapsed .np-project{gap:0}
+
+@media(prefers-reduced-motion:reduce){.portfolio-cursor{transition:none!important}}
