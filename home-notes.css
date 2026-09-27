@@ -44,7 +44,7 @@ body[data-home-motion],body[data-home-motion] button,body[data-home-motion] a,bo
 body[data-home-motion] #home-title{font-family:'Nunito',sans-serif!important;font-size:clamp(30px,3.65vw,52px);font-weight:700;letter-spacing:-.025em;line-height:1.22;max-width:1040px;color:#303b35}
 body[data-home-motion] #home{padding-top:58px;padding-bottom:38px}
 .note-title{font-family:'Nunito',sans-serif;font-weight:800;letter-spacing:-.025em;font-size:clamp(26px,2.6vw,37px);line-height:1.12}
-.notes-heading h2{font-weight:700;font-size:17px}.notes-heading>span{font-size:13px}.note-number{font-weight:700;font-size:10px;letter-spacing:.09em}.note-invite{font-size:13px;font-weight:600}.note-panel p,.note-panel a{font-size:14px}.notes-margin{font-family:'Nunito',sans-serif;font-weight:600}.personal-note{border-radius:7px 8px 24px 7px}
+.notes-heading h2{font-weight:400;font-size:17px}.notes-heading>span{font-size:13px}.note-number{font-weight:700;font-size:10px;letter-spacing:.09em}.note-invite{font-size:13px;font-weight:600}.note-panel p,.note-panel a{font-size:14px}.notes-margin{font-family:'Nunito',sans-serif;font-weight:600}.personal-note{border-radius:7px 8px 24px 7px}
 @media(max-width:700px){body[data-home-motion] #home-title{font-size:32px;line-height:1.22}body[data-home-motion] #home{padding-top:84px;padding-bottom:30px}.note-title{font-size:30px}}
 
 /* Hand-drawn editorial art replaces diagrams and literal screenshots. */
