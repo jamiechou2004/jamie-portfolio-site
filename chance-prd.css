@@ -119,3 +119,6 @@
 .cp-top .cp-brand img{position:absolute;display:block;width:210px;max-width:none;height:auto;left:-49px;top:-22.4px}
 
 @media(max-width:700px){.cp-top .cp-brand{width:96px;height:23px;flex-basis:96px}.cp-top .cp-brand img{width:180px;left:-42px;top:-19.2px}}
+
+/* White cursor only while it is hosted in the image preview top layer. */
+.cp-full-dialog .portfolio-cursor{background:#fff;color:#202226;border-color:#20222640;box-shadow:0 1px 4px #0003}
