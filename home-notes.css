@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/notes-preview/nunito-400.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/notes-preview/nunito-500.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/notes-preview/nunito-600.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/notes-preview/nunito-700.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(assets/fonts/notes-preview/nunito-800.ttf) format('truetype');
+}
+
+/* Personal notes and rounded typography. */
+body[data-home-motion] #home{padding-bottom:48px;min-height:0}.home-personal-intro{display:block}#home .home-companion{display:none}body[data-home-motion] #home-title{font-size:clamp(36px,4.5vw,64px);max-width:1060px;line-height:1.13}
+.personal-notes{position:relative;isolation:isolate;margin:0 0 76px;padding:4px 0 34px}.notes-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:27px}.notes-heading h2{font-size:15px;font-weight:500;margin:0}.notes-heading>span{font-size:12px;color:#788077}.notes-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}.personal-note{--ink:#46544c;--turn:-1.1deg;background:#eeeede;color:var(--ink);border:1px solid #46544c16;border-radius:3px 4px 20px 3px;transform:rotate(var(--turn));transition:transform .4s,box-shadow .4s;position:relative;box-shadow:0 5px 10px #24352b06}.personal-note:before{content:'';position:absolute;top:-9px;left:42%;width:48px;height:18px;background:#fff8;border:1px solid #fff8;transform:rotate(-5deg);pointer-events:none}.note-making{--turn:1deg;--ink:#705647;background:#f2e6d6;margin-top:12px}.note-details{--turn:-.6deg;--ink:#4b5870;background:#e7ebf0}.personal-note.is-active{transform:translateY(-5px) rotate(0);box-shadow:0 16px 30px #24352b0e;z-index:2}.note-trigger{display:flex;flex-direction:column;width:100%;padding:27px 25px 22px;background:none;border:0;text-align:left;color:inherit;cursor:pointer}.note-number{font-size:9px;letter-spacing:.13em}.note-title{display:block;font-size:clamp(24px,2.7vw,38px);font-weight:550;letter-spacing:-.045em;line-height:1.09}.note-invite{display:flex;width:100%;justify-content:space-between;align-items:center;margin-top:24px;font-size:11px;opacity:.8}.note-invite b{font-size:20px;font-weight:400;transition:transform .3s}.is-active .note-invite b{transform:rotate(45deg)}.note-trigger:focus-visible,.note-panel a:focus-visible{outline:2px solid currentColor;outline-offset:-5px;border-radius:5px}.note-doodle,.making-doodle,.detail-doodle{height:105px;width:100%;margin:12px 0 13px}.note-doodle path{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.tangle{opacity:.75;transition:opacity .4s}.clear-path{stroke-dasharray:300;stroke-dashoffset:300;opacity:0;transition:stroke-dashoffset .7s ease,opacity .3s}.is-active .tangle{opacity:0}.is-active .clear-path{stroke-dashoffset:0;opacity:1}.making-doodle{display:flex;align-items:center;justify-content:center;gap:18px}.sketch-window,.finished-window{width:67px;height:64px;border:1.5px solid currentColor;border-radius:5px;transform:rotate(-5deg);padding:10px;box-sizing:border-box;transition:transform .5s}.sketch-window{border-style:dashed}.sketch-window i{display:block;height:4px;border-bottom:1px solid;margin-bottom:7px}.finished-window{transform:rotate(5deg);background:#fff7}.finished-window i{display:block;width:15px;height:15px;background:#bc986b;border-radius:3px;margin-bottom:7px}.finished-window b{display:block;width:100%;height:3px;background:#c2ae92;margin-bottom:5px}.sketch-arrow{font-size:25px;transition:transform .5s}.is-active .finished-window{transform:rotate(0) scale(1.12)}.is-active .sketch-arrow{transform:translate(4px,-4px)}.detail-doodle{position:relative;display:flex;align-items:center;justify-content:center}.tiny-interface{width:104px;height:56px;border:1px solid #8792a5;border-radius:6px;padding:10px;box-sizing:border-box}.tiny-interface i{display:block;height:3px;background:#adb8c7;margin:5px 0;width:70%}.doodle-lens{position:absolute;width:47px;height:47px;border:2px solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:31px;background:#e7ebf0ee;left:48%;top:20px;transform:rotate(-22deg);transition:transform .6s}.doodle-lens:after{content:'';position:absolute;right:-17px;bottom:-9px;width:26px;height:2px;background:currentColor;transform:rotate(47deg)}.detail-star{position:absolute;right:16%;top:14px;font-size:20px}.is-active .doodle-lens{transform:translate(-25px,3px) rotate(-10deg) scale(1.1)}.note-panel{padding:0 25px 25px;animation:note-reveal .35s ease}.note-panel[hidden]{display:none}.note-evidence{width:100%;height:130px;object-fit:cover;object-position:top;border-radius:5px;display:block;background:#fff}.note-panel p{font-size:12px;line-height:1.65;margin:15px 0}.note-panel a{color:inherit;font-size:12px;text-underline-offset:4px}.note-phone{object-position:center 24%}.notes-companion{position:absolute;z-index:3;pointer-events:none;width:78px;height:85px;object-fit:contain;bottom:-30px;left:8px;opacity:0;transform:translateY(9px) rotate(-8deg);transition:left .6s ease,opacity .3s,transform .4s}.personal-notes.has-active .notes-companion{opacity:1;transform:translateY(0) rotate(-8deg)}.notes-margin{position:absolute;right:8px;bottom:-10px;font-family:Georgia,serif;font-style:italic;font-size:13px;color:#7d826c;transform:rotate(-4deg)}@keyframes note-reveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}@media(max-width:700px){.personal-notes{margin-bottom:60px}.notes-grid{grid-template-columns:1fr;gap:23px}.personal-note{margin-top:0}.note-trigger{display:grid;grid-template-columns:1fr 100px;gap:12px;padding:24px}.note-number,.note-invite{grid-column:1/-1}.note-title{grid-column:1;grid-row:2;font-size:31px;align-self:center}.note-doodle,.making-doodle,.detail-doodle{grid-column:2;grid-row:2;height:80px;margin:0}.making-doodle{gap:5px}.sketch-window,.finished-window{width:38px;height:46px;padding:6px}.note-invite{margin:0}.notes-heading{display:block}.notes-heading>span{display:block;margin-top:8px}.note-evidence{height:180px}.notes-companion{display:none}}@media(prefers-reduced-motion:reduce){.personal-notes *{animation:none!important;transition:none!important}}
+body[data-home-motion] .personal-notes{order:1;width:calc(100% - 96px);max-width:1280px;margin:0 auto 58px;box-sizing:border-box}body[data-home-motion] #home{border-bottom:0}@media(max-width:700px){body[data-home-motion] .personal-notes{width:calc(100% - 40px)}}
+
+/* Rounded typography. */
+body[data-home-motion],body[data-home-motion] button,body[data-home-motion] a,body[data-home-motion] input{font-family:'Nunito',sans-serif!important}
+body[data-home-motion] #home-title{font-family:'Nunito',sans-serif!important;font-size:clamp(30px,3.65vw,52px);font-weight:700;letter-spacing:-.025em;line-height:1.22;max-width:1040px;color:#303b35}
+body[data-home-motion] #home{padding-top:58px;padding-bottom:38px}
+.note-title{font-family:'Nunito',sans-serif;font-weight:800;letter-spacing:-.025em;font-size:clamp(26px,2.6vw,37px);line-height:1.12}
+.notes-heading h2{font-weight:400;font-size:17px}.notes-heading>span{font-size:13px}.note-number{font-weight:700;font-size:10px;letter-spacing:.09em}.note-invite{font-size:13px;font-weight:600}.note-panel p,.note-panel a{font-size:14px}.notes-margin{font-family:'Nunito',sans-serif;font-weight:600}.personal-note{border-radius:7px 8px 24px 7px}
+@media(max-width:700px){body[data-home-motion] #home-title{font-size:32px;line-height:1.22}body[data-home-motion] #home{padding-top:84px;padding-bottom:30px}.note-title{font-size:30px}}
+
+/* Hand-drawn editorial art replaces diagrams and literal screenshots. */
+.note-illustration{display:block;width:100%;height:145px;margin:10px 0 15px;pointer-events:none}.note-illustration img{display:block;width:100%;height:100%;object-fit:contain;transform:translateY(0) rotate(-2deg);transition:transform .55s cubic-bezier(.2,.7,.2,1);mix-blend-mode:multiply}.is-active .note-illustration img{transform:translateY(-4px) rotate(1deg) scale(1.035)}.note-making.is-active .note-illustration img{transform:translateY(-4px) rotate(-1deg) scale(1.035)}.note-panel{border-top:1px solid #46544c18;margin:0 25px;padding:0 0 24px}.note-panel p{margin-top:17px}@media(max-width:700px){.note-trigger{grid-template-columns:minmax(0,1fr) 126px;column-gap:8px}.note-illustration{grid-column:2;grid-row:2;height:120px;margin:0;align-self:center}.note-title{font-size:clamp(24px,6.5vw,30px)}}@media(prefers-reduced-motion:reduce){.note-illustration img,.is-active .note-illustration img{transform:none;transition:none}}

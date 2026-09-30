@@ -1,0 +1,32 @@
+/* Shared portfolio palette. Product screenshots and experiment canvases retain their own colors. */
+:root{--ds-bg:#f2f3f0;--ds-rail:#eeefec;--ds-text:#202426;--ds-secondary:#58646d;--ds-muted:#68747c;--ds-hover:#e4e6e2;--ds-selected:#dce0dc;--ds-pressed:#d1d6d1;--ds-line:#d1d8d9;--ds-accent:#365b7c;--ds-focus:#456987;--ds-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","PingFang SC",sans-serif}
+body{--soft-white:var(--ds-bg);--ink:var(--ds-text);--graphite:var(--ds-secondary);--muted:var(--ds-muted);--portfolio-shell-background:var(--ds-bg);--portfolio-shell-foreground:var(--ds-text);background-color:var(--ds-bg)!important;color:var(--ds-text)!important;font-family:var(--ds-font)!important}
+body::before{background:var(--ds-bg)!important}
+body .portfolio-rail,body .site-header,body .mobile-menu-panel{background:var(--ds-rail)!important;color:var(--ds-text)!important;border-color:var(--ds-line)!important}
+body .portfolio-rail__link,body .portfolio-rail__label,body .portfolio-rail .np-icon{color:var(--ds-text)!important;font-family:var(--ds-font)!important}
+body .portfolio-rail__link{font-size:13px;font-weight:580}
+body .portfolio-rail:not(.is-collapsed) .np-project .portfolio-rail__label{font-size:12px}
+body .portfolio-rail__index,body .portfolio-rail__section-title{color:var(--ds-muted)!important;font-family:var(--ds-font)!important}
+body .portfolio-rail__link:hover{background:var(--ds-hover)!important}
+body .portfolio-rail__link.is-current,body .portfolio-rail__link[aria-current]{background:var(--ds-selected)!important}
+body .portfolio-rail__link:active{background:var(--ds-pressed)!important}
+body .portfolio-rail__toggle{color:var(--ds-text)!important}
+body .portfolio-rail.is-collapsed .portfolio-rail__link::after{background:var(--ds-text);color:#fff}
+body .portfolio-rail__link:focus-visible,body .portfolio-rail__toggle:focus-visible{outline-color:var(--ds-focus)!important}
+body main h1,body main h2,body main h3,body main h4{font-family:var(--ds-font)}
+body .about-editorial h1,body .about-editorial h2,body .about-editorial h3,body .ax-page h1,body .ax-page h2,body .ax-page h3,body .dt-page h1,body .dt-page h2,body .dt-page h3,body .chance-page h1,body .chance-page h2,body .chance-page h3,body .pg-intro h1{color:var(--ds-text)}
+body .ab-muted,body .ab-now p,body .ab-principles p,body .ab-outside p,body .ax-page p,body .dt-lede,body .dt-note,body .dt-meta,body .pg-intro>p:last-child,body .chance-page .cp-head>p:not(.cc-kicker),body .chance-page .re-intro>p:not(.cc-kicker),body .chance-page .re-lessons p:not(.cc-kicker),body .chance-page .re-feature-copy>p:last-child{color:var(--ds-secondary)}
+body .chance-page figcaption,body .ax-page figcaption,body .dt-figure figcaption{color:var(--ds-secondary)}
+body .chance-page .cc-kicker,body .chance-page .cc-label,body .ax-page .ax-kicker,body .dt-page .eyebrow,body .about-editorial .eyebrow{color:var(--ds-accent);font-family:var(--ds-font)}
+body .portfolio-rail__section-title{font-size:10px;letter-spacing:.12em;font-weight:600}
+
+/* Expanded navigation uses leading icons/identifiers only. */
+body .portfolio-rail__index{display:none!important}
+
+body .portfolio-rail--case .portfolio-rail__brand{flex:0 0 44px;width:44px;height:44px;justify-content:center}
+body .portfolio-rail__header{align-items:center}
+body .portfolio-rail--case .portfolio-rail__back{width:36px;height:36px;display:grid;place-items:center}
+body .portfolio-rail.is-collapsed .portfolio-rail__header{align-items:center}
+
+/* Visible project label; no link or hover invitation. */
+.portfolio-unavailable{cursor:default!important;text-decoration:none!important}.portfolio-rail__link.portfolio-unavailable:hover{background:transparent!important;transform:none!important}
