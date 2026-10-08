@@ -28,6 +28,7 @@
         <div class="contact-modal__links" aria-label="Contact actions">
           <a href="mailto:Jamiechou2004@outlook.com"><span>Email</span><em aria-hidden="true">&#8599;</em></a>
           <a href="https://www.linkedin.com/in/jamie-zihan-chou/" target="_blank" rel="noreferrer"><span>LinkedIn</span><em aria-hidden="true">&#8599;</em></a>
+          <a href="https://github.com/jamiechou2004" target="_blank" rel="noopener noreferrer"><span>GitHub</span><em aria-hidden="true">&#8599;</em></a>
           <a href="https://drive.google.com/file/d/1mmD8iWq6h50B5IozDPuJcVBEg_1GVpnI/view?usp=sharing" target="_blank" rel="noopener noreferrer"><span>Resume</span><em aria-hidden="true">&#8599;</em></a>
         </div>
       </section>`;
@@ -157,6 +158,7 @@
           <a class="portfolio-rail__link" href="https://www.linkedin.com/in/jamie-zihan-chou/" target="_blank" rel="noreferrer" data-label="LinkedIn">
             <span class="portfolio-rail__label">LinkedIn</span><span class="portfolio-rail__index" aria-hidden="true">↗</span>
           </a>
+          <a class="portfolio-rail__link" href="https://github.com/jamiechou2004" target="_blank" rel="noopener noreferrer" data-label="GitHub"><span class="portfolio-rail__label">GitHub</span><span class="portfolio-rail__index" aria-hidden="true">↗</span></a>
           <button class="portfolio-rail__link" type="button" data-contact-open data-label="Email Jamie">
             <span class="portfolio-rail__label">Email</span><span class="portfolio-rail__index" aria-hidden="true">@</span>
           </button>
@@ -673,6 +675,7 @@
           <a href="about.html">About</a>
           <a href="mailto:Jamiechou2004@outlook.com">Email</a>
           <a href="https://www.linkedin.com/in/jamie-zihan-chou/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/jamiechou2004" target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
       </div>`;
     body.append(footer);
@@ -725,10 +728,11 @@ const shapes={
  'lab.html':'<path d="M9 3h6M10 3v6l-6 10a1.4 1.4 0 0 0 1.2 2h13.6a1.4 1.4 0 0 0 1.2-2L14 9V3M7 15h10"/><path d="M10 18h.01M14 17h.01"/>',
  'resume':'<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h5"/>',
  'linkedin':'<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 10v7M7 7h.01M11 17v-7M11 13a3 3 0 0 1 6 0v4"/>',
+ 'github':'<path d="M9 19c-4.3 1.3-4.3-2.2-6-2.6m12 5v-3.3a2.9 2.9 0 0 0-.8-2.2c2.7-.3 5.5-1.3 5.5-6A4.7 4.7 0 0 0 18.4 6a4.3 4.3 0 0 0-.1-3.3s-1-.3-3.5 1.3a12.2 12.2 0 0 0-6.3 0C6.1 2.4 5 2.7 5 2.7A4.3 4.3 0 0 0 4.9 6a4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.7 5.5 6A2.9 2.9 0 0 0 8.3 17v4.4"/>',
  'email':'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/>'
 };
 for(const a of document.querySelectorAll('.portfolio-rail__link')){
- const href=a.getAttribute('href')||'';let key=href.split('/').pop();if(a.dataset.label==='Resume'||href.includes('Resume'))key='resume';if(href.includes('linkedin'))key='linkedin';if(a.hasAttribute('data-contact-open'))key='email';
+ const href=a.getAttribute('href')||'';let key=href.split('/').pop();if(a.dataset.label==='Resume'||href.includes('Resume'))key='resume';if(href.includes('linkedin'))key='linkedin';if(href.includes('github.com'))key='github';if(a.hasAttribute('data-contact-open'))key='email';
  const icon=document.createElement('span');icon.className='np-icon';icon.setAttribute('aria-hidden','true');
  icon.innerHTML=shapes[key]?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${shapes[key]}</svg>`:({ 'axel.html':'01','chance.html':'02','deloitte.html':'04'}[key]||a.querySelector('.portfolio-rail__index')?.textContent.trim()||'•');a.prepend(icon);
  if(['axel.html','chance.html','honda.html','deloitte.html'].includes(key)||href.startsWith('#')){a.classList.add('np-project');icon.classList.add('np-project-number');}
