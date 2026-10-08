@@ -1,0 +1,17 @@
+/* Local exploration only: semantic entry arrows + an optional footer micro-interaction. */
+.pixel-arrow{width:16px;height:16px;display:inline-block;vertical-align:baseline;margin-left:10px;color:#666c75;shape-rendering:crispEdges;pointer-events:none;transition:transform 140ms ease,color 140ms ease}
+@media(hover:hover) and (pointer:fine){a:hover>.pixel-arrow,a:hover h3>.pixel-arrow{color:#075eae;transform:translateX(2px)}}
+a:focus-visible>.pixel-arrow,a:focus-visible h3>.pixel-arrow{color:#075eae;transform:translateX(2px)}
+.hp-closing-mark{gap:0}
+.pixel-sprout{display:grid;place-items:center;width:48px;height:48px;background:transparent;border:1px solid transparent;border-radius:8px;padding:0;color:#202124;cursor:pointer;touch-action:manipulation}
+.pixel-sprout svg{width:36px;height:36px;shape-rendering:crispEdges;pointer-events:none;overflow:visible}
+.sprout-stem{fill:currentColor}
+.sprout-leaf{fill:#202124;opacity:.3;transform:scale(.55);transform-origin:13px 14px;transition:transform 220ms steps(3,end),opacity 180ms ease,fill 180ms ease}
+.pixel-sprout.is-grown .sprout-leaf{fill:#075eae;opacity:1;transform:scale(1)}
+.pixel-sprout:focus-visible{outline:2px solid #075eae;outline-offset:3px}
+.pixel-sprout:active{background:#f6f7f8}
+@media(prefers-reduced-motion:reduce){.pixel-arrow,.sprout-leaf{transition:none!important}a .pixel-arrow{transform:none!important}}
+/* User-requested botanical accent: contained to the footer sprout. */
+.pixel-sprout{color:#47664e}
+.sprout-leaf{fill:#47664e;opacity:.45}
+.pixel-sprout.is-grown .sprout-leaf{fill:#3e7653;opacity:1}
