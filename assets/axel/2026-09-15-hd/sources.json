@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-15",
+  "scale": 3,
+  "assets": [
+    {
+      "file": "setup-goal.png",
+      "nodeId": "1301:117447",
+      "width": 1974,
+      "height": 1276
+    },
+    {
+      "file": "setup-preview.png",
+      "nodeId": "1301:117456",
+      "width": 1605,
+      "height": 1363
+    },
+    {
+      "file": "partial-failure.png",
+      "nodeId": "1301:117902",
+      "width": 2400,
+      "height": 966,
+      "source": "User supplied 27-体验设计-周孜涵 (16).zip"
+    }
+  ]
+}

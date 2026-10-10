@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodLog - Home</title>
+    <link rel="stylesheet" href="css/Style.css">
+    <link rel="icon" type="image/png" href="assets/other/favicon.png">
+    <style>
+      .visually-hidden {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      @media (max-width: 600px) {
+        .main-content {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 16px;
+        }
+
+        .right-panel {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          order: 2;
+          width: 100%;
+        }
+
+        .mascot-section {
+          order: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .speech-bubble {
+          order: 0;
+          margin: 10px 0;
+          font-size: 14px;
+          max-width: 90%;
+        }
+
+        .definition-box {
+          order: 2;
+          width: 80%;
+          font-size: 14px;
+          margin: 0 auto;
+        }
+
+        .mood-grid {
+          order: 4;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+          justify-items: center;
+          width: 100%;
+        }
+
+        .tile {
+          width: 140px;
+          height: 140px;
+        }
+
+        .header-flex .nav-wrapper {
+          flex-direction: row;
+          align-items: center;
+          gap: 12px;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header-flex">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/other/logo.svg" alt="MoodLog Logo" />
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="mood-grid">
+                <a href="html/sub-categories/Angry.html" aria-label="Go to Angry category">
+                    <div class="tile" style="--tile-color: #ffb3ba;"
+                        data-definition="A strong feeling of displeasure or hostility.">
+                        <div class="icon"><img src="assets/emotions/Angry.png" alt="Angry">
+                        </div>
+                        <div class="label">Angry</div>
+                    </div>
+                </a>
+                <a href="html/sub-categories/Happy.html" aria-label="Go to Happy category">
+                    <div class="tile" style="--tile-color: #fff5ba;"
+                        data-definition="A feeling of joy, pleasure, or good fortune.">
+                        <div class="icon"><img src="assets/emotions/Happy.png" alt="Happy">
+                        </div>
+                        <div class="label">Happy</div>
+                    </div>
+                </a>
+                <a href="html/sub-categories/Sad.html" aria-label="Go to Sad category">
+                    <div class="tile" style="--tile-color: #aec6cf;"
+                        data-definition="A feeling of sorrow or unhappiness.">
+                        <div class="icon"><img src="assets/emotions/Sad.png" alt="Sad">
+                        </div>
+                        <div class="label">Sad</div>
+                    </div>
+                </a>
+                <a href="html/sub-categories/Anxious.html" aria-label="Go to Anxious category">
+                    <div class="tile" style="--tile-color: #ffdfba;"
+                        data-definition="Uneasy tension about potential threats or uncertainty.">
+                        <div class="icon"><img src="assets/emotions/Anxiety.png" alt="Anxious"></div>
+                        <div class="label">Anxious</div>
+                    </div>
+                </a>
+                <a href="html/sub-categories/Calm.html" aria-label="Go to Calm category">
+                    <div class="tile" style="--tile-color: #b5ead7;"
+                        data-definition="A peaceful and relaxed state of mind.">
+                        <div class="icon"><img src="assets/emotions/Calm.png" alt="Calm">
+                        </div>
+                        <div class="label">Calm</div>
+                    </div>
+                </a>
+            </div>
+            <div class="right-panel">
+                <button onclick="togglePresenter()" aria-pressed="false" id="toggleBtn" aria-label="Toggle Presenter">
+                    <img src="assets/other/eye.svg" alt="Toggle Presenter Icon" width="24" height="24" alt="Eye Icon" id="eyeIcon">
+                </button>
+                <div class="mascot-section">
+                    <div class="speech-bubble">Hey, how are you feeling today?</div>
+                    <img src="assets/other/presenter.png" alt="Mascot" class="mascot-image" />
+                </div>
+                <div class="definition-box" id="definition-box">
+                    <strong>Definition</strong>
+                    <p id="definition-text">Hover over an emotion to see definition</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="js/hover-script.js"></script>
+    <script>
+     const eyeBtn = document.getElementById('toggleBtn');
+      const eyeIcon = document.getElementById('eyeIcon');
+      let isOpen = true;
+      eyeBtn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      eyeIcon.src = isOpen ? '../assets/other/eye.svg' : '../assets/other/eye-slash.svg';
+      // toggle the visibility of the mascot
+       const mascot = document.querySelector('.mascot-section');
+       if (mascot) mascot.style.display = isOpen ? 'block' : 'none';
+      });
+     </script>
+</body>
+</html>
