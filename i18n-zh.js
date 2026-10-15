@@ -1,4 +1,5 @@
 window.JAMIE_ZH = {
+  "Email me": "发邮件给我",
   "Work": "作品",
   "Gallery": "探索",
   "About": "关于我",
