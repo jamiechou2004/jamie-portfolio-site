@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoodLog - Emotion Detail</title>
+  <link rel="stylesheet" href="../css/single-emotion.css" />
+  <link rel="icon" type="image/png" href="../assets/other/favicon.png">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="header-flex">
+      <div class="nav-wrapper">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../assets/other/logo.svg" alt="MoodLog Logo"/>
+          </a>
+        </div>
+        <a href="javascript:history.back()" class="arrow-left">
+           <img src="../assets/other/arrow-left.svg" alt="Back" width="20" height="20" />
+         </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="definition-box">
+        <strong>Definition</strong>
+        <p id="definition-text">Enthusiastic anticipation for what’s ahead.</p>
+      </div>
+      <div class="emotion-content">
+        <div class="speech-bubble" id="prompt-text">What future event sparks this excitement?</div>
+        <h1 id="emotion-label">Excited</h1>
+        <img id="emotion-img" src="../assets/emotions/Excited.png" alt="" height="170" />
+        <div>
+          <a href="../html/journal.html"><button>Reflect on feeling in journal</button></a>
+        </div>
+      </div>
+
+      <div class="mascot-box">
+        <img class="mascot-image" src="../assets/other/presenter.png" alt="Mascot" />
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/storage-logic.js"></script>
+</body>
+</html>
