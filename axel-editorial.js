@@ -19,12 +19,15 @@
  // Shared cursor labels stay consistent for both SVG and raster originals.
  window.addEventListener('pointermove',e=>{if(!matchMedia('(hover:hover) and (pointer:fine)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;const a=e.target.closest?.('[data-ax-image]');if(!a)return;const cursor=document.querySelector('[data-portfolio-cursor]');if(cursor){cursor.querySelector('[data-portfolio-cursor-label]').textContent='View image';cursor.dataset.hasLabel='true';}},{passive:true});
  const dialog=document.querySelector('.ax-dialog');if(!dialog?.showModal)return;
+ // Native dialogs render above document z-index; move the shared cursor into their top layer.
+ let cursor, cursorHome, cursorNext;
+ const resetCursor=()=>{if(!cursor)return;cursor.dataset.hasLabel='false';cursor.dataset.pressed='false';cursor.style.width='';const label=cursor.querySelector('[data-portfolio-cursor-label]');if(label)label.textContent='';};
  const img=dialog.querySelector('img'),scroller=dialog.querySelector('.ax-dialog-scroll'),zoom=dialog.querySelector('[data-zoom]');let trigger;
  document.querySelectorAll('[data-ax-image]').forEach(a=>a.addEventListener('click',e=>{
-  if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();trigger=a;img.src=a.href;img.alt=a.querySelector('img')?.alt||'Original design';dialog.querySelector('[data-original]').href=a.href;dialog.classList.remove('is-zoomed');img.style.width='';zoom.setAttribute('aria-pressed','false');zoom.textContent='Zoom in';dialog.showModal();scroller.scrollTo(0,0);
+  if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();trigger=a;img.src=a.href;img.alt=a.querySelector('img')?.alt||'Original design';dialog.querySelector('[data-original]').href=a.href;dialog.classList.remove('is-zoomed');img.style.width='';zoom.setAttribute('aria-pressed','false');zoom.textContent='Zoom in';dialog.showModal();cursor=document.querySelector('[data-portfolio-cursor]');if(cursor){cursorHome=cursor.parentNode;cursorNext=cursor.nextSibling;resetCursor();dialog.append(cursor);}scroller.scrollTo(0,0);
  }));
  zoom.addEventListener('click',()=>{const active=dialog.classList.toggle('is-zoomed');zoom.setAttribute('aria-pressed',String(active));zoom.textContent=active?'Fit width':'Zoom in';img.style.width=active?Math.max(img.naturalWidth,scroller.clientWidth*2)+'px':'';});
  dialog.querySelector('[data-close]').addEventListener('click',()=>dialog.close());
  dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
- dialog.addEventListener('close',()=>trigger?.focus({preventScroll:true}));
+ dialog.addEventListener('close',()=>{if(cursor&&cursorHome){cursorHome.insertBefore(cursor,cursorNext?.parentNode===cursorHome?cursorNext:null);resetCursor();}trigger?.focus({preventScroll:true});});
 })();
