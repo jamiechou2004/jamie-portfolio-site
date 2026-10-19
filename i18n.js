@@ -39,6 +39,8 @@
  }
  function controls(){
   document.documentElement.lang=language==='zh'?'zh-CN':'en';document.documentElement.dataset.language=language;
+  const trigger=document.querySelector('[data-language-toggle]');
+  if(trigger){trigger.querySelector('[data-current-language]').textContent=language==='zh'?'中文':'EN';trigger.setAttribute('aria-label',language==='zh'?'选择语言':'Choose language');}
   document.querySelectorAll('[data-set-language]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.setLanguage===language)));
  }
  let observer;
@@ -51,8 +53,18 @@
  }
  function start(){
   const bar=document.createElement('div');bar.className='language-switch';bar.dataset.languageSwitch='';bar.setAttribute('role','group');bar.setAttribute('aria-label','Language / 语言');
-  bar.innerHTML='<button type="button" lang="en" data-set-language="en" aria-label="English">EN</button><button type="button" lang="zh-CN" data-set-language="zh" aria-label="切换至中文">中文</button><span class="language-status" data-language-status role="status" aria-live="polite"></span>';
-  document.body.append(bar);bar.addEventListener('click',e=>{const b=e.target.closest('[data-set-language]');if(b)choose(b.dataset.setLanguage);});
+  bar.innerHTML='<button type="button" data-language-toggle aria-expanded="false" aria-controls="language-options"><svg class="language-globe" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span data-current-language>EN</span><svg class="language-chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="language-options" class="language-options" hidden><button type="button" lang="en" data-set-language="en" aria-label="English"><span>English</span><span class="language-check" aria-hidden="true">✓</span></button><button type="button" lang="zh-CN" data-set-language="zh" aria-label="切换至中文"><span>简体中文</span><span class="language-check" aria-hidden="true">✓</span></button></div><span class="language-status" data-language-status role="status" aria-live="polite"></span>';
+  document.body.append(bar);
+  const toggle=bar.querySelector('[data-language-toggle]'), options=bar.querySelector('.language-options');
+  const setOpen=(open,restoreFocus=false)=>{toggle.setAttribute('aria-expanded',String(open));options.hidden=!open;if(restoreFocus)toggle.focus({preventScroll:true});};
+  bar.addEventListener('click',e=>{
+   if(e.target.closest('[data-language-toggle]'))setOpen(options.hidden);
+   const b=e.target.closest('[data-set-language]');
+   if(b){choose(b.dataset.setLanguage);setOpen(false,true);}
+  });
+  document.addEventListener('pointerdown',e=>{if(!bar.contains(e.target))setOpen(false);});
+  bar.addEventListener('keydown',e=>{if(e.key==='Escape'&&!options.hidden){e.preventDefault();e.stopPropagation();setOpen(false,true);}});
+  bar.addEventListener('focusout',e=>{if(!bar.contains(e.relatedTarget))setOpen(false);});
   observer=new MutationObserver(records=>{
    observer.disconnect();for(const r of records){if(r.type==='childList')r.addedNodes.forEach(visit);else if(r.type==='characterData')text(r.target);else visit(r.target);}
    observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-label','title','placeholder','alt','data-label']});
