@@ -1,0 +1,30 @@
+/* Approved illustrated guide, 2026-10-20.
+   Editable 2D parts, one body, soft tonal depth. No raster background or WebGL. */
+.gg-character .gg-body{
+ left:39px;top:41px;width:82px;height:82px;border-radius:21px;
+ background:linear-gradient(145deg,#303132 0%,#292a2b 52%,#232425 100%);
+ box-shadow:inset 0 -1px 2px rgba(0,0,0,.08);
+}
+.gg-character .gg-eye{width:7px;height:15px;top:70px;border-radius:5px;background:#fff;box-shadow:none}
+.gg-character .gg-left{left:64px}.gg-character .gg-right{left:88px}
+.gg-character .gg-foot{top:119px;width:14px;height:12px;border-radius:2px 2px 6px 6px;background:linear-gradient(#272829,#232425);box-shadow:none}
+.gg-character .gg-foot-left{left:58px}.gg-character .gg-foot-right{left:87px}
+.gg-character .gg-shadow{left:44px;top:132px;width:73px;height:7px;border-radius:50%;background:radial-gradient(ellipse,rgba(30,32,35,.12),rgba(30,32,35,.035) 48%,transparent 73%)}
+.gg-character .gg-hand{left:116px;top:77px;width:13px;height:25px;border-radius:70% 60% 70% 35%;opacity:1;background:linear-gradient(150deg,#303132,#252627);transform:rotate(32deg);transform-origin:20% 90%}
+.gg-character[data-state=Responding] .gg-hand{animation:guide-hello .72s ease-in-out 2}
+.gg-character[data-state=Guiding] .gg-hand{transform:rotate(65deg)}
+.gg-character[data-state=Happy] .gg-eye{width:11px;height:5px;top:74px}
+.gg-character[data-state=Happy] .gg-smile,.gg-character[data-state=Celebrating] .gg-smile{opacity:1;left:74px;top:93px;width:13px;height:5px;border-radius:2px 2px 7px 7px}
+.gg-character[data-state=Celebrating] .gg-hand{animation:guide-cheer .65s ease both}
+.gg-character[data-state=Celebrating] .gg-smile{animation:gg-hop .65s ease both}
+/* Keep the same illustrated body and shading in every expression. */
+.gg-character[data-state=Curious] .gg-curious{display:none!important}
+.gg-character[data-state=Curious] :is(.gg-body,.gg-eye,.gg-foot,.gg-shadow,.gg-hand){opacity:1!important}
+.gg-character[data-state=Curious] .gg-left,.ha-hero .gg-character[data-state=Curious] .gg-left{left:64px;top:66px;width:7px;height:17px}
+.gg-character[data-state=Curious] .gg-right,.ha-hero .gg-character[data-state=Curious] .gg-right{left:88px;top:75px;height:8px}
+.gg-character[data-state=Curious] .gg-smile,.ha-hero .gg-character[data-state=Curious] .gg-smile{opacity:1;left:78px;top:94px;width:6px;height:6px;border-radius:50%}
+.gg-character[data-state=Impatient] .gg-eye,.gg-character[data-state=Grumpy] .gg-eye{height:4px;top:77px}
+.gg-character[data-state=Impatient] .gg-hand,.gg-character[data-state=Grumpy] .gg-hand{transform:translate(-2px,9px) rotate(140deg)}
+@keyframes guide-hello{0%,100%{transform:rotate(32deg)}35%{transform:rotate(8deg)}70%{transform:rotate(45deg)}}
+@keyframes guide-cheer{0%,100%{transform:rotate(32deg)}45%{transform:translateY(-16px) rotate(5deg)}}
+@media(prefers-reduced-motion:reduce){.gg-character .gg-hand,.gg-character .gg-smile{animation:none!important;transition:none!important}}
