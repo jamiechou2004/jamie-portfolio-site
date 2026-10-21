@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodLog - Anxious</title>
+    <!-- Pull from Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/Style.css">
+    <link rel="icon" type="image/png" href="../../assets/other/favicon.png">
+</head>
+
+
+<body>
+     <div class="page-wrapper">
+        <header class="header-flex">
+            <div class="nav-wrapper" style="display: flex; align-items: center; gap: 12px; padding: 16px;">
+                <a href="javascript:history.back()" class="arrow-left">
+                  <img src="../../assets/other/arrow-left.svg" alt="Back" width="20" height="20" />
+                </a>
+                <style>
+                   @media (max-width: 768px) {
+                      .main-content {
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 20px;
+                        gap: 20px;
+                      }
+
+                      .right-panel {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        order: 1;
+                        width: 100%;
+                      }
+
+                      .speech-bubble {
+                        order: 0;
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                        text-align: center;
+                      }
+                      .mascot-section {
+                        order: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                      }
+
+                      .definition-box {
+                        order: 2;
+                        width: 90%;
+                        font-size: 14px;
+                        text-align: center;
+                      }
+
+                      .mood-grid {
+                        order: 4;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 16px;
+                        width: 100%;
+                      }
+
+                      .tile {
+                        width: 100vpx;
+                        max-width: 4800px;
+                        margin: 0 auto;
+                      }
+                    }
+                    </style>
+                
+          </header>
+    <div class="main-content">
+        <div class="mood-grid">
+            <a href="../single-emotion.html">
+                <div class="tile nervous" style="--tile-color: #F5CBAD;"
+                data-definition="Uneasy anticipation about an upcoming uncertain outcome."
+                data-dialog="What uncertainty is making you jittery? Where do you feel that tension physically?"
+                data-journal-prompt="Name the event or possibility that’s making you nervous. List what you can control, what you can’t, and one supportive action you can take right now."
+                data-alt="Nervous blue-gray character with hunched shoulders and sweat drops">
+                    <div class="icon"><img src="../../assets/emotions/Nervous.png" alt="nervous" height="85"
+                            style="width:auto;"></div>
+                    <div class="label">Nervous</div>
+                </div>
+            </a>
+            <a href="../single-emotion.html">
+                <div class="tile worried" style="--tile-color: #ECB58D;"
+                data-definition="Persistent concern that something might go wrong."
+                data-dialog="What’s looping in your mind? How realistic do you think that scenario is?"
+                data-journal-prompt="Detail the worry running through your thoughts. Challenge it by writing evidence for and against the feared outcome, then note a grounding step you can take."
+                data-alt="Worried blue-gray character clasping hands to chest, eyebrows raised">
+                    <div class="icon"><img src="../../assets/emotions/Worried.png" alt="Worried" height="85"
+                            style="width:auto;"></div>
+                    <div class="label">Worried</div>
+                </div>
+            </a>
+            <a href="../single-emotion.html">
+                <div class="tile insecure" style="--tile-color: #EAB086;"
+                data-definition="Doubting your worth, abilities, or place among others."
+                data-dialog="What story are you telling yourself about not being enough? Whose voice is that?"
+                data-journal-prompt="Describe a moment that triggered insecurity. Write a compassionate response you’d offer a friend in the same situation—and then offer it to yourself."
+                data-alt="Insecure blue-gray character with arms folded and head bowed slightly">
+                    <div class="icon"><img src="../../assets/emotions/Insecure.png" alt="Insecure" height="85"
+                            style="width:auto;"></div>
+                    <div class="label">Insecure</div>
+                </div>
+            </a>
+        </div>
+        <div class="right-panel">
+            <button onclick="togglePresenter()" aria-pressed="false" id="toggleBtn" aria-label="Toggle Presenter">
+                    <img src="../../assets/other/eye.svg" alt="Toggle Presenter Icon" width="24" height="24" alt="Eye Icon" id="eyeIcon">
+             </button>
+            <div class="mascot-section">
+                <div class="speech-bubble">Let's try to get a little bit more specific</div>
+                <img src="../../assets/other/presenter.png" alt="Mascot" class="mascot-image" />
+            </div>
+            <div class="definition-box" id="definition-box">
+                <strong>Definition</strong>
+                <p id="definition-text">Hover over an emotion to see definition</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="../../js/hover-script.js"></script>
+    <script src="../../js/storage-logic.js"></script>
+   <script>
+     const eyeBtn = document.getElementById('toggleBtn');
+      const eyeIcon = document.getElementById('eyeIcon');
+      let isOpen = true;
+      eyeBtn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      eyeIcon.src = isOpen ? '../../assets/other/eye.svg' : '../../assets/other/eye-slash.svg';
+      // toggle the visibility of the mascot
+       const mascot = document.querySelector('.mascot-section');
+       if (mascot) mascot.style.display = isOpen ? 'block' : 'none';
+      });
+     </script>
+</body>
+
+</html>

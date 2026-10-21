@@ -1,0 +1,69 @@
+/* Homepage-only study. Reference: Notion Pulse's neutral/semantic colour hierarchy.
+   Colours below are Jamie-specific proposals, not extracted reference tokens.
+   Media, brand assets, typography, layout and cursor behaviour are untouched. */
+:root{--page-canvas:#ffffff;--surface-subtle:#f6f7f8;--text-strong:#202124;--text-body:#50545b;--text-muted:#666c75;--border-subtle:#e1e4e8;--link-blue:#075eae;--selected-blue:#eaf3fc;--ink:var(--text-strong);--graphite:var(--text-body);--muted:var(--text-muted);--line:var(--border-subtle);--accent:var(--link-blue);--accent-strong:#054b8a;--accent-soft:var(--selected-blue)}
+html,body{background:var(--page-canvas)!important;color:var(--text-strong)}
+body #home-title{color:var(--text-strong)!important}
+body .portfolio-rail{background:var(--surface-subtle)!important;border-color:var(--border-subtle)}
+body .portfolio-rail__link{color:var(--text-strong)}
+body .portfolio-rail__link:hover{background:#eceef1;color:var(--text-strong)}
+body .portfolio-rail__link:active{background:#dfe3e8}
+body .portfolio-rail__link.is-current{background:var(--selected-blue);color:var(--link-blue)}
+body .np-icon{color:var(--text-body)}
+body .is-current .np-icon{color:var(--link-blue)}
+body .portfolio-rail__toggle:hover{background:#e5e8ec!important}
+body .personal-note{--ink:var(--text-strong);background:#fbfcfd;border-color:var(--border-subtle);box-shadow:0 2px 5px #20212406}
+body .note-making{background:#f1f6fc;--ink:var(--text-strong)}
+body .note-details{background:#f5f4f9;--ink:var(--text-strong)}
+body .personal-note:before{background:#ffffffb8;border-color:#e5e8ec80}
+body .personal-note.is-active{border-color:#a8c8e8;box-shadow:0 8px 18px #2021240a}
+body .note-number,body .note-invite,body .notes-heading>span,body .hp-heading>span{color:var(--text-muted);opacity:1}
+body .note-panel{border-color:var(--border-subtle)}
+body .note-panel p,body .hp-caption p,body .hp-closing p{color:var(--text-body)}
+body .note-panel a,body .is-active .note-invite,body .note-trigger:hover .note-invite{color:var(--link-blue)}
+body .hp-heading,body .hp-caption,body footer{border-color:var(--border-subtle)}
+body .hp-caption h3,body .hp-heading h2,body .notes-heading h2,body .hp-closing h2{color:var(--text-strong)}
+body .hp-caption a:hover h3{color:var(--link-blue)}
+body .hp-caption li{background:var(--surface-subtle);color:var(--text-body);border-color:var(--border-subtle)}
+body .hp-closing{background:transparent}
+body footer{background:var(--page-canvas);color:var(--text-muted)}
+body :is(a,button):focus-visible{outline:2px solid var(--link-blue)!important;outline-offset:3px}
+::selection{background:#dcecff;color:#202124}
+body .portfolio-rail__link.is-current{background:var(--selected-blue)!important;color:var(--link-blue)!important}
+body .portfolio-rail__link:hover{background:#eceef1!important}
+body .portfolio-rail__link:active{background:#dfe3e8!important}
+body .portfolio-rail__link.is-current:hover{background:#dcecff!important}
+body .site-header{background:var(--surface-subtle)!important;border-color:var(--border-subtle)!important}
+/* Shared semantic colours, applied to portfolio presentation only. */
+html body{--ds-bg:#fff;--ds-rail:#f6f7f8;--ds-text:#202124;--ds-secondary:#50545b;--ds-muted:#666c75;--ds-hover:#eceef1;--ds-selected:#eaf3fc;--ds-pressed:#dfe3e8;--ds-line:#e1e4e8;--ds-accent:#075eae;--ds-focus:#075eae;--chance-blue:#075eae;--chance-blue-hover:#054b8a;--chance-tint:#f6f7f8;--chance-tint-strong:#edf1f5;--ax-panel:#f6f7f8;--ax-blue:#eaf3fc;--ax-card:#fff;--portfolio-shell-background:#fff;--portfolio-shell-foreground:#202124;background:#fff!important;color:#202124!important}
+body::before{background:#fff!important}
+body :is(.portfolio-rail,.site-header,.mobile-menu-panel){background:#f6f7f8!important;border-color:#e1e4e8!important}
+body .portfolio-rail__link.is-current :is(.portfolio-rail__label,.np-icon){color:#075eae!important}
+body :is(.chance-page,.ax-page,.honda-page,.dt-page,.about-editorial,.gallery-intro,.gallery-heading,.loop-story,.moodlog-overview) :is(h1,h2,h3,h4){color:#202124!important}
+body :is(.chance-page,.ax-page,.honda-page,.dt-page,.about-editorial,.gallery-intro,.loop-story,.moodlog-overview) p{color:#50545b}
+body :is(.cp-meta,.dt-meta,.dt-note,.ab-muted,.gallery-caption,figcaption){color:#666c75}
+body :is(.cp-top,.cp-head,.cc-section,.ax-section,.honda-ownership,.honda-section,.honda-end,.ab-section,.ab-now,.gallery-project,.loop-story,.case-section,.delivery-summary,.note-panel){border-color:#e1e4e8!important}
+body :is(.chance-page,.ax-page) :is(.delivery-feature,.cp-stage,.cp-frame,.cp-input-group,.cp-follow-close,.cp-steps,.cp-lego,.re-feature,.re-next,.cr-next,.ax-scene-visual,.ax-story-insight,.ax-story-ending){background:#f6f7f8!important;border-color:#e1e4e8!important}
+body :is(.honda-hero,.dt-figure a,.ab-lab-art,.moodlog-cover){background:#f6f7f8!important;color:#202124!important}
+body .moodlog-cover :is(h3,.eyebrow){color:#202124!important}
+body :is(.chance-page,.ax-page) :is(.cp-rules span,.cr-flow li,.cc-module-row span,.cc-diagram-node,.cc-journey>span,.cc-responsibilities>div,.re-modules-row>div,.ax-outcome-map>div){background:#fff!important;color:#50545b!important;border-color:#d4dae1!important}
+body :is(.chance-page,.ax-page) :is(.cc-kicker,.cc-label,.cp-eyebrow,.cp-notes small,.cp-path span,.cp-steps span,.cc-number,.cr-number,.cr-next-grid span,.re-next li>span,.delivery-intro>p,.delivery-label>span,.ax-kicker){color:#666c75!important}
+body :is(.cp-tail a,.cc-text-link,.cc-footer a,.cp-status summary,.cp-details summary,.cc-secondary summary,.cc-board-list summary,.ab-text-link,.ab-close a,.gallery-link,.loop-story-link,.gallery-caption a,.honda-end a,.cp-project-status){color:#075eae!important}
+body .chance-page :is(.cp-compare-controls button[aria-pressed=true],.re-shared){background:#202124!important;color:#fff!important;border-color:#202124!important}
+body .chance-page :is(.re-composition>p,.cr-principle strong,.cr-roles h4,.cc-takeaway-equation,.cr-return span,.cr-evidence span){color:#50545b!important}
+body :is(.dt-stats strong,.dt-touchpoints span,.deloitte-case .eyebrow,.honda-page .eyebrow,.honda-ownership span,.gallery-page .eyebrow,.ab-principles span){color:#666c75!important}
+body .dt-touchpoints article{border-color:#d4dae1}
+body .chance-page .cp-full-dialog{background:#fff!important}
+body .chance-page .cp-close{background:#202124!important;color:#fff!important}
+body .ax-story-nav{background:#fff;border:1px solid #e1e4e8}
+body .ax-story-nav a[aria-current=step]{background:#eaf3fc;color:#075eae}
+body .scroll-progress{background:#075eae}
+body :is(a,button,summary):focus-visible{outline:2px solid #075eae!important;outline-offset:3px}
+/* Gallery's illustrated dark artwork retains its original colours and white labels. */
+body .chance-page .re-dot{background:#075eae!important}
+body .chance-page .re-modules-row i{background:#e8ecf1!important}
+body :is(.ax-manager,.ax-concept-accent,.ax-reflection-final){background:#edf1f5!important;color:#202124}
+body :is(.contact-dialog,.contact-modal,.contact-panel){background:#fff;color:#202124;border-color:#e1e4e8}
+body :is(.cp-full-dialog,.contact-modal__card){background:#fff!important;border-color:#e1e4e8!important;color:#202124}
+body .cp-close{background:#202124!important;color:#fff!important}
+body .cp-full-dialog::backdrop{background:rgb(32 33 36 / .68)}

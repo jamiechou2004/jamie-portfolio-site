@@ -1,0 +1,25 @@
+.about-editorial .ab-principles{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 48px}.about-editorial .ab-portrait{overflow:visible;perspective:1100px}.ab-portrait-button{position:relative;display:block;width:100%;padding:0;border:0;border-radius:24px;background:transparent;cursor:pointer;transform:rotateX(var(--portrait-x,0deg)) rotateY(var(--portrait-y,0deg));transition:transform .3s ease,box-shadow .3s ease;transform-style:preserve-3d;isolation:isolate}.ab-portrait-button:hover{box-shadow:0 18px 38px -24px #203a4c70}.ab-portrait-button:focus-visible{outline:3px solid #355f85;outline-offset:7px}.about-editorial .ab-portrait-button img{display:block;width:100%;height:auto;border-radius:24px;pointer-events:none}.ab-portrait-hint{position:absolute;bottom:20px;left:20px;padding:10px 15px;border-radius:30px;background:#fffffff0;color:#24343e;font:500 12px/1.3 inherit;display:flex;gap:22px;align-items:center;box-shadow:0 3px 15px #00000009}.ab-portrait-hint span{font-size:16px}.ab-portrait-greeting{position:absolute;top:24px;right:20px;max-width:80%;background:#f9faf7;color:#24343e;padding:15px 19px;border-radius:18px 18px 3px 18px;font-size:17px;line-height:1.3;font-weight:550;opacity:0;transform:translateY(8px) rotate(-4deg);transition:opacity .22s ease,transform .32s cubic-bezier(.2,.8,.2,1)}.ab-portrait-button[aria-pressed=true] .ab-portrait-greeting{opacity:1;transform:translateY(0) rotate(-3deg)}.ab-portrait-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(max-width:650px){.about-editorial .ab-principles{grid-template-columns:1fr;gap:28px}.ab-portrait-greeting{font-size:15px}}@media(prefers-reduced-motion:reduce){.ab-portrait-button{transform:none!important;transition:none}.ab-portrait-greeting{transition:none;transform:none!important}}
+
+.ab-doodle-glasses{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transform:translateY(-10px) scale(1.04);transform-origin:50% 33%;transition:opacity .15s ease,transform .35s cubic-bezier(.2,1.6,.4,1)}.ab-portrait-button[aria-pressed=true] .ab-doodle-glasses{opacity:1;transform:translateY(0) scale(1)}@media(prefers-reduced-motion:reduce){.ab-doodle-glasses{transition:none;transform:none}}
+
+.ab-doodle-aura{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transform:scale(.97);transition:opacity .25s ease,transform .5s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 0 5px #eaff5870) drop-shadow(0 0 15px #eaff5838)}
+.ab-portrait-button[aria-pressed=true] .ab-doodle-aura{opacity:1;transform:scale(1)}
+.ab-portrait-button[aria-pressed=true] .ab-doodle-hello path:first-child{animation:ab-write-hello .7s ease both}
+@keyframes ab-write-hello{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.ab-doodle-aura{transition:none;transform:none}.ab-portrait-button[aria-pressed=true] .ab-doodle-hello path:first-child{animation:none}}
+
+.portfolio-cursor[data-portrait=true][data-has-label=true]{width:116px!important;height:42px!important;gap:8px;padding:0 13px;background:#202226;color:#f4ffb8;overflow:visible}
+.portfolio-cursor[data-portrait=true]::before{content:'☞';font:28px/1 Georgia,serif;display:block;animation:ab-hand-tap 1.2s ease-in-out 3;transform:rotate(-30deg)}
+@keyframes ab-hand-tap{0%,55%,100%{transform:rotate(-30deg) translate(0,0)}25%{transform:rotate(-20deg) translate(3px,-2px)}35%{transform:rotate(-30deg) translate(0,0)}}
+@media(prefers-reduced-motion:reduce){.portfolio-cursor[data-portrait=true]::before{animation:none}}
+
+.about-editorial .ab-portrait-hint{bottom:18px;left:22px;padding:0;background:none;border-radius:0;box-shadow:none;color:rgba(255,255,255,.72);font-size:12px;font-weight:400;letter-spacing:.02em;line-height:1.4;opacity:0;visibility:hidden;transition:opacity .2s ease;pointer-events:none}
+.about-editorial .ab-portrait-button[aria-pressed=true] .ab-portrait-hint{opacity:1;visibility:visible}
+@media(prefers-reduced-motion:reduce){.about-editorial .ab-portrait-hint{transition:none}}
+
+.about-editorial .ab-portrait-hint{display:none}
+.ab-shirt-print{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .3s ease,transform .4s ease}
+.ab-portrait-button[aria-pressed=true] .ab-shirt-print{opacity:.88;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.ab-shirt-print{transition:none;transform:none}}
+
+.ab-shirt-print{mix-blend-mode:screen}.ab-portrait-button[aria-pressed=true] .ab-shirt-print{opacity:.86}
