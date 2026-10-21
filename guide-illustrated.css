@@ -28,3 +28,6 @@
 @keyframes guide-hello{0%,100%{transform:rotate(32deg)}35%{transform:rotate(8deg)}70%{transform:rotate(45deg)}}
 @keyframes guide-cheer{0%,100%{transform:rotate(32deg)}45%{transform:translateY(-16px) rotate(5deg)}}
 @media(prefers-reduced-motion:reduce){.gg-character .gg-hand,.gg-character .gg-smile{animation:none!important;transition:none!important}}
+
+/* User-approved handless silhouette; all expressions retain the same body. */
+.gg-character .gg-hand{display:none!important}
