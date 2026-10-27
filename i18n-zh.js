@@ -179,6 +179,7 @@ window.JAMIE_ZH = {
   "Know what to do next.": "知道下一步怎么做。",
   "Shipped in Chance AI": "已在 Chance AI 落地",
   "Jun 2026–Present": "2026 年 6 月至今",
+  "Jun 2026–Sep 2026": "2026 年 6 月–9 月",
   "With product & engineering": "与产品、工程团队协作",
   "MY DELIVERED WORK": "我的交付内容",
   "An answer.": "一个回答。",
