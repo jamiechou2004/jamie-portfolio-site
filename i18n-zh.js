@@ -48,6 +48,7 @@ window.JAMIE_ZH = {
   "Selection, waiting, and failure states deserve the same care as the main flow.": "选择、等待和失败状态，也值得像主流程一样被认真设计。",
   "Explore the details ↗": "探索这些细节 ↗",
   "03 CASE STUDIES": "03 个案例",
+  "02 CASE STUDIES": "02 个案例",
   "Making AI answers easier to understand, act on, and continue.": "让 AI 回答更易理解，让用户知道如何行动、继续追问。",
   "Consumer AI": "消费级 AI",
   "Bringing restaurant orders, priorities, and daily decisions into one workspace.": "将餐厅订单、优先事项和日常决策整合进一个工作空间。",
