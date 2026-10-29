@@ -1,0 +1,5 @@
+/* Approved site typography. No Apple font files embedded or distributed. */
+html#sf-rounded-site body,html#sf-rounded-site body[data-page-view] *,html#sf-rounded-site body:not([data-page-view]) * {font-family:"SF Pro Rounded",ui-rounded,system-ui,-apple-system,sans-serif!important;}
+html#sf-rounded-site body h1,html#sf-rounded-site body h2,html#sf-rounded-site body h3,html#sf-rounded-site body #home-title,html#sf-rounded-site body .note-title{font-weight:600!important}
+html#sf-rounded-site body p{font-weight:400}
+html#sf-rounded-site body button,html#sf-rounded-site body nav a{font-weight:500}
