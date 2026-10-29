@@ -85,6 +85,7 @@
   const projectLinks = [
     ["axel.html", "Axel SaaS"],
     ["chance.html", "Chance AI"],
+    ["honda.html", "HondaConnect"],
     ["deloitte.html", "Deloitte x SCADpro"],
   ].filter(([href]) => !isHomePreview || href !== "deloitte.html");
   const chapterSourceLinks = Array.from(document.querySelectorAll(".case-chapter-nav a[href^='#']"));
@@ -270,7 +271,7 @@
     const imageLink = target?.matches('.chance-page a[href$=".png"]');
     const sectionLink = target?.matches('.chance-page [data-cursor-action="explore"]');
     const inProgress = target?.matches('[data-work-in-progress]');
-    portfolioCursorLabel.textContent = inProgress ? 'Still working on it' : sectionLink ? 'Explore ↓' : imageLink ? 'View image' : cover ? 'View work ↗' : '';
+    portfolioCursorLabel.textContent = inProgress ? (document.documentElement.dataset.language==='zh'?'整理中':'Still working on it') : sectionLink ? 'Explore ↓' : imageLink ? 'View image' : cover ? 'View work ↗' : '';
     portfolioCursor.dataset.hasLabel = String(Boolean(inProgress || sectionLink || imageLink || cover));
     portfolioCursor.dataset.interactive = String(Boolean(target && !inProgress));
     portfolioCursor.style.width = inProgress ? "200px" : "";
@@ -740,10 +741,10 @@ for(const a of document.querySelectorAll('.portfolio-rail__link')){
 }
 // Unavailable work remains visible without offering a navigation action.
 for(const link of document.querySelectorAll('a[href]')){
- if(new URL(link.href,location.href).pathname.endsWith('/deloitte.html')){
+ if(['/deloitte.html','/honda.html'].some(page=>new URL(link.href,location.href).pathname.endsWith(page))){
   const label=document.createElement('span');
   for(const attr of link.attributes)if(!['href','target','download','tabindex','role'].includes(attr.name))label.setAttribute(attr.name,attr.value);
-  label.innerHTML=link.innerHTML;label.setAttribute('aria-disabled','true');label.classList.add('portfolio-unavailable');label.removeAttribute('title');label.dataset.workInProgress='';label.setAttribute('aria-label','Deloitte x SCADpro — Still working on it');link.replaceWith(label);
+  label.innerHTML=link.innerHTML;label.setAttribute('aria-disabled','true');label.classList.add('portfolio-unavailable');label.removeAttribute('title');label.dataset.workInProgress='';label.setAttribute('aria-label',(new URL(link.href,location.href).pathname.endsWith('/honda.html')?'HondaConnect':'Deloitte x SCADpro')+' — Still working on it');link.replaceWith(label);
  }
 }
 });

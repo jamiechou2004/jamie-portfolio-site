@@ -730,6 +730,7 @@ window.JAMIE_ZH = {
   "Email Jamie": "给 Jamie 发邮件",
   "Deloitte x SCADpro — Still working on it": "Deloitte x SCADpro — 整理中",
   "Still working on it": "整理中",
+  "HondaConnect — Still working on it": "HondaConnect — 整理中",
   "View image": "查看图片",
   "Fit width": "适应宽度",
   "Full-size design image": "完整设计图片",
