@@ -230,3 +230,6 @@ html#sf-rounded-site body[data-page-view] .xp-card :is(.xp-org, .xp-tile) {
 html#sf-rounded-site body[data-page-view] .xp-card .xp-when {
   font-family: ui-monospace, "SF Mono", Menlo, monospace !important;
 }
+
+/* Chinese headline: keep "我是 Jamie。" on one line. */
+html[data-language="zh"] .about-editorial .ab-intro h1 { font-size: clamp(56px, 6.2vw, 96px); letter-spacing: -0.02em; }
