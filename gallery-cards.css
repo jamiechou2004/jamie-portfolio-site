@@ -102,15 +102,18 @@ body .gallery-page .gx-dark .gallery-heading h2 { color: #f3f4f6 !important; fon
 }
 .gx-card:hover .gx-mood .moodlog-preview-card { transform: rotate(-1deg) translateY(-4px); transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
 
-/* ---------- Where the guide lands when it walks you to a card ---------- */
+/* ---------- Where the guide lands when it walks you to a card: a small pill over the picture ---------- */
 .gx-card .gg-arrival {
-  position: absolute; z-index: 3; top: 14px; right: 14px;
-  min-height: 0; gap: 8px; padding: 6px 12px 6px 6px;
-  border-radius: 999px; background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 10px 24px -14px rgba(24, 28, 34, 0.4);
+  position: absolute; z-index: 3; top: 16px; left: 16px;
+  display: flex; align-items: center; gap: 10px;
+  min-height: 0; height: 48px; padding: 0 16px 0 4px;
+  border-radius: 999px; background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 28px -16px rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
 }
-.gx-card .gg-arrival p { margin: 0; font-size: 13px; }
-.gx-card .gg-arrival .gg-character { transform: scale(0.42); transform-origin: left center; width: 60px; height: 60px; }
+.gx-card .gg-arrival p { margin: 0; font-size: 14px; line-height: 1; color: #3c4046; white-space: nowrap; }
+.gx-card .gg-arrival .gg-character { width: 160px; height: 160px; margin: -56px; transform: scale(0.25); flex-shrink: 0; pointer-events: none; }
+.gx-card .gg-arrival :is(.gg-spark, .gg-speech, .gg-hand) { display: none; }
 
 /* ---------- Narrow screens ---------- */
 @media (max-width: 860px) {
