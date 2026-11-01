@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodLog - Angry</title>
+    <!-- Pull from Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/Style.css">
+    <link rel="icon" type="image/png" href="../../assets/other/favicon.png">
+</head>
+
+<body>
+     <div class="page-wrapper">
+        <header class="header-flex">
+            <div class="nav-wrapper" style="display: flex; align-items: center; gap: 12px; padding: 16px;">
+                <a href="javascript:history.back()" class="arrow-left">
+                  <img src="../../assets/other/arrow-left.svg" alt="Back" width="20" height="20" />
+                </a>
+                
+                <style>
+                   @media (max-width: 768px) {
+                      .main-content {
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 20px;
+                        gap: 20px;
+                      }
+
+                      .right-panel {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        order: 1;
+                        width: 100%;
+                      }
+
+                      .speech-bubble {
+                        order: 0;
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                        text-align: center;
+                      }
+                      .mascot-section {
+                        order: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                      }
+
+                      .definition-box {
+                        order: 2;
+                        width: 90%;
+                        font-size: 14px;
+                        text-align: center;
+                      }
+
+                      .mood-grid {
+                        order: 4;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 16px;
+                        width: 100%;
+                      }
+
+                      .tile {
+                        width: 100vpx;
+                        max-width: 4800px;
+                        margin: 0 auto;
+                      }
+                    }
+                    </style>
+                
+          </header>
+    <div class="main-content">
+        <div class="mood-grid">
+            <a href="../single-emotion.html">
+                <div class="tile annoyed" style="--tile-color: #E2A18D;"
+                data-definition="Irritated by small hassles or interruptions that break your flow."
+                data-dialog="What's rubbing you the wrong way right now? How intense is that irritation?"
+                data-journal-prompt="Describe the specific trigger that made you feel annoyed today. What boundary, need, or expectation was brushed up against, and how might you address it constructively?"
+                data-alt="Annoyed orange character with arms crossed and a tight frown">
+                    <div class="icon"><img src="../../assets/emotions/Annoyed.png" alt="Annoyed" height="85"
+                            style="width:auto;"></div>
+                    <div class="label">Annoyed</div>
+                </div>
+            </a>
+            <a href="../single-emotion.html">
+                <div class="tile resentful" style="--tile-color: #D98D62;"
+                data-definition="Holding lingering bitterness about something you feel was unfair."
+                data-dialog="What feels unjust to you? How long have you been carrying that weight?"
+                data-journal-prompt="Write about the situation (or person) toward which you feel resentment. What unmet need or perceived injustice lies underneath, and what steps—if any—could help you release or address it?"
+                data-alt="Resentful orange character with crossed arms and narrowed eyes">                
+                    <div class="icon"><img src="../../assets/emotions/Resentful.png" alt="Resentful" height="85"
+                            style="width:auto;"></div>
+                    <div class="label">Resentful</div>
+                </div>
+            </a>
+            <a href="../single-emotion.html">
+                <div class="tile frustrated" style="--tile-color: #E28C67;"
+                data-definition="Blocked from reaching a goal despite effort."
+                data-dialog="Where are you hitting a wall? How is that blockade affecting your energy?"
+                data-journal-prompt="Describe the obstacle that’s fueling your frustration. Brainstorm one small action or mindset shift that could loosen the log-jam, even a little."
+                data-alt="Frustrated orange character clenching fists beside its face, brows furrowed">                    <div class="icon"><img src="../../assets/emotions/Frustrated.png" alt="Frustrated" height="85"
+                            style="width:auto;"></div>
+                    <div class="label">Frustrated</div>
+                </div>
+            </a>
+        </div>
+        <div class="right-panel">
+            <button onclick="togglePresenter()" aria-pressed="false" id="toggleBtn" aria-label="Toggle Presenter">
+                    <img src="../../assets/other/eye.svg" alt="Toggle Presenter Icon" width="24" height="24" alt="Eye Icon" id="eyeIcon">
+              </button>
+            <div class="mascot-section">
+                <div class="speech-bubble">Let's try to get a little bit more specific</div>
+                <img src="../../assets/other/presenter.png" alt="Mascot" class="mascot-image" />
+            </div>
+            <div class="definition-box" id="definition-box">
+                <strong>Definition</strong>
+                <p id="definition-text">Hover over an emotion to see definition</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="../../js/hover-script.js"></script>
+    <script src="../../js/storage-logic.js"></script>
+    <script>
+     const eyeBtn = document.getElementById('toggleBtn');
+      const eyeIcon = document.getElementById('eyeIcon');
+      let isOpen = true;
+      eyeBtn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      eyeIcon.src = isOpen ? '../../assets/other/eye.svg' : '../../assets/other/eye-slash.svg';
+      // toggle the visibility of the mascot
+       const mascot = document.querySelector('.mascot-section');
+       if (mascot) mascot.style.display = isOpen ? 'block' : 'none';
+      });
+     </script>
+</body>
+
+</html>

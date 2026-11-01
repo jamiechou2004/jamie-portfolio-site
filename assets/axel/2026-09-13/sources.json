@@ -1,0 +1,50 @@
+{
+  "fileKey": "wBLuvKNVZ8In3RBwnFs7po",
+  "assets": [
+    {
+      "file": "summary.svg",
+      "nodeId": "1262:72638",
+      "source": "既有本地SVG导出；顶端视口，本轮核对渲染；未重新导出"
+    },
+    {
+      "file": "order-context.png",
+      "nodeId": "1301:118708",
+      "source": "2026-09-13浏览器导出；当前18页第6页UI局部"
+    },
+    {
+      "file": "setup-goal.png",
+      "nodeId": "1301:117447",
+      "source": "2026-09-13浏览器导出；第10页"
+    },
+    {
+      "file": "setup-preview.png",
+      "nodeId": "1301:117456",
+      "source": "2026-09-13浏览器导出；第10页"
+    },
+    {
+      "file": "setup-confirm.png",
+      "nodeId": "1262:73970",
+      "source": "2026-09-13浏览器导出；第11页保留的Before层；临时显示其父层1262:73545后已恢复隐藏"
+    },
+    {
+      "file": "setup-applied.png",
+      "nodeId": "1301:117481",
+      "source": "2026-09-13浏览器导出；第11页"
+    },
+    {
+      "file": "partial-failure.png",
+      "nodeId": "1301:117902",
+      "source": "2026-09-13浏览器导出；第14页"
+    },
+    {
+      "file": "handoff.png",
+      "nodeId": "1301:117913",
+      "source": "2026-09-13浏览器导出；第14页"
+    },
+    {
+      "file": "resume.png",
+      "nodeId": "1273:106051",
+      "source": "2026-09-13浏览器导出；Minimized组；导出名称1272_86071是原稿命名，并非节点ID"
+    }
+  ]
+}

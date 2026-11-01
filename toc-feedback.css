@@ -1,0 +1,7 @@
+/* Chapter emphasis, original link geometry retained. */
+.portfolio-rail--case [data-case-rail-link] .portfolio-rail__label,
+.portfolio-rail--case [data-case-rail-link] :is(.portfolio-rail__index,.np-project-number){transition:transform 150ms ease;color:inherit}
+.portfolio-rail--case [data-case-rail-link][aria-current="location"]{color:#075eae!important}
+.portfolio-rail--case [data-case-rail-link][aria-current="location"] .portfolio-rail__label,
+.portfolio-rail--case [data-case-rail-link][aria-current="location"] :is(.portfolio-rail__index,.np-project-number){font-weight:700!important;transform:translateX(4px)}
+@media(prefers-reduced-motion:reduce){.portfolio-rail--case [data-case-rail-link] .portfolio-rail__label,.portfolio-rail--case [data-case-rail-link] :is(.portfolio-rail__index,.np-project-number){transition:none}}

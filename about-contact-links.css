@@ -1,0 +1,12 @@
+.ab-close .ab-text-link{gap:10px;text-decoration:none;border-radius:4px;transition:color 140ms ease;white-space:nowrap}
+.ab-contact-arrow{width:.7em;height:.7em;flex:none;fill:currentColor;shape-rendering:crispEdges;pointer-events:none;transition:transform 140ms ease}
+@media(hover:hover) and (pointer:fine){.ab-close .ab-text-link:hover .ab-contact-arrow{transform:translateX(3px)}}
+.ab-close .ab-text-link:focus-visible{outline:2px solid #075eae;outline-offset:6px}
+.ab-close .ab-text-link:focus-visible .ab-contact-arrow{transform:translateX(3px)}
+.ab-close .ab-text-link:active .ab-contact-arrow{transform:translateX(1px)}
+@media(prefers-reduced-motion:reduce){.ab-close .ab-text-link,.ab-contact-arrow{transition:none}.ab-close .ab-text-link .ab-contact-arrow{transform:none}}
+
+/* Subtle blue feedback, scoped to the three About contact links. */
+@media(hover:hover) and (pointer:fine){body .ab-close a.ab-text-link:hover{color:#064f94!important}}
+body .ab-close a.ab-text-link:focus-visible{color:#064f94!important}
+body .ab-close a.ab-text-link:active{color:#054582!important}
