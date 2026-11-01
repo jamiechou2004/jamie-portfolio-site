@@ -86,6 +86,25 @@
   new MutationObserver(syncSound).observe(document.documentElement, { attributes: true, attributeFilter: ['data-language'] });
   syncSound();
 
+  /* ---------- Logos ---------- */
+  // Drop official logo files into assets/logos/ as <org>.svg or <org>.png (org = data-org on the card).
+  // Until a file exists, the tile keeps its engraved initial.
+  cards.forEach((card) => {
+    const tile = card.querySelector('.xp-tile');
+    const org = card.dataset.org;
+    if (!tile || !org) return;
+    const tryLoad = (exts) => {
+      if (!exts.length) return;
+      const img = new Image();
+      img.alt = '';
+      img.decoding = 'async';
+      img.onload = () => { tile.textContent = ''; tile.append(img); tile.classList.add('has-logo'); };
+      img.onerror = () => tryLoad(exts.slice(1));
+      img.src = `assets/logos/${org}.${exts[0]}`;
+    };
+    tryLoad(['svg', 'png', 'webp']);
+  });
+
   /* ---------- Flip ---------- */
   const setFlipped = (card, flipped) => {
     card.classList.toggle('is-flipped', flipped);
