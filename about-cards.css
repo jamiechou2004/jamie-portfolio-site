@@ -42,9 +42,10 @@
 .xp-card:nth-child(1) { --r: -7deg; --y: 18px; --z: 1; }
 .xp-card:nth-child(2) { --r: -3.5deg; --y: 4px; --z: 2; }
 .xp-card:nth-child(3) { --r: 0deg; --y: 0px; --z: 3; }
-.xp-card:nth-child(4) { --r: 3.5deg; --y: 4px; --z: 2; }
-.xp-card:nth-child(5) { --r: 7deg; --y: 18px; --z: 1; }
+.xp-card:nth-child(4) { --r: 3.5deg; --y: 4px; --z: 4; }
+.xp-card:nth-child(5) { --r: 7deg; --y: 18px; --z: 5; }
 
+/* Each card sits on the one to its left, so every name (bottom-left) stays readable. */
 /* Spread the fan when the pointer or keyboard focus enters the deck. */
 @media (hover: hover) and (pointer: fine) {
   .xp-deck:hover .xp-card, .xp-deck:focus-within .xp-card { margin-left: 16px; --r: 0deg; --y: 0px; }
