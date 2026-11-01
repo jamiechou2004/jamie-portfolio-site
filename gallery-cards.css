@@ -128,3 +128,7 @@ body .gallery-page .gx-dark .gallery-heading h2 { color: #f3f4f6 !important; fon
   .gallery-page .gx-card:hover { transform: none; }
   .gx-card:hover .gx-visual > img { transform: none; }
 }
+
+/* Card titles never take link colors. */
+.gallery-page .gx-card .gallery-heading h2 .gx-cover-link,
+.gallery-page .gx-card .gallery-heading h2 .gx-cover-link:visited { color: inherit !important; }
