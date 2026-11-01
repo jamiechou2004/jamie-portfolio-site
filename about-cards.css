@@ -222,3 +222,11 @@
 @media (prefers-reduced-motion: reduce) {
   .xp-card, .xp-inner, .how-line, .how-word, .xp-hint { transition: none; }
 }
+
+/* The badges use a serif for names; the site-wide rounded face is set with !important, so match its weight. */
+html#sf-rounded-site body[data-page-view] .xp-card :is(.xp-org, .xp-tile) {
+  font-family: "Instrument Serif", Georgia, "Times New Roman", serif !important;
+}
+html#sf-rounded-site body[data-page-view] .xp-card .xp-when {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace !important;
+}
