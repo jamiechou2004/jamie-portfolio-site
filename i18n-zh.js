@@ -864,5 +864,20 @@ window.JAMIE_ZH = {
   "From problem framing to shipped design, close to engineering.": "从定义问题到设计落地，和工程紧密协作。",
   "Open briefs become clear questions, then prototypes.": "把开放的需求变成清晰的问题，再变成原型。",
   "I look for the need behind the request.": "我会去找需求背后真正的需要。",
-  "Small experiments to feel timing and feedback.": "用小实验去感受节奏和反馈。"
+  "Small experiments to feel timing and feedback.": "用小实验去感受节奏和反馈。",
+  "Jump to an experiment": "跳到一个实验",
+  "Play": "玩一玩",
+  "Reflect": "想一想",
+  "Explore": "探索",
+  "A short game about a robot who moves the same block every day, until something changes.": "一个关于机器人的小游戏：它每天搬同一块积木，直到有一天，事情起了变化。",
+  "Interactive game": "互动游戏",
+  "AI & humanity": "AI 与人性",
+  "Pick a feeling, learn what it means, and write a short reflection.": "选一个心情，了解它的含义，再写下一小段反思。",
+  "Web app": "网页应用",
+  "Built with Chase Engelmann": "与 Chase Engelmann 合作开发",
+  "An agent that clarifies what you want, compares three options, and helps you pick.": "一个 AI Agent：先弄清你想要什么，比较三个选项，再帮你做决定。",
+  "AI agent design": "AI Agent 设计",
+  "Rule-driven demo": "规则驱动的演示",
+  "Source": "源代码",
+  "Experiments": "实验"
 };
