@@ -128,3 +128,7 @@ body .gallery-page .gx-dark .gallery-heading h2 { color: #f3f4f6 !important; fon
   .gallery-page .gx-card:hover { transform: none; }
   .gx-card:hover .gx-visual > img { transform: none; }
 }
+
+/* ---------- TikTok design test: wide, dark, mirrors the Awakening Loop at the end ---------- */
+.gx-tt > img { object-position: left center; }
+.tt-project { scroll-margin-top: 80px; }

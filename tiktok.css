@@ -1,0 +1,52 @@
+/* TikTok design test — one intro, then the live Figma canvas. No arrow glyphs. */
+body .tt-page { width: min(1240px, calc(100% - 88px)); margin: 0 auto; padding: 56px 0 90px; }
+
+.tt-intro { max-width: 820px; padding-bottom: 40px; }
+.tt-back {
+  display: inline-block; margin-bottom: 28px;
+  font-size: 14px; color: #5f656c; text-decoration: none;
+}
+.tt-back::before { content: "‹ "; }
+.tt-back:hover { color: #202124; }
+.tt-page .eyebrow {
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: #e5254d; margin: 0 0 20px;
+}
+.tt-intro h1 {
+  font-size: clamp(38px, 5vw, 68px); font-weight: 600;
+  letter-spacing: -.05em; line-height: 1.06; margin: 0 0 24px;
+}
+.tt-lede { font-size: 17px; line-height: 1.7; color: #5f656c; margin: 0; max-width: 62ch; }
+
+.tt-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.tt-btn {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px;
+  border-radius: 999px; border: 1px solid #dfe2e6; background: #fff;
+  font-size: 15px; font-weight: 600; color: #202124; text-decoration: none;
+  transition: transform .25s ease, background .25s ease;
+}
+.tt-btn:hover { transform: translateY(-2px); background: #f2f3f5; }
+.tt-btn-primary { background: #121418; border-color: #121418; color: #fff; }
+.tt-btn-primary:hover { background: #2a2d33; }
+
+.tt-canvas {
+  border-radius: 24px; overflow: hidden;
+  background: #121418; border: 1px solid #121418;
+}
+.tt-canvas-bar {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: 14px 20px; font-size: 13px; color: #c9ced4;
+}
+.tt-hint { color: #8a9099; }
+.tt-canvas iframe {
+  display: block; width: 100%; height: min(82vh, 900px); min-height: 520px; border: 0;
+  background: #1e1e1e;
+}
+
+.tt-page a:focus-visible { outline: 2px solid #355f85; outline-offset: 4px; }
+
+@media (max-width: 700px) {
+  body .tt-page { width: calc(100% - 32px); padding-top: 100px; }
+  .tt-canvas { border-radius: 16px; }
+  .tt-canvas iframe { height: 70vh; min-height: 440px; }
+}

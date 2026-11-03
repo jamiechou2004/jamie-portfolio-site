@@ -1,0 +1,76 @@
+<!doctype html>
+<html id="sf-rounded-site" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jamie Zhou’s TikTok × Local Services product design challenge: keeping the dining decision inside TikTok." />
+    <title>TikTok Design Test | Jamie Zhou</title>
+    <link rel="icon" href="favicon.svg?v=r2-20260911" type="image/svg+xml" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <link rel="stylesheet" href="portfolio-2027.css?v=cursor-small-20260927" />
+    <link rel="stylesheet" href="site-typography.css?v=20261004-sf1">
+    <link rel="stylesheet" href="color-refinement.css?v=20261007-1">
+    <link rel="stylesheet" href="/i18n.css?v=20261019-globe">
+    <link rel="stylesheet" href="tiktok.css?v=20261103-1">
+  </head>
+  <body class="portfolio-redesign" data-page-view="tiktok">
+    <div class="cursor-light" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="homepage.html" aria-label="Jamie Zhou home">
+        <span class="brand-mark"><img src="assets/identity/r2-ribbon.svg" alt="" aria-hidden="true" width="32" height="32"></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <span class="nav-indicator" aria-hidden="true"></span>
+        <a href="homepage.html">Work</a>
+        <a href="lab.html" aria-current="page">Gallery</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="site-utilities" aria-label="Portfolio utilities">
+        <a class="utility-action" href="https://drive.google.com/file/d/1mmD8iWq6h50B5IozDPuJcVBEg_1GVpnI/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="View Jamie Zhou resume in Google Drive (opens in a new tab)">Resume</a>
+      </div>
+    </header>
+
+    <main class="tt-page" id="main-content">
+      <header class="tt-intro">
+        <a class="tt-back" href="lab.html#tiktok" data-tt="back">Gallery</a>
+        <p class="eyebrow" data-tt="eyebrow">2026 Product Design Challenge · TikTok × Local Services</p>
+        <h1 data-tt="title">The video makes you hungry.<br>The page helps you decide.</h1>
+        <p class="tt-lede" data-tt="lede">People find restaurants on TikTok, then leave to decide. I redesigned the place page so what to order, what it costs and whether to trust it all live on TikTok.</p>
+        <div class="tt-actions">
+          <a class="tt-btn tt-btn-primary" href="https://jamiechou2004.github.io/tiktok-test-demo" target="_blank" rel="noopener" data-tt="proto">Try the prototype</a>
+          <a class="tt-btn" href="https://www.figma.com/design/fK9g5YdtVEbv2SlOFunPKf/Tiktok-design-test?node-id=387-1802" target="_blank" rel="noopener" data-tt="figma">Open in Figma</a>
+        </div>
+      </header>
+
+      <section class="tt-canvas" aria-labelledby="tt-canvas-label">
+        <div class="tt-canvas-bar">
+          <span id="tt-canvas-label" data-tt="canvas">Full process: problem, solution, validation</span>
+          <span class="tt-hint" data-tt="hint">Drag to move · pinch or ⌘ + scroll to zoom</span>
+        </div>
+        <iframe
+          title="TikTok design test — full Figma canvas"
+          src="https://embed.figma.com/design/fK9g5YdtVEbv2SlOFunPKf/Tiktok-design-test?node-id=387-1802&embed-host=share"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var zh = { back: '探索', eyebrow: '2026 产品设计挑战 · TikTok × 本地生活', title: '视频让你饿了。<br>页面帮你做决定。', lede: '大家在 TikTok 上发现餐厅，却要离开 TikTok 去做决定。我重新设计了店铺页，让“点什么、花多少、能不能信”都留在 TikTok 里。', proto: '体验原型', figma: '在 Figma 中打开', canvas: '完整过程：问题、方案、验证', hint: '拖动移动 · 双指或 ⌘ + 滚轮缩放' };
+        var en = {};
+        document.querySelectorAll('[data-tt]').forEach(function (el) { en[el.dataset.tt] = el.innerHTML; });
+        function apply() {
+          var isZh = document.documentElement.dataset.language === 'zh';
+          document.querySelectorAll('[data-tt]').forEach(function (el) { el.innerHTML = (isZh ? zh : en)[el.dataset.tt]; });
+        }
+        new MutationObserver(apply).observe(document.documentElement, { attributes: true, attributeFilter: ['data-language'] });
+        apply();
+      })();
+    </script>
+    <script src="portfolio-2027.js?v=github-20261008"></script>
+    <script src="/i18n-zh.js?v=20261010"></script>
+    <script src="/i18n.js?v=20261019-globe"></script>
+  </body>
+</html>
