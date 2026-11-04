@@ -101,3 +101,5 @@ body .ax-page .v1x-hint-tap { display:none; }
   body .ax-page .v1x-hint-tap { display:inline; }
 }
 @media (hover:none) { body .ax-page .v1x-hint-hover { display:none; } body .ax-page .v1x-hint-tap { display:inline; } }
+.v1x-logo { background:#fff; }
+.v1x-logo img, .v1-logo img { display:block; width:16px; height:auto; }

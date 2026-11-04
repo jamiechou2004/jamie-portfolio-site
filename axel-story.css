@@ -234,3 +234,5 @@
   .v1-side { grid-template-columns:1fr; }
   .as-wires { grid-template-columns:1fr 1fr; }
 }
+.v1-logo { background:#fff; }
+.v1-logo img { display:block; width:15px; height:auto; }

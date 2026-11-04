@@ -201,3 +201,4 @@
   "Manager, YATAI Japanese Cuisine · usability test": "YATAI 日料餐厅经理 · 可用性测试"
 }); })();
 (() => { Object.assign(window.JAMIE_ZH, { "Managers found the overview clear. In a real rush, they needed something else: a way to act.": "经理们觉得概览很清楚，但在真正的高峰期，他们需要的是另一样东西：能直接行动。" }); })();
+(() => { Object.assign(window.JAMIE_ZH, { "Work inside Toast and the delivery apps": "融入 Toast 和外卖平台，而不是另起炉灶" }); })();
