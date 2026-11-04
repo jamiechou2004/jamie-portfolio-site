@@ -161,3 +161,43 @@
   "The sections below show the 2026 design.": "以下是 2026 年的设计。",
   "Chance AI": "Chance AI"
 }); })();
+(() => { Object.assign(window.JAMIE_ZH, {
+  "Three numbers, each with a reason to care.": "三个数字，每个都说明为什么值得关注。",
+  "In-store and online feeds, every order with status and time.": "堂食和线上订单流，每单都有状态和时间。",
+  "Trends and live alerts for the rest of the shift.": "趋势和实时提醒，帮助安排接下来的班次。",
+  "Hover a number or an area of the screen.": "把鼠标移到编号或界面区域上查看说明。",
+  "1 · What needs attention": "1 · 什么需要关注", "2 · What explains it": "2 · 原因是什么", "3 · Where to look next": "3 · 接下来看哪里",
+  "Lunch is running hot.": "午市正忙。",
+  "142 orders by 2 PM, 12% above last Tuesday. Three of 23 deliveries are late, and prep is 2 minutes over target.": "下午 2 点前已有 142 单，比上周二多 12%。23 单配送中有 3 单延误，备餐时间超出目标 2 分钟。",
+  "Online is the bottleneck.": "瓶颈在线上订单。",
+  "15 online orders vs 8 in-store. DoorDash #221 has been in progress for 10 minutes, the oldest open order.": "线上 15 单，堂食 8 单。DoorDash #221 已处理 10 分钟，是最久未完成的订单。",
+  "Prepare for the next peak.": "为下一个高峰做准备。",
+  "Lunch peaks 12–2 PM. Tomatoes are low, so restock before dinner service.": "午市高峰在 12–2 点。番茄库存不足，晚市前需要补货。",
+  "Sample data · Iteration 1 prototype": "示例数据 · 迭代 1 原型"
+}); })();
+(() => { Object.assign(window.JAMIE_ZH, { "Tap an area of the screen.": "点按界面中的区域查看说明。" }); })();
+(() => { Object.assign(window.JAMIE_ZH, {
+  "What I learned": "收获", "13 / WHAT I LEARNED": "13 / 我的收获",
+  "What this project taught me": "这个项目教会我的，", "about designing tools.": "关于如何设计工具。",
+  "What I did well": "做得好的", "What I’d do differently": "下次会改进的",
+  "Scoped for clarity, not completeness": "追求清晰，而不是面面俱到", "One role, two management areas": "一个角色，两大管理区域",
+  "Let research reshape the product": "让研究改变产品方向", "Testing turned a data view into an action view": "测试把数据视图变成了行动视图",
+  "Designed for action, not information": "为行动而设计，而不只是展示信息", "From Define Action to a reviewable Agent": "从 Define Action 到可审核的 Agent",
+  "Validate earlier with real workflows": "更早在真实工作流里验证", "Test in a live dinner rush, not after hi-fi": "在真实晚高峰中测试，而不是等到高保真之后",
+  "Build for scale from the start": "从一开始就为扩展而设计", "Components first, screens second": "先做组件，再拼页面",
+  "Integrate deeper with existing tools": "与现有工具深度整合", "Toast, UberEats and DoorDash, not beside them": "融入 Toast、UberEats、DoorDash，而不是另起炉灶",
+  "Next · Test the 2026 design with managers": "下一步 · 与经理一起测试 2026 版设计",
+  "Can they spot the issue?": "能发现问题吗？", "Time to find an exception": "找到异常所需时间",
+  "Can they set it up correctly?": "能正确配置吗？", "Errors in reminder rules": "提醒规则的设置错误",
+  "Can they recover safely?": "能安全恢复吗？", "Repeated or lost actions": "重复或丢失的操作",
+  "Delivered": "已交付", "Interactive prototype": "交互原型", "Summary · Guided setup · Approvals · Recovery": "概览 · 引导式设置 · 授权 · 恢复",
+  "Not yet": "尚未完成", "Production": "上线", "Live data · Execution rules · Usability results": "真实数据 · 执行规则 · 可用性测试结果",
+  "Open the full case study in Figma": "在 Figma 中查看完整案例",
+  "Clarity & readability": "清晰易读", "Easy to understand": "容易理解", "Good information breakdown": "信息拆分清楚", "Effective use of color": "颜色使用有效",
+  "Operational friction": "运营摩擦", "Can’t message customers": "无法联系顾客", "Slow issue handling": "问题处理慢", "Limited visibility": "可见性有限",
+  "System opportunity": "系统机会", "Faster response": "更快响应", "An action trigger": "可触发行动的机制",
+  "I don’t need reports right now. The kitchen is burning down.": "我现在不需要报表。后厨已经乱成一团了。",
+  "I need to know which fire to put out right now.": "我需要知道现在该先灭哪一把火。",
+  "Manager, YATAI Japanese Cuisine · usability test": "YATAI 日料餐厅经理 · 可用性测试"
+}); })();
+(() => { Object.assign(window.JAMIE_ZH, { "Managers found the overview clear. In a real rush, they needed something else: a way to act.": "经理们觉得概览很清楚，但在真正的高峰期，他们需要的是另一样东西：能直接行动。" }); })();
