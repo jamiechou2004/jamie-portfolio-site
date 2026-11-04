@@ -199,3 +199,18 @@
     "09 / SCOPE & FULL CASE STUDY": "09 / 范围与完整案例"
   });
 })();
+(() => { Object.assign(window.JAMIE_ZH, {
+  "MID-FIDELITY WIREFRAMES · SIX CORE PAGES": "中保真线框图 · 六个核心页面",
+  "Order management": "订单管理",
+  "Menu & content": "菜单与内容",
+  "Staff management": "员工管理",
+  "Notifications & alerts": "通知与提醒",
+  "Settings · integrations": "设置 · 平台集成",
+  "Simplified from the original mid-fi wireframes. Every page kept the same sidebar so the IA stayed visible.": "根据原始中保真线框简化重绘。每个页面都保留同一侧边栏，让信息架构始终可见。",
+  "Iteration 1 · Fall 2025 hi-fi, rebuilt from the original Figma frame.": "迭代 1 · 2025 秋季高保真，根据原始 Figma 稿还原。",
+  "WHAT WORKED": "测试结果",
+  "Managers found the summary clear and easy to read.": "经理们认为概览清晰、易读。",
+  "Separating in-store and online orders matched how they already split the work.": "分开堂食和线上订单，符合他们本来的分工方式。",
+  "Some managers couldn’t reach customers directly, which caused delays.": "部分经理无法直接联系顾客，导致处理延误。",
+  "Iteration 1 · Define Action, rebuilt from the original Figma frame. The manager still writes the plan in an empty field. The 2026 update replaces that field with a reviewable Agent proposal.": "迭代 1 · Define Action，根据原始 Figma 稿还原。经理仍需在空白输入框里自己写方案。2026 年的升级把这个输入框换成了可审核的 Agent 方案。"
+}); })();
