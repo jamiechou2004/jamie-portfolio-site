@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="site-typography.css?v=20261004-sf1">
     <link rel="stylesheet" href="color-refinement.css?v=20261007-1">
     <link rel="stylesheet" href="/i18n.css?v=20261019-globe">
-    <link rel="stylesheet" href="tiktok.css?v=20261104-1">
+    <link rel="stylesheet" href="tiktok.css?v=20261104-web1">
   </head>
   <body class="portfolio-redesign" data-page-view="tiktok">
     <div class="cursor-light" aria-hidden="true"></div>
@@ -32,59 +32,541 @@
     </header>
 
     <main class="tt-page" id="main-content">
-      <header class="tt-intro">
-        <a class="tt-back" href="lab.html#tiktok" data-tt="back">Gallery</a>
-        <p class="eyebrow" data-tt="eyebrow">2026 Product Design Challenge · TikTok × Local Services</p>
-        <h1 data-tt="title">The video makes you hungry.<br>The page helps you decide.</h1>
-        <p class="tt-lede" data-tt="lede">People find restaurants on TikTok, then leave to decide. I redesigned the place page so what to order, what it costs and whether to trust it all live on TikTok.</p>
-        <div class="tt-actions">
-          <a class="tt-btn tt-btn-primary" href="https://jamiechou2004.github.io/tiktok-test-demo" target="_blank" rel="noopener" data-tt="proto">Try the prototype</a>
-          <a class="tt-btn" href="https://www.figma.com/design/fK9g5YdtVEbv2SlOFunPKf/Tiktok-design-test?node-id=387-1802" target="_blank" rel="noopener" data-tt="figma">Open in Figma</a>
+
+      <!-- Intro -->
+      <header class="tk-hero">
+        <div class="tk-hero-text">
+          <a class="tt-back" href="lab.html#tiktok">Gallery</a>
+          <p class="tk-eyebrow">2026 Product Design Challenge · TikTok × Local Services</p>
+          <h1>The video makes you <em>hungry</em>.<br>The page helps you <em>decide</em>.</h1>
+          <p class="tk-lede">People get hungry on TikTok but leave it to decide, because the place page can’t show what to order, what it costs, or whether the recommendations are real. Answering that over the video keeps the decision, the time spent and the trust inside TikTok.</p>
+          <div class="tt-actions">
+            <a class="tt-btn tt-btn-primary" href="https://jamiechou2004.github.io/tiktok-test-demo" target="_blank" rel="noopener">Try the prototype</a>
+            <a class="tt-btn" href="https://www.figma.com/design/fK9g5YdtVEbv2SlOFunPKf/Tiktok-design-test?node-id=387-1802" target="_blank" rel="noopener">View full boards in Figma</a>
+          </div>
+          <dl class="tk-meta">
+            <div><dt>Role</dt><dd>Research, product design, prototype, testing</dd></div>
+            <div><dt>Scope</dt><dd>Place page, from the tag tap to the door</dd></div>
+            <div><dt>Tested with</dt><dd>4 Atlanta diners, before and after</dd></div>
+          </dl>
         </div>
+        <figure class="tk-hero-shot">
+          <img src="assets/tiktok-test/web/entry-half.jpg" alt="Before: today’s full-screen place page. After: a half sheet over the playing video with rating, hours, per-person price and top dishes." width="710" height="865">
+        </figure>
       </header>
 
-      <section class="tt-results" aria-label="Results">
-        <div><strong>2–3 → 1</strong><span data-tt="r1">apps needed to decide</span></div>
-        <div><strong>4 / 4</strong><span data-tt="r2">found what to order and what it costs without leaving TikTok</span></div>
-        <div><strong>16 / 16</strong><span data-tt="r3">tasks completed</span></div>
-        <div><strong>38%</strong><span data-tt="r4">of Gen Z discover restaurants on TikTok</span></div>
+      <section class="tk-results" aria-label="Results">
+        <div class="is-key"><strong>2–3 → 1</strong><span>apps needed to decide</span></div>
+        <div><strong>4 / 4</strong><span>found what to order and what it costs without leaving TikTok</span></div>
+        <div><strong>16 / 16</strong><span>tasks completed</span></div>
+        <div><strong>4</strong><span>findings that changed the design</span></div>
       </section>
-      <nav class="tt-parts" aria-label="Case study parts">
-        <a href="#problem"><small>01</small><span data-tt="p01">Problem research</span></a>
-        <a href="#solution"><small>02</small><span data-tt="p02">Solution</span></a>
-        <a href="#validation"><small>03</small><span data-tt="p03">Validation</span></a>
-      </nav>
-      <section class="tt-part" id="problem" aria-labelledby="problem-h">
-        <div class="tt-part-head"><small>01</small><h2 id="problem-h" data-tt="h01">Problem research</h2><p data-tt="d01">Market insight, the place page today, user expectations and voice of users.</p></div>
-        <div class="tt-board"><img src="assets/tiktok-test/problem-1.jpg" alt="Problem research, part 1 of 4" loading="eager" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/problem-2.jpg" alt="Problem research, part 2 of 4" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/problem-3.jpg" alt="Problem research, part 3 of 4" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/problem-4.jpg" alt="Problem research, part 4 of 4" loading="lazy" decoding="async" width="1600" height="1308"></div>
-      </section>
-      <section class="tt-part" id="solution" aria-labelledby="solution-h">
-        <div class="tt-part-head"><small>02</small><h2 id="solution-h" data-tt="h02">Solution</h2><p data-tt="d02">The place page redesign: dish information, trusted recommendations and getting there.</p></div>
-        <div class="tt-board"><img src="assets/tiktok-test/solution-1.jpg" alt="Solution, part 1 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-2.jpg" alt="Solution, part 2 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-3.jpg" alt="Solution, part 3 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-4.jpg" alt="Solution, part 4 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-5.jpg" alt="Solution, part 5 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-6.jpg" alt="Solution, part 6 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-7.jpg" alt="Solution, part 7 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-8.jpg" alt="Solution, part 8 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-9.jpg" alt="Solution, part 9 of 9" loading="lazy" decoding="async" width="1600" height="1175"></div>
-      </section>
-      <section class="tt-part" id="validation" aria-labelledby="validation-h">
-        <div class="tt-part-head"><small>03</small><h2 id="validation-h" data-tt="h03">Validation</h2><p data-tt="d03">Four diners, the same tasks on today’s TikTok and on the prototype.</p></div>
-        <div class="tt-board"><img src="assets/tiktok-test/validation-1.jpg" alt="Validation, part 1 of 3" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/validation-2.jpg" alt="Validation, part 2 of 3" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/validation-3.jpg" alt="Validation, part 3 of 3" loading="lazy" decoding="async" width="1600" height="1371"></div>
-      </section>
-      <footer class="tt-end"><a class="tt-btn tt-btn-primary" href="https://jamiechou2004.github.io/tiktok-test-demo" target="_blank" rel="noopener" data-tt="proto2">Try the prototype</a><a class="tt-btn" href="lab.html" data-tt="back2">Back to Gallery</a></footer>
 
+      <nav class="tk-nav" aria-label="Case study sections">
+        <a href="#problem"><small>01</small>Problem</a>
+        <a href="#strategy"><small>02</small>Strategy</a>
+        <a href="#design"><small>03</small>Design</a>
+        <a href="#validation"><small>04</small>Validation</a>
+        <a href="#next"><small>05</small>Next</a>
+      </nav>
+
+      <!-- 01 PROBLEM -->
+      <section class="tk-part" id="problem" aria-labelledby="problem-h">
+        <header class="tk-part-head">
+          <small>01 · Problem</small>
+          <h2 id="problem-h">TikTok wins discovery. The decision still happens somewhere else.</h2>
+        </header>
+
+        <div class="tk-stats">
+          <div class="is-key"><strong>38%</strong><p>of Gen Z discover new restaurants on TikTok, their #1 channel</p><cite>Toast survey, Oct 2025, 1,466 US adults</cite></div>
+          <div><strong>97%</strong><p>of consumers read reviews before choosing a local business</p><cite>BrightLocal Local Consumer Review Survey 2026</cite></div>
+          <div><strong>74%</strong><p>only trust reviews from the last three months</p><cite>BrightLocal 2026</cite></div>
+          <div><strong>47%</strong><p>won’t use a business with fewer than 20 reviews</p><cite>BrightLocal 2026</cite></div>
+        </div>
+
+        <div class="tk-versus">
+          <div>
+            <h3 class="tk-label">Search-led choice</h3>
+            <p class="tk-strong">User arrives with a need, then searches</p>
+            <ol class="tk-steps-mini"><li>Search “Sichuan near me”</li><li>Compare stars and review counts</li><li>Read menus on the restaurant site</li><li>Decide, then open Maps</li></ol>
+            <p class="tk-chips"><span>Google Maps</span><span>Yelp</span><span>Rednote</span></p>
+          </div>
+          <div class="is-ours">
+            <h3 class="tk-label">Content-led choice</h3>
+            <p class="tk-strong">A video creates the craving first</p>
+            <ol class="tk-steps-mini"><li>A dish in a video makes you hungry</li><li>Tap the place tag</li><li>Need: what to order, what it costs, can I trust it</li><li><b>Today: leave TikTok to answer these</b></li></ol>
+            <p class="tk-chips"><span>TikTok</span></p>
+          </div>
+        </div>
+        <p class="tk-opportunity"><span>Content creates the craving</span><i aria-hidden="true"></i><span class="is-red">TikTok carries the decision</span></p>
+
+        <!-- Place page today -->
+        <div class="tk-block">
+          <h3 class="tk-h3">The place page today lists the restaurant’s basics. It doesn’t help you decide.</h3>
+          <div class="tk-today">
+            <figure class="tk-phone-shot"><img src="assets/tiktok-test/web/today.jpg" alt="Today’s TikTok place page: restaurant photos, rating, hours, four equal buttons and What people say." width="300" height="640" loading="lazy"></figure>
+            <ol class="tk-notes">
+              <li><b>Opens full screen</b>The video stops. The context that created the craving is gone.</li>
+              <li><b>Four equal buttons</b>Website · Map · Call · Review. No primary action, no next step.</li>
+            </ol>
+            <div class="tk-aside">
+              <p class="tk-label">The precedent we build on</p>
+              <p class="tk-strong">TikTok Shop half sheet</p>
+              <p>The sheet slides up while the video keeps playing: decision signals and one red CTA. Local doesn’t use it yet.</p>
+              <p class="tk-label">Why it matters for the business</p>
+              <p class="tk-strong">The tag tap is the most engaged moment in local</p>
+              <p>Today it ends in Google Maps. The value is keeping the decision, and the user, inside TikTok.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Journey -->
+        <div class="tk-block">
+          <h3 class="tk-h3">Users arrive with a very specific expectation</h3>
+          <p class="tk-sub">That dish, that atmosphere, from that video. The place page does not know what they came for.</p>
+          <ol class="tk-journey">
+            <li><small>01</small><b>Scroll a video</b><span>Crave a dish</span></li>
+            <li><small>02</small><b>Tap the place tag</b><span>Full-screen page, the video stops</span></li>
+            <li data-label="Leaves TikTok"><small>03</small><b>Basic info + reviews</b><span>No menu, no prices</span></li>
+            <li class="is-out"><small>04</small><b>Leave TikTok</b><span>Menu and reviews on another app</span></li>
+            <li class="is-out"><small>05</small><b>Copy the address</b><span>Into Maps or a ride app</span></li>
+          </ol>
+          <div class="tk-observed">
+            <div class="tk-statement">
+              <p class="tk-label">Problem statement</p>
+              <p class="tk-big">The page shows the restaurant, not the food.</p>
+              <p>So the decision moves to Google Maps, Rednote or Yelp, and TikTok loses the moment it created.</p>
+            </div>
+            <div>
+              <p class="tk-label">What we observed</p>
+              <ul class="tk-rows">
+                <li><span>Diners look for the menu first, before reviews. Some open the restaurant’s website just to find it.</span><em>P1–P4</em></li>
+                <li><span>Chinese-American diners check Rednote for reviews they trust, then Google Maps for the address.</span><em>P1</em></li>
+                <li><span>Once a place is chosen, the next action is immediate: directions or a ride.</span><em>P2 · P3</em></li>
+                <li><span>Price questions in the US are about the final total, tax and tip included.</span><em>Brief</em></li>
+                <li><span>Price and distance decide “worth the trip”. Today they are on the page, but easy to miss.</span><em>P4</em></li>
+                <li><span>Reviews with other diners’ food photos are trusted more than a star rating.</span><em>P4</em></li>
+              </ul>
+            </div>
+            <div>
+              <p class="tk-label">What diners check before deciding</p>
+              <ul class="tk-checks"><li>What to order</li><li>What it costs</li><li>How far, how long the wait</li><li>Is the dish worth it</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice -->
+        <div class="tk-block">
+          <h3 class="tk-h3">What they told us</h3>
+          <p class="tk-sub">Four Atlanta diners who find restaurants on TikTok. Before and after the prototype.</p>
+          <div class="tk-quotes">
+            <blockquote><p>“I look at the dishes first. If it’s the one I want, then I check the rating.”</p><cite>P2 · before</cite></blockquote>
+            <blockquote><p>“The info isn’t thorough enough, so I jump between apps.”</p><cite>P3 · before</cite></blockquote>
+            <blockquote><p>“I search the name in TikTok, then go straight to Google Maps.”</p><cite>P3 · before</cite></blockquote>
+            <blockquote><p>“I check Rednote for real reviews before I trust a place.”</p><cite>P1 · before</cite></blockquote>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="tk-block">
+          <h3 class="tk-h3">The problem in three words</h3>
+          <div class="tk-three">
+            <div><strong>Can’t see</strong><b>No photos of food, no menu</b><p>The place page shows the restaurant, not the dishes.</p></div>
+            <div><strong>Can’t judge</strong><b>No prices, no per-dish reviews</b><p>Users can’t tell if it’s worth it.</p></div>
+            <div><strong>Leaves</strong><b>2–3 other apps</b><p>The decision moves out, and the craving the video created is lost on the way.</p></div>
+          </div>
+          <p class="tk-focus"><span>Stage we focus on · Decision-making</span>Not discovery (the feed does that). Not booking (Must Eat and OpenTable do that).</p>
+        </div>
+      </section>
+
+      <!-- 02 STRATEGY -->
+      <section class="tk-part" id="strategy" aria-labelledby="strategy-h">
+        <header class="tk-part-head">
+          <small>02 · Strategy</small>
+          <h2 id="strategy-h">Not more restaurants. More confidence to go to this one.</h2>
+        </header>
+        <div class="tk-objective">
+          <div class="is-no"><b>Show users more restaurants</b><p>Discovery is already TikTok’s strength. More options don’t help someone who already wants this place.</p></div>
+          <div class="is-yes"><b>Make users sure about this one</b><p>Answer what to order, what it costs and whether the recommendations are real, right on the place page.</p></div>
+        </div>
+
+        <ol class="tk-systems">
+          <li>
+            <small>Need</small><h3>Know what to order</h3><p>Dishes, combos, price and portion on the place page</p>
+            <span class="tk-sys">System 1 · Dish information</span>
+            <p class="tk-evidence"><b>Evidence</b>P1–P4 all looked for the menu before reviews.</p>
+          </li>
+          <li>
+            <small>Moat</small><h3>Trust the number</h3><p>Only diners who have been there can recommend</p>
+            <span class="tk-sys">System 3 · Trusted recs</span>
+            <p class="tk-evidence"><b>Evidence</b>“If everyone can recommend without eating there, it’s not that credible.” P4</p>
+          </li>
+          <li>
+            <small>Short path</small><h3>Go in one tap</h3><p>Find it guide, Get a ride and Guide me there on every screen</p>
+            <span class="tk-sys">System 2 · Getting there</span>
+            <p class="tk-evidence"><b>Evidence</b>P3 copied the address into Maps once decided.</p>
+          </li>
+        </ol>
+
+        <div class="tk-rules2">
+          <div><p class="tk-label">Design boundary</p><p class="tk-strong">Scrolling stays untouched</p><p>We only change what happens after the tap on a place tag. The feed, the video and the action rail are TikTok’s as they are.</p></div>
+          <div><p class="tk-label">Content model</p><p class="tk-strong">Menus from the restaurant, recs from diners</p><p>The restaurant provides dishes, combos and prices. The recommend count on each dish comes from diners who have been there.</p></div>
+        </div>
+
+        <div class="tk-new">
+          <p class="tk-label">What’s new · two mechanisms TikTok doesn’t have today</p>
+          <div>
+            <p><strong>01</strong><b>The place page opens over the video</b>The video that created the craving stays on screen while the user decides. Today the page replaces it.</p>
+            <p><strong>02</strong><b>Recommendations only from people who were there</b>A like on a dish counts only after a check-in. The number becomes something people can trust, and it grows with every visit.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 DESIGN -->
+      <section class="tk-part" id="design" aria-labelledby="design-h">
+        <header class="tk-part-head">
+          <small>03 · Design</small>
+          <h2 id="design-h">Trust the recs. Know what to order. Know how to get there.</h2>
+        </header>
+
+        <!-- Entry point -->
+        <div class="tk-block" id="entry">
+          <p class="tk-kicker">Entry point</p>
+          <h3 class="tk-h3">Tap the tag, the sheet comes up, the video keeps playing</h3>
+          <div class="tk-switch" role="tablist" aria-label="Place page height">
+            <button type="button" role="tab" aria-selected="true" aria-controls="entry-half" id="tab-half">Half sheet</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="entry-full" id="tab-full" tabindex="-1">Full page · swipe up</button>
+          </div>
+          <div class="tk-entry" id="entry-half" role="tabpanel" aria-labelledby="tab-half">
+            <figure class="tk-shot is-grey"><img src="assets/tiktok-test/web/entry-half.jpg" alt="Before: today, full screen. After: half sheet over the video, with annotations 1 to 4." width="710" height="865" loading="lazy"></figure>
+            <ol class="tk-notes">
+              <li><b>Video keeps playing above</b>The user never loses the thing that made them want to go. Same pattern as TikTok Shop, nothing new to learn.</li>
+              <li><b>Stats capsule: rating · hours · per person</b>The three numbers that decide “go or not” at a glance. Per person, not a price range, because US diners ask what the night will cost.</li>
+              <li><b>Dishes before reviews</b>Every participant looked for the menu first. TOP badges and recs counts; View all opens the full menu.</li>
+              <li><b>What people say stays</b>Reviews are not removed, they move below the dishes.</li>
+            </ol>
+          </div>
+          <div class="tk-entry" id="entry-full" role="tabpanel" aria-labelledby="tab-full" hidden>
+            <figure class="tk-shot is-grey"><img src="assets/tiktok-test/web/entry-full.jpg" alt="Before: today’s place page. After: full page with tabs, stats, getting-there row, dishes and combos, with annotations 1 to 4." width="710" height="870" loading="lazy"></figure>
+            <ol class="tk-notes">
+              <li><b>Tabs jump to what you need</b>Overview · Dishes · Combos · Reviews stay pinned. The menu is one tap away.</li>
+              <li><b>Rating and open status at a glance</b>“4.6 Excellent · Open until 11 PM”. The go or no-go basics, before anything else.</li>
+              <li><b>Getting there lives in the first section</b>Drive time and wait first, then the address with Find it, Ride and Call. No scrolling back up.</li>
+              <li><b>Dishes and combos come next</b>The same module as the half sheet, now with combos and View all for the full menu. Reviews follow below.</li>
+            </ol>
+          </div>
+          <div class="tk-cards3">
+            <div><p class="tk-label">Edge case · No dish data</p><b>Fall back to today’s layout</b><p>Basic info and reviews, no empty module. The sheet never shows a hole where dishes should be.</p></div>
+            <div><p class="tk-label">Edge case · Closed now</p><b>Guide me there stays</b><p>The button shows the next opening time, so the user decides for themselves whether to go later.</p></div>
+            <div><p class="tk-label">Two heights</p><b>Half to glance, full to decide</b><p>Swipe up for the full place page with tabs. Swipe down to close and return to the video.</p></div>
+          </div>
+        </div>
+
+        <!-- System 1 -->
+        <div class="tk-block" id="system-1">
+          <p class="tk-kicker">System 1 · Dish information</p>
+          <h3 class="tk-h3">Enough detail to decide</h3>
+          <p class="tk-sub">Three screens. Each one answers a question the place page could not.</p>
+          <div class="tk-screens">
+            <figure>
+              <div class="tk-shot"><img src="assets/tiktok-test/web/sys1-a.jpg" alt="Dishes and combos module on the place page, annotated 1 to 3." width="407" height="805" loading="lazy"></div>
+              <figcaption><small>A</small>Dishes &amp; combos on the place page</figcaption>
+              <ol class="tk-notes is-small">
+                <li><b>Owner-maintained menu</b>“Updated 2 days ago” shows it’s current. View all opens the full menu.</li>
+                <li><b>Photo first, then likes</b>Readable at a glance. A like count from visitors beats a 4.3 for one dish.</li>
+                <li><b>Combos for 2 and 4</b>What people order together, with the total price for the table.</li>
+              </ol>
+            </figure>
+            <figure>
+              <div class="tk-shot"><img src="assets/tiktok-test/web/sys1-b.jpg" alt="Full menu on one page with sticky category chips, annotated 1 and 2." width="408" height="805" loading="lazy"></div>
+              <figcaption><small>B</small>Full menu, one page</figcaption>
+              <ol class="tk-notes is-small">
+                <li><b>Sticky category chips</b>Tap to jump, scroll to highlight. One page, nothing hidden behind tabs.</li>
+                <li><b>Rows that answer it all</b>Photo, price, likes and a taste note. Full-width, easy to tap.</li>
+              </ol>
+            </figure>
+            <figure>
+              <div class="tk-shot"><img src="assets/tiktok-test/web/sys1-c.jpg" alt="Dish detail with large photo, price, serves, taste tags and per-dish reviews, annotated 1 to 4." width="410" height="805" loading="lazy"></div>
+              <figcaption><small>C</small>Dish detail</figcaption>
+              <ol class="tk-notes is-small">
+                <li><b>Big photo, price, serves</b>A thumbnail isn’t enough to commit. “Serves 2–3” sizes the order.</li>
+                <li><b>Taste in three words</b>Crispy outside, numbing-spicy, house spice. For first-timers.</li>
+                <li><b>Reviews about this dish</b>Only reviews that name the dish, with the name highlighted.</li>
+                <li><b>Keep browsing, keep the exit</b>More dishes below. Get a ride and Guide me there stay pinned.</li>
+              </ol>
+            </figure>
+          </div>
+          <div class="tk-cards3">
+            <div><p class="tk-label">Interaction · After P2</p><b>Whole tile is tappable</b><p>Photo and name both open the dish. Menu rows are full-width targets. Fixed after P2 could not hit the entries.</p></div>
+            <div><p class="tk-label">Interaction · Two ways in</p><b>Dishes tab vs View all</b><p>From the Dishes tab the main tabs stay (two-level nav), because the user may go back to Overview. From View all the main tabs hide, because the user is in menu mode.</p></div>
+            <div><p class="tk-label">Interaction · Scrollspy</p><b>Chips follow the scroll</b><p>On both menus the current category highlights as you scroll, and tapping a chip scrolls to it. A short lock so the highlight does not flicker.</p></div>
+          </div>
+        </div>
+
+        <!-- System 2 -->
+        <div class="tk-block" id="system-2">
+          <p class="tk-kicker">System 2 · Getting there</p>
+          <h3 class="tk-h3">Find the place, go anytime</h3>
+          <p class="tk-sub">Leaving is the last step, not the first. Two parts: a guide to the door, and the exit on every screen.</p>
+          <div class="tk-split">
+            <div class="tk-panel">
+              <p class="tk-label">Find it · a step-by-step guide to the door</p>
+              <figure class="tk-shot is-grey"><img src="assets/tiktok-test/web/sys2-find.jpg" alt="Tap Find it under the address, then follow numbered steps with real photos of the exit, plaza sign and storefront." width="700" height="610" loading="lazy"></figure>
+              <ol class="tk-notes is-small">
+                <li><b>Entry under the address</b>Where the user already looks for “how do I get there”.</li>
+                <li><b>Storefront first</b>So they recognise the place when they arrive.</li>
+                <li><b>Numbered steps with real photos</b>Exit sign, plaza sign, storefront. In a plaza full of Asian restaurants, Maps gets you to the parking lot, not the door. Borrowed from Meituan’s store guide, rebuilt in TikTok components.</li>
+              </ol>
+            </div>
+            <div class="tk-panel is-dark">
+              <p class="tk-label">Always on · two buttons on every screen</p>
+              <figure class="tk-shot is-dark"><img src="assets/tiktok-test/web/sys2-buttons.jpg" alt="Get a ride (secondary, from $20 Uber or Lyft) and Guide me there (primary, 18 min drive), pinned on the place page, dish videos, full menu and dish detail." width="645" height="375" loading="lazy"></figure>
+              <dl class="tk-why">
+                <div><dt>Why two buttons, not one</dt><dd>Driving and riding are different modes. One primary + one secondary matches TikTok Shop’s “Add to cart + Buy now”.</dd></div>
+                <div><dt>Why the primary is Guide me there</dt><dd>Every platform’s primary CTA reflects its goal. Meituan: buy the deal. Rednote: post a check-in. TikTok Shop: buy now. Google Maps: directions. Ours: turn the craving into a visit.</dd></div>
+                <div><dt>Why we don’t build navigation</dt><dd>Google and Apple are better at it. We hand off after the decision, not before, with the destination filled in and the choice remembered.</dd></div>
+                <div><dt>Get a ride shows a price</dt><dd>“from $20 · Uber / Lyft” answers the last question before going, right on the button.</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <!-- System 3 -->
+        <div class="tk-block" id="system-3">
+          <p class="tk-kicker">System 3 · Trusted recommendations</p>
+          <h3 class="tk-h3">Only diners who have been there can recommend</h3>
+          <p class="tk-sub">The recs count is what people decide by, so it has to be real. A like is the cheapest way to collect it, and a check-in makes sure it comes from a visit.</p>
+
+          <div class="tk-table-wrap">
+            <table class="tk-table tk-compare">
+              <caption class="tk-label">Why a like, not a review or a video</caption>
+              <thead><tr><th scope="col"></th><th scope="col" class="is-pick">Like</th><th scope="col">Review</th><th scope="col">Video</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Cost</th><td class="is-pick">1 tap</td><td>50+ characters, a photo</td><td>Film, edit, post</td></tr>
+                <tr><th scope="row">Volume</th><td class="is-pick">Most people do it</td><td>Few people do it</td><td>Fewest people</td></tr>
+                <tr><th scope="row">Signal</th><td class="is-pick">Points at one dish</td><td>Dish name buried in text</td><td>Dish has to be recognised</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="tk-label">Who can recommend · any one of these</p>
+          <ul class="tk-who">
+            <li><b>At the restaurant</b>Location read once, at the moment of the tap. Same as Rednote check-in.</li>
+            <li><b>Arrived by Guide me there or Get a ride</b>The trip ended at this restaurant.</li>
+            <li><b>Posted a video tagged here</b>Already proves the visit.</li>
+          </ul>
+
+          <p class="tk-label">Tap like on a dish</p>
+          <figure class="tk-shot is-grey tk-wide"><img src="assets/tiktok-test/web/sys3-flow.jpg" alt="Four steps: tap like, checking in, too far so save it to Want to try instead, or at the restaurant the rec is counted." width="1610" height="800" loading="lazy"></figure>
+
+          <div class="tk-ask">
+            <figure class="tk-shot"><img src="assets/tiktok-test/web/sys3-ask.jpg" alt="A lock-screen notification a few hours after the visit asks which dishes they had, opening a one-tap dish picker." width="600" height="550" loading="lazy"></figure>
+            <div>
+              <p class="tk-label">When we ask · after the meal</p>
+              <p class="tk-strong">People rarely come back to a dish page after eating. So we ask once, at the right time.</p>
+              <dl class="tk-def">
+                <div><dt>Trigger</dt><dd>A few hours after Guide me there or Get a ride ends at the restaurant.</dd></div>
+                <div><dt>Action</dt><dd>Tap the dishes you had. No writing needed. The written review below it stays as it is today, for people who want to say more.</dd></div>
+                <div><dt>Counted as</dt><dd>A visit-verified rec for each dish tapped, up to three.</dd></div>
+              </dl>
+              <div class="tk-hypo"><p class="tk-label">Hypothesis, not yet verified</p><p>A one-tap message after a real visit collects far more dish recs than waiting for people to like a dish on their own.</p><p class="tk-muted">How we’d check: message tap rate, recs per visit, and how many restaurants reach 20+ recs.</p></div>
+            </div>
+          </div>
+
+          <p class="tk-label">Rules that keep the number honest</p>
+          <div class="tk-rules">
+            <div><strong>3</strong><b>dishes per visit</b><p>Picking makes a rec mean something.</p></div>
+            <div><strong>1</strong><b>recommend per dish per visit</b><p>Repeated taps do not stack.</p></div>
+            <div><strong>×2</strong><b>with a photo or video</b><p>Stronger proof counts more.</p></div>
+            <div><strong>90</strong><b>days</b><p>Recent recs rank higher.</p></div>
+          </div>
+          <div class="tk-limit">
+            <div><p class="tk-label">Honest limit</p><p class="tk-big">A check-in proves the visit, not the bite.</p></div>
+            <ul><li class="is-yes">They were at the restaurant</li><li class="is-no">They ate this exact dish</li></ul>
+            <p>Across hundreds of likes, the few that miss even out.</p>
+          </div>
+        </div>
+
+        <!-- Scenarios -->
+        <div class="tk-block" id="scenarios">
+          <p class="tk-kicker">Scenarios</p>
+          <h3 class="tk-h3">Every state the user can land in, and what triggers it</h3>
+          <figure class="tk-shot tk-wide"><img src="assets/tiktok-test/web/scen.jpg" alt="Four states: A1 has dish data, A2 no dish data yet, B1 likes a dish but is too far, B2 likes a dish at the restaurant." width="1615" height="670" loading="lazy"></figure>
+          <div class="tk-table-wrap">
+            <table class="tk-table tk-actions">
+              <thead><tr><th scope="col">User action</th><th scope="col">What happens</th><th scope="col">Why</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Tap place tag</th><td>Half sheet slides up, video keeps playing</td><td>Keep the context that created the craving</td></tr>
+                <tr><th scope="row">Swipe sheet up</th><td>Full place page with tabs</td><td>Half to glance, full to decide</td></tr>
+                <tr><th scope="row">Swipe sheet down</th><td>Back to the video</td><td>Exit is always one gesture</td></tr>
+                <tr><th scope="row">Tap View all</th><td>Full menu, main tabs hidden, category chips stick</td><td>User is in menu mode</td></tr>
+                <tr><th scope="row">Tap a dish</th><td>Dish detail with price, serves, per-dish reviews</td><td>A thumbnail is not enough to commit</td></tr>
+                <tr><th scope="row">Tap like on a dish</th><td>Location read once, then counted or declined</td><td>Only visits count, so the number can be trusted</td></tr>
+                <tr><th scope="row">4th like in one visit</th><td>“3 of 3 used”</td><td>Picking makes a rec mean something</td></tr>
+                <tr><th scope="row">Tap Guide me there / Get a ride</th><td>Open Maps or Uber with the destination filled in</td><td>Hand off only after the decision</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Flow -->
+        <div class="tk-block" id="flow">
+          <p class="tk-kicker">Interaction flow</p>
+          <h3 class="tk-h3">The whole journey, from a video to the door</h3>
+          <figure class="tk-shot is-grey tk-wide tk-scroll"><img src="assets/tiktok-test/web/flow.jpg" alt="Flow: video feed, half sheet, place page, full menu, dish detail, checking in, recommended; branches to Find it guide, Maps or Uber with the destination filled in, and Too far." width="1620" height="940" loading="lazy"></figure>
+          <div class="tk-exit">
+            <p class="tk-strong">Always an exit. Leave or go, in one gesture.</p>
+            <p><b>Swipe down, back to the video</b>Works on the half sheet, the full page and the menu.</p>
+            <p><b>Guide me there and Get a ride, always pinned</b>On the place page, the menu and every dish.</p>
+          </div>
+        </div>
+
+        <!-- Loop -->
+        <div class="tk-block tk-loop" id="loop">
+          <p class="tk-kicker">The loop</p>
+          <h3 class="tk-h3">Every visit makes the next decision easier</h3>
+          <div class="tk-loop-grid">
+            <figure class="tk-shot is-dark"><img src="assets/tiktok-test/web/loop.jpg" alt="Loop: watch a video, see dishes and recs, Guide me there, eat and tap like when checked in, recs go up, more trusted recs." width="750" height="620" loading="lazy"></figure>
+            <ul class="tk-for">
+              <li><small>For diners</small><b>Decide faster next time</b>More recs per dish, from people who were there.</li>
+              <li><small>For TikTok</small><b>The decision stays in the app</b>Every trip that starts here can come back as a rec or a video.</li>
+              <li><small>For restaurants</small><b>Good dishes get found</b>Recs reward what is good now, not who paid.</li>
+            </ul>
+          </div>
+          <p class="tk-label">The same recs, beyond the place page · concept</p>
+          <div class="tk-rules is-concept">
+            <div><small>On the video</small><b>Top dish on the place tag</b><p>“Good Harvest · Top dish: Dry Pot Lotus Root” on the anchor, before anyone taps.</p></div>
+            <div><small>Local feed</small><b>Recs on restaurant cards</b><p>Rank nearby places by dishes people actually recommend.</p></div>
+            <div><small>Search</small><b>Search by dish</b><p>“Lotus root near me” returns places where that dish has the most recs.</p></div>
+            <div><small>Save</small><b>Want to try list</b><p>Saved dishes come back when you are nearby at mealtime.</p></div>
+          </div>
+        </div>
+
+        <!-- Q&A -->
+        <div class="tk-block" id="questions">
+          <p class="tk-kicker">Anticipated questions</p>
+          <h3 class="tk-h3">What a reviewer will ask, answered first</h3>
+          <div class="tk-qa">
+            <details open><summary>Google Maps already has menus and reviews. Why build this in TikTok?</summary><p class="tk-chips is-soft"><span>Craving happens on a video</span><span>TikTok knows the dish</span><span>Google only drives</span></p><p>Google doesn’t know which dish made them want to go. The decision should happen where the intent was created, and Google handles the last step, the drive.</p></details>
+            <details><summary>Isn’t this just Meituan’s dish module copied over?</summary><p class="tk-chips is-soft"><span>Same pattern, new logic</span><span>Primary action is Go</span><span>No coupons</span></p><p>Meituan’s module sells group-buy deals. Ours gives decision information. US diners pay after the meal, with tax and tip, so a coupon price wouldn’t answer their question.</p></details>
+            <details><summary>How is this different from Must Eat?</summary><p class="tk-chips is-soft"><span>Must Eat: where to eat</span><span>Ours: is it worth it</span><span>Complementary</span></p><p>Must Eat is curated lists in three metros. This works after one specific video, for any tagged restaurant anywhere.</p></details>
+            <details><summary>Why a half sheet instead of a better full page?</summary><p class="tk-chips is-soft"><span>The video is the evidence</span><span>Two heights</span><span>Same as TikTok Shop</span></p><p>If the page replaces the video, users lose what they’re judging by. Half to glance, full to decide, the same pattern as TikTok Shop, so nothing new to learn.</p></details>
+            <details><summary>How do you know the recommend count is real?</summary><p class="tk-chips is-soft"><span>Been there to count</span><span>Checked once at the tap</span><span>3 dishes per visit</span></p><p>Only diners who have been there can recommend. The like checks location once at the tap; arriving by Guide me there or Get a ride, or posting a tagged video, also counts. Three dishes per visit, one rec per dish.</p></details>
+            <details><summary>Why would anyone come back to recommend?</summary><p class="tk-chips is-soft"><span>One message after the trip</span><span>One tap per dish</span><span>Hypothesis to test</span></p><p>We don’t wait for them to. A few hours after the trip, one message asks which dishes they had. One tap per dish, no writing. This is a hypothesis we would test after launch.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 VALIDATION -->
+      <section class="tk-part" id="validation" aria-labelledby="validation-h">
+        <header class="tk-part-head">
+          <small>04 · Validation</small>
+          <h2 id="validation-h">The whole decision now happens in TikTok.</h2>
+        </header>
+
+        <div class="tk-setup">
+          <div>
+            <h3 class="tk-h3">Same person, same task, two versions</h3>
+            <p class="tk-sub">Atlanta diners who find restaurants on TikTok. Each did the same four tasks on today’s TikTok first, then on the prototype. We watched where they went and what they said.</p>
+            <p class="tk-chips"><span>4 participants</span><span>Before: today’s TikTok</span><span>After: the prototype</span><span>Same target tasks</span></p>
+          </div>
+          <div class="tk-recorded">
+            <p class="tk-label">What we recorded</p>
+            <ul><li>Apps opened</li><li>Left TikTok or not</li><li>Where they hesitated</li><li>What they said</li></ul>
+            <p class="tk-muted">Counts, not percentages. Four people shows direction, not a rate.</p>
+          </div>
+        </div>
+
+        <div class="tk-apps">
+          <p class="tk-label">Apps needed to decide</p>
+          <div class="tk-apps-row">
+            <div><strong class="is-before">2–3</strong><span>Before · TikTok + Maps, Rednote or a ride app</span></div>
+            <i aria-hidden="true"></i>
+            <div><strong>1</strong><span>After · TikTok only, Maps just for the drive</span></div>
+          </div>
+        </div>
+
+        <div class="tk-table-wrap">
+          <table class="tk-table tk-people">
+            <caption class="tk-label">Apps each participant needed to decide</caption>
+            <thead><tr><th scope="col">Participant</th><th scope="col">Before · today’s TikTok</th><th scope="col" class="is-after">After · prototype</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><b>P1</b></th><td><p class="tk-apps-chips"><span>TikTok</span><span>Rednote</span><span>Google Maps</span></p>Checks Rednote for real reviews before trusting a place.</td><td><p class="tk-apps-chips"><span class="is-tt">TikTok</span><span class="is-hand">Maps · hand-off</span></p>Found dishes, prices and reviews on the place page.</td></tr>
+              <tr><th scope="row"><b>P2</b></th><td><p class="tk-apps-chips"><span>TikTok</span><span>Google Maps</span><span>Lyft</span></p>Wanted reviews and dish prices before going.</td><td><p class="tk-apps-chips"><span class="is-tt">TikTok</span><span class="is-hand">Lyft · hand-off</span></p>Decided without leaving. Both were on the page. Flagged the tap targets.</td></tr>
+              <tr><th scope="row"><b>P3</b></th><td><p class="tk-apps-chips"><span>TikTok</span><span>Google Maps</span></p>Searched the name in TikTok, then jumped straight to Google Maps.</td><td><p class="tk-apps-chips"><span class="is-tt">TikTok</span><span class="is-hand">Maps · hand-off</span></p>Whole loop in TikTok. “It met all my needs, I didn’t hesitate.”</td></tr>
+              <tr><th scope="row"><b>P4</b></th><td><p class="tk-apps-chips"><span>TikTok</span><span>Restaurant website</span></p>Opened the restaurant’s website to see the menu.</td><td><p class="tk-apps-chips"><span class="is-tt">TikTok</span><span class="is-hand">Uber / Lyft · hand-off</span></p>Found the menu, portion size and dish photos on the place page, then tapped Get a ride.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote class="tk-hero-quote"><p>“It met all my needs. I didn’t hesitate, I went straight to directions.”</p><cite>P3 · after using the prototype, whole loop in TikTok</cite></blockquote>
+
+        <h3 class="tk-h3">All 16 tasks were completed. Four findings changed the design.</h3>
+        <div class="tk-held">
+          <div class="tk-table-wrap">
+            <table class="tk-table tk-grid">
+              <caption class="tk-label">Target tasks</caption>
+              <thead><tr><th scope="col">Task</th><th scope="col">P1</th><th scope="col">P2</th><th scope="col">P3</th><th scope="col">P4</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Find what dishes they have</th><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td></tr>
+                <tr><th scope="row">Check what it costs</th><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td></tr>
+                <tr><th scope="row">Read what diners say</th><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td></tr>
+                <tr><th scope="row">Get directions or a ride</th><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td><td><i class="tk-ok" role="img" aria-label="Completed"></i></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tk-changes">
+            <p class="tk-label">What we found · what we changed</p>
+            <ol>
+              <li><span class="tk-who-tag">P2</span><span class="tk-found">Missed the small tap targets</span><span class="tk-arrow" aria-hidden="true"></span><b>Whole tile is tappable</b></li>
+              <li><span class="tk-who-tag">P1–P4</span><span class="tk-found">Looked for the menu first</span><span class="tk-arrow" aria-hidden="true"></span><b>Dishes sit above reviews</b></li>
+              <li><span class="tk-who-tag">P3</span><span class="tk-found">Copied the address out</span><span class="tk-arrow" aria-hidden="true"></span><b>Exit pinned at the bottom</b></li>
+              <li><span class="tk-who-tag">P4</span><span class="tk-found">Didn’t get what “recs” meant</span><span class="tk-arrow" aria-hidden="true"></span><b>Number + thumbs-up</b></li>
+            </ol>
+          </div>
+        </div>
+        <div class="tk-rules2">
+          <div><p class="tk-label">What builds trust</p><p class="tk-strong">Detail, not just more reviews</p><p>Diners trust reviewers who know the cuisine, and exact dish descriptions. Per-dish reviews answer both.</p></div>
+          <div><p class="tk-label">Honest limits</p><p class="tk-strong">Four people, tasks we set</p><p>Enough to show the direction, not a rate. “Found” means the info was there, not that users would look unprompted.</p></div>
+        </div>
+      </section>
+
+      <!-- 05 NEXT -->
+      <section class="tk-part" id="next" aria-labelledby="next-h">
+        <header class="tk-part-head">
+          <small>05 · Measure and what’s next</small>
+          <h2 id="next-h">How we’d know it works after launch, and where it goes next</h2>
+        </header>
+        <div class="tk-measure">
+          <div class="is-star">
+            <p class="tk-label">North star</p>
+            <ol class="tk-funnel" aria-label="Tag tap, decide, go"><li>Tag tap</li><li>Decide</li><li>Go</li></ol>
+            <p class="tk-strong">Share of place-tag taps that end in a trip</p>
+            <p>Guide me there or Get a ride: the closest thing to “decided, and went”.</p>
+          </div>
+          <div>
+            <p class="tk-label">Guardrails</p>
+            <ul class="tk-list"><li>For You watch time holds</li><li>Swipe down returns to the video</li></ul>
+            <p class="tk-muted">The sheet must not cost the feed more than it helps local.</p>
+          </div>
+          <div>
+            <p class="tk-label">Next</p>
+            <ul class="tk-list is-desc"><li><b>Craving reminder</b>Save a dish, get nudged nearby at mealtime.</li><li><b>Dish-level videos</b>Once each dish has enough content.</li><li><b>Owner tools</b>Keep dishes and prices current.</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="tt-end">
+        <a class="tt-btn tt-btn-primary" href="https://jamiechou2004.github.io/tiktok-test-demo" target="_blank" rel="noopener">Try the prototype</a>
+        <a class="tt-btn" href="https://www.figma.com/design/fK9g5YdtVEbv2SlOFunPKf/Tiktok-design-test?node-id=387-1802" target="_blank" rel="noopener">View full boards in Figma</a>
+        <a class="tt-btn" href="lab.html">Back to Gallery</a>
+      </footer>
     </main>
 
-    <script>
-      (function () {
-        var zh = { back: '探索', eyebrow: '2026 产品设计挑战 · TikTok × 本地生活', title: '视频让你饿了。<br>页面帮你做决定。', lede: '大家在 TikTok 上发现餐厅，却要离开 TikTok 去做决定。我重新设计了店铺页，让“点什么、花多少、能不能信”都留在 TikTok 里。', proto: '体验原型', figma: '在 Figma 中打开', r1: '做决定需要的 App 数量', r2: '人不离开 TikTok 就找到点什么、花多少', r3: '项任务全部完成', r4: '的 Z 世代在 TikTok 上发现餐厅', p01: '问题研究', p02: '设计方案', p03: '验证', h01: '问题研究', h02: '设计方案', h03: '验证', d01: '市场洞察、现有店铺页、用户期待和用户原声。', d02: '重新设计店铺页：菜品信息、可信的推荐、一键前往。', d03: '4 位用户分别在现在的 TikTok 和原型上完成同样的任务。', proto2: '体验原型', back2: '返回探索' };
-        var en = {};
-        document.querySelectorAll('[data-tt]').forEach(function (el) { en[el.dataset.tt] = el.innerHTML; });
-        function apply() {
-          var isZh = document.documentElement.dataset.language === 'zh';
-          document.querySelectorAll('[data-tt]').forEach(function (el) { el.innerHTML = (isZh ? zh : en)[el.dataset.tt]; });
-        }
-        new MutationObserver(apply).observe(document.documentElement, { attributes: true, attributeFilter: ['data-language'] });
-        apply();
-      })();
-    </script>
+    <script src="tiktok.js?v=20261104-web1"></script>
     <script src="portfolio-2027.js?v=github-20261008"></script>
     <script src="/i18n-zh.js?v=20261010"></script>
+    <script src="tiktok-zh.js?v=20261104-web1"></script>
     <script src="/i18n.js?v=20261019-globe"></script>
   </body>
 </html>
