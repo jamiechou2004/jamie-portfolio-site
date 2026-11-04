@@ -91,3 +91,9 @@ body .ax-page .lx-tile > span:last-child { font-size:12px; }
 body .ax-page .lx-dot { left:14px; top:17px; width:8px; height:8px; }
 body .ax-page .lx-cta { padding:12px 18px; border-radius:999px; font-size:14px; white-space:nowrap; }
 @media (max-width:1000px) { body .ax-page .lx-scope { grid-template-columns:1fr; } body .ax-page .lx-cta { justify-self:start; } }
+@media (max-width:1000px) {
+  body .ax-page .lx-flow { grid-template-columns:1fr; gap:6px; }
+  body .ax-page .lx-arrow svg { transform:rotate(90deg); }
+  body .ax-page .lx-pill { border-radius:20px; }
+}
+@media (max-width:1000px) { body .ax-page .lx-steps li, body .ax-page .lx-steps li + li { padding-left:0; padding-right:0; } }
