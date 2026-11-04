@@ -225,3 +225,17 @@ body .ax-page .v3-calls > div > div { min-width:0; }
 @media (max-width:650px){ body .ax-page .v3 .as-wires { grid-template-columns:repeat(3,1fr); } }
 body .ax-page .v3-hero h1 { color:var(--brand) !important; }
 body .ax-page .v3 .v3-h, body .ax-page .v3-calls h3, body .ax-page .v3-response h3, body .ax-page .v3-hero h2 { color:var(--navy) !important; }
+
+/* ---- Blend into the live Axel page: use its palette, not the deck's ---- */
+body .ax-page .v3 { --paper:#f2f3f0; --ink:#202426; --navy:#263c59; --brand:#365b7c; --blue:#3c5e88; --mute:#68747c; --sub:#58646d;
+  --panel:#e7ecf2; --panel-2:#dfe4e8; --panel-3:#c9d4de; --line:#d1d8d9; --warm:#f4ede2; --warm-ink:#82623c; font-family:inherit; }
+body .ax-page .v3-ctx { margin:8px 0 56px; }
+body .ax-page .v3-pane { background:#fbfbfa; border:1px solid var(--line); }
+body .ax-page .v3-pane.is-blue { background:var(--panel); border-color:#dbe1e9; }
+body .ax-page .v3 .v3-journey, body .ax-page .v3 .v3-ia, body .ax-page .v3 .v3-path, body .ax-page .v3-map-row > div { background:#fbfbfa; border:1px solid var(--line); }
+body .ax-page .v3-map .opp { border-color:#dbe1e9 !important; }
+body .ax-page .v3 .v3-shot { background:var(--panel); }
+body .ax-page .ax-heading .as-iter { margin-bottom:16px; }
+/* Polish: image hints appear on hover only */
+body .ax-page .ax-image-hint { opacity:0; transition:opacity .2s ease; }
+body .ax-page .ax-image:hover .ax-image-hint, body .ax-page .ax-image:focus-visible .ax-image-hint { opacity:1; }
