@@ -6,7 +6,7 @@
 </style><style>.ax-delivery{grid-column:1 / -1;width:100%;box-sizing:border-box}</style><style>.delivery-feature .generated-visual{height:156px;padding:0;background:transparent;border-radius:14px}.delivery-feature .generated-visual img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:normal}@media(max-width:650px){.delivery-feature .generated-visual{height:105px;width:92px}.delivery-feature .generated-visual img{object-fit:contain}}</style>  <link rel="stylesheet" href="site-typography.css?v=20261004-sf1">
 <link rel="stylesheet" href="color-refinement.css?v=20261007-1">
 <link rel="stylesheet" href="/i18n.css?v=20261019-globe">
-<link rel="stylesheet" href="/toc-feedback.css?v=20261019-1"><link rel="stylesheet" href="/axel-story.css?v=20261104-3"><link rel="stylesheet" href="/axel-v3.css?v=20261104-2"><link rel="stylesheet" href="/axel-v1x.css?v=20261104-1"><link rel="stylesheet" href="/axel-learned.css?v=20261104-3"><link rel="stylesheet" href="/axel-goals.css?v=20261104-1"></head><body class="case-study-page axel-case" data-custom-case-hero><div class="scroll-progress" aria-hidden="true"></div><header class="site-header"><a class="brand" href="/homepage.html" aria-label="Jamie Zhou home"><span class="brand-mark"><img src="/assets/identity/r2-ribbon.svg" alt="" width="32" height="32"></span></a><nav class="site-nav" aria-label="Main navigation"><a href="/homepage.html">Work</a><a href="mailto:Jamiechou2004@outlook.com" data-contact-open>Contact</a></nav></header><main class="ax-page chance-page" id="main-content"><nav class="case-chapter-nav" aria-label="Chapters">
+<link rel="stylesheet" href="/toc-feedback.css?v=20261019-1"><link rel="stylesheet" href="/axel-story.css?v=20261104-3"><link rel="stylesheet" href="/axel-v3.css?v=20261104-2"><link rel="stylesheet" href="/axel-v1x.css?v=20261104-1"><link rel="stylesheet" href="/axel-v1x-pages.css?v=20261104-3"><link rel="stylesheet" href="/axel-learned.css?v=20261104-3"><link rel="stylesheet" href="/axel-goals.css?v=20261104-1"></head><body class="case-study-page axel-case" data-custom-case-hero><div class="scroll-progress" aria-hidden="true"></div><header class="site-header"><a class="brand" href="/homepage.html" aria-label="Jamie Zhou home"><span class="brand-mark"><img src="/assets/identity/r2-ribbon.svg" alt="" width="32" height="32"></span></a><nav class="site-nav" aria-label="Main navigation"><a href="/homepage.html">Work</a><a href="mailto:Jamiechou2004@outlook.com" data-contact-open>Contact</a></nav></header><main class="ax-page chance-page" id="main-content"><nav class="case-chapter-nav" aria-label="Chapters">
 <a href="#overview">Overview</a>
 <a href="#research">Research &amp; problem</a>
 <a href="#journey">Journey</a>
@@ -118,10 +118,11 @@
 
 <div class="v3-first v1x-wrap" data-v1x>
 <div class="v1x-stage">
-<div class="v1x-fit"><div class="v1x" aria-label="Iteration 1 Today’s Summary, interactive">
+<div class="v1x-fit"><div class="v1x" translate="no" aria-label="Iteration 1 Axel prototype, interactive">
 <header class="v1x-top"><span class="v1x-logo"><img src="/assets/axel/axel-logo.png" alt="Axel" width="16" height="19"></span><span class="v1x-chip">Axel Operations</span><span class="v1x-sp"></span><span class="v1x-chip">Tue, Oct 28 · 2:11 PM</span><span class="v1x-sp"></span><span class="v1x-chip">EN</span><span class="v1x-chip">Manager</span></header>
 <div class="v1x-body">
-<nav class="v1x-nav" aria-hidden="true"><span class="on">Dashboard</span><span>Orders</span><span>Menu</span><span>Staff</span><span>Notifications</span><span>Settings</span></nav>
+<nav class="v1x-nav" aria-label="Prototype navigation"><button type="button" data-go="dashboard" class="on" aria-current="page">Dashboard</button><button type="button" data-go="orders">Orders</button><button type="button" data-go="menu">Menu</button><button type="button" data-go="staff">Staff</button><button type="button" data-go="notifications">Notifications</button><button type="button" data-go="settings">Settings</button></nav>
+<div class="v1x-view v1x-dash" data-view="dashboard">
 <div class="v1x-main">
 <div class="v1x-title"><b>Today’s Summary</b><small>Live · updated 2 min ago</small></div>
 <button type="button" class="v1x-zone" data-zone="1" aria-describedby="v1x-tip-1">
@@ -152,6 +153,84 @@
 <span class="v1x-num">3</span>
 </button>
 </div>
+<section class="v1x-view v1x-page" data-view="orders" hidden aria-label="Orders">
+<div class="pg-head"><b>Order management</b><span class="pg-btn is-primary">+ Manual entry</span></div>
+<div class="pg-alerts"><span class="is-warn"><b>3</b>Delayed orders</span><span><b>6</b>Missing items</span><span><b>9</b>Complaints</span><span><b>20</b>Active deliveries</span></div>
+<div class="pg-tabs"><span class="on">All 123</span><span>New 12</span><span>In progress 14</span><span>Ready 9</span><span>Completed 10</span><span>Cancelled 2</span></div>
+<div class="pg-card pg-table">
+<div class="tr th"><span>Order</span><span>Time</span><span>Source</span><span>Items</span><span>Customer</span><span>Total</span><span>Status</span></div>
+<div class="tr"><span><b>#1456</b></span><span>12:09 PM</span><span>In-store</span><span>3</span><span>Peter K.</span><span>$67.00</span><span><u class="new">New</u></span></div>
+<div class="tr"><span><b>#1455</b></span><span>12:01 PM</span><span>In-store</span><span>5</span><span>Sarah L.</span><span>$84.50</span><span><u class="prog">In progress</u></span></div>
+<div class="tr"><span><b>#222</b></span><span>11:58 AM</span><span>Uber Eats</span><span>3</span><span>Maya R.</span><span>$45.50</span><span><u class="new">New</u></span></div>
+<div class="tr is-late"><span><b>#221</b></span><span>11:52 AM</span><span>DoorDash</span><span>7</span><span>Leo T.</span><span>$112.00</span><span><u class="late">Delayed 18 min</u></span></div>
+<div class="tr"><span><b>#1454</b></span><span>11:47 AM</span><span>In-store</span><span>2</span><span>Mike R.</span><span>$31.00</span><span><u class="ready">Ready</u></span></div>
+<div class="pg-foot">Showing 1–5 of 123 orders</div>
+</div>
+</section>
+
+<section class="v1x-view v1x-page" data-view="menu" hidden aria-label="Menu">
+<div class="pg-head"><b>Menu &amp; content</b><span class="pg-btn is-primary">+ Add item</span></div>
+<div class="pg-tabs"><span class="on">All items</span><span>Mains</span><span>Salads</span><span>Sides</span><span>Drinks</span><span class="pg-search">Search items, ingredients…</span></div>
+<div class="pg-menu">
+<div class="mi"><i style="--c:#e8c39a"></i><b>Fried Chicken</b><small>Mains · $20.00</small><button type="button" class="sw is-on" data-toggle aria-pressed="true"><span>In stock</span></button></div>
+<div class="mi"><i style="--c:#b9d7a8"></i><b>Caesar Salad</b><small>Salads · $10.00</small><button type="button" class="sw is-on" data-toggle aria-pressed="true"><span>In stock</span></button></div>
+<div class="mi is-low"><i style="--c:#e2b8a4"></i><b>Chicken Breast Bowl</b><small>Mains · $16.00 · Low stock</small><button type="button" class="sw is-on" data-toggle aria-pressed="true"><span>In stock</span></button></div>
+<div class="mi is-out"><i style="--c:#c6d7a0"></i><b>Avocado Toast</b><small>Sides · $12.00</small><button type="button" class="sw" data-toggle aria-pressed="false"><span>Out of stock</span></button></div>
+<div class="mi is-low"><i style="--c:#e9a796"></i><b>Tomato Soup</b><small>Sides · $8.50 · Low stock</small><button type="button" class="sw is-on" data-toggle aria-pressed="true"><span>In stock</span></button></div>
+<div class="mi"><i style="--c:#f0dc8c"></i><b>House Lemonade</b><small>Drinks · $4.50</small><button type="button" class="sw is-on" data-toggle aria-pressed="true"><span>In stock</span></button></div>
+</div>
+</section>
+
+<section class="v1x-view v1x-page" data-view="staff" hidden aria-label="Staff">
+<div class="pg-head"><b>Staff management</b><span class="pg-btn is-primary">+ Add staff member</span></div>
+<div class="pg-stats"><span><b>27</b>Active staff</span><span><b>94%</b>Attendance rate</span><span><b>37.5</b>Avg hours / week</span></div>
+<div class="pg-split">
+<div class="pg-card"><p class="pg-sub">Active staff today</p>
+<div class="st"><em>JD</em><span><b>John Doe</b><small>Manager · 8 AM – 4 PM</small></span><u class="ok">Active</u></div>
+<div class="st"><em>SM</em><span><b>Sarah Miller</b><small>Server · 10 AM – 6 PM</small></span><u class="ok">Active</u></div>
+<div class="st"><em>MR</em><span><b>Mike Roberts</b><small>Line cook · 10 AM – 6 PM</small></span><u class="ok">Active</u></div>
+<div class="st"><em>JC</em><span><b>Jack Chen</b><small>Delivery · 11 AM – 7 PM</small></span><u class="brk">On break</u></div>
+</div>
+<div class="pg-card"><p class="pg-sub">Weekly schedule <small>Oct 21 – 27</small></p>
+<div class="wk"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span class="on">Sat</span><span>Sun</span>
+<i style="--h:58%"></i><i style="--h:62%"></i><i style="--h:60%"></i><i style="--h:70%"></i><i style="--h:86%"></i><i class="on" style="--h:96%"></i><i style="--h:74%"></i></div>
+<small class="pg-note">Staff on shift per day · Saturday is the busiest</small>
+</div>
+</div>
+</section>
+
+<section class="v1x-view v1x-page" data-view="notifications" hidden aria-label="Notifications">
+<div class="pg-head"><b>Notifications &amp; alerts</b><span class="pg-btn">Mark all read</span></div>
+<div class="pg-tabs"><span class="on">All 45</span><span>Unread 12</span><span>Orders 18</span><span>Inventory 8</span><span>Staff 7</span></div>
+<div class="pg-card pg-feed">
+<div class="nf is-warn"><b>Delayed order</b><span>Order #221 is running 18 minutes behind schedule</span><small>2 min</small></div>
+<div class="nf is-warn"><b>Low stock alert</b><span>Avocado below minimum (12 left)</span><small>5 min</small></div>
+<div class="nf"><b>New order received</b><span>Order #223 from Uber Eats · 3 items · $45.50</span><small>6 min</small></div>
+<div class="nf"><b>Shift change reminder</b><span>Sarah Miller’s shift ends in 30 minutes</span><small>8 min</small></div>
+<div class="nf is-done"><b>Order completed</b><span>Order #1453 was delivered</span><small>15 min</small></div>
+<div class="nf is-done"><b>Staff check-in</b><span>Mike Roberts checked in for the 10 AM shift</span><small>25 min</small></div>
+</div>
+</section>
+
+<section class="v1x-view v1x-page" data-view="settings" hidden aria-label="Settings">
+<div class="pg-head"><b>Settings</b><span class="pg-btn is-primary">Save changes</span></div>
+<div class="pg-split">
+<div class="pg-card"><p class="pg-sub">Restaurant profile</p>
+<label class="fd"><small>Restaurant name</small><span>Axel Kitchen &amp; Café</span></label>
+<label class="fd"><small>Address</small><span>123 Main Street, San Francisco, CA</span></label>
+<label class="fd"><small>Phone</small><span>+1 (555) 123-4567</span></label>
+<div class="fd-row"><label class="fd"><small>Time zone</small><span>Pacific Time</span></label><label class="fd"><small>Language</small><span>English (US)</span></label></div>
+</div>
+<div class="pg-card"><p class="pg-sub">Notification preferences</p>
+<div class="pr"><span><b>Email updates</b><small>Order updates by email</small></span><button type="button" class="tg is-on" data-toggle aria-pressed="true" aria-label="Email updates"></button></div>
+<div class="pr"><span><b>Weekly reports</b><small>Performance summary</small></span><button type="button" class="tg is-on" data-toggle aria-pressed="true" aria-label="Weekly reports"></button></div>
+<div class="pr"><span><b>SMS alerts</b><small>Urgent issues by text</small></span><button type="button" class="tg" data-toggle aria-pressed="false" aria-label="SMS alerts"></button></div>
+<div class="pr"><span><b>Push notifications</b><small>Real-time in the browser</small></span><button type="button" class="tg is-on" data-toggle aria-pressed="true" aria-label="Push notifications"></button></div>
+<div class="pg-plan"><span>Plan · <b>Professional</b></span><small>$99 / month</small></div>
+</div>
+</div>
+</section>
+</div>
 </div></div>
 <div class="v1x-tip" id="v1x-tip-1" role="tooltip" data-tip="1"><small>1 · What needs attention</small><p><b>Lunch is running hot.</b> 142 orders by 2 PM, 12% above last Tuesday. Three of 23 deliveries are late, and prep is 2 minutes over target.</p><span>Sample data · Iteration 1 prototype</span></div>
 <div class="v1x-tip" id="v1x-tip-2" role="tooltip" data-tip="2"><small>2 · What explains it</small><p><b>Online is the bottleneck.</b> 15 online orders vs 8 in-store. DoorDash #221 has been in progress for 10 minutes, the oldest open order.</p><span>Sample data · Iteration 1 prototype</span></div>
@@ -161,7 +240,8 @@
 <button type="button" data-zone="1"><b>1</b><span><strong>What needs attention?</strong><small>Three numbers, each with a reason to care.</small></span></button>
 <button type="button" data-zone="2"><b>2</b><span><strong>What explains it?</strong><small>In-store and online feeds, every order with status and time.</small></span></button>
 <button type="button" data-zone="3"><b>3</b><span><strong>Where do I look next?</strong><small>Trends and live alerts for the rest of the shift.</small></span></button>
-<p class="v1x-hint"><span class="v1x-hint-hover">Hover a number or an area of the screen.</span><span class="v1x-hint-tap">Tap an area of the screen.</span></p>
+<p class="v1x-hint"><span class="v1x-hint-hover">Hover a number or an area of the screen.</span><span class="v1x-hint-tap">Tap an area of the screen.</span> <span class="v1x-hint-nav">Use the sidebar to explore the other pages.</span></p>
+<div class="v1x-away" hidden><p>You’re exploring the Iteration 1 prototype. The three questions live on the dashboard.</p><button type="button" class="v1x-back">Back to dashboard</button></div>
 </div>
 </div>
 </div></section>
@@ -306,5 +386,5 @@
 <a class="lx-cta" href="https://www.figma.com/design/wBLuvKNVZ8In3RBwnFs7po/?node-id=1262-71082" target="_blank" rel="noopener">Open the full case study in Figma</a>
 </div>
 </section>
-<footer class="ax-end"><span>Next case</span><a href="/chance.html">Chance AI</a></footer></main><dialog class="ax-dialog" aria-label="Full-size design image"><div class="ax-dialog-tools"><button type="button" data-zoom aria-pressed="false">Zoom in</button><a data-original target="_blank" rel="noopener">Open original ↗</a><button type="button" data-close autofocus>Close ×</button></div><div class="ax-dialog-scroll"><img alt=""/></div></dialog><script src="/portfolio-2027.js?v=github-20261008"></script><script src="/axel-editorial.js?v=20261015-dialog-cursor"></script><script src="/axel-v1x.js?v=20261104-1"></script><script src="/i18n-zh.js?v=20261010"></script><script src="/axel-v3-zh.js?v=20261104-2"></script><script src="/i18n.js?v=20261019-globe"></script>
+<footer class="ax-end"><span>Next case</span><a href="/chance.html">Chance AI</a></footer></main><dialog class="ax-dialog" aria-label="Full-size design image"><div class="ax-dialog-tools"><button type="button" data-zoom aria-pressed="false">Zoom in</button><a data-original target="_blank" rel="noopener">Open original ↗</a><button type="button" data-close autofocus>Close ×</button></div><div class="ax-dialog-scroll"><img alt=""/></div></dialog><script src="/portfolio-2027.js?v=github-20261008"></script><script src="/axel-editorial.js?v=20261015-dialog-cursor"></script><script src="/axel-v1x.js?v=20261104-2"></script><script src="/i18n-zh.js?v=20261010"></script><script src="/axel-v3-zh.js?v=20261104-2"></script><script src="/i18n.js?v=20261019-globe"></script>
 </body></html>

@@ -223,3 +223,8 @@
   "pivot: data view to action view": "次转向：从数据视图到行动视图",
   "faster task completion": "任务完成更快", "less cognitive load": "认知负担更低", "user satisfaction": "用户满意度", "fewer screen switches": "切换屏幕更少"
 }); })();
+(() => { Object.assign(window.JAMIE_ZH, {
+  "Use the sidebar to explore the other pages.": "也可以点左侧导航，浏览其他页面。",
+  "You’re exploring the Iteration 1 prototype. The three questions live on the dashboard.": "你正在浏览第一版原型。三个问题的说明在首页（Dashboard）。",
+  "Back to dashboard": "返回首页"
+}); })();

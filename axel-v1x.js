@@ -53,3 +53,35 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { locked = null; show(null); } });
   window.addEventListener('resize', () => { const on = tips.find(t => t.classList.contains('is-on')); if (on) place(on, zones.find(z => z.dataset.zone === on.dataset.tip)); });
 })();
+
+/* Sidebar navigation between prototype pages. */
+(() => {
+  const root = document.querySelector('[data-v1x]');
+  if (!root) return;
+  const ui = root.querySelector('.v1x');
+  const fit = root.querySelector('.v1x-fit');
+  const views = [...root.querySelectorAll('.v1x-view')];
+  const navs = [...root.querySelectorAll('.v1x-nav [data-go]')];
+  const away = root.querySelector('.v1x-away');
+  const dash = root.querySelector('.v1x-dash');
+  const lockHeight = () => { views.forEach(v => v.style.height = ''); const h = dash.offsetHeight; views.forEach(v => { v.style.height = h + 'px'; }); };
+  const refit = () => { const s = Math.min(1, fit.clientWidth / 860); fit.style.height = ui.offsetHeight * s + 'px'; };
+  const go = (name) => {
+    views.forEach(v => { v.hidden = v.dataset.view !== name; });
+    navs.forEach(n => { const on = n.dataset.go === name; n.classList.toggle('on', on); on ? n.setAttribute('aria-current', 'page') : n.removeAttribute('aria-current'); });
+    const isAway = name !== 'dashboard';
+    root.classList.toggle('is-away', isAway);
+    away.hidden = !isAway;
+    root.querySelectorAll('.v1x-zone.is-on, .v1x-calls .is-on, .v1x-tip.is-on').forEach(e => e.classList.remove('is-on'));
+    refit();
+  };
+  navs.forEach(n => n.addEventListener('click', () => go(n.dataset.go)));
+  root.querySelector('.v1x-back').addEventListener('click', () => { go('dashboard'); navs[0].focus(); });
+  root.querySelectorAll('[data-toggle]').forEach(t => t.addEventListener('click', () => {
+    const on = !t.classList.contains('is-on'); t.classList.toggle('is-on', on); t.setAttribute('aria-pressed', on);
+    const label = t.querySelector('span'); if (label) label.textContent = on ? 'In stock' : 'Out of stock';
+    const card = t.closest('.mi'); if (card) card.classList.toggle('is-out', !on);
+  }));
+  lockHeight(); refit();
+  window.addEventListener('resize', () => { lockHeight(); refit(); });
+})();
