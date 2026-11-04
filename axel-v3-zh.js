@@ -202,3 +202,24 @@
 }); })();
 (() => { Object.assign(window.JAMIE_ZH, { "Managers found the overview clear. In a real rush, they needed something else: a way to act.": "经理们觉得概览很清楚，但在真正的高峰期，他们需要的是另一样东西：能直接行动。" }); })();
 (() => { Object.assign(window.JAMIE_ZH, { "Work inside Toast and the delivery apps": "融入 Toast 和外卖平台，而不是另起炉灶" }); })();
+(() => { Object.assign(window.JAMIE_ZH, {
+  "Challenge": "挑战", "Business goal": "商业目标", "User goal": "用户目标",
+  "How might we help restaurant managers decide faster and act on orders during service?": "如何帮助餐厅经理在营业中更快做出决策、处理订单？",
+  "Become the daily decision layer independent restaurants pay for, on top of their POS and delivery apps.": "在 POS 和外卖平台之上，成为独立餐厅每天营业都愿意付费使用的决策工具。",
+  "Lower operating cost": "降低运营成本", "Higher efficiency": "提高运营效率", "More completed orders": "完成更多订单", "Why owners would pay": "店主为什么愿意付费",
+  "See what needs attention in a rush, and act without switching tools.": "高峰期一眼看到哪里需要处理，不切换工具就能处理。",
+  "One view of every channel": "所有渠道一个视图", "The next action, not more numbers": "给出下一步，而不是更多数字", "What managers need during service": "经理在营业中需要什么",
+  "Design decision": "设计决策",
+  "Design for one role first: the manager.": "先只为一个角色设计：经理。",
+  "The person making decisions in a rush is the manager. One role kept the IA to two areas and every page focused on the next decision.": "高峰期做决定的是经理。只服务一个角色，让信息架构保持在两大区域，每个页面都聚焦下一步决策。",
+  "Pivot from a data view to an action view.": "从数据视图转向行动视图。",
+  "Managers needed to know which fire to put out, not last week’s numbers. Today’s Summary became about the next action.": "经理需要知道先灭哪把火，而不是上周的数据。今日概览因此转向下一步行动。",
+  "Replace the blank form with an Agent proposal.": "用 Agent 方案取代空白表单。",
+  "A plan drafted for the manager to review is faster than one written from scratch during service, and approval keeps the manager in control.": "让经理审核一份已起草的方案，比营业中从零写起更快；批准机制也让经理始终掌控。",
+  "Impact": "成果", "13 / IMPACT": "13 / 成果", "14 / WHAT I LEARNED": "14 / 我的收获",
+  "What we measured,": "我们测到了什么，", "and what comes next.": "以及接下来要验证什么。",
+  "Measured · Fall 2025": "实测 · 2025 秋", "Projected targets": "预计目标", "not yet measured": "尚未实测",
+  "restaurants interviewed": "家餐厅受访", "restaurants in usability tests": "家餐厅参与可用性测试", "positive feedback on Iteration 1": "第一版获得正面反馈",
+  "pivot: data view to action view": "次转向：从数据视图到行动视图",
+  "faster task completion": "任务完成更快", "less cognitive load": "认知负担更低", "user satisfaction": "用户满意度", "fewer screen switches": "切换屏幕更少"
+}); })();
