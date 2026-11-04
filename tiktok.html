@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="site-typography.css?v=20261004-sf1">
     <link rel="stylesheet" href="color-refinement.css?v=20261007-1">
     <link rel="stylesheet" href="/i18n.css?v=20261019-globe">
-    <link rel="stylesheet" href="tiktok.css?v=20261103-1">
+    <link rel="stylesheet" href="tiktok.css?v=20261104-1">
   </head>
   <body class="portfolio-redesign" data-page-view="tiktok">
     <div class="cursor-light" aria-hidden="true"></div>
@@ -43,22 +43,36 @@
         </div>
       </header>
 
-      <section class="tt-canvas" aria-labelledby="tt-canvas-label">
-        <div class="tt-canvas-bar">
-          <span id="tt-canvas-label" data-tt="canvas">Full process: problem, solution, validation</span>
-          <span class="tt-hint" data-tt="hint">Drag to move · pinch or ⌘ + scroll to zoom</span>
-        </div>
-        <iframe
-          title="TikTok design test — full Figma canvas"
-          src="https://embed.figma.com/design/fK9g5YdtVEbv2SlOFunPKf/Tiktok-design-test?node-id=387-1802&embed-host=share"
-          allowfullscreen
-          loading="lazy"></iframe>
+      <section class="tt-results" aria-label="Results">
+        <div><strong>2–3 → 1</strong><span data-tt="r1">apps needed to decide</span></div>
+        <div><strong>4 / 4</strong><span data-tt="r2">found what to order and what it costs without leaving TikTok</span></div>
+        <div><strong>16 / 16</strong><span data-tt="r3">tasks completed</span></div>
+        <div><strong>38%</strong><span data-tt="r4">of Gen Z discover restaurants on TikTok</span></div>
       </section>
+      <nav class="tt-parts" aria-label="Case study parts">
+        <a href="#problem"><small>01</small><span data-tt="p01">Problem research</span></a>
+        <a href="#solution"><small>02</small><span data-tt="p02">Solution</span></a>
+        <a href="#validation"><small>03</small><span data-tt="p03">Validation</span></a>
+      </nav>
+      <section class="tt-part" id="problem" aria-labelledby="problem-h">
+        <div class="tt-part-head"><small>01</small><h2 id="problem-h" data-tt="h01">Problem research</h2><p data-tt="d01">Market insight, the place page today, user expectations and voice of users.</p></div>
+        <div class="tt-board"><img src="assets/tiktok-test/problem-1.jpg" alt="Problem research, part 1 of 4" loading="eager" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/problem-2.jpg" alt="Problem research, part 2 of 4" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/problem-3.jpg" alt="Problem research, part 3 of 4" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/problem-4.jpg" alt="Problem research, part 4 of 4" loading="lazy" decoding="async" width="1600" height="1308"></div>
+      </section>
+      <section class="tt-part" id="solution" aria-labelledby="solution-h">
+        <div class="tt-part-head"><small>02</small><h2 id="solution-h" data-tt="h02">Solution</h2><p data-tt="d02">The place page redesign: dish information, trusted recommendations and getting there.</p></div>
+        <div class="tt-board"><img src="assets/tiktok-test/solution-1.jpg" alt="Solution, part 1 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-2.jpg" alt="Solution, part 2 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-3.jpg" alt="Solution, part 3 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-4.jpg" alt="Solution, part 4 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-5.jpg" alt="Solution, part 5 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-6.jpg" alt="Solution, part 6 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-7.jpg" alt="Solution, part 7 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-8.jpg" alt="Solution, part 8 of 9" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/solution-9.jpg" alt="Solution, part 9 of 9" loading="lazy" decoding="async" width="1600" height="1175"></div>
+      </section>
+      <section class="tt-part" id="validation" aria-labelledby="validation-h">
+        <div class="tt-part-head"><small>03</small><h2 id="validation-h" data-tt="h03">Validation</h2><p data-tt="d03">Four diners, the same tasks on today’s TikTok and on the prototype.</p></div>
+        <div class="tt-board"><img src="assets/tiktok-test/validation-1.jpg" alt="Validation, part 1 of 3" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/validation-2.jpg" alt="Validation, part 2 of 3" loading="lazy" decoding="async" width="1600" height="1800"><img src="assets/tiktok-test/validation-3.jpg" alt="Validation, part 3 of 3" loading="lazy" decoding="async" width="1600" height="1371"></div>
+      </section>
+      <footer class="tt-end"><a class="tt-btn tt-btn-primary" href="https://jamiechou2004.github.io/tiktok-test-demo" target="_blank" rel="noopener" data-tt="proto2">Try the prototype</a><a class="tt-btn" href="lab.html" data-tt="back2">Back to Gallery</a></footer>
+
     </main>
 
     <script>
       (function () {
-        var zh = { back: '探索', eyebrow: '2026 产品设计挑战 · TikTok × 本地生活', title: '视频让你饿了。<br>页面帮你做决定。', lede: '大家在 TikTok 上发现餐厅，却要离开 TikTok 去做决定。我重新设计了店铺页，让“点什么、花多少、能不能信”都留在 TikTok 里。', proto: '体验原型', figma: '在 Figma 中打开', canvas: '完整过程：问题、方案、验证', hint: '拖动移动 · 双指或 ⌘ + 滚轮缩放' };
+        var zh = { back: '探索', eyebrow: '2026 产品设计挑战 · TikTok × 本地生活', title: '视频让你饿了。<br>页面帮你做决定。', lede: '大家在 TikTok 上发现餐厅，却要离开 TikTok 去做决定。我重新设计了店铺页，让“点什么、花多少、能不能信”都留在 TikTok 里。', proto: '体验原型', figma: '在 Figma 中打开', r1: '做决定需要的 App 数量', r2: '人不离开 TikTok 就找到点什么、花多少', r3: '项任务全部完成', r4: '的 Z 世代在 TikTok 上发现餐厅', p01: '问题研究', p02: '设计方案', p03: '验证', h01: '问题研究', h02: '设计方案', h03: '验证', d01: '市场洞察、现有店铺页、用户期待和用户原声。', d02: '重新设计店铺页：菜品信息、可信的推荐、一键前往。', d03: '4 位用户分别在现在的 TikTok 和原型上完成同样的任务。', proto2: '体验原型', back2: '返回探索' };
         var en = {};
         document.querySelectorAll('[data-tt]').forEach(function (el) { en[el.dataset.tt] = el.innerHTML; });
         function apply() {
