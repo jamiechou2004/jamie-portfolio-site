@@ -85,6 +85,7 @@
   const projectLinks = [
     ["axel.html", "Axel SaaS"],
     ["chance.html", "Chance AI"],
+    ["tiktok.html", "TikTok Design Test"],
     ["honda.html", "HondaConnect"],
     ["deloitte.html", "Deloitte x SCADpro"],
   ].filter(([href]) => !isHomePreview || href !== "deloitte.html");
@@ -138,7 +139,7 @@
       .map(([href, label], index) => railLink({ href, label, index: index + 1, current: currentPage === href }))
       .join("");
     const workLinks = projectLinks
-      .map(([href, label], index) => railLink({ href, label, index: index + 1 }))
+      .map(([href, label], index) => railLink({ href, label, index: index + 1, current: currentPage === href }))
       .join("");
     rail.innerHTML = `${railHeader}
       <div class="portfolio-rail__section portfolio-rail__section--primary">
@@ -734,8 +735,8 @@ const shapes={
 for(const a of document.querySelectorAll('.portfolio-rail__link')){
  const href=a.getAttribute('href')||'';let key=href.split('/').pop();if(a.dataset.label==='Resume'||href.includes('Resume'))key='resume';if(href.includes('linkedin'))key='linkedin';if(href.includes('github.com'))key='github';if(a.hasAttribute('data-contact-open'))key='email';
  const icon=document.createElement('span');icon.className='np-icon';icon.setAttribute('aria-hidden','true');
- icon.innerHTML=shapes[key]?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${shapes[key]}</svg>`:({ 'axel.html':'01','chance.html':'02','deloitte.html':'04'}[key]||a.querySelector('.portfolio-rail__index')?.textContent.trim()||'•');a.prepend(icon);
- if(['axel.html','chance.html','honda.html','deloitte.html'].includes(key)||href.startsWith('#')){a.classList.add('np-project');icon.classList.add('np-project-number');}
+ icon.innerHTML=shapes[key]?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${shapes[key]}</svg>`:({ 'axel.html':'01','chance.html':'02','tiktok.html':'03','honda.html':'04','deloitte.html':'05'}[key]||a.querySelector('.portfolio-rail__index')?.textContent.trim()||'•');a.prepend(icon);
+ if(['axel.html','chance.html','tiktok.html','honda.html','deloitte.html'].includes(key)||href.startsWith('#')){a.classList.add('np-project');icon.classList.add('np-project-number');}
  if(!a.hasAttribute('aria-label'))a.setAttribute('aria-label',a.dataset.label||a.textContent.trim());
 
 }
