@@ -1,0 +1,44 @@
+/* Chance AI · 09 Full case study: capsule picker + one viewer instead of a tall accordion list.
+   Without JS the original <details> list still works. */
+#design-boards .cb-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+#design-boards .cb-pill {
+  all: unset; box-sizing: border-box; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px 7px 7px; border-radius: 999px;
+  background: #f2f4f8; color: #1d2433; font-size: 14px; font-weight: 500; line-height: 1.2;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+#design-boards .cb-pill b {
+  display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 6px;
+  border-radius: 999px; background: #fff; color: #002fa7; font-size: 12px; font-weight: 600;
+}
+#design-boards .cb-pill:hover { background: #e6eaf5; transform: translateY(-1px); }
+#design-boards .cb-pill[aria-selected="true"] { background: #002fa7; color: #fff; }
+#design-boards .cb-pill[aria-selected="true"] b { background: rgba(255,255,255,.18); color: #fff; }
+#design-boards .cb-pill:focus-visible { outline: 2px solid #002fa7; outline-offset: 3px; }
+
+#design-boards .cb-viewer { margin-top: 20px; border-radius: 20px; background: #f6f7f9; padding: 16px; }
+#design-boards .cb-viewer[hidden] { display: none; }
+#design-boards .cb-viewer-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 4px 14px; }
+#design-boards .cb-viewer-bar strong { font-size: 15px; font-weight: 600; color: #1d2433; }
+#design-boards .cb-viewer-bar span { display: flex; gap: 6px; }
+#design-boards .cb-viewer-bar :is(a, button) {
+  all: unset; cursor: pointer; font-size: 13px; font-weight: 500; color: #002fa7;
+  padding: 6px 12px; border-radius: 999px; background: #fff;
+}
+#design-boards .cb-viewer-bar :is(a, button):hover { background: #e6eaf5; }
+#design-boards .cb-viewer-bar :is(a, button):focus-visible { outline: 2px solid #002fa7; outline-offset: 2px; }
+#design-boards .cb-viewer figure { margin: 0; max-height: min(78vh, 900px); overflow: auto; border-radius: 12px; background: #fff; overscroll-behavior: contain; }
+#design-boards .cb-viewer figure img { border-radius: 0; }
+#design-boards .cb-viewer figcaption { display: none; }
+#design-boards .cc-board-list.is-enhanced { display: none; }
+
+@media (max-width: 700px) {
+  #design-boards .cb-pills { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -16px; padding-right: 16px; }
+  #design-boards .cb-pill { flex: 0 0 auto; font-size: 13px; }
+  #design-boards .cb-viewer { padding: 10px; border-radius: 16px; }
+  #design-boards .cb-viewer-bar strong { font-size: 14px; min-width: 0; }
+  #design-boards .cb-viewer-bar :is(a, button) { white-space: nowrap; padding: 6px 10px; }
+  #design-boards .cb-viewer figure { max-height: 70vh; }
+}
+@media (prefers-reduced-motion: reduce) { #design-boards .cb-pill { transition: none; } }
