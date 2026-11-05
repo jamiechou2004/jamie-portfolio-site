@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="site-typography.css?v=20261004-sf1">
     <link rel="stylesheet" href="color-refinement.css?v=20261007-1">
     <link rel="stylesheet" href="/i18n.css?v=20261019-globe">
-    <link rel="stylesheet" href="tiktok.css?v=20261104-web3">
+    <link rel="stylesheet" href="tiktok.css?v=20261105-tp1">
+    <link rel="stylesheet" href="tiktok-proto.css?v=20261105-1">
   </head>
   <body class="portfolio-redesign" data-page-view="tiktok">
     <div class="cursor-light" aria-hidden="true"></div>
@@ -131,15 +132,42 @@
           <header class="tk-head"><small>01 · Business side</small><h2>Where TikTok Local Services sits today</h2><p>Local Services lives inside the main app, same account, same feed. Every flow starts from scrolling a video.</p></header>
           <div class="tk-biz">
             <div class="tk-card is-grey tk-today">
-              <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-today.webp" alt="Today’s TikTok place page, annotated 1 and 2." width="369" height="580" style="--h:470px"></figure>
+              <div class="tp" data-tp>
+                <div class="tp-phone" translate="no" role="img" aria-label="Today’s TikTok place page: restaurant photos at the top, then rating, hours, price, address, four equal buttons and What people say.">
+                  <div class="tp-zone" data-zone="1">
+                    <div class="tp-status" aria-hidden="true"><span>12:37</span><span class="tp-sig"><i></i><i></i><i></i><b></b></span></div>
+                    <div class="tp-bar" aria-hidden="true"><span class="tp-ico">‹</span><span class="tp-gap"></span><span class="tp-ico is-sq"></span><span class="tp-ico">↗</span><span class="tp-ico">···</span></div>
+                    <div class="tp-photos"><img src="assets/tiktok-test/web/tp-photo-1.jpg" alt="" width="84" height="112"><img src="assets/tiktok-test/web/tp-photo-2.jpg" alt="" width="84" height="112"><img src="assets/tiktok-test/web/tp-photo-3.jpg" alt="" width="60" height="112"></div>
+                    <button type="button" class="tp-mark" data-zone="1" aria-label="Note 1: opens full screen">1</button>
+                  </div>
+                  <div class="tp-sheet">
+                    <p class="tp-name">Good Harvest</p>
+                    <p class="tp-rate"><span>★</span>4.6 Excellent <em>(18) ›</em></p>
+                    <p class="tp-meta"><span class="tp-closed">Closed</span> · Opens 12:00 PM · $20–50 · Chinese Restaurant ›</p>
+                    <p class="tp-meta">⌖ 9.1 mi · 5150 Buford Hwy NE C-120, Doraville, GA 30… ›</p>
+                    <div class="tp-zone tp-btns" data-zone="2">
+                      <button type="button">Map</button><button type="button">Call</button><button type="button">Review</button><button type="button">Saved</button>
+                      <span class="tp-mark" data-zone="2" aria-hidden="true">2</span>
+                    </div>
+                    <p class="tp-say"><b>What people say</b><span>View all ›</span></p>
+                    <div class="tp-review">
+                      <p class="tp-who"><img src="assets/tiktok-test/web/tp-avatar.jpg" alt="" width="20" height="21"><span><b>Eternally Happy</b>Jun 21, 2026 · Post</span></p>
+                      <p class="tp-text">Good Harvest – Doraville, GA. They specialize in authentic Sichuan hot pots, dry pots, and traditional Chinese cuisine. Food was very good! We ord… <em>more</em></p>
+                      <img class="tp-thumb" src="assets/tiktok-test/web/tp-review.jpg" alt="" width="77" height="104">
+                    </div>
+                  </div>
+                  <p class="tp-toast" role="status" aria-live="polite"></p>
+                </div>
+              </div>
               <div>
                 <p class="tk-lbl">The place page today</p>
                 <h3 class="tk-h3">It lists the restaurant’s basics. It doesn’t help you decide.</h3>
                 <p class="tk-muted">Rating, hours, price range, distance, four equal buttons and What people say.</p>
-                <ol class="tk-notes">
-                  <li><b>Opens full screen</b>The video stops. The context that created the craving is gone.</li>
-                  <li><b>Four equal buttons</b>Website · Map · Call · Review. No primary action, no next step.</li>
+                <ol class="tk-notes tp-notes">
+                  <li data-zone="1" tabindex="0"><b>Opens full screen</b>The video stops. The context that created the craving is gone.</li>
+                  <li data-zone="2" tabindex="0"><b>Four equal buttons</b>Website · Map · Call · Review. No primary action, no next step.</li>
                 </ol>
+                <p class="tp-hint">Hover a note, or tap the buttons in the screen.</p>
               </div>
             </div>
             <div class="tk-biz-side">
@@ -308,31 +336,30 @@
       <section class="tk-sec">
         <div class="tk-wrap">
           <header class="tk-head"><small>02 · Entry point</small><h2>Tap the tag, the sheet comes up, the video keeps playing</h2></header>
-          <div class="tk-card is-grey tk-annot">
-            <div class="tk-annot-phones">
-              <figure class="tk-ph is-before"><img src="assets/tiktok-test/web/ph-entry-before.webp" alt="Before: today, full screen." width="293" height="587" style="--h:380px"><figcaption>Before · today, full screen</figcaption></figure>
-              <span class="tk-mini-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-              <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-entry-half.webp" alt="After: half sheet over the playing video, annotated 1 to 4." width="477" height="805" style="--h:540px"><figcaption>After · half sheet</figcaption></figure>
+          <div class="tk-card is-grey tk-proto" data-proto="entry">
+            <div class="tk-proto-phone"><div data-proto-phone><img src="assets/tiktok-test/web/ph-entry-half.webp" alt="After: half sheet over the playing video." width="477" height="805"></div>
+              <div class="kp-seg" role="group" aria-label="Screens"><button type="button" data-go="today" aria-pressed="false">Today</button><button type="button" data-go="video" aria-pressed="false">Video</button><button type="button" data-go="half" aria-pressed="false">Half sheet</button><button type="button" data-go="full" aria-pressed="false">Full page</button></div></div>
+            <div class="tk-proto-notes">
+              <p class="kp-hint">This is a working prototype. Tap inside the phone, or hover a note to find it on screen.</p>
+              <div class="kp-notes" data-set="video"><p class="kp-lead"><b>Start on the video.</b>Tap the place tag, the way a diner would after the video made them hungry.</p></div>
+              <ol class="tk-notes kp-notes" data-set="half" hidden>
+                <li data-zone="1" tabindex="0"><b>Video keeps playing above</b>The user never loses the thing that made them want to go. Same pattern as TikTok Shop, nothing new to learn.</li>
+                <li data-zone="2" tabindex="0"><b>Stats capsule: rating · hours · per person</b>The three numbers that decide “go or not” at a glance. Per person, not a price range, because US diners ask what the night will cost.</li>
+                <li data-zone="3" tabindex="0"><b>Dishes before reviews</b>Every participant looked for the menu first. TOP badges and recs counts; View all opens the full menu.</li>
+                <li data-zone="4" tabindex="0"><b>What people say stays</b>Reviews are not removed, they move below the dishes.</li>
+                <li class="kp-tip">Swipe the sheet up for the full page. Tap the video to go back.</li>
+              </ol>
+              <ol class="tk-notes kp-notes" data-set="full" hidden>
+                <li data-zone="1" tabindex="0"><b>Tabs jump to what you need</b>Overview · Dishes · Combos · Reviews stay pinned. The menu is one tap away.</li>
+                <li data-zone="2" tabindex="0"><b>Rating and open status at a glance</b>“4.6 Excellent · Open until 11 PM”. The go or no-go basics, before anything else.</li>
+                <li data-zone="3" tabindex="0"><b>Getting there lives in the first section</b>Drive time and wait first, then the address with Find it, Ride and Call. No scrolling back up.</li>
+                <li data-zone="4" tabindex="0"><b>Dishes and combos come next</b>The same module as the half sheet, now with combos and View all for the full menu. Reviews follow below.</li>
+              </ol>
+              <ol class="tk-notes kp-notes" data-set="today" hidden>
+                <li data-zone="1" tabindex="0"><b>Today: opens full screen</b>The video stops. The context that created the craving is gone.</li>
+                <li data-zone="2" tabindex="0"><b>Today: four equal buttons</b>Website · Map · Call · Review. No primary action, no next step.</li>
+              </ol>
             </div>
-            <ol class="tk-notes">
-              <li><b>Video keeps playing above</b>The user never loses the thing that made them want to go. Same pattern as TikTok Shop, nothing new to learn.</li>
-              <li><b>Stats capsule: rating · hours · per person</b>The three numbers that decide “go or not” at a glance. Per person, not a price range, because US diners ask what the night will cost.</li>
-              <li><b>Dishes before reviews</b>Every participant looked for the menu first. TOP badges and recs counts; View all opens the full menu.</li>
-              <li><b>What people say stays</b>Reviews are not removed, they move below the dishes.</li>
-            </ol>
-          </div>
-          <div class="tk-card is-grey tk-annot tk-gap-s">
-            <div class="tk-annot-phones">
-              <figure class="tk-ph is-before"><img src="assets/tiktok-test/web/ph-full-before.webp" alt="Before: today’s place page." width="293" height="587" style="--h:380px"><figcaption>Before · today’s place page</figcaption></figure>
-              <span class="tk-mini-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-              <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-entry-full.webp" alt="After: full page with tabs, rating, getting-there row, dishes and combos, annotated 1 to 4." width="477" height="805" style="--h:540px"><figcaption>After · full page · swipe up</figcaption></figure>
-            </div>
-            <ol class="tk-notes">
-              <li><b>Tabs jump to what you need</b>Overview · Dishes · Combos · Reviews stay pinned. The menu is one tap away.</li>
-              <li><b>Rating and open status at a glance</b>“4.6 Excellent · Open until 11 PM”. The go or no-go basics, before anything else.</li>
-              <li><b>Getting there lives in the first section</b>Drive time and wait first, then the address with Find it, Ride and Call. No scrolling back up.</li>
-              <li><b>Dishes and combos come next</b>The same module as the half sheet, now with combos and View all for the full menu. Reviews follow below.</li>
-            </ol>
           </div>
           <div class="tk-g3 tk-gap-s">
             <div class="tk-card is-grey"><p class="tk-lbl">Edge case · No dish data</p><h3>Fall back to today’s layout</h3><p class="tk-muted">Basic info and reviews, no empty module. The sheet never shows a hole where dishes should be.</p></div>
@@ -345,32 +372,27 @@
       <section class="tk-sec is-grey">
         <div class="tk-wrap">
           <header class="tk-head"><small>03 · System 1 · Dish information</small><h2>Enough detail to decide</h2><p>Three screens. Each one answers a question the place page could not.</p></header>
-          <div class="tk-g3 tk-screens">
-            <div class="tk-card is-raised">
-              <p class="tk-lbl">A · Dishes &amp; combos on the place page</p>
-              <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-sys1-a.webp" alt="Dishes and combos module on the place page, annotated 1 to 3." width="402" height="810" style="--h:470px"><figcaption>Place page · dishes &amp; combos</figcaption></figure>
-              <ol class="tk-notes is-small">
-                <li><b>Owner-maintained menu</b>“Updated 2 days ago” shows it’s current. View all opens the full menu.</li>
-                <li><b>Photo first, then likes</b>Readable at a glance. A like count from visitors beats a 4.3 for one dish.</li>
-                <li><b>Combos for 2 and 4</b>What people order together, with the total price for the table.</li>
+          <div class="tk-card is-raised tk-proto" data-proto="dishes">
+            <div class="tk-proto-phone"><div data-proto-phone><img src="assets/tiktok-test/web/ph-sys1-a.webp" alt="Dishes and combos on the place page." width="402" height="810"></div>
+              <div class="kp-seg" role="group" aria-label="Screens"><button type="button" data-go="place" aria-pressed="false">A · Place page</button><button type="button" data-go="menu" aria-pressed="false">B · Full menu</button><button type="button" data-go="detail" aria-pressed="false">C · Dish detail</button></div></div>
+            <div class="tk-proto-notes">
+              <p class="kp-hint">This is a working prototype. Tap inside the phone, or hover a note to find it on screen.</p>
+              <ol class="tk-notes kp-notes" data-set="place">
+                <li data-zone="1" tabindex="0"><b>Owner-maintained menu</b>“Updated 2 days ago” shows it’s current. View all opens the full menu.</li>
+                <li data-zone="2" tabindex="0"><b>Photo first, then likes</b>Readable at a glance. A like count from visitors beats a 4.3 for one dish.</li>
+                <li data-zone="3" tabindex="0"><b>Combos for 2 and 4</b>What people order together, with the total price for the table.</li>
+                <li class="kp-tip">Tap View all for the menu, or a dish for its detail.</li>
               </ol>
-            </div>
-            <div class="tk-card is-raised">
-              <p class="tk-lbl">B · Full menu, one page</p>
-              <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-sys1-b.webp" alt="Full menu on one page with sticky category chips, annotated 1 and 2." width="402" height="810" style="--h:470px"><figcaption>Full menu · one page</figcaption></figure>
-              <ol class="tk-notes is-small">
-                <li><b>Sticky category chips</b>Tap to jump, scroll to highlight. One page, nothing hidden behind tabs.</li>
-                <li><b>Rows that answer it all</b>Photo, price, likes and a taste note. Full-width, easy to tap.</li>
+              <ol class="tk-notes kp-notes" data-set="menu" hidden>
+                <li data-zone="1" tabindex="0"><b>Sticky category chips</b>Tap to jump, scroll to highlight. One page, nothing hidden behind tabs.</li>
+                <li data-zone="2" tabindex="0"><b>Rows that answer it all</b>Photo, price, likes and a taste note. Full-width, easy to tap.</li>
+                <li class="kp-tip">Scroll the menu and watch the chips follow.</li>
               </ol>
-            </div>
-            <div class="tk-card is-raised">
-              <p class="tk-lbl">C · Dish detail</p>
-              <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-sys1-c.webp" alt="Dish detail with photo, price, serves, taste tags and per-dish reviews, annotated 1 to 4." width="402" height="810" style="--h:470px"><figcaption>Dish detail</figcaption></figure>
-              <ol class="tk-notes is-small">
-                <li><b>Big photo, price, serves</b>A thumbnail isn’t enough to commit. “Serves 2–3” sizes the order.</li>
-                <li><b>Taste in three words</b>Crispy outside, numbing-spicy, house spice. For first-timers.</li>
-                <li><b>Reviews about this dish</b>Only reviews that name the dish, with the name highlighted.</li>
-                <li><b>Keep browsing, keep the exit</b>More dishes below. Get a ride and Guide me there stay pinned.</li>
+              <ol class="tk-notes kp-notes" data-set="detail" hidden>
+                <li data-zone="1" tabindex="0"><b>Big photo, price, serves</b>A thumbnail isn’t enough to commit. “Serves 2–3” sizes the order.</li>
+                <li data-zone="2" tabindex="0"><b>Taste in three words</b>Crispy outside, numbing-spicy, house spice. For first-timers.</li>
+                <li data-zone="3" tabindex="0"><b>Reviews about this dish</b>Only reviews that name the dish, with the name highlighted.</li>
+                <li data-zone="4" tabindex="0"><b>Keep browsing, keep the exit</b>More dishes below. Get a ride and Guide me there stay pinned.</li>
               </ol>
             </div>
           </div>
@@ -389,15 +411,13 @@
             <div class="tk-card is-grey">
               <p class="tk-lbl">Find it</p>
               <h3>A step-by-step guide to the door</h3>
-              <div class="tk-pair-phones">
-                <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-find-1.webp" alt="Find it entry under the address on the place page." width="274" height="546" style="--h:400px"><figcaption>Tap Find it</figcaption></figure>
-                <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-find-2.webp" alt="Step-by-step guide with real photos of the exit, plaza sign and storefront." width="282" height="554" style="--h:406px"><figcaption>Follow the photos</figcaption></figure>
-              </div>
-              <ol class="tk-notes is-cards">
-                <li><b>Entry under the address</b>Where the user already looks for “how do I get there”.</li>
-                <li><b>Storefront first</b>So they recognise the place when they arrive.</li>
-                <li><b>Numbered steps with real photos</b>Exit sign, plaza sign, storefront. In a plaza full of Asian restaurants, Maps gets you to the parking lot, not the door. Borrowed from Meituan’s store guide, rebuilt in TikTok components.</li>
-              </ol>
+              <div class="tk-proto-mini" data-proto="find"><div data-proto-phone><img src="assets/tiktok-test/web/ph-find-2.webp" alt="Step-by-step guide with real photos." width="282" height="554"></div>
+                <div class="kp-seg" role="group" aria-label="Screens"><button type="button" data-go="place" aria-pressed="false">Place page</button><button type="button" data-go="find" aria-pressed="false">Find it guide</button></div>
+              <ol class="tk-notes is-cards kp-notes" data-set="all">
+                <li data-zone="1" tabindex="0"><b>Entry under the address</b>Where the user already looks for “how do I get there”.</li>
+                <li data-zone="2" tabindex="0"><b>Storefront first</b>So they recognise the place when they arrive.</li>
+                <li data-zone="3" tabindex="0"><b>Numbered steps with real photos</b>Exit sign, plaza sign, storefront. In a plaza full of Asian restaurants, Maps gets you to the parking lot, not the door. Borrowed from Meituan’s store guide, rebuilt in TikTok components.</li>
+              </ol></div>
             </div>
             <div class="tk-card is-dark">
               <p class="tk-lbl">Always on</p>
@@ -437,23 +457,25 @@
           </div>
 
           <p class="tk-lbl tk-gap">Tap like on a dish</p>
-          <div class="tk-flow4">
-            <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-like-1.webp" alt="Tap like on the dish." width="362" height="719" style="--h:420px"><figcaption>Tap like</figcaption></figure>
-            <span class="tk-flow-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-            <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-like-2.webp" alt="Checking in, making sure you’re at Good Harvest." width="362" height="719" style="--h:420px"><figcaption>Checking in</figcaption></figure>
-            <span class="tk-flow-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-            <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-like-3.webp" alt="Too far: can’t recommend yet, save to Want to try instead." width="362" height="719" style="--h:420px"><figcaption>Too far: save it instead</figcaption></figure>
-            <span class="tk-flow-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-            <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-like-4.webp" alt="At the restaurant: recommended, 1 of 3 for this visit." width="362" height="719" style="--h:420px"><figcaption class="is-red">At the restaurant: counted</figcaption></figure>
+          <div class="tk-card is-raised tk-proto" data-proto="like">
+            <div class="tk-proto-phone"><div data-proto-phone><img src="assets/tiktok-test/web/ph-like-1.webp" alt="Tap like on the dish." width="362" height="719"></div></div>
+            <div class="tk-proto-notes">
+              <p class="kp-hint">This is a working prototype. Tap inside the phone, or hover a note to find it on screen.</p>
+              <p class="kp-q">Where are you?</p>
+              <div class="kp-seg is-where" role="group" aria-label="Location"><button type="button" data-where="here" aria-pressed="true">At Good Harvest</button><button type="button" data-where="far" aria-pressed="false">9 mi away</button></div>
+              <ol class="tk-notes kp-notes kp-flowsteps" data-set="all">
+                <li data-step="1" data-zone="1" tabindex="0"><b>Tap like</b>The thumbs-up on the dish detail.</li>
+                <li data-step="2" data-zone="2" tabindex="0"><b>Checking in</b>Location is read once, at the moment of the tap.</li>
+                <li data-step="3" data-zone="3" tabindex="0"><b>Too far: save it instead</b>“Can’t recommend yet.” Offer Save to Want to try.</li>
+                <li data-step="4" data-zone="4" tabindex="0"><b>At the restaurant: counted</b>One of three recs for this visit. A 4th like shows “3 of 3 used”.</li>
+              </ol>
+              <button type="button" class="kp-reset" data-act="reset">Start a new visit</button>
+            </div>
           </div>
 
           <p class="tk-lbl tk-gap">When we ask · after the meal</p>
           <div class="tk-card is-raised tk-ask">
-            <div class="tk-pair-phones">
-              <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-ask-1.webp" alt="Lock-screen notification a few hours after the visit asking which dishes they had." width="274" height="546" style="--h:380px"></figure>
-              <span class="tk-plain-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-              <figure class="tk-ph"><img src="assets/tiktok-test/web/ph-ask-2.webp" alt="One-tap dish picker: what did you order." width="274" height="546" style="--h:380px"></figure>
-            </div>
+            <div class="tk-proto-mini" data-proto="ask"><div data-proto-phone><img src="assets/tiktok-test/web/ph-ask-2.webp" alt="One-tap dish picker." width="274" height="546"></div><p class="kp-hint">Tap the notification, pick up to three dishes, submit.</p></div>
             <div>
               <h3>People rarely come back to a dish page after eating. So we ask once, at the right time.</h3>
               <dl class="tk-def">
@@ -491,10 +513,10 @@
         <div class="tk-wrap">
           <header class="tk-head"><small>06 · Scenarios</small><h2>Every state the user can land in, and what triggers it</h2></header>
           <div class="tk-g4 tk-scen">
-            <div class="tk-card is-grey"><span class="tk-badge">A1</span><figure class="tk-ph"><img src="assets/tiktok-test/web/ph-scen-1.webp" alt="A1: half sheet with dish data." width="288" height="569" style="--h:330px"></figure><h3>Has dish data</h3><p class="tk-pill">Trigger</p><p class="tk-muted">Tap the place tag on a video</p><p class="tk-pill">Result</p><p class="tk-muted">Half sheet with rating, hours, per person and TOP dishes. Video keeps playing.</p></div>
-            <div class="tk-card is-grey"><span class="tk-badge">A2</span><figure class="tk-ph"><img src="assets/tiktok-test/web/ph-scen-2.webp" alt="A2: half sheet without dish data, today’s layout." width="288" height="569" style="--h:330px"></figure><h3>No dish data yet</h3><p class="tk-pill">Trigger</p><p class="tk-muted">Same tap, but the restaurant hasn’t added its menu yet</p><p class="tk-pill">Result</p><p class="tk-muted">No Dishes section, not an empty box. Rating, price and reviews still show, like today’s page.</p></div>
-            <div class="tk-card is-grey"><span class="tk-badge">B1</span><figure class="tk-ph"><img src="assets/tiktok-test/web/ph-scen-3.webp" alt="B1: likes a dish while too far, can’t recommend yet." width="288" height="569" style="--h:330px"></figure><h3>Likes a dish, too far</h3><p class="tk-pill">Trigger</p><p class="tk-muted">Tap like; location says too far</p><p class="tk-pill">Result</p><p class="tk-muted">“Can’t recommend yet.” Offer Save to Want to try instead.</p></div>
-            <div class="tk-card is-grey"><span class="tk-badge is-red">B2</span><figure class="tk-ph"><img src="assets/tiktok-test/web/ph-scen-4.webp" alt="B2: likes a dish at the restaurant, recommended." width="288" height="569" style="--h:330px"></figure><h3>Likes a dish at the restaurant</h3><p class="tk-pill">Trigger</p><p class="tk-muted">Same tap, user is at the restaurant</p><p class="tk-pill">Result</p><p class="tk-muted">Counted. 1 of 3 for this visit; count goes up by one.</p></div>
+            <div class="tk-card is-grey"><span class="tk-badge">A1</span><div class="tk-scenph" data-scen="A1"></div><h3>Has dish data</h3><p class="tk-pill">Trigger</p><p class="tk-muted">Tap the place tag on a video</p><p class="tk-pill">Result</p><p class="tk-muted">Half sheet with rating, hours, per person and TOP dishes. Video keeps playing.</p></div>
+            <div class="tk-card is-grey"><span class="tk-badge">A2</span><div class="tk-scenph" data-scen="A2"></div><h3>No dish data yet</h3><p class="tk-pill">Trigger</p><p class="tk-muted">Same tap, but the restaurant hasn’t added its menu yet</p><p class="tk-pill">Result</p><p class="tk-muted">No Dishes section, not an empty box. Rating, price and reviews still show, like today’s page.</p></div>
+            <div class="tk-card is-grey"><span class="tk-badge">B1</span><div class="tk-scenph" data-scen="B1"></div><h3>Likes a dish, too far</h3><p class="tk-pill">Trigger</p><p class="tk-muted">Tap like; location says too far</p><p class="tk-pill">Result</p><p class="tk-muted">“Can’t recommend yet.” Offer Save to Want to try instead.</p></div>
+            <div class="tk-card is-grey"><span class="tk-badge is-red">B2</span><div class="tk-scenph" data-scen="B2"></div><h3>Likes a dish at the restaurant</h3><p class="tk-pill">Trigger</p><p class="tk-muted">Same tap, user is at the restaurant</p><p class="tk-pill">Result</p><p class="tk-muted">Counted. 1 of 3 for this visit; count goes up by one.</p></div>
           </div>
           <div class="tk-table-wrap tk-gap-s">
             <table class="tk-actions">
@@ -698,10 +720,11 @@
       </section>
     </main>
 
-    <script src="tiktok.js?v=20261104-web3"></script>
+    <script src="tiktok.js?v=20261105-tp1"></script>
+    <script src="tiktok-proto.js?v=20261105-1"></script>
     <script src="portfolio-2027.js?v=github-20261008"></script>
     <script src="/i18n-zh.js?v=20261010"></script>
-    <script src="tiktok-zh.js?v=20261104-web3"></script>
+    <script src="tiktok-zh.js?v=20261105-tp1"></script>
     <script src="/i18n.js?v=20261019-globe"></script>
   </body>
 </html>
