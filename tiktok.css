@@ -592,3 +592,12 @@ body .tt-page footer.tt-end { background: transparent !important; box-shadow: no
 .tk-timeline li.tk-tl-gap em { position: relative; left: auto; top: auto; z-index: 1; font-size: 10.5px; padding: 4px 8px; }
 .tk-ill.is-num { display: flex; justify-content: center; align-items: center; gap: 5px; }
 @media (max-width: 760px) { .tk-timeline li.tk-tl-gap em { position: absolute; top: -28px; right: auto; } }
+
+/* North star: clean step line instead of filled blocks */
+.tk-funnel { display: flex; align-items: flex-start; margin: 10px 0 24px; }
+.tk-funnel span { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; }
+.tk-funnel span i { width: 34px; height: 34px; border-radius: 10px; background: #fff; color: var(--r); display: grid; place-items: center; box-shadow: 0 4px 12px -8px rgba(254,44,85,.6); }
+.tk-funnel span i svg { width: 16px; height: 16px; }
+.tk-funnel span.is-go i { background: var(--r); color: #fff; }
+.tk-funnel b { flex: 1; height: 0; margin: 17px 10px 0; border-top: 2px dashed #ff9fb3; background: none; position: relative; }
+.tk-funnel b::after { content: ""; position: absolute; right: -2px; top: -6px; border: 5px solid transparent; border-left: 7px solid var(--r); border-right: 0; }
