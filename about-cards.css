@@ -62,6 +62,13 @@
 }
 .xp-card.is-tilting .xp-inner { transition: transform 0.12s ease-out; }
 .xp-card.is-flipped { --flip: 180deg; }
+/* iOS Safari ignores backface-visibility once a face holds blended/filtered layers,
+   so the hidden face is also switched off at the flip's midpoint (edge-on, so no pop). */
+.xp-inner { -webkit-transform-style: preserve-3d; }
+.xp-front, .xp-back { transition: visibility 0s linear 0.09s; }
+.xp-back { visibility: hidden; }
+.xp-card.is-flipped .xp-front { visibility: hidden; }
+.xp-card.is-flipped .xp-back { visibility: visible; }
 
 /* The frame: a chamfered graphite tray. */
 .xp-face {

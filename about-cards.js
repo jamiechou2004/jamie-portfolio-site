@@ -102,7 +102,7 @@
     });
     card.querySelector('.xp-close').addEventListener('click', () => {
       setFlipped(card, false);
-      card.querySelector('.xp-front').focus({ preventScroll: true });
+      setTimeout(() => card.querySelector('.xp-front').focus({ preventScroll: true }), 200);
     });
 
     /* ---------- Tilt + light ---------- */
@@ -130,7 +130,7 @@
     const open = cards.find((c) => c.classList.contains('is-flipped'));
     if (!open) return;
     setFlipped(open, false);
-    open.querySelector('.xp-front').focus({ preventScroll: true });
+    setTimeout(() => open.querySelector('.xp-front').focus({ preventScroll: true }), 200);
   });
   document.addEventListener('pointerdown', (e) => {
     if (e.target.closest('.xp-card')) return;
