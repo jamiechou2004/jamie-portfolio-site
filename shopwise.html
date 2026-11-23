@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="site-typography.css?v=20261004-sf1">
     <link rel="stylesheet" href="color-refinement.css?v=20261007-1">
     <link rel="stylesheet" href="/i18n.css?v=20261019-globe">
-    <link rel="stylesheet" href="shopwise.css?v=20261122-1">
+    <link rel="stylesheet" href="shopwise.css?v=20261122-2">
   </head>
   <body class="portfolio-redesign" data-page-view="shopwise">
     <div class="cursor-light" aria-hidden="true"></div>
@@ -34,58 +34,231 @@
     
     <main class="sw-page" id="main-content">
 
-      <header class="sw-cover">
-        <div class="sw-wrap">
-          <div class="sw-cover-top"><a class="sw-back" href="homepage.html">Work</a><span>2026 · Solo project · UXDG 415</span></div>
-          <ul class="sw-pills" aria-label="Shopwise topics"><li>Service design</li><li>Systems design</li><li>AI assistant</li></ul>
-          <h1>One order. <em>Three stores.</em> Three screens.</h1>
-          <p class="sw-lede">Shopwise turns the scattered job of furnishing a new place into one plan and one order, then carries it across iPhone, Apple Watch and a web console.</p>
-          <dl class="sw-meta">
-            <div><dt>Problem → Value</dt><dd>Each piece of furniture lives in a different store, with its own cart, fees and delivery date, so nobody sees the whole room or the whole cost. <b>Shopwise makes it one plan with one total, and runs the order behind the scenes.</b></dd></div>
-            <div><dt>Role</dt><dd>Product design and research, solo. Concept, IA, wireframes, hi-fi, three coded prototypes.</dd></div>
-            <div><dt>Status</dt><dd>Student concept. AI results, payments, stock and delivery are simulated.</dd></div>
-          </dl>
-          <div class="sw-actions">
-            <a class="sw-btn is-primary" href="https://jamiechou2004.github.io/ShopWise_CustomerSide/" target="_blank" rel="noopener">Try the prototypes</a>
-            <a class="sw-btn" href="https://www.figma.com/design/9PlQMFsLfdYTDK8qfViN96/?node-id=889-963" target="_blank" rel="noopener">View the Figma file</a>
-          </div>
-          <div class="sw-hero-media">
-            <video autoplay loop muted playsinline preload="metadata" poster="assets/shopwise/cover/poster.jpg?v=1" aria-label="Shopwise on three screens: the room plan and checkout on iPhone, a sold-out alert on Apple Watch, and the same order in the GM console">
-              <source src="assets/shopwise/cover/shopwise-cover-mobile.mp4?v=1" type="video/mp4" media="(max-width: 700px)">
-              <source src="assets/shopwise/cover/shopwise-cover.mp4?v=1" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </header>
+<header class="sw-slide sw-cover">
+  <div class="sw-wrap">
+    <a class="sw-back" href="homepage.html#work">← Work</a>
+    <p class="sw-kicker">UX case study · Fall 2026</p>
+    <h1>Shopwise</h1>
+    <p class="sw-tag">Furnishing a new place, without the guesswork.</p>
+    <dl class="sw-meta">
+      <div><dt>Role</dt><dd>Product design and research, solo</dd></div>
+      <div><dt>Scope</dt><dd>iPhone · Apple Watch · web console</dd></div>
+      <div><dt>Course</dt><dd>UXDG 415 · SCAD</dd></div>
+    </dl>
+    <div class="sw-cta"><a class="sw-btn" href="https://jamiechou2004.github.io/ShopWise_CustomerSide/" target="_blank" rel="noopener">Try the prototypes</a><a class="sw-btn sw-btn--ghost" href="https://www.figma.com/design/9PlQMFsLfdYTDK8qfViN96/Shopwise" target="_blank" rel="noopener">View the Figma file</a></div>
+    <figure class="sw-hero"><video autoplay muted loop playsinline preload="metadata" poster="assets/shopwise/cover/poster.jpg" aria-label="One order moving across the iPhone app, the GM console and Apple Watch"><source src="assets/shopwise/cover/shopwise-cover-mobile.mp4" media="(max-width: 700px)" type="video/mp4"><source src="assets/shopwise/cover/shopwise-cover.mp4" type="video/mp4"></video></figure>
+  </div>
+</header>
 
-      <nav class="sw-tabs" aria-label="Case study parts">
-        <a href="#why">Part 1 · Why an ecosystem</a>
-        <a href="#order">Part 2 · One order, end to end</a>
-        <a href="#testing">Part 3 · Testing and reflection</a>
-      </nav>
+<nav class="sw-tabs" aria-label="Sections"><div class="sw-wrap"><a href="#problem">Problem</a><a href="#research">Research</a><a href="#testing">Testing</a><a href="#final">Final design</a><a href="#loop">The loop</a><a href="#reflection">Reflection</a></div></nav>
 
-      <!-- ============ PART 1 ============ -->
-      <div id="why" class="sw-part-anchor"></div>
+<section class="sw-slide" id="problem">
+  <div class="sw-wrap">
+    <p class="sw-kicker">01 — The problem</p>
+    <h2>People don’t know how to make a new place feel like home.</h2>
+    <ul class="sw-pains">
+      <li><span class="sw-n">1</span><b>Hard to picture what fits</b><i>No picture of the finished room.</i></li>
+      <li><span class="sw-n">2</span><b>Hard to add up the total</b><i>Every piece lives in a different store.</i></li>
+      <li><span class="sw-n">3</span><b>Hard to change one piece</b><i>So guesses go wrong.</i></li>
+    </ul>
+    <ul class="sw-stats">
+      <li><b>1 in 9</b><span>Americans moved in 2024. Every move starts with a room to fill.</span><small>Point2Homes analysis of Census data, via Axios, 2025</small></li>
+      <li><b>$74B</b><span>of US home furnishings bought online.</span><small>IBISWorld, via Home News Now, 2025</small></li>
+      <li><b>60%</b><span>of online furniture buyers got the wrong size for their space.</span><small>Fixtuur survey, 1,500 UK buyers, Oct 2025</small></li>
+    </ul>
+  </div>
+</section>
 
-      <section class="sw-sec">
-        <div class="sw-wrap">
-          <header class="sw-head"><small>01 · The problem</small><h2>Furnishing a home is harder than choosing a product.</h2><p>Someone who has just moved makes connected decisions across separate shops, with no view of the whole.</p></header>
-          <div class="sw-stats">
-            <div><strong>1 in 9</strong><p>Americans moved in 2024. Every move starts with a room to fill.</p><cite>Point2Homes analysis of Census data, via Axios, 2025</cite></div>
-            <div><strong>$74B</strong><p>of US home furnishings are bought online. People already shop on a screen.</p><cite>IBISWorld, via Home News Now, 2025</cite></div>
-            <div class="is-accent"><strong>60%</strong><p>of online furniture buyers got the wrong size for their space.</p><cite>Fixtuur survey, 1,500 UK buyers, Oct 2025</cite></div>
-          </div>
-          <ol class="sw-pains">
-            <li><span>PAIN 01</span><h3>Hard to picture what fits</h3><p>Product photos show other people’s rooms. Movers start with an empty space and no picture of the result.</p></li>
-            <li><span>PAIN 02</span><h3>Hard to add up the total</h3><p>Each piece lives on a different site, with its own cart, sizes, fees and delivery date.</p></li>
-            <li class="is-warm"><span>PAIN 03</span><h3>Hard to change one piece</h3><p>One swap can mean redoing the plan, so a single sold-out lamp puts the whole room at risk.</p></li>
-          </ol>
-        </div>
-      </section>
+<section class="sw-slide sw-slide--tint" id="user">
+  <div class="sw-wrap sw-two">
+    <div><p class="sw-kicker">02 — The user</p><h2>Alex just moved to New York.</h2>
+      <ul class="sw-chips"><li>Just graduated</li><li>First job in New York</li><li>Lives alone</li><li>Empty apartment, about $3,000</li></ul></div>
+    <blockquote class="sw-hmw"><span>How might we</span>help someone who just moved turn scattered ideas into one plan that fits their space, their life and their budget, and stays easy to change?</blockquote>
+  </div>
+</section>
 
-    </main>
+<section class="sw-slide" id="research">
+  <div class="sw-wrap">
+    <p class="sw-kicker">03 — Research</p>
+    <h2>Two experts showed us how the whole system works.</h2>
+    <div class="sw-experts">
+      <article><h3>Interior designer</h3><ul><li>Measure on site before anything is final</li><li>Photos can’t show how people really live</li><li>One missing piece means redoing the plan</li></ul></article>
+      <article><h3>IKEA store staff</h3><ul><li>Shoppers miss doorways, elevators, outlets</li><li>Showrooms make size and color look different</li><li>Delivery and assembly hand-offs get lost</li></ul></article>
+    </div>
+    <p class="sw-so">So we designed one digital ecosystem.</p>
+    <div class="sw-eco">
+      <figure><div class="sw-phone sw-phone--sm"><div class="sw-screen"><img src="assets/shopwise/ui/r1-plan.webp" alt="Shopwise customer app, room plan" width="780" height="1688" loading="lazy" decoding="async"></div></div><figcaption><b>Customer app</b>Plan, buy, follow up</figcaption></figure>
+      <figure><figure class="sw-watch"><div class="sw-watch-body"><img src="assets/shopwise/watch/1d.webp" alt="Apple Watch: crew is at your door" width="832" height="992" loading="lazy" decoding="async"></div></figure><figcaption><b>Apple Watch</b>Delivery moments, rate the service</figcaption></figure>
+      <figure class="sw-eco-wide"><div class="sw-browser"><div class="sw-bar"><i></i><i></i><i></i><span>Shopwise · GM console</span></div><div class="sw-screen"><img src="assets/shopwise/gm/gm-3.webp" alt="Shopwise GM console, order held at hub" width="2160" height="1350" loading="lazy" decoding="async"></div></div><figcaption><b>GM console</b>Sourcing, hub, crew</figcaption></figure>
+    </div>
+  </div>
+</section>
 
-    <script src="shopwise.js?v=20261122-1"></script>
+<section class="sw-slide sw-slide--surface" id="storyboard">
+  <div class="sw-wrap">
+    <p class="sw-kicker">04 — Storyboard</p>
+    <h2>One order, several stores.</h2>
+    <div class="sw-pair">
+      <figure><img src="assets/shopwise/deck/stores-1.webp" alt="Storyboard: one plan, multiple stores" width="1696" height="954" loading="lazy" decoding="async"><figcaption>One plan, multiple stores</figcaption></figure>
+      <figure><img src="assets/shopwise/deck/stores-2.webp" alt="Storyboard: each store sees its own items" width="1696" height="954" loading="lazy" decoding="async"><figcaption>Each store sees its own items</figcaption></figure>
+    </div>
+    <figure class="sw-wide"><img src="assets/shopwise/deck/merchant.webp" alt="Merchant storyboard: Store A and Store B receive, confirm, find, check, pack, hand over and close their part of the order" width="3456" height="1220" loading="lazy" decoding="async"><figcaption>The merchant side, store by store. Each store handles only its own items.</figcaption></figure>
+  </div>
+</section>
+
+<section class="sw-slide" id="ia">
+  <div class="sw-wrap sw-two sw-two--media">
+    <div><p class="sw-kicker">05 — Information architecture</p><h2>Three tabs. One plan.</h2>
+      <ul class="sw-nums"><li><b>3</b><span>Tabs<i>Home · My Plan · Profile</i></span></li><li><b>5</b><span>Customer flows<i>All return to the plan</i></span></li><li><b>1</b><span>Saved plan<i>One source of truth</i></span></li></ul></div>
+    <figure class="sw-frame"><img src="assets/shopwise/deck/sitemap.webp" alt="Sitemap of the customer app, tree view" width="2438" height="1650" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<section class="sw-slide sw-slide--surface" id="testing">
+  <div class="sw-wrap">
+    <p class="sw-kicker">06 — Wireframes and testing</p>
+    <h2>Low-fi first. Then testing changed three things.</h2>
+    <figure class="sw-wide sw-frame"><img src="assets/shopwise/deck/wireframes.webp" alt="Six low-fidelity wireframes of the setup flow" width="2336" height="785" loading="lazy" decoding="async"><figcaption>Every flow clickable before any visual design. Tested on wireframes in two documented sessions.</figcaption></figure>
+    <ol class="sw-changes">
+      <li><span class="sw-n">1</span><p>The plan cost more than the budget, and the participant couldn’t tell why.</p><b>Every charge listed, plus what’s left.</b></li>
+      <li><span class="sw-n">2</span><p>Couldn’t find where to change a piece.</p><b>Replace sits on the item.</b></li>
+      <li><span class="sw-n">3</span><p>Liked a piece, but had no way to add it.</p><b>Add to plan, on the item.</b></li>
+    </ol>
+    <figure class="sw-wide sw-frame"><img src="assets/shopwise/deck/before-after.webp" alt="Before and after: wireframe V1 next to the hi-fi screens for the lamp detail and the cost review" width="2020" height="1340" loading="lazy" decoding="async"><figcaption>Before and after. Replace moved onto the item. Each cost got its own row.</figcaption></figure>
+  </div>
+</section>
+
+<section class="sw-slide" id="system">
+  <div class="sw-wrap sw-two">
+    <div><p class="sw-kicker">07 — Design system</p><h2>One warm system, everywhere.</h2>
+      <ul class="sw-swatches"><li style="--c:#FFFFFF"><b>White</b>#FFFFFF</li><li style="--c:#F8F8F6"><b>Surface</b>#F8F8F6</li><li style="--c:#161615"><b>Ink</b>#161615</li><li style="--c:#B36636"><b>Terracotta</b>#B36636</li><li style="--c:#F8EEE7"><b>Warm tint</b>#F8EEE7</li></ul></div>
+    <div class="sw-type"><span>Aa</span><b>Lexend Deca</b><i>One typeface across app, watch and console. One calm accent for trust on a big purchase.</i></div>
+  </div>
+</section>
+
+<section class="sw-slide sw-slide--dark" id="final">
+  <div class="sw-wrap">
+    <p class="sw-kicker">08 — Final experience</p>
+    <h2>Two sides of one plan.</h2>
+    <div class="sw-sides"><div><span>Customer</span><b>Alex · iPhone and Apple Watch</b><i>Onboarding · Design a room · Change a piece · Checkout · Delivery and after</i></div><div><span>GM</span><b>Operations · web console</b><i>Follow one order: see it, fix it, close it</i></div></div>
+  </div>
+</section>
+
+<section class="sw-slide sw-flow sw-flow--phone" id="flow-1" data-flow>
+  <div class="sw-wrap sw-flow-grid">
+    <div class="sw-flow-copy">
+      <p class="sw-kicker">Flow 1 · Onboarding</p>
+      <h3>Sign up and land on a plan.</h3>
+      <ol class="sw-steps"><li><button type="button" class="sw-step is-on" data-i="0" aria-pressed="true"><span class="sw-n">1</span><span><b>Welcome</b><i>Tap Get started</i></span></button></li><li><button type="button" class="sw-step" data-i="1" aria-pressed="false"><span class="sw-n">2</span><span><b>Sign up</b><i>Continue with Email</i></span></button></li><li><button type="button" class="sw-step" data-i="2" aria-pressed="false"><span class="sw-n">3</span><span><b>Email</b><i>Create account</i></span></button></li><li><button type="button" class="sw-step" data-i="3" aria-pressed="false"><span class="sw-n">4</span><span><b>You’re in</b><i>Continue</i></span></button></li><li><button type="button" class="sw-step" data-i="4" aria-pressed="false"><span class="sw-n">5</span><span><b>Greeting</b><i>Pick Apartment</i></span></button></li><li><button type="button" class="sw-step" data-i="5" aria-pressed="false"><span class="sw-n">6</span><span><b>Home</b><i>Your plan is waiting</i></span></button></li></ol>
+      <p class="sw-why"><span>Why it works</span>Home opens with the plan ready to continue. In testing, P2 had to search for where it was.</p>
+    </div>
+    <div class="sw-flow-stage"><div class="sw-phone"><div class="sw-screen"><img src="assets/shopwise/ui/e1-welcome.webp" alt="Sign up and land on a plan. — Welcome" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot is-on"><img src="assets/shopwise/ui/e2-signup.webp" alt="Sign up and land on a plan. — Sign up" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/e2-email.webp" alt="Sign up and land on a plan. — Email" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/e2-in.webp" alt="Sign up and land on a plan. — You’re in" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/e3-greeting.webp" alt="Sign up and land on a plan. — Greeting" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/h1-home.webp" alt="Sign up and land on a plan. — Home" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"></div></div></div>
+  </div>
+</section>
+<section class="sw-slide sw-flow sw-flow--phone" id="flow-2" data-flow>
+  <div class="sw-wrap sw-flow-grid">
+    <div class="sw-flow-copy">
+      <p class="sw-kicker">Flow 2 · Design a room</p>
+      <h3>A room brief in taps, not forms.</h3>
+      <ol class="sw-steps"><li><button type="button" class="sw-step is-on" data-i="0" aria-pressed="true"><span class="sw-n">1</span><span><b>Goal, home, rooms</b><i>Three quick choices</i></span></button></li><li><button type="button" class="sw-step" data-i="1" aria-pressed="false"><span class="sw-n">2</span><span><b>Lifestyle and style</b><i>Pick what feels like you</i></span></button></li><li><button type="button" class="sw-step" data-i="2" aria-pressed="false"><span class="sw-n">3</span><span><b>Budget</b><i>One total, tax and delivery included</i></span></button></li><li><button type="button" class="sw-step" data-i="3" aria-pressed="false"><span class="sw-n">4</span><span><b>Where and when</b><i>City and timing</i></span></button></li><li><button type="button" class="sw-step" data-i="4" aria-pressed="false"><span class="sw-n">5</span><span><b>Your brief</b><i>Everything on one page</i></span></button></li><li><button type="button" class="sw-step" data-i="5" aria-pressed="false"><span class="sw-n">6</span><span><b>Room plan</b><i>Your room plan is ready</i></span></button></li></ol>
+      <p class="sw-why"><span>Why it works</span>Space limits are asked next to style, then shown in one brief you can edit. Both experts said those come first.</p>
+    </div>
+    <div class="sw-flow-stage"><div class="sw-phone"><div class="sw-screen"><img src="assets/shopwise/ui/s1-goal.webp" alt="A room brief in taps, not forms. — Goal, home, rooms" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot is-on"><img src="assets/shopwise/ui/s2-style.webp" alt="A room brief in taps, not forms. — Lifestyle and style" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/s3-budget.webp" alt="A room brief in taps, not forms. — Budget" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/s3-where.webp" alt="A room brief in taps, not forms. — Where and when" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/s4-brief.webp" alt="A room brief in taps, not forms. — Your brief" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/r1-plan.webp" alt="A room brief in taps, not forms. — Room plan" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"></div></div></div>
+  </div>
+</section>
+<section class="sw-slide sw-flow sw-flow--phone" id="flow-3" data-flow>
+  <div class="sw-wrap sw-flow-grid">
+    <div class="sw-flow-copy">
+      <p class="sw-kicker">Flow 3 · Change a piece</p>
+      <h3>Swap one item, keep the room.</h3>
+      <ol class="sw-steps"><li><button type="button" class="sw-step is-on" data-i="0" aria-pressed="true"><span class="sw-n">1</span><span><b>Room plan</b><i>Tap the lamp</i></span></button></li><li><button type="button" class="sw-step" data-i="1" aria-pressed="false"><span class="sw-n">2</span><span><b>Lamp</b><i>Tap Replace</i></span></button></li><li><button type="button" class="sw-step" data-i="2" aria-pressed="false"><span class="sw-n">3</span><span><b>Replace lamp</b><i>Browse similar lamps</i></span></button></li><li><button type="button" class="sw-step" data-i="3" aria-pressed="false"><span class="sw-n">4</span><span><b>Similar lamps</b><i>Pick Mini globe lamp</i></span></button></li><li><button type="button" class="sw-step" data-i="4" aria-pressed="false"><span class="sw-n">5</span><span><b>Try it</b><i>Keep this change</i></span></button></li><li><button type="button" class="sw-step" data-i="5" aria-pressed="false"><span class="sw-n">6</span><span><b>Plan saved</b><i>The new lamp is in the plan</i></span></button></li></ol>
+      <p class="sw-why"><span>Why it works</span>Replace sits on the selected item, and trying is separate from keeping. P2 said the old control was too far from the image.</p>
+    </div>
+    <div class="sw-flow-stage"><div class="sw-phone"><div class="sw-screen"><img src="assets/shopwise/ui/r1-plan.webp" alt="Swap one item, keep the room. — Room plan" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot is-on"><img src="assets/shopwise/ui/r2-lamp.webp" alt="Swap one item, keep the room. — Lamp" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/r3-replace.webp" alt="Swap one item, keep the room. — Replace lamp" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/r3-browse.webp" alt="Swap one item, keep the room. — Similar lamps" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/r6-try.webp" alt="Swap one item, keep the room. — Try it" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/r7-saved.webp" alt="Swap one item, keep the room. — Plan saved" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"></div></div></div>
+  </div>
+</section>
+<section class="sw-slide sw-flow sw-flow--phone" id="flow-4" data-flow>
+  <div class="sw-wrap sw-flow-grid">
+    <div class="sw-flow-copy">
+      <p class="sw-kicker">Flow 4 · Checkout</p>
+      <h3>One order, one clear total.</h3>
+      <ol class="sw-steps"><li><button type="button" class="sw-step is-on" data-i="0" aria-pressed="true"><span class="sw-n">1</span><span><b>Your furniture</b><i>Continue · $2,807</i></span></button></li><li><button type="button" class="sw-step" data-i="1" aria-pressed="false"><span class="sw-n">2</span><span><b>Delivery</b><i>Pick a slot</i></span></button></li><li><button type="button" class="sw-step" data-i="2" aria-pressed="false"><span class="sw-n">3</span><span><b>Costs</b><i>Every charge on its own row</i></span></button></li><li><button type="button" class="sw-step" data-i="3" aria-pressed="false"><span class="sw-n">4</span><span><b>Pay</b><i>Double-click to pay</i></span></button></li><li><button type="button" class="sw-step" data-i="4" aria-pressed="false"><span class="sw-n">5</span><span><b>Order placed</b><i>Track order</i></span></button></li><li><button type="button" class="sw-step" data-i="5" aria-pressed="false"><span class="sw-n">6</span><span><b>Lamp sold out</b><i>The watch taps first</i></span></button></li><li><button type="button" class="sw-step" data-i="6" aria-pressed="false"><span class="sw-n">7</span><span><b>Lamp swapped</b><i>Order updated</i></span></button></li></ol>
+      <p class="sw-why"><span>Why it works</span>Every cost and what is left of the budget are shown before paying. P2 questioned the gap.</p>
+    </div>
+    <div class="sw-flow-stage"><div class="sw-phone"><div class="sw-screen"><img src="assets/shopwise/ui/c1-review.webp" alt="One order, one clear total. — Your furniture" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot is-on"><img src="assets/shopwise/ui/c3-delivery.webp" alt="One order, one clear total. — Delivery" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/c4-costs.webp" alt="One order, one clear total. — Costs" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/c5-pay.webp" alt="One order, one clear total. — Pay" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/c6-placed.webp" alt="One order, one clear total. — Order placed" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/o2-soldout.webp" alt="One order, one clear total. — Lamp sold out" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/c8-swapped.webp" alt="One order, one clear total. — Lamp swapped" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"></div></div><div class="sw-watches"><figure class="sw-watch"><div class="sw-watch-body"><img src="assets/shopwise/watch/3a.webp" alt="Apple Watch alert: lamp is out of stock, pick a swap on iPhone" width="832" height="992" loading="lazy" decoding="async"></div><figcaption>Apple Watch · out of stock</figcaption></figure></div></div>
+  </div>
+</section>
+<section class="sw-slide sw-flow sw-flow--phone" id="flow-5" data-flow>
+  <div class="sw-wrap sw-flow-grid">
+    <div class="sw-flow-copy">
+      <p class="sw-kicker">Flow 5 · Delivery and after</p>
+      <h3>A problem becomes an exchange.</h3>
+      <ol class="sw-steps"><li><button type="button" class="sw-step is-on" data-i="0" aria-pressed="true"><span class="sw-n">1</span><span><b>Notification</b><i>How does it feel at home?</i></span></button></li><li><button type="button" class="sw-step" data-i="1" aria-pressed="false"><span class="sw-n">2</span><span><b>Check-in</b><i>Something’s wrong</i></span></button></li><li><button type="button" class="sw-step" data-i="2" aria-pressed="false"><span class="sw-n">3</span><span><b>Which item</b><i>Pick the lamp</i></span></button></li><li><button type="button" class="sw-step" data-i="3" aria-pressed="false"><span class="sw-n">4</span><span><b>What happened</b><i>Arrived damaged</i></span></button></li><li><button type="button" class="sw-step" data-i="4" aria-pressed="false"><span class="sw-n">5</span><span><b>How to fix it</b><i>Exchange, crew visit</i></span></button></li><li><button type="button" class="sw-step" data-i="5" aria-pressed="false"><span class="sw-n">6</span><span><b>Exchange approved</b><i>The exchange is booked</i></span></button></li></ol>
+      <p class="sw-why"><span>Why it works</span>Check-in offers three answers, so coming back does not have to mean a return. The watch handles arrival and rating.</p>
+    </div>
+    <div class="sw-flow-stage"><div class="sw-phone"><div class="sw-screen"><img src="assets/shopwise/ui/f0-notification.webp" alt="A problem becomes an exchange. — Notification" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot is-on"><img src="assets/shopwise/ui/f1-checkin.webp" alt="A problem becomes an exchange. — Check-in" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/t1-item.webp" alt="A problem becomes an exchange. — Which item" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/t2-what.webp" alt="A problem becomes an exchange. — What happened" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/t3-fix.webp" alt="A problem becomes an exchange. — How to fix it" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ui/t5-approved.webp" alt="A problem becomes an exchange. — Exchange approved" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"></div></div><div class="sw-watches"><figure class="sw-watch"><div class="sw-watch-body"><img src="assets/shopwise/watch/1a.webp" alt="Apple Watch: crew arriving in 25 minutes" width="832" height="992" loading="lazy" decoding="async"></div><figcaption>Apple Watch · arriving</figcaption></figure><figure class="sw-watch"><div class="sw-watch-body"><img src="assets/shopwise/watch/2b.webp" alt="Apple Watch: rate the delivery with the crown" width="832" height="992" loading="lazy" decoding="async"></div><figcaption>Apple Watch · rate</figcaption></figure></div></div>
+  </div>
+</section>
+<section class="sw-slide sw-flow sw-flow--phone" id="shoppal" data-flow>
+  <div class="sw-wrap sw-flow-grid">
+    <div class="sw-flow-copy">
+      <p class="sw-kicker">Shoppal · AI assistant</p>
+      <h3>A sofa, shown in your own room.</h3>
+      <ol class="sw-steps"><li><button type="button" class="sw-step is-on" data-i="0" aria-pressed="true"><span class="sw-n">1</span><span><b>Home</b><i>Open Chat with Shoppal</i></span></button></li><li><button type="button" class="sw-step" data-i="1" aria-pressed="false"><span class="sw-n">2</span><span><b>Photo</b><i>Upload a photo of the room</i></span></button></li><li><button type="button" class="sw-step" data-i="2" aria-pressed="false"><span class="sw-n">3</span><span><b>Request</b><i>Check the estimate: Looks right</i></span></button></li><li><button type="button" class="sw-step" data-i="3" aria-pressed="false"><span class="sw-n">4</span><span><b>In your room</b><i>Three sofas that fit the wall</i></span></button></li><li><button type="button" class="sw-step" data-i="4" aria-pressed="false"><span class="sw-n">5</span><span><b>Decide</b><i>Help me decide</i></span></button></li><li><button type="button" class="sw-step" data-i="5" aria-pressed="false"><span class="sw-n">6</span><span><b>My Plan</b><i>The sofa is in your plan</i></span></button></li></ol>
+      <p class="sw-why"><span>Why it works</span>The wall size is marked as an estimate you can fix, and the assistant stops at Add to plan. It never buys.</p>
+    </div>
+    <div class="sw-flow-stage"><div class="sw-phone"><div class="sw-screen"><img src="assets/shopwise/ui/h1-home.webp" alt="A sofa, shown in your own room. — Home" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot is-on"><img src="assets/shopwise/ai/ai-1.webp" alt="A sofa, shown in your own room. — Photo" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ai/ai-2.webp" alt="A sofa, shown in your own room. — Request" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ai/ai-4.webp" alt="A sofa, shown in your own room. — In your room" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ai/ai-6.webp" alt="A sofa, shown in your own room. — Decide" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/ai/ai-7.webp" alt="A sofa, shown in your own room. — My Plan" width="780" height="1688" loading="lazy" decoding="async" class="sw-shot"></div></div></div>
+  </div>
+</section>
+
+<section class="sw-slide sw-slide--dark sw-divider">
+  <div class="sw-wrap"><p class="sw-kicker">The other side</p><h2>The GM keeps Alex’s order on track: one web console, one order across three stores.</h2></div>
+</section>
+
+<section class="sw-slide sw-flow sw-flow--browser" id="gm" data-flow>
+  <div class="sw-wrap sw-flow-grid">
+    <div class="sw-flow-copy">
+      <p class="sw-kicker">Flow 6 · For the manager</p>
+      <h3>See it, fix it, close it.</h3>
+      <ol class="sw-steps"><li><button type="button" class="sw-step is-on" data-i="0" aria-pressed="true"><span class="sw-n">1</span><span><b>Overview</b><i>Open the held order</i></span></button></li><li><button type="button" class="sw-step" data-i="1" aria-pressed="false"><span class="sw-n">2</span><span><b>Held at hub</b><i>Store C’s bed is late</i></span></button></li><li><button type="button" class="sw-step" data-i="2" aria-pressed="false"><span class="sw-n">3</span><span><b>Modify order</b><i>Move the delivery window</i></span></button></li><li><button type="button" class="sw-step" data-i="3" aria-pressed="false"><span class="sw-n">4</span><span><b>Order updated</b><i>Alex is told on iPhone and Watch</i></span></button></li><li><button type="button" class="sw-step" data-i="4" aria-pressed="false"><span class="sw-n">5</span><span><b>Issue reported</b><i>A cracked lamp, Nov 2</i></span></button></li><li><button type="button" class="sw-step" data-i="5" aria-pressed="false"><span class="sw-n">6</span><span><b>Exchange approved</b><i>The case is closed</i></span></button></li></ol>
+      <p class="sw-why"><span>Why it works</span>One late bed holds a delivery from three stores. The manager gets order, crew, message and new slot in one place.</p>
+    </div>
+    <div class="sw-flow-stage"><div class="sw-browser"><div class="sw-bar"><i></i><i></i><i></i><span>Shopwise · GM console</span></div><div class="sw-screen"><img src="assets/shopwise/gm/gm-1.webp" alt="See it, fix it, close it. — Overview" width="2160" height="1350" loading="lazy" decoding="async" class="sw-shot is-on"><img src="assets/shopwise/gm/gm-3.webp" alt="See it, fix it, close it. — Held at hub" width="2160" height="1350" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/gm/gm-4.webp" alt="See it, fix it, close it. — Modify order" width="2160" height="1350" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/gm/gm-5.webp" alt="See it, fix it, close it. — Order updated" width="2160" height="1350" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/gm/gm-7.webp" alt="See it, fix it, close it. — Issue reported" width="2160" height="1350" loading="lazy" decoding="async" class="sw-shot"><img src="assets/shopwise/gm/gm-8.webp" alt="See it, fix it, close it. — Exchange approved" width="2160" height="1350" loading="lazy" decoding="async" class="sw-shot"></div></div></div>
+  </div>
+</section>
+
+<section class="sw-slide sw-slide--tint" id="loop">
+  <div class="sw-wrap">
+    <p class="sw-kicker">09 — The loop</p>
+    <h2>One order, closed across three screens.</h2>
+    <ol class="sw-loop">
+      <li><div class="sw-phone sw-phone--sm"><div class="sw-screen"><img src="assets/shopwise/ui/c6-placed.webp" alt="iPhone: order placed" width="780" height="1688" loading="lazy" decoding="async"></div></div><b>Alex orders</b><i>iPhone · one total, three stores</i></li>
+      <li><figure class="sw-watch"><div class="sw-watch-body"><img src="assets/shopwise/watch/3a.webp" alt="Apple Watch: lamp is out of stock" width="832" height="992" loading="lazy" decoding="async"></div></figure><b>A lamp sells out</b><i>Apple Watch · tap to swap</i></li>
+      <li><div class="sw-phone sw-phone--sm"><div class="sw-screen"><img src="assets/shopwise/ui/c8-swapped.webp" alt="iPhone: lamp swapped" width="780" height="1688" loading="lazy" decoding="async"></div></div><b>Alex swaps it</b><i>iPhone · delivery date stays</i></li>
+      <li><div class="sw-browser sw-browser--sm"><div class="sw-bar"><i></i><i></i><i></i></div><div class="sw-screen"><img src="assets/shopwise/gm/gm-5.webp" alt="GM console: order updated" width="2160" height="1350" loading="lazy" decoding="async"></div></div><b>The GM re-plans</b><i>Console · one drop from three stores</i></li>
+      <li><figure class="sw-watch"><div class="sw-watch-body"><img src="assets/shopwise/watch/2b.webp" alt="Apple Watch: rate the delivery" width="832" height="992" loading="lazy" decoding="async"></div></figure><b>Delivered and rated</b><i>Apple Watch · at the door</i></li>
+      <li><div class="sw-phone sw-phone--sm"><div class="sw-screen"><img src="assets/shopwise/ui/t5-approved.webp" alt="iPhone: exchange approved" width="780" height="1688" loading="lazy" decoding="async"></div></div><b>A crack becomes an exchange</b><i>iPhone and console · case closed</i></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sw-slide" id="reflection">
+  <div class="sw-wrap">
+    <p class="sw-kicker">10 — Reflection</p>
+    <h2>The hardest AI decision is where it should stop.</h2>
+    <div class="sw-refl">
+      <article><span>Learned</span><h3>Decide where AI stops</h3><p>Most of the work was choosing what the assistant must not do: guess sizes, hide doubt, or spend money.</p></article>
+      <article><span>Decided</span><h3>Honest estimates earn trust</h3><p>Show an estimate you can fix, not a confident answer that might be wrong.</p></article>
+      <article><span>Next</span><h3>Build it for real</h3><p>Replace beyond the lamp, and retest the hi-fi.</p></article>
+    </div>
+    <div class="sw-end"><h3>Try the working prototype</h3>
+      <div class="sw-cta"><a class="sw-btn" href="https://jamiechou2004.github.io/ShopWise_CustomerSide/customer/" target="_blank" rel="noopener">Customer app</a><a class="sw-btn sw-btn--ghost" href="https://jamiechou2004.github.io/ShopWise_CustomerSide/watch/" target="_blank" rel="noopener">Apple Watch</a><a class="sw-btn sw-btn--ghost" href="https://jamiechou2004.github.io/ShopWise_CustomerSide/gm-console/" target="_blank" rel="noopener">GM console</a></div></div>
+  </div>
+</section>
+
+</main>
+
+    <script src="shopwise.js?v=20261122-2"></script>
     <script src="portfolio-2027.js?v=20261105-rail"></script>
     <script src="/i18n-zh.js?v=20261105-rail"></script>
     <script src="/i18n.js?v=20261019-globe"></script>
