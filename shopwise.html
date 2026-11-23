@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="site-typography.css?v=20261004-sf1">
     <link rel="stylesheet" href="color-refinement.css?v=20261007-1">
     <link rel="stylesheet" href="/i18n.css?v=20261019-globe">
-    <link rel="stylesheet" href="shopwise.css?v=20261122-2">
+    <link rel="stylesheet" href="shopwise.css?v=20261122-3">
   </head>
   <body class="portfolio-redesign" data-page-view="shopwise">
     <div class="cursor-light" aria-hidden="true"></div>
@@ -34,20 +34,30 @@
     
     <main class="sw-page" id="main-content">
 
-<header class="sw-slide sw-cover">
-  <div class="sw-wrap">
-    <a class="sw-back" href="homepage.html#work">← Work</a>
-    <p class="sw-kicker">UX case study · Fall 2026</p>
-    <h1>Shopwise</h1>
-    <p class="sw-tag">Furnishing a new place, without the guesswork.</p>
-    <dl class="sw-meta">
+<div class="sw-guides" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+<header class="sw-cover">
+  <div class="sw-mesh" aria-hidden="true"></div>
+  <div class="sw-wrap sw-cover-grid">
+    <div class="sw-cover-copy">
+      <a class="sw-back" href="homepage.html#work">← Work</a>
+      <p class="sw-kicker">Shopwise · UX case study · Fall 2026</p>
+      <h1>Furnishing a new place, without the guesswork.</h1>
+      <p class="sw-tag">One furniture order across three stores, designed as one system for iPhone, Apple Watch and a web console.</p>
+      <div class="sw-cta"><a class="sw-btn" href="https://jamiechou2004.github.io/ShopWise_CustomerSide/" target="_blank" rel="noopener">Try the prototypes</a><a class="sw-link" href="https://www.figma.com/design/9PlQMFsLfdYTDK8qfViN96/Shopwise" target="_blank" rel="noopener">View the Figma file</a></div>
+    </div>
+    <div class="sw-art" aria-label="Shopwise on the GM console, iPhone and Apple Watch" role="img">
+      <div class="sw-browser sw-art-console"><div class="sw-bar"><i></i><i></i><i></i><span>Shopwise · GM console</span></div><div class="sw-screen"><img src="assets/shopwise/gm/gm-3.webp" alt="" width="2160" height="1350"></div></div>
+      <div class="sw-phone sw-art-phone"><div class="sw-screen"><img src="assets/shopwise/ui/r1-plan.webp" alt="" width="780" height="1688"></div></div>
+      <div class="sw-watch-body sw-art-watch"><img src="assets/shopwise/watch/3a.webp" alt="" width="832" height="992"></div>
+    </div>
+  </div>
+  <div class="sw-wrap"><dl class="sw-meta">
       <div><dt>Role</dt><dd>Product design and research, solo</dd></div>
       <div><dt>Scope</dt><dd>iPhone · Apple Watch · web console</dd></div>
       <div><dt>Course</dt><dd>UXDG 415 · SCAD</dd></div>
-    </dl>
-    <div class="sw-cta"><a class="sw-btn" href="https://jamiechou2004.github.io/ShopWise_CustomerSide/" target="_blank" rel="noopener">Try the prototypes</a><a class="sw-btn sw-btn--ghost" href="https://www.figma.com/design/9PlQMFsLfdYTDK8qfViN96/Shopwise" target="_blank" rel="noopener">View the Figma file</a></div>
-    <figure class="sw-hero"><video autoplay muted loop playsinline preload="metadata" poster="assets/shopwise/cover/poster.jpg" aria-label="One order moving across the iPhone app, the GM console and Apple Watch"><source src="assets/shopwise/cover/shopwise-cover-mobile.mp4" media="(max-width: 700px)" type="video/mp4"><source src="assets/shopwise/cover/shopwise-cover.mp4" type="video/mp4"></video></figure>
-  </div>
+      <div><dt>Built</dt><dd>Figma hi-fi and three coded prototypes</dd></div>
+  </dl></div>
 </header>
 
 <nav class="sw-tabs" aria-label="Sections"><div class="sw-wrap"><a href="#problem">Problem</a><a href="#research">Research</a><a href="#testing">Testing</a><a href="#final">Final design</a><a href="#loop">The loop</a><a href="#reflection">Reflection</a></div></nav>
@@ -136,7 +146,7 @@
   </div>
 </section>
 
-<section class="sw-slide sw-slide--dark" id="final">
+<section class="sw-slide sw-slide--dark sw-skew" id="final">
   <div class="sw-wrap">
     <p class="sw-kicker">08 — Final experience</p>
     <h2>Two sides of one plan.</h2>
@@ -227,7 +237,7 @@
   </div>
 </section>
 
-<section class="sw-slide sw-slide--tint" id="loop">
+<section class="sw-slide sw-slide--mesh" id="loop"><div class="sw-mesh" aria-hidden="true"></div>
   <div class="sw-wrap">
     <p class="sw-kicker">09 — The loop</p>
     <h2>One order, closed across three screens.</h2>
@@ -258,7 +268,7 @@
 
 </main>
 
-    <script src="shopwise.js?v=20261122-2"></script>
+    <script src="shopwise.js?v=20261122-3"></script>
     <script src="portfolio-2027.js?v=20261105-rail"></script>
     <script src="/i18n-zh.js?v=20261105-rail"></script>
     <script src="/i18n.js?v=20261019-globe"></script>
