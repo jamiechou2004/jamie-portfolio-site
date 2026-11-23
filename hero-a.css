@@ -14,3 +14,46 @@ body[data-home-motion] .ha-hero #home-title{font-size:clamp(36px,3.65vw,52px);li
 .ha-preview-dock{position:absolute;right:4px;top:-48px;width:128px;height:128px;pointer-events:none;z-index:4}.ha-preview-dock .gg-character{position:absolute;left:-16px;top:-16px;pointer-events:none}.ha-card.is-hover .ha-art{transform:translateY(-3px) rotate(-3deg)}
 
 .ha-cards[data-open] .ha-card.is-hover{opacity:1}.ha-art{height:150px;border-radius:12px;mix-blend-mode:normal}@media(max-width:600px){.ha-art{height:130px}}
+
+/* ---------- Capsule (Nov 2026): the guide's intro is a pill above the headline ---------- */
+.ha-hero .ha-eyebrow{margin-bottom:32px}
+.ha-hero .ha-top{display:block;margin-bottom:48px}
+.ha-hero .ha-capsule{display:inline-flex;align-items:center;gap:4px;min-height:0;margin:0 0 24px;padding:6px;
+  border-radius:999px;background:var(--text-strong,#202124);white-space:nowrap;position:relative;max-width:100%;
+  box-shadow:0 10px 24px -12px rgba(20,22,26,.45);transition:transform .2s ease,box-shadow .2s ease}
+.ha-hero .ha-capsule:hover{transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(20,22,26,.5)}
+.ha-hero .ha-capsule .ha-home-slot{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:#3a3e45;position:relative}
+.ha-hero .ha-capsule .gg-character{position:absolute;left:-60px;top:-108px;scale:.36}
+.ha-hero .ha-capsule .ha-home-bubble,.ha-hero .ha-capsule .ha-home-bubble[hidden]{display:block;width:auto;padding:10px 16px 10px 8px;
+  background:none;border-radius:999px;cursor:pointer}
+.ha-hero .ha-capsule .ha-home-bubble::after{display:none}
+.ha-hero .ha-capsule .ha-home-bubble p{margin:0;font-size:15px;line-height:20px;font-weight:500;color:#f3f4f6}
+.ha-capsule-chips{display:none;gap:2px}
+.ha-capsule[data-state=open] .ha-home-bubble{display:none!important}
+.ha-capsule[data-state=open] .ha-capsule-chips{display:flex}
+.ha-chip{font:inherit;font-size:15px;line-height:20px;font-weight:500;padding:10px 16px;border:0;border-radius:999px;
+  background:transparent;color:#a9aeb6;cursor:pointer;transition:background .2s,color .2s}
+.ha-chip:hover{color:#fff}
+.ha-chip[aria-pressed=true]{background:#fff;color:var(--text-strong,#202124)}
+/* Cards keep equal widths; the open one is tinted and carries its button. */
+.ha-hero .ha-cards[data-open]{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ha-hero .ha-card.is-open{background:var(--selected-blue);border-color:var(--link-blue)}
+.ha-hero .ha-panel{display:block;padding:0 24px 24px}
+.ha-hero .ha-panel[hidden]{display:none}
+.ha-hero .ha-panel .ha-bubble{background:none;padding:0}
+.ha-hero .ha-panel .ha-bubble p{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.ha-hero .ha-panel .ha-case-button{margin-top:0}
+/* The guide sits on the card's top edge. */
+.ha-hero .ha-card .ha-slot,.ha-hero .ha-preview-dock{position:absolute;right:40px;top:-52px;width:72px;height:72px;flex:none}
+.ha-hero .ha-card .ha-slot .gg-character,.ha-hero .ha-preview-dock .gg-character{position:absolute;left:-44px;top:-88px;scale:.45}
+@media(max-width:600px){
+  .ha-hero .ha-capsule{display:flex;width:max-content}
+  .ha-capsule-chips{overflow-x:auto;scrollbar-width:none}
+  .ha-capsule-chips::-webkit-scrollbar{display:none}
+  .ha-hero .ha-capsule{padding:4px}
+  .ha-hero .ha-capsule .ha-home-slot{width:36px;height:36px;flex-basis:36px}
+  .ha-hero .ha-capsule .gg-character{left:-62px;top:-112px;scale:.32}
+  .ha-capsule-chips{gap:0}
+  .ha-chip{padding:9px 9px;font-size:13px;line-height:18px}
+  .ha-hero .ha-cards[data-open]{grid-template-columns:minmax(0,1fr)}
+}
