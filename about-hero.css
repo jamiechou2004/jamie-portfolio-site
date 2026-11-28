@@ -55,3 +55,6 @@ html body .about-editorial .ab-intro h1.ah-hello,html#sf-rounded-site body .abou
 
 @media(max-width:600px){.ah-text{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.ah-mark path{stroke-dashoffset:0;animation:none}}
+/* the About page sizes every .ab-intro img as the portrait; keep the guide's own images at their real size */
+.ah-cap .gg-curious{width:160px;height:160px;object-fit:fill;border-radius:0;max-width:none}
+.ah-cap .gg-brows{width:50px;height:14px;object-fit:fill;border-radius:0;max-width:none}
