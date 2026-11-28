@@ -47,5 +47,12 @@
   }
   // Headlines that used <br> for stacking now sit on one line: keep a space instead.
   page.querySelectorAll('.re-feature-copy h3 br, .re-next h3 br').forEach(br => br.replaceWith(document.createTextNode(' ')));
+  // Footer: back to top scrolls smoothly (plain #top jump without JS).
+  const top = page.querySelector('.cv2-top');
+  if (top) top.addEventListener('click', e => {
+    e.preventDefault();
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
   document.documentElement.classList.add('cv2');
 })();

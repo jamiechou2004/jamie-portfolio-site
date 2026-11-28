@@ -210,8 +210,8 @@ body .chance-page .re-next h4 { font-size: 18px !important; color: var(--cv2-ink
 /* ---------- 11. Footer: next case ---------- */
 body .chance-page .cc-footer { border: 0 !important; padding: 120px 0 0 !important; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
 body .chance-page .cc-footer > p { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--cv2-muted); margin: 0; }
-body .chance-page .cc-footer > a:first-of-type { font-size: clamp(48px, 7vw, 88px) !important; font-weight: 600; letter-spacing: -.035em; line-height: 1; color: var(--cv2-ink) !important; text-decoration: none; }
-body .chance-page .cc-footer > a:first-of-type span { display: none; }
+body .chance-page .cc-footer:not(.cv2-footer) > a:first-of-type { font-size: clamp(48px, 7vw, 88px) !important; font-weight: 600; letter-spacing: -.035em; line-height: 1; color: var(--cv2-ink) !important; text-decoration: none; }
+body .chance-page .cc-footer:not(.cv2-footer) > a:first-of-type span { display: none; }
 
 /* ---------- fixes after first render ---------- */
 body .chance-page .cp-hero > .delivery-summary { width: 100%; display: block !important; }
@@ -221,7 +221,47 @@ body .chance-page .cp-stage .cp-secondary .cp-image { aspect-ratio: 300 / 430 !i
 body .chance-page .re-lessons article, body .chance-page .re-feature-copy { margin: 0 !important; }
 body .chance-page .re-next li { display: flex !important; align-items: center; }
 body .chance-page .re-next li > div { flex: 1; min-width: 0; }
-body .chance-page .cc-footer > a:first-of-type > * { display: none !important; }
+body .chance-page .cc-footer:not(.cv2-footer) > a:first-of-type > * { display: none !important; }
 body .chance-page .re-lessons { padding: 0 !important; gap: 0 !important; }
 body .chance-page :is(.re-feature, .re-feature-copy, .re-lessons, .re-lessons article) { width: 100% !important; max-width: none !important; box-sizing: border-box; }
 body .chance-page .re-feature { min-height: 0 !important; }
+
+/* ---------- 12. Footer v2: clear next-case button + back to top (right half) ---------- */
+body .chance-page .cc-footer.cv2-footer {
+  display: grid !important; grid-template-columns: 1fr 1fr; align-items: end; gap: 32px;
+  padding: 120px 0 96px !important; border: 0 !important;
+}
+body .chance-page .cv2-next { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; min-width: 0; }
+body .chance-page .cv2-next > p { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--cv2-muted); margin: 0; }
+body .chance-page .cc-footer a.cv2-next-title {
+  display: block; font-size: clamp(48px, 7vw, 88px) !important; font-weight: 600; letter-spacing: -.035em; line-height: 1;
+  color: var(--cv2-ink) !important; text-decoration: none; margin: 0;
+}
+body .chance-page .cv2-next-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 16px; }
+body .chance-page .cc-footer a.cv2-pill {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 12px 22px 12px 24px;
+  border-radius: 999px; background: #111; border: 1px solid #111; color: #fff !important;
+  font-size: 16px; font-weight: 500; line-height: 1.2; text-decoration: none; margin: 0;
+  transition: background-color .15s ease, transform .1s ease;
+}
+body .chance-page .cc-footer a.cv2-pill svg { width: 16px; height: 16px; transition: transform .2s ease; }
+body .chance-page .cc-footer a.cv2-pill:hover { background: #2b2d31; border-color: #2b2d31; }
+body .chance-page .cc-footer a.cv2-pill:hover svg { transform: translateX(3px); }
+body .chance-page .cc-footer a.cv2-pill:active { background: #000; transform: scale(.98); }
+body .chance-page .cc-footer .cc-text-link { font-size: 15px; margin: 0; }
+body .chance-page .cc-footer a.cv2-top {
+  justify-self: end; display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
+  color: var(--cv2-ink) !important; text-decoration: none; font-size: 15px; font-weight: 500; margin: 0;
+}
+body .chance-page .cv2-top-icon {
+  width: 64px; height: 64px; border-radius: 999px; display: grid; place-items: center;
+  background: #fff; box-shadow: var(--cv2-shadow); transition: transform .2s ease, background-color .15s ease, color .15s ease;
+}
+body .chance-page .cv2-top-icon svg { width: 22px; height: 22px; }
+body .chance-page .cc-footer a.cv2-top:hover .cv2-top-icon { background: #111; color: #fff; transform: translateY(-3px); }
+body .chance-page .cc-footer :is(a.cv2-pill, a.cv2-top, a.cv2-next-title):focus-visible { outline: 2px solid #075eae !important; outline-offset: 4px; border-radius: 999px; }
+@media (max-width: 700px) {
+  body .chance-page .cc-footer.cv2-footer { grid-template-columns: 1fr; padding: 88px 0 64px !important; }
+  body .chance-page .cc-footer a.cv2-top { justify-self: start; flex-direction: row; }
+  body .chance-page .cv2-top-icon { width: 48px; height: 48px; }
+}

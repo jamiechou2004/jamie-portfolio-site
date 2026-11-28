@@ -16,6 +16,7 @@ window.JAMIE_ZH = {
   "Connect": "联系",
   "Selected work": "精选作品",
   "Back to selected work": "返回精选作品",
+  "Back to top": "回到顶部",
   "Back to selected work ↗": "返回精选作品 ↗",
   "View full size ↗": "查看大图 ↗",
   "Close ×": "关闭 ×",
