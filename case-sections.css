@@ -1,6 +1,6 @@
 /* Case-study section language (pilot: Chance AI · 06 Input & recovery).
-   No grey panels. Groups are separated by a hairline, an index chip and space;
-   screens sit in light outlined frames; disclosures are pill buttons. */
+   No grey panels, no decorative chips. Screens lead; labels appear on hover
+   (always shown on touch). Disclosures are black pill buttons. */
 
 :root {
   --cs-line: #e4e7eb;
@@ -8,64 +8,46 @@
   --cs-text: #202124;
   --cs-muted: #5f6670;
   --cs-accent: #075eae;
-  --cs-accent-tint: #eef4fb;
 }
 
-/* ---------- Group: no background, separated by rule + index ---------- */
-body .chance-page #interaction { counter-reset: cs-group; }
+.cs-visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
+/* ---------- Groups: no background, separated by space + hairline ---------- */
 body .chance-page #interaction :is(.cp-input-group, .cp-recovery-group) {
-  counter-increment: cs-group;
-  counter-reset: cs-item;
   background: transparent !important;
   border: 0 !important;
-  border-top: 1px solid var(--cs-line) !important;
   border-radius: 0;
-  padding: 36px 0 0;
+  padding: 0;
   margin: 0;
 }
-body .chance-page #interaction .cp-recovery-group { margin-top: 72px; }
-
-/* Group header: index chip on the rule, title, one-line description */
-body .chance-page #interaction :is(.cp-input-group, .cp-recovery-group) > .cp-shared {
-  position: relative;
-  text-align: left;
-  margin: 0 0 28px;
-  padding: 0;
+body .chance-page #interaction .cp-input-group { margin-top: 40px; }
+body .chance-page #interaction .cp-input-group > .cp-shared { margin: 0; padding: 0; }
+body .chance-page #interaction .cp-recovery-group {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--cs-line) !important;
 }
-body .chance-page #interaction :is(.cp-input-group, .cp-recovery-group) > .cp-shared::before {
-  content: counter(cs-group, decimal-leading-zero);
-  display: inline-block;
-  margin-bottom: 14px;
-  padding: 3px 9px;
-  border: 1px solid var(--cs-line);
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  font-variant-numeric: tabular-nums;
-  color: var(--cs-muted);
-  background: #fff;
-}
+body .chance-page #interaction .cp-recovery-group > .cp-shared { text-align: left; margin: 0 0 24px; padding: 0; }
 body .chance-page #interaction .cp-shared h3 {
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.25;
   letter-spacing: -.02em;
   color: var(--cs-text);
-  margin: 0 0 8px;
-}
-body .chance-page #interaction .cp-shared p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--cs-muted);
-  max-width: 620px;
   margin: 0;
 }
 
 /* ---------- Screens: light outlined frames, equal height ---------- */
 body .chance-page #interaction .cp-state-grid { gap: 24px; margin: 0; }
 
-body .chance-page #interaction .cp-state-grid figure { counter-increment: cs-item; margin: 0; }
+body .chance-page #interaction .cp-state-grid figure { margin: 0; }
 
 body .chance-page #interaction .cp-state-grid .cp-image {
   height: auto;
@@ -106,41 +88,64 @@ body .chance-page #interaction .cp-state-grid .cp-image:hover {
   transform: translateY(-2px);
 }
 
-/* ---------- Captions: numbered label, title, supporting line ---------- */
+/* ---------- Labels: hidden until hover, shown as a dark pill on the screen ---------- */
+body .chance-page #interaction .cp-state-grid figure { position: relative; }
 body .chance-page #interaction .cp-state-grid figcaption {
-  margin: 16px 0 0;
-  padding: 0 2px;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--cs-muted);
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  max-width: calc(100% - 28px);
+  margin: 0;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, .88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.3;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease;
 }
 body .chance-page #interaction .cp-state-grid figcaption strong {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: inline;
   margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--cs-text);
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
 }
-body .chance-page #interaction .cp-state-grid figcaption strong::before {
-  content: counter(cs-item, decimal-leading-zero);
-  flex: none;
-  min-width: 26px;
-  padding: 2px 0;
-  border-radius: 6px;
-  background: var(--cs-accent-tint);
-  color: var(--cs-accent);
-  font-size: 11px;
+body .chance-page #interaction .cp-state-grid figcaption .cs-step {
   font-weight: 600;
-  line-height: 1.6;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, .6);
+}
+body .chance-page #interaction .cp-state-grid figure:is(:hover, :focus-within) figcaption {
+  opacity: 1;
+  transform: none;
+}
+/* Touch screens have no hover: keep the label visible below the screen */
+@media (hover: none) {
+  body .chance-page #interaction .cp-state-grid figcaption {
+    position: static;
+    opacity: 1;
+    transform: none;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    padding: 12px 2px 0;
+    color: var(--cs-text);
+  }
+  body .chance-page #interaction .cp-state-grid figcaption strong { color: var(--cs-text); font-size: 15px; font-weight: 600; }
+  body .chance-page #interaction .cp-state-grid figcaption .cs-step { color: var(--cs-muted); font-size: 13px; }
 }
 
 /* ---------- Disclosure: pill button with a rotating chevron ---------- */
 body .chance-page #interaction .cp-input-group > .cp-details {
-  margin-top: 32px;
+  margin-top: 28px;
   padding: 0;
   border: 0 !important;
 }
@@ -166,15 +171,14 @@ body .chance-page #interaction .cp-details > summary::-webkit-details-marker { d
 body .chance-page #interaction .cp-details > summary::marker { content: ""; }
 body .chance-page #interaction .cp-details > summary::after {
   content: "";
-  width: 7px;
-  height: 7px;
-  margin: -3px 0 0 2px;
-  border-right: 1.6px solid currentColor;
-  border-bottom: 1.6px solid currentColor;
-  transform: rotate(45deg);
-  transition: transform .2s ease, margin .2s ease;
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.25 6 7.75l3.5-3.5' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.25 6 7.75l3.5-3.5' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform .2s ease;
 }
-body .chance-page #interaction .cp-details[open] > summary::after { transform: rotate(-135deg); margin-top: 3px; }
+body .chance-page #interaction .cp-details[open] > summary::after { transform: rotate(180deg); }
 body .chance-page #interaction .cp-details > summary:hover { background: #2b2d31; border-color: #2b2d31; }
 body .chance-page #interaction .cp-details > summary:active { background: #000; transform: scale(.98); }
 body .chance-page #interaction .cp-details > summary:focus-visible {
@@ -196,10 +200,8 @@ body .chance-page #interaction .cp-gallery a {
 body .chance-page #interaction .cp-gallery figcaption { margin-top: 10px; font-size: 13px; color: var(--cs-muted); }
 
 @media (max-width: 700px) {
-  body .chance-page #interaction :is(.cp-input-group, .cp-recovery-group) { padding: 28px 0 0; }
-  body .chance-page #interaction .cp-recovery-group { margin-top: 52px; }
+  body .chance-page #interaction .cp-recovery-group { margin-top: 52px; padding-top: 28px; }
   body .chance-page #interaction .cp-shared h3 { font-size: 21px; }
   body .chance-page #interaction .cp-state-grid { gap: 32px; }
   body .chance-page #interaction .cp-state-grid .cp-image { max-width: 320px; margin: 0 auto; }
-    body .chance-page #interaction .cp-state-grid figcaption { max-width: 320px; margin: 14px auto 0; }
 }
