@@ -57,3 +57,53 @@ body[data-home-motion] .ha-hero #home-title{font-size:clamp(36px,3.65vw,52px);li
   .ha-chip{padding:9px 9px;font-size:13px;line-height:18px}
   .ha-hero .ha-cards[data-open]{grid-template-columns:minmax(0,1fr)}
 }
+
+/* ---------- Hero v2 (Nov 27): big hello, black capsule, one panel only after a theme is picked ---------- */
+.ha-hero .ha-top{display:flex;flex-direction:column;align-items:flex-start;max-width:680px;margin-bottom:0}
+body .ha-hero #home-title,body[data-home-motion] .ha-hero #home-title{font-size:clamp(56px,7.8vw,112px);line-height:1;letter-spacing:-.04em;font-weight:700;margin:0;max-width:none}
+.ha-hero .ha-subline{font-size:clamp(22px,2.4vw,34px);line-height:1.24;letter-spacing:-.015em;font-weight:500;color:var(--text-muted);
+  margin:20px 0 48px;max-width:18.5em;text-transform:none}
+/* Capsule: flat, pure black, high contrast */
+.ha-hero .ha-capsule{background:#000;box-shadow:none;padding:8px;gap:4px;margin:0}
+.ha-hero .ha-capsule:hover{transform:translateY(-2px);box-shadow:0 12px 24px -14px rgba(0,0,0,.45)}
+.ha-hero .ha-capsule .ha-home-slot{width:48px;height:48px;flex-basis:48px;background:#2b2b2e}
+.ha-hero .ha-capsule .gg-character{left:-56px;top:-104px;scale:.42}
+.ha-hero .ha-capsule .ha-home-bubble,.ha-hero .ha-capsule .ha-home-bubble[hidden]{padding:12px 22px 12px 10px}
+.ha-hero .ha-capsule .ha-home-bubble p{font-size:20px;line-height:24px;font-weight:600;color:#fff}
+.ha-hero .ha-chip{font-size:20px;line-height:24px;font-weight:600;padding:12px 22px;color:#a9aeb6}
+.ha-hero .ha-chip[aria-pressed=true]{background:#fff;color:#000}
+/* Cards: nothing below the capsule until a theme is chosen; then only that one, as a panel. */
+.ha-hero .ha-cards,.ha-hero .ha-cards[data-open]{display:block;max-width:680px;margin-top:48px}
+.ha-hero .ha-cards:not([data-open]){display:none}
+.ha-hero .ha-cards[data-open] .ha-card:not(.is-open){display:none}
+.ha-hero .ha-card.is-open{background:var(--surface-subtle);border-color:var(--border-subtle);border-radius:28px;animation:ha-panel-in .45s cubic-bezier(.22,1,.36,1)}
+@keyframes ha-panel-in{from{opacity:0;transform:translateY(-12px) scale(.98)}to{opacity:1;transform:none}}
+.ha-hero .ha-card.is-open{min-height:208px}
+.ha-hero .ha-card .ha-trigger{display:flex;flex-direction:column;gap:10px;min-height:0;padding:28px 28px 0 252px;cursor:default}
+.ha-hero .ha-card .ha-art{position:absolute;left:24px;top:24px;width:200px;height:160px;background:#fff;border-radius:20px;padding:12px;transform:none!important}
+.ha-hero .ha-card .ha-number{font-size:13px}
+.ha-hero .ha-card .ha-title{font-size:34px;line-height:1.1}
+.ha-hero .ha-card .ha-invite{display:none}
+.ha-hero .ha-panel{padding:10px 28px 24px 252px}
+.ha-hero .ha-panel .ha-bubble p{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;
+  font-size:17px;line-height:1.5;color:var(--text-muted);margin:0 0 16px;max-width:340px}
+.ha-hero .ha-panel .ha-case-button{display:inline-flex;min-height:44px;padding:12px 22px;border-radius:999px;background:#000;color:#fff!important;
+  border:0;box-shadow:none;font-size:16px}
+.ha-hero .ha-panel .ha-case-button:hover{background:#2b2b2e}
+.ha-hero .ha-card .ha-slot{top:-56px;right:32px}
+/* Space under the art column so the panel text lines up with the title */
+@media(max-width:600px){
+  body .ha-hero #home-title,body[data-home-motion] .ha-hero #home-title{font-size:56px}
+  .ha-hero .ha-subline{font-size:22px;margin:16px 0 32px}
+  .ha-hero .ha-capsule{padding:4px}
+  .ha-hero .ha-capsule .ha-home-slot{width:36px;height:36px;flex-basis:36px}
+  .ha-hero .ha-capsule .gg-character{left:-62px;top:-120px;scale:.32}
+  .ha-hero .ha-capsule .ha-home-bubble p{font-size:17px}
+  .ha-hero .ha-chip{font-size:14px;line-height:18px;padding:10px 8px}
+  .ha-hero .ha-capsule-chips{gap:0}
+  .ha-hero .ha-cards,.ha-hero .ha-cards[data-open]{margin-top:56px}
+  .ha-hero .ha-card .ha-trigger{padding:20px 20px 0}
+  .ha-hero .ha-card .ha-art{position:static;width:100%;height:140px}
+  .ha-hero .ha-card .ha-title{font-size:28px}
+  .ha-hero .ha-panel{padding:8px 20px 20px}
+}
