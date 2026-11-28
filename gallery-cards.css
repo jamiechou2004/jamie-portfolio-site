@@ -31,7 +31,7 @@
   border-radius: 24px;
   padding: 0;
   overflow: hidden;
-  background: #fbfbfc;
+  background: #fff;
   transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease;
 }
 .gallery-page .gx-card:hover {
@@ -102,6 +102,16 @@ body .gallery-page .gx-dark .gallery-heading h2 { color: #f3f4f6 !important; fon
 }
 .gx-card:hover .gx-mood .moodlog-preview-card { transform: rotate(-1deg) translateY(-4px); transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
 
+/* MoodLog runs the full row too (its neighbour is hidden): text left, picture right, white card. */
+.gallery-page .gx-wide.gx-flip { flex-direction: row-reverse; }
+@media (min-width: 861px) {
+  .gx-wide .gx-mood .moodlog-preview-card { width: min(62%, 420px); padding: 30px; }
+  .gx-wide .gx-mood .moodlog-preview-card strong { font-size: 24px; }
+  .gx-wide .gx-mood .moodlog-options { gap: 12px; margin-top: 24px; }
+  .gx-wide .gx-mood .moodlog-options > span { padding: 16px 6px; font-size: 12px; }
+  .gx-wide .gx-mood .moodlog-options img { width: 48px; height: 60px; }
+}
+
 /* ---------- Where the guide lands when it walks you to a card: a small pill over the picture ---------- */
 .gx-card .gg-arrival {
   position: absolute; z-index: 3; top: 16px; left: 16px;
@@ -118,7 +128,7 @@ body .gallery-page .gx-dark .gallery-heading h2 { color: #f3f4f6 !important; fon
 /* ---------- Narrow screens ---------- */
 @media (max-width: 860px) {
   .gx-grid { grid-template-columns: minmax(0, 1fr); margin-top: 40px; }
-  .gallery-page .gx-wide { flex-direction: column; height: auto; }
+  .gallery-page .gx-wide, .gallery-page .gx-wide.gx-flip { flex-direction: column; height: auto; }
   .gx-wide .gx-visual { aspect-ratio: 4 / 3; height: auto; flex: none; }
   .gx-wide .gx-body { padding: 22px 24px 24px; }
 }
