@@ -52,15 +52,98 @@
     }));
   });
 
-  // Aa: show the type scale as capsules
+  // Aa: the type scale fans out from the circle as a half-arc wheel; scroll, drag or use arrow keys to turn it
   const aa = page.querySelector('.sw-aa');
   const cloud = document.getElementById('sw-type-cloud');
-  if (aa && cloud) aa.addEventListener('click', () => {
-    const open = cloud.hidden;
-    cloud.hidden = !open;
-    aa.setAttribute('aria-expanded', String(open));
-    aa.setAttribute('aria-label', open ? 'Hide the type scale' : 'Show the type scale');
-  });
+  if (aa && cloud) {
+    const row = aa.parentElement;
+    const caps = [...cloud.querySelectorAll('.sw-cap')];
+    const STEP = 24 * Math.PI / 180, VISIBLE = 3.4;
+    let pos = 0, open = false, snapT = 0, closeT = 0;
+    const radius = () => (innerWidth < 760 ? 84 : 150);
+    const place = (collapsed = false) => {
+      cloud.style.left = `${aa.offsetLeft + aa.offsetWidth / 2}px`;
+      cloud.style.top = `${aa.offsetTop + aa.offsetHeight / 2}px`;
+      const R = radius();
+      const originX = aa.getBoundingClientRect().left + aa.offsetWidth / 2;
+      caps.forEach((cap, i) => {
+        const k = i - pos, a = k * STEP, far = Math.abs(k);
+        if (collapsed || far > VISIBLE) {
+          cap.style.opacity = '0'; cap.style.pointerEvents = 'none';
+          if (collapsed) { cap.style.transform = 'translate(0,-50%) scale(.2)'; return; }
+        } else { cap.style.opacity = String(Math.max(0, 1 - far * 0.26)); cap.style.pointerEvents = ''; }
+        const x = R * Math.cos(a), y = R * Math.sin(a);
+        const room = document.documentElement.clientWidth - originX - R - 16;
+        const s = Math.min(1, room / cap.offsetWidth) * Math.max(0.55, 1 - far * 0.14);
+        cap.style.transform = `translate(${x}px, ${y}px) translate(0,-50%) scale(${s})`;
+        cap.style.zIndex = String(100 - Math.round(far * 10));
+        cap.classList.toggle('is-focus', Math.round(pos) === i);
+      });
+    };
+    const follow = () => { // keep the arc centred on the circle while the row opens or closes
+      const t0 = performance.now(), anchor = aa.getBoundingClientRect().top;
+      const tick = now => {
+        const drift = aa.getBoundingClientRect().top - anchor; // hold the circle still while space opens around it
+        if (Math.abs(drift) > 0.5) scrollTo({ top: scrollY + drift, behavior: 'instant' });
+        cloud.style.left = `${aa.offsetLeft + aa.offsetWidth / 2}px`;
+        cloud.style.top = `${aa.offsetTop + aa.offsetHeight / 2}px`;
+        if (now - t0 < 650) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const clamp = v => Math.max(0, Math.min(caps.length - 1, v));
+    const snap = () => { pos = Math.round(pos); place(); };
+    const setOpen = next => {
+      open = next;
+      clearTimeout(closeT);
+      aa.setAttribute('aria-expanded', String(open));
+      aa.setAttribute('aria-label', open ? 'Hide the type scale' : 'Show the type scale');
+      row.classList.toggle('is-open', open);
+      follow();
+      if (open) {
+        cloud.hidden = false; place(true);
+        requestAnimationFrame(() => requestAnimationFrame(() => place()));
+      } else {
+        place(true);
+        closeT = setTimeout(() => { cloud.hidden = true; }, 450);
+      }
+    };
+    aa.addEventListener('click', e => { e.stopPropagation(); setOpen(!open); });
+    caps.forEach((cap, i) => cap.addEventListener('click', () => { if (!moved) { pos = i; place(); } }));
+    row.addEventListener('wheel', e => {
+      if (!open) return;
+      const next = clamp(pos + e.deltaY / 90);
+      if (next === pos) return; // at either end the page scrolls on
+      e.preventDefault();
+      pos = next; place();
+      clearTimeout(snapT); snapT = setTimeout(snap, 140);
+    }, { passive: false });
+    let startY = 0, startPos = 0, dragging = false, moved = false;
+    row.addEventListener('pointerdown', e => {
+      if (!open || e.target === aa || e.button !== 0) return;
+      dragging = true; moved = false; startY = e.clientY; startPos = pos;
+    });
+    addEventListener('pointermove', e => {
+      if (!dragging) return;
+      const dy = e.clientY - startY;
+      if (!moved && Math.abs(dy) < 4) return;
+      if (!moved) { moved = true; row.classList.add('is-dragging'); try { row.setPointerCapture(e.pointerId); } catch (_) {} }
+      pos = clamp(startPos - dy / 56); place();
+    });
+    const end = () => {
+      if (!dragging) return;
+      dragging = false; row.classList.remove('is-dragging');
+      if (moved) { snap(); setTimeout(() => { moved = false; }, 0); }
+    };
+    addEventListener('pointerup', end); addEventListener('pointercancel', end);
+    row.addEventListener('keydown', e => {
+      if (!open) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { pos = clamp(Math.round(pos) + 1); place(); e.preventDefault(); }
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { pos = clamp(Math.round(pos) - 1); place(); e.preventDefault(); }
+      else if (e.key === 'Escape') { setOpen(false); aa.focus(); }
+    });
+    addEventListener('resize', () => { if (open) place(); });
+  }
 
   // AI screen recordings play only while on screen
   const recs = [...page.querySelectorAll('video.sw-rec')];

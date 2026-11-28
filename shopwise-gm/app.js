@@ -79,7 +79,7 @@
     const items = [['overview', 'Overview', I.home], ['orders', 'Orders & sourcing', I.box], ['routes', 'Hub & routes', I.truck], ['care', 'Care & returns', I.chat, S.date === 'nov2' && !S.ret ? 13 : 12], ['finance', 'Finance', I.chart], ['settings', 'Settings', I.gear]];
     const active = S.view === 'order' ? 'orders' : S.view;
     return `<nav class="side" aria-label="Main">
-      <div class="brand"><span class="mark">S</span><span>Shopwise<small>GM console</small></span></div>
+      <div class="brand"><img class="mark" src="logo.webp" alt=""><span>Shopwise<small>GM console</small></span></div>
       ${items.map(([id, l, ic, c]) => `<button type="button" class="nav ${active === id ? 'on' : ''}${id === 'orders' ? hint(1) : ''}" data-nav="${id}">${ic}<span>${l}</span>${c ? `<span class="count">${c}</span>` : ''}</button>`).join('')}
       <div class="grow"></div>
       <div class="me"><span class="av">MC</span><span>Maya Chen<small>General manager</small></span></div>
