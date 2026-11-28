@@ -10,7 +10,7 @@
   if (!root) return;
   const $ = (s) => root.querySelector(s);
   const cap = $('.hf-capsule'), talk = $('.hf-talk'), line = $('.hf-line'), text = $('.hf-text'), fold = $('.hf-fold');
-  const actor = $('.gg-character'), pillsBox = $('.hf-pills'), pills = [...root.querySelectorAll('.hf-pill')];
+  const actor = $('.gg-character'), pillsBox = $('.hf-sub'), dock = $('.hf-dock'), pills = [...root.querySelectorAll('.hf-pill')];
   const stage = $('.hf-stage'), card = $('.hf-card'), art = $('.hf-art img'), status = $('.ha-status');
   const fx = window.GalleryGuideEffects || { set(a, s) { a.dataset.state = s; }, gaze() {}, resetGaze() {}, tap() { return null; } };
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
@@ -26,6 +26,7 @@
     grumpy: ['Okay, okay.', '好啦，好啦。'],
     go: ['Let’s go!', '出发！'],
     pills: [['How I think', '我的思考方式'], ['How I explore', '我的探索方式'], ['What I notice', '我注意到的事']],
+    short: [['Think', '思考'], ['Explore', '探索'], ['Notice', '细节']],
     back: ['Pick another', '换一个'],
     fold: ['Fold the guide away', '收起小向导'],
   };
@@ -50,16 +51,15 @@
     cap.animate([{ transform: 'scale(1)' }, { transform: 'scale(.95,.9)', offset: .25 }, { transform: 'scale(1.015,1.02)', offset: .65 }, { transform: 'scale(1)' }],
       { duration: 420, easing: 'cubic-bezier(.22,.8,.3,1)' });
   };
-  // The capsule grows / shrinks smoothly to fit whatever the guide is saying.
+  // The capsule (and the sub-pill under it) grows / shrinks smoothly to fit what the guide is saying.
   const morph = (change) => {
-    const from = talk.getBoundingClientRect().width;
+    const from = dock.getBoundingClientRect().width;
     if (widthAnim) widthAnim.cancel();
     change();
-    const to = talk.getBoundingClientRect().width;
+    const to = dock.getBoundingClientRect().width;
     if (reduce.matches || Math.abs(from - to) < 1) return;
-    talk.style.overflow = 'hidden';
-    widthAnim = talk.animate([{ width: `${from}px` }, { width: `${to}px` }], { duration: 480, easing: 'cubic-bezier(.22,1,.36,1)' });
-    widthAnim.finished.then(() => { talk.style.overflow = ''; widthAnim = null; }).catch(() => { talk.style.overflow = ''; });
+    widthAnim = dock.animate([{ width: `${from}px` }, { width: `${to}px` }], { duration: 480, easing: 'cubic-bezier(.22,1,.36,1)' });
+    widthAnim.finished.then(() => { widthAnim = null; }).catch(() => {});
   };
   const write = (pair) => {
     current = pair;
@@ -78,16 +78,14 @@
 
   /* ---- steps ---- */
   const showPills = () => {
-    pillsBox.classList.remove('is-leaving');
-    pillsBox.hidden = false;
-    fold.hidden = false;
+    morph(() => { pillsBox.classList.remove('is-leaving'); pillsBox.hidden = false; fold.hidden = false; dock.dataset.open = 'true'; });
     talk.setAttribute('aria-expanded', 'true');
   };
   const hidePills = () => new Promise((res) => {
     if (pillsBox.hidden) return res();
-    if (reduce.matches) { pillsBox.hidden = true; return res(); }
+    if (reduce.matches) { pillsBox.hidden = true; dock.dataset.open = 'false'; return res(); }
     pillsBox.classList.add('is-leaving');
-    setTimeout(() => { pillsBox.hidden = true; pillsBox.classList.remove('is-leaving'); res(); }, 340);
+    setTimeout(() => { morph(() => { pillsBox.hidden = true; pillsBox.classList.remove('is-leaving'); dock.dataset.open = 'false'; }); res(); }, 300);
   });
   const fillCard = (i) => {
     const t = themes[i];
@@ -140,11 +138,12 @@
   };
   const close = async () => {
     active = -1; step = 'idle'; root.dataset.step = step;
-    stage.hidden = true; fold.hidden = true;
+    stage.hidden = true;
     pills.forEach((p) => p.setAttribute('aria-pressed', 'false'));
     talk.setAttribute('aria-expanded', 'false');
     mood('Waiting'); fx.resetGaze(actor);
     await hidePills();
+    fold.hidden = true;
     if (step === 'idle') say(copy.idle, { typing: false });
     talk.focus({ preventScroll: true });
   };
@@ -212,7 +211,7 @@
   const language = () => {
     $('#home-title').textContent = zh() ? '你好，我是 Jamie。' : 'Hi, I’m Jamie.';
     $('.hf-subline').textContent = zh() ? '为复杂系统，设计清晰、直观的体验。' : 'Designing clear, intuitive experiences for complex systems.';
-    pills.forEach((p, i) => { p.querySelector('.hf-pill-label').textContent = L(copy.pills[i]); });
+    pills.forEach((p, i) => { p.querySelector('.hf-pill-label').textContent = L(copy.pills[i]); p.querySelector('.hf-pill-short').textContent = L(copy.short[i]); });
     fold.setAttribute('aria-label', L(copy.fold));
     actor.setAttribute('aria-label', zh() ? '和小向导打招呼' : 'Say hello to the little guide');
     text.textContent = L(current);
