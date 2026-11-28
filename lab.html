@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="color-refinement.css?v=20261007-1">
 <link rel="stylesheet" href="/i18n.css?v=20261019-globe">
 <link rel="stylesheet" href="where-tonight-gallery.css?v=20261019-1"><link rel="stylesheet" href="gallery-guide.css?v=20261019-v1"><link rel="stylesheet" href="guide-illustrated.css?v=20261020-2">
-<link rel="stylesheet" href="gallery-cards.css?v=20261128-mood"></head>
+<link rel="stylesheet" href="gallery-cards.css?v=20261128-mood">
+<link rel="stylesheet" href="lab-covers.css?v=20261128-b"></head>
   <body class="portfolio-redesign" data-page-view="lab">
     <div class="cursor-light" aria-hidden="true"></div>
 
@@ -49,33 +50,33 @@
 </nav>
 </header>
 <section class="gx-grid" aria-label="Experiments">
-<article class="gallery-project gx-card gx-wide gx-dark" id="awakening" aria-labelledby="awakening-title">
-<div class="gx-visual gx-loop">
-<img class="loop-cover-art" src="assets/awakening/jeti-poster.png" alt="Jeti reaching through shattered glass in The Awakening Loop poster">
-</div>
-<div class="gx-body">
+<article class="gallery-project gx-card gx-wide lc lc-loop" id="awakening" aria-labelledby="awakening-title">
+<div class="lc-art" aria-hidden="true"><div class="lc-stage">
+<span class="lc-ghost" translate="no">Loop</span><span class="lc-floor"></span>
+<div class="lc-l lc-orb"><img src="assets/awakening/jeti-poster.png" alt=""></div>
+<img class="lc-l lc-jeti" src="assets/awakening/jeti-transparent.png" alt="">
+</div></div>
+<div class="lc-copy">
+<span class="lc-kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg><span data-gg="play">Play</span></span>
 <div class="gallery-heading"><div><h2 id="awakening-title"><a class="gx-cover-link" href="https://the-awakening-loop.vercel.app/" target="_blank" rel="noopener noreferrer">The Awakening Loop</a></h2></div></div>
-<p>A short game about a robot who moves the same block every day, until something changes.</p>
-<ul class="gx-tags" aria-label="Tags"><li>Interactive game</li><li>AI &amp; humanity</li></ul>
+<p class="lc-hook">Same block, every day. Until.</p>
 </div>
+<span class="lc-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </article>
-<article class="gallery-project gx-card gx-wide gx-flip" id="moodlog" aria-labelledby="moodlog-title">
-<div class="gx-visual gx-mood" aria-hidden="true">
-<div class="moodlog-preview-card moodlog-picker">
-<strong>How are you feeling?</strong>
-<div class="moodlog-options">
-<span><img src="experiments/moodlog/assets/emotions/Happy.png" alt="">Happy</span>
-<span><img src="experiments/moodlog/assets/emotions/Sad.png" alt="">Sad</span>
-<span class="is-chosen"><img src="experiments/moodlog/assets/emotions/Calm.png" alt="">Calm</span>
-</div>
-</div>
-</div>
-<div class="gx-body">
+<article class="gallery-project gx-card gx-wide lc lc-mood" id="moodlog" aria-labelledby="moodlog-title">
+<div class="lc-art" aria-hidden="true"><div class="lc-stage">
+<span class="lc-ghost" translate="no">Mood</span><span class="lc-floor"></span>
+<img class="lc-l lc-c1" src="experiments/moodlog/assets/emotions/Happy.png" alt="">
+<img class="lc-l lc-c2" src="experiments/moodlog/assets/emotions/Calm.png" alt="">
+<img class="lc-l lc-c3" src="experiments/moodlog/assets/emotions/Sad.png" alt="">
+</div></div>
+<div class="lc-copy">
+<span class="lc-kicker"><span data-gg="reflect">Reflect</span></span>
 <div class="gallery-heading"><div><h2 id="moodlog-title"><a class="gx-cover-link" href="experiments/moodlog/" target="_blank" rel="noopener">MoodLog</a></h2></div></div>
-<p>Pick a feeling, learn what it means, and write a short reflection.</p>
-<ul class="gx-tags" aria-label="Tags"><li>Web app</li><li>Built with Chase Engelmann</li></ul>
+<p class="lc-hook">Name the feeling. Then write it down.</p>
 <a class="gx-source" href="https://github.com/jamiechou2004/uxdg320-group" target="_blank" rel="noopener">Source</a>
 </div>
+<span class="lc-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </article>
 <article class="gallery-project gx-card wt-project" id="where-tonight" aria-labelledby="wt-title" hidden style="display:none"><!-- temporarily hidden: remove hidden + style to restore -->
 <div class="gx-visual gx-wt">
@@ -88,16 +89,21 @@
 <a class="gx-source" href="https://github.com/jamiechou2004/redcowork-ai-demo" target="_blank" rel="noopener">Source</a>
 </div>
 </article>
-<article class="gallery-project gx-card gx-wide gx-dark tt-project" id="tiktok" aria-labelledby="tt-title">
-<div class="gx-visual gx-tt">
-<img src="assets/tiktok-test/cover.jpg" alt="TikTok × Local Services design challenge cover: The video makes you hungry. The page helps you decide." width="1920" height="1080" loading="lazy">
-</div>
-<div class="gx-body">
+<article class="gallery-project gx-card gx-wide lc lc-tt tt-project" id="tiktok" aria-labelledby="tt-title">
+<div class="lc-art" aria-hidden="true"><div class="lc-stage">
+<span class="lc-ghost" translate="no">Taste</span><span class="lc-floor"></span>
+<div class="lc-l lc-plate"><img src="assets/tiktok-test/ui/lotus.webp" alt="" loading="lazy"></div>
+<span class="lc-l lc-pill lc-p1"><i>★</i>4.6 Excellent</span>
+<span class="lc-l lc-pill lc-p3">$18.95 · Signature</span>
+<span class="lc-l lc-pill lc-p2">♥ 1,861 ordered</span>
+</div></div>
+<div class="lc-copy">
+<span class="lc-kicker"><span data-gg="decide">Decide</span></span>
 <div class="gallery-heading"><div><h2 id="tt-title"><a class="gx-cover-link" href="tiktok.html">TikTok Design Test</a></h2></div></div>
-<p data-tt-card>People find restaurants on TikTok, then leave to decide. A place page that keeps the decision in the app.</p>
-<ul class="gx-tags" aria-label="Tags"><li>Product design challenge</li><li>Research to validation</li></ul>
+<p class="lc-hook">The video makes you hungry. The page helps you decide.</p>
 <a class="gx-source" href="https://jamiechou2004.github.io/tiktok-test-demo" target="_blank" rel="noopener">Prototype</a>
 </div>
+<span class="lc-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </article>
 </section>
 </main>

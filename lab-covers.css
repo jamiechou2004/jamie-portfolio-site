@@ -1,0 +1,115 @@
+/* Lab covers, direction B "white gallery" (approved 2026-11-28).
+   Each card is the cover: pure white, one hero object with real shadows,
+   a giant pale word behind it, kicker pill + title + one-line hook bottom left.
+   The art lives on a fixed 640x460 stage anchored top-right and is scaled down on
+   smaller screens, so the composition never reflows. Layers separate on hover. */
+
+.gallery-page .gx-card.lc {
+  display: block;
+  height: 460px;
+  border: 0 !important;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eceef1, 0 30px 60px -40px rgba(0, 0, 0, 0.25);
+  isolation: isolate;
+}
+.gallery-page .gx-card.lc:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px #e6e8eb, 0 40px 70px -40px rgba(0, 0, 0, 0.32); }
+.gallery-page .gx-card.lc:focus-within { box-shadow: 0 0 0 2px #9eafff; }
+
+.lc-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: inherit; }
+.lc-stage { position: absolute; right: 0; top: 0; width: 640px; height: 460px; transform-origin: top right; }
+
+.lc-ghost {
+  position: absolute; right: 28px; top: 26px;
+  font-size: 300px; font-weight: 800; letter-spacing: -0.06em; line-height: 0.8;
+  white-space: nowrap; user-select: none;
+}
+.lc-floor {
+  position: absolute; right: 120px; bottom: 44px; width: 520px; height: 40px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.18), transparent);
+}
+.lc-l { position: absolute; transition: transform 0.7s cubic-bezier(.2,.8,.2,1); }
+
+/* Copy */
+.lc-copy { position: absolute; left: 48px; bottom: 44px; z-index: 2; max-width: 420px; display: grid; justify-items: start; }
+.lc-kicker {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 999px;
+  background: #111; color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+}
+.lc-kicker svg { width: 12px; height: 12px; }
+body .gallery-page .gx-card.lc .gallery-heading { margin: 14px 0 0; }
+body .gallery-page .gx-card.lc .gallery-heading h2 {
+  margin: 0; color: #111 !important;
+  font-size: clamp(36px, 4.2vw, 56px); line-height: 0.98; letter-spacing: -0.035em; font-weight: 700;
+}
+.lc-hook { margin: 12px 0 0; font-size: 20px; line-height: 1.3; font-weight: 500; color: #6b7078; }
+.lc-copy .gx-source { margin-top: 12px; }
+
+.lc-go {
+  position: absolute; right: 28px; top: 28px; z-index: 2;
+  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: #111; color: #fff; pointer-events: none;
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
+}
+.lc-go svg { width: 18px; height: 18px; }
+.gx-card.lc:hover .lc-go { transform: rotate(-45deg) scale(1.08); }
+
+/* The Awakening Loop */
+.lc-loop .lc-ghost { color: #e3f4ee; }
+.lc-orb {
+  right: 150px; top: 40px; width: 400px; height: 360px; overflow: hidden;
+  border-radius: 50% 50% 46% 54% / 55% 50% 50% 45%;
+  box-shadow: 0 50px 80px -30px rgba(7, 40, 32, 0.55), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.lc-orb img { width: 100%; height: 100%; object-fit: cover; object-position: 35% 30%; transform: scale(1.15); }
+.lc-jeti { right: 430px; top: 230px; width: 150px; filter: drop-shadow(0 22px 20px rgba(0, 0, 0, 0.25)); transform: rotate(-10deg); }
+.lc-loop:hover .lc-orb { transform: translateY(-8px) rotate(-2deg); }
+.lc-loop:hover .lc-jeti { transform: rotate(-2deg) translate(-12px, -16px); }
+
+/* MoodLog */
+.lc-mood .lc-ghost { color: #fff0c7; }
+.lc-mood .lc-l { filter: drop-shadow(0 26px 22px rgba(80, 50, 0, 0.22)); }
+.lc-c1 { right: 400px; top: 120px; width: 200px; transform: rotate(-6deg); }
+.lc-c2 { right: 220px; top: 70px; width: 220px; }
+.lc-c3 { right: 50px; top: 140px; width: 200px; transform: rotate(6deg); }
+.lc-mood:hover .lc-c1 { transform: rotate(-10deg) translateY(-14px); }
+.lc-mood:hover .lc-c2 { transform: translateY(-22px) scale(1.04); }
+.lc-mood:hover .lc-c3 { transform: rotate(10deg) translateY(-10px); }
+
+/* TikTok */
+.lc-tt .lc-ghost { color: #ffe9ee; }
+.lc-plate { right: 110px; top: 30px; width: 380px; height: 380px; border-radius: 50%; overflow: hidden; box-shadow: 0 50px 70px -30px rgba(60, 10, 20, 0.5); }
+.lc-plate img { position: absolute; width: 560px; height: 420px; max-width: none; left: -84px; top: -14px; }
+.lc-pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 999px;
+  background: #fff; color: #111; font-size: 15px; font-weight: 700; white-space: nowrap;
+  box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.3), 0 0 0 1px #eee;
+}
+.lc-pill i { font-style: normal; color: #fe2c55; }
+.lc-p1 { right: 430px; top: 110px; transform: rotate(-6deg); }
+.lc-p3 { right: 420px; top: 300px; transform: rotate(3deg); }
+.lc-p2 { right: 60px; top: 300px; background: #fe2c55; color: #fff; box-shadow: 0 18px 30px -12px rgba(254, 44, 85, 0.5); transform: rotate(5deg); }
+.lc-tt:hover .lc-plate { transform: rotate(18deg) translateY(-8px); }
+.lc-tt:hover .lc-p1 { transform: rotate(-10deg) translate(-10px, -8px); }
+.lc-tt:hover .lc-p2 { transform: rotate(8deg) translate(10px, 6px); }
+
+/* Narrower screens: art on top (stage scaled, centred), copy below */
+@media (max-width: 1100px) {
+  .gallery-page .gx-card.lc { height: auto; }
+  .lc-art { position: relative; inset: auto; height: 340px; }
+  .lc-stage { right: auto; left: 50%; transform: translateX(-50%) scale(0.72); transform-origin: top center; }
+  .lc-copy { position: relative; left: auto; bottom: auto; max-width: none; padding: 0 40px 36px; }
+}
+@media (max-width: 720px) {
+  .gallery-page .gx-card.lc { border-radius: 26px; }
+  .lc-art { height: 270px; }
+  .lc-stage { transform: translateX(-50%) scale(0.56); }
+  .lc-copy { padding: 0 24px 26px; }
+  .lc-hook { font-size: 17px; }
+  .lc-go { width: 38px; height: 38px; right: 18px; top: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-l, .lc-go { transition: none; }
+}

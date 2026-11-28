@@ -870,6 +870,7 @@ window.JAMIE_ZH = {
   "Jump to an experiment": "跳到一个实验",
   "Play": "玩一玩",
   "Reflect": "想一想",
+  "Decide": "做决定",
   "Explore": "看一看",
   "A short game about a robot who moves the same block every day, until something changes.": "一个关于机器人的小游戏：它每天都在搬同一块积木，直到有一天，事情起了变化。",
   "Interactive game": "互动游戏",
@@ -881,5 +882,8 @@ window.JAMIE_ZH = {
   "AI agent design": "AI Agent 设计",
   "Rule-driven demo": "规则驱动的演示",
   "Source": "查看源码",
+  "Same block, every day. Until.": "每天搬同一块积木。直到那一天。",
+  "Name the feeling. Then write it down.": "说出这种感觉，再把它写下来。",
+  "The video makes you hungry. The page helps you decide.": "视频让你饿了，页面帮你做决定。",
   "Experiments": "实验"
 };
