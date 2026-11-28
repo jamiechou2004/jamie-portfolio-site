@@ -20,3 +20,6 @@ node_modules/
 .vercel/
 dist/
 build/
+
+# Full-size PNG exports from Figma; the site uses the WebP copies in assets/shopwise/.
+assets/shopwise/raw/
