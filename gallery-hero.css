@@ -1,0 +1,36 @@
+/* Gallery hero (Nov 28 2026): same voice as the homepage hero.
+   Bricolage title with hand-drawn marks, and the black guide capsule whose sub-pill holds Play / Reflect / Decide.
+   Capsule / sub-pill / pill styles come from hero-flow.css. */
+body .gg-intro.gl{padding:36px 0 56px}
+.gl-intro{max-width:820px}
+html body .gl h1.gl-hello,html#sf-rounded-site body .gl h1.gl-hello{font-family:"Bricolage Grotesque","SF Pro Rounded",ui-rounded,system-ui,sans-serif!important;
+  font-variation-settings:"opsz" 96!important;font-weight:800!important;letter-spacing:-.028em!important;line-height:.98!important;
+  font-size:clamp(56px,7vw,104px)!important;margin:20px 0 0!important;width:max-content;max-width:100%}
+.gl-dot{display:inline-block;color:#ee9a5d;transform-origin:50% 80%;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.gl-hello:hover .gl-dot{transform:translateY(-6px) scale(1.15) rotate(-8deg)}
+html body .gl .gl-sub{font-size:clamp(22px,2.4vw,34px);line-height:1.24;letter-spacing:-.015em;font-weight:500;color:#8a8f98;margin:20px 0 48px}
+
+.gl-mark{position:relative;display:inline-block;white-space:nowrap}
+.gl-mark svg{position:absolute;pointer-events:none;overflow:visible;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gl-mark path{vector-effect:non-scaling-stroke}
+/* drawn with a left-to-right wipe: dash tricks break with non-scaling strokes at this size */
+.gl-mark svg{clip-path:inset(-20% 100% -20% -20%);animation:gl-wipe .9s cubic-bezier(.65,0,.35,1) forwards}
+.gl-mark-circle svg{left:-5%;top:2%;width:110%;height:104%}
+.gl-mark-circle path{stroke:#ee9a5d;stroke-width:3}
+.gl-mark-circle svg{animation-delay:.5s}
+.gl-mark-line svg{left:-1%;width:102%;bottom:-.1em;height:.22em}
+.gl-mark-line path{stroke:#8fb07c;stroke-width:5}
+.gl-mark-line svg{animation-delay:1.05s}
+@keyframes gl-wipe{to{clip-path:inset(-20% -20% -20% -20%)}}
+
+.gl .hf-pill small{font-size:13px;font-weight:500;opacity:.7;margin-right:4px}
+.gl .hf-pill[aria-pressed=true] small{opacity:.55}
+.gl .ha-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media(max-width:600px){
+  body .gg-intro.gl{padding:16px 0 32px}
+  html body .gl h1.gl-hello,html#sf-rounded-site body .gl h1.gl-hello{font-size:44px!important}
+  html body .gl .gl-sub{font-size:22px;margin:16px 0 32px}
+  .gl .hf-pill small{display:none}
+}
+@media(prefers-reduced-motion:reduce){.gl-mark svg{clip-path:none;animation:none}}
