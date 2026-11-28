@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html id="sf-rounded-site" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Jamie Zhou’s Shopwise case study: an AI furniture planner that helps a new mover furnish a whole home on one budget, and knows where AI should stop." name="description"/>
+<meta content="#ffffff" name="theme-color"/>
+<title>Shopwise — A home that feels like you | Jamie Zhou</title>
+<link href="/favicon.svg?v=r2-20260911" rel="icon" type="image/svg+xml"/>
+<link href="/portfolio-2027.css?v=cursor-small-20260927" rel="stylesheet"/>
+<link href="/site-typography.css?v=20261004-sf1" rel="stylesheet"/>
+<link href="/i18n.css?v=20261019-globe" rel="stylesheet"/>
+<link href="/shopwise.css?v=20261128-1" rel="stylesheet"/>
+</head>
+<body class="case-study-page sw-case">
+<div aria-hidden="true" class="scroll-progress"></div>
+<header class="site-header">
+<a aria-label="Jamie Zhou home" class="brand" href="/homepage.html"><span class="brand-mark"><img alt="" aria-hidden="true" height="32" src="/assets/identity/r2-ribbon.svg" width="32"/></span></a>
+<nav aria-label="Case navigation" class="site-nav">
+<a href="/homepage.html">Work</a><a href="#how">How it works</a><a href="#try">Try it</a><a data-contact-open="" href="mailto:Jamiechou2004@outlook.com">Contact</a>
+</nav>
+</header>
+
+<main class="sw-page" id="main-content">
+
+<!-- 01 Hero -->
+<section class="sw-hero" id="overview" aria-labelledby="sw-title">
+  <div class="sw-hero-copy">
+    <div class="sw-brand"><img src="/assets/shopwise/logo.webp" alt="" width="48" height="48"/><span>shopwise</span></div>
+    <h1 id="sw-title">A new place. <br/>A home that feels like you.</h1>
+    <dl class="sw-meta">
+      <div><dt>Role</dt><dd>Solo project</dd></div>
+      <div><dt>Timeline</dt><dd>Fall 2026</dd></div>
+      <div><dt>Platforms</dt><dd>iPhone · Apple Watch · Web console</dd></div>
+      <div><dt>Tools</dt><dd>Figma · React + TypeScript</dd></div>
+    </dl>
+  </div>
+  <div class="sw-hero-phones" aria-hidden="true">
+    <div class="sw-phone"><img src="/assets/shopwise/design-1.webp" alt="" width="585" height="1266" fetchpriority="high"/></div>
+    <div class="sw-phone"><img src="/assets/shopwise/design-3.webp" alt="" width="585" height="1266"/></div>
+    <div class="sw-phone"><img src="/assets/shopwise/checkout-2.webp" alt="" width="585" height="1266"/></div>
+  </div>
+</section>
+
+<nav aria-label="Case study chapters" class="case-chapter-nav sw-chapters"><a href="#overview">01 Overview</a><a href="#problem">02 Problem</a><a href="#user">03 The user</a><a href="#research">04 Research</a><a href="#testing">05 Testing</a><a href="#how">06 How it works</a><a href="#ai">07 Where AI stops</a><a href="#other">08 Watch &amp; console</a><a href="#try">09 Try it</a><a href="#system">10 Design system</a><a href="#reflection">11 Reflection</a></nav>
+<!-- 02 Problem -->
+<section class="sw-section" id="problem">
+  <div class="sw-head"><p class="sw-kicker">01 / The problem</p><h2>Furnishing a home is harder <br/>than choosing a product.</h2></div>
+  <div class="sw-stats">
+    <article class="sw-card sw-stat"><strong>1 in 9</strong><span>Americans moved in 2024</span><small class="sw-source">Point2Homes / Census, via Axios, 2025</small></article>
+    <article class="sw-card sw-stat"><strong>$74B</strong><span>US home furnishings bought online</span><small class="sw-source">IBISWorld, via Home News Now, 2025</small></article>
+    <article class="sw-card sw-stat"><strong>60%</strong><span>of online buyers got the wrong size</span><small class="sw-source">Fixtuur survey, 1,500 UK buyers, Oct 2025</small></article>
+  </div>
+  <div class="sw-pains">
+    <article class="sw-card sw-reveal"><span class="sw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="2"/><path d="M7 8v3M11 8v4M15 8v3M19 8v3"/></svg></span><div class="sw-reveal-row"><h3>Hard to picture what fits</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">Product photos show other people’s rooms.</p></article>
+    <article class="sw-card sw-reveal"><span class="sw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 5H7l6 7-6 7h10"/></svg></span><div class="sw-reveal-row"><h3>Hard to add up the total</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">Every piece has its own site, cart and fees.</p></article>
+    <article class="sw-card sw-reveal"><span class="sw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h13l-3-3M20 15H7l3 3"/></svg></span><div class="sw-reveal-row"><h3>Hard to change one piece</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">One swap can mean redoing the plan.</p></article>
+  </div>
+</section>
+
+<!-- 03 Alex -->
+<section class="sw-section" id="user">
+  <div class="sw-head"><p class="sw-kicker">02 / The user</p><h2>Alex just moved <br/>to New York.</h2></div>
+  <div class="sw-alex">
+    <figure class="sw-alex-portrait"><img src="/assets/shopwise/alex.webp" alt="Illustration of Alex holding a coffee and a phone in front of moving boxes" width="720" height="840" loading="lazy"/></figure>
+    <div class="sw-alex-copy">
+      <p class="sw-big">$3,000</p>
+      <p class="sw-big-label">to furnish an empty apartment</p>
+      <ul class="sw-facts">
+        <li><span class="sw-icon sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-4 9 4-9 4-9-4zM7 11v4c0 1.5 2.2 3 5 3s5-1.5 5-3v-4"/></svg></span>Just graduated, first job</li>
+        <li><span class="sw-icon sm"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span>Lives alone</li>
+        <li><span class="sw-icon sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/></svg></span>Empty apartment</li>
+      </ul>
+      <button class="sw-pill sw-pill-toggle" type="button" aria-expanded="false" aria-controls="sw-storyboards"><span>See the storyboards</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+    </div>
+  </div>
+  <div class="sw-storyboards" id="sw-storyboards" hidden>
+    <div class="sw-seg" role="tablist" aria-label="Storyboards">
+      <button role="tab" aria-selected="true" data-tab="sb-alex" type="button">Alex · customer</button>
+      <button role="tab" aria-selected="false" data-tab="sb-merchant" type="button">Merchant</button>
+    </div>
+    <div class="sw-sb-grid" data-panel="sb-alex">
+      <figure><img src="/assets/shopwise/sb-alex-1.webp" alt="" loading="lazy" width="960" height="540"/><figcaption>Moving into a new home</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-alex-2.webp" alt="" loading="lazy" width="960" height="540"/><figcaption>See the plan</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-alex-3.webp" alt="" loading="lazy" width="960" height="540"/><figcaption>Discovering Shopwise</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-alex-4.webp" alt="" loading="lazy" width="960" height="540"/><figcaption>Defining needs and budget</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-alex-5.webp" alt="" loading="lazy" width="960" height="540"/><figcaption>Previewing the room plan</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-alex-6.webp" alt="" loading="lazy" width="960" height="540"/><figcaption>Replacing before ordering</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-alex-7.webp" alt="" loading="lazy" width="960" height="540"/><figcaption>Reviewing and checking out</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-alex-8.webp" alt="" loading="lazy" width="960" height="540"/><figcaption>Following delivery to the door</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-alex-9.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Furnished, settled, at home</figcaption></figure>
+    </div>
+    <div class="sw-sb-grid" data-panel="sb-merchant" hidden>
+      <figure><img src="/assets/shopwise/sb-merchant-1.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Receiving store orders</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-merchant-2.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Reviewing order details</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-merchant-3.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Confirming and accepting</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-merchant-4.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Finding the right items</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-merchant-5.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Checking product condition</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-merchant-6.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Packing and labeling</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-merchant-7.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Handing over and shipping</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-merchant-8.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Delivery and receipt</figcaption></figure>
+      <figure><img src="/assets/shopwise/sb-merchant-9.webp" alt="" loading="lazy" width="768" height="432"/><figcaption>Completing each store order</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 Research -->
+<section class="sw-section" id="research">
+  <div class="sw-head"><p class="sw-kicker">03 / Research</p><h2>Plans don’t fail in the store. <br/>They fail at the door.</h2></div>
+  <div class="sw-seg" role="tablist" aria-label="Experts">
+    <button role="tab" aria-selected="true" data-tab="ex-ikea" type="button">IKEA store staff</button>
+    <button role="tab" aria-selected="false" data-tab="ex-designer" type="button">Interior designer</button>
+  </div>
+  <div class="sw-expert" data-panel="ex-ikea">
+    <div class="sw-card sw-expert-card">
+      <span class="sw-chip">Doorways</span>
+      <h3>Shoppers forget to measure the way in.</h3>
+      <p class="sw-answer"><span class="sw-icon sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Shopwise asks for door and elevator size before checkout.</p>
+    </div>
+    <figure class="sw-expert-portrait"><img src="/assets/shopwise/expert-ikea.webp" alt="Illustration of an IKEA store staff member with a tape measure" width="717" height="896" loading="lazy"/></figure>
+  </div>
+  <div class="sw-expert" data-panel="ex-designer" hidden>
+    <div class="sw-card sw-expert-card">
+      <span class="sw-chip">Measure first</span>
+      <h3>Nothing is final until the room is measured.</h3>
+      <p class="sw-answer"><span class="sw-icon sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Shopwise starts every plan from your room size.</p>
+    </div>
+    <figure class="sw-expert-portrait"><img src="/assets/shopwise/expert-designer.webp" alt="Illustration of an interior designer" width="717" height="896" loading="lazy"/></figure>
+  </div>
+  <div class="sw-note sw-reveal"><div class="sw-reveal-row"><h3>Plus two usability sessions on wireframes</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">Two moderated sessions (P1, P2) on the first wireframes. What they changed is below.</p></div>
+</section>
+
+<!-- 05 What testing changed -->
+<section class="sw-section" id="testing">
+  <div class="sw-head"><p class="sw-kicker">04 / What testing changed</p><h2>Two sessions. <br/>Three fixes.</h2></div>
+  <div class="sw-pairs">
+    <article class="sw-pair">
+      <div class="sw-pair-phones">
+        <div class="sw-phone sw-phone-back"><img src="/assets/shopwise/wf-costs.webp" alt="Wireframe: one total before buying" loading="lazy" width="585" height="1266"/><span class="sw-tag">Before</span></div>
+        <div class="sw-phone"><img src="/assets/shopwise/checkout-2.webp" alt="Hi-fi: each cost on its own line, $2,807 of $3,000" loading="lazy" width="585" height="1266"/><span class="sw-tag dark">After</span></div>
+      </div>
+      <div class="sw-reveal"><div class="sw-reveal-row"><h3>Every charge listed</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">P2 saw a total over budget and couldn’t tell why. Now each cost has its own line, with what’s left of the budget.</p></div>
+    </article>
+    <article class="sw-pair">
+      <div class="sw-pair-phones">
+        <div class="sw-phone sw-phone-back"><img src="/assets/shopwise/wf-lamp.webp" alt="Wireframe: lamp detail" loading="lazy" width="585" height="1266"/><span class="sw-tag">Before</span></div>
+        <div class="sw-phone"><img src="/assets/shopwise/change-1.webp" alt="Hi-fi: Replace button on the selected lamp" loading="lazy" width="585" height="1266"/><span class="sw-tag dark">After</span></div>
+      </div>
+      <div class="sw-reveal"><div class="sw-reveal-row"><h3>Replace sits on the item</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">P2 couldn’t find where to swap a piece. Replace moved onto the selected item.</p></div>
+    </article>
+    <article class="sw-pair">
+      <div class="sw-pair-phones">
+        <div class="sw-phone sw-phone-back"><img src="/assets/shopwise/wf-add.webp" alt="Wireframe: sofa detail without an add action" loading="lazy" width="585" height="1266"/><span class="sw-tag">Before</span></div>
+        <div class="sw-phone"><img src="/assets/shopwise/hf-add.webp" alt="Hi-fi: Add to plan on the sofa" loading="lazy" width="585" height="1266"/><span class="sw-tag dark">After</span></div>
+      </div>
+      <div class="sw-reveal"><div class="sw-reveal-row"><h3>Add to plan, on the item</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">P1 liked a piece but had no way to add it. Add to plan now sits on the item.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- 06 How Shopwise works -->
+<section class="sw-section" id="how">
+  <div class="sw-head"><p class="sw-kicker">05 / How Shopwise works</p><h2>One order. <br/>Five moments.</h2></div>
+  <div class="sw-seg sw-seg-scroll" role="tablist" aria-label="Workflows">
+    <button role="tab" aria-selected="false" data-tab="wf-onb" type="button">Onboarding</button>
+    <button role="tab" aria-selected="false" data-tab="wf-design" type="button">Design a room</button>
+    <button role="tab" aria-selected="false" data-tab="wf-change" type="button">Change a piece</button>
+    <button role="tab" aria-selected="true" data-tab="wf-checkout" type="button">Checkout</button>
+    <button role="tab" aria-selected="false" data-tab="wf-delivery" type="button">Delivery &amp; after</button>
+  </div>
+  <div class="sw-trio" data-panel="wf-onb" hidden>
+    <figure class="sw-phone"><img src="/assets/shopwise/onb-1.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Welcome</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/onb-2.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Greeting</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/onb-3.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Home</figcaption></figure>
+  </div>
+  <div class="sw-trio" data-panel="wf-design" hidden>
+    <figure class="sw-phone"><img src="/assets/shopwise/design-1.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Budget</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/design-2.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Your brief</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/design-3.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Room plan</figcaption></figure>
+  </div>
+  <div class="sw-trio" data-panel="wf-change" hidden>
+    <figure class="sw-phone"><img src="/assets/shopwise/change-1.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Pick a piece</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/change-2.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Browse lamps</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/change-3.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Try it in the room</figcaption></figure>
+  </div>
+  <div class="sw-trio" data-panel="wf-checkout">
+    <figure class="sw-phone"><img src="/assets/shopwise/checkout-1.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Your furniture</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/checkout-2.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Review costs</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/checkout-3.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Lamp sold out</figcaption></figure>
+  </div>
+  <div class="sw-trio" data-panel="wf-delivery" hidden>
+    <figure class="sw-phone"><img src="/assets/shopwise/delivery-1.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Crew check-in</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/delivery-2.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Photo of the issue</figcaption></figure>
+    <figure class="sw-phone"><img src="/assets/shopwise/delivery-3.webp" alt="" loading="lazy" width="585" height="1266"/><figcaption>Exchange approved</figcaption></figure>
+  </div>
+</section>
+
+<!-- 07 Where AI stops -->
+<section class="sw-section" id="ai">
+  <div class="sw-head"><p class="sw-kicker">06 / Where AI stops</p><h2>AI helps. <br/>You decide.</h2></div>
+  <div class="sw-rules">
+    <article class="sw-card sw-rule"><div class="sw-rule-img"><img style="object-position:bottom" src="/assets/shopwise/ai-estimate.webp" alt="" loading="lazy" width="585" height="1266"/></div><h3>Estimates are labelled and editable</h3></article>
+    <article class="sw-card sw-rule"><div class="sw-rule-img"><img src="/assets/shopwise/change-3.webp" alt="" loading="lazy" width="585" height="1266"/></div><h3>A trial swap waits for Keep</h3></article>
+    <article class="sw-card sw-rule"><div class="sw-rule-img"><img src="/assets/shopwise/ai-decide.webp" alt="" loading="lazy" width="585" height="1266"/></div><h3>Nothing is added or paid without you</h3></article>
+    <article class="sw-card sw-rule"><div class="sw-rule-img"><img src="/assets/shopwise/ai-room.webp" alt="" loading="lazy" width="585" height="1266"/></div><h3>A photo can’t prove the size</h3></article>
+  </div>
+</section>
+
+<!-- 08 The other side -->
+<section class="sw-section" id="other">
+  <div class="sw-head"><p class="sw-kicker">07 / The other side</p><h2>The same order, <br/>from the wrist and the console.</h2></div>
+  <div class="sw-seg" role="tablist" aria-label="Other surfaces">
+    <button role="tab" aria-selected="true" data-tab="os-watch" type="button">Apple Watch</button>
+    <button role="tab" aria-selected="false" data-tab="os-gm" type="button">GM console</button>
+  </div>
+  <div class="sw-watches" data-panel="os-watch">
+    <figure><img src="/assets/shopwise/watch-1.webp" alt="" loading="lazy" width="624" height="744"/><figcaption>Arriving · 25 min</figcaption></figure>
+    <figure><img src="/assets/shopwise/watch-2.webp" alt="" loading="lazy" width="624" height="744"/><figcaption>Crew is at your door</figcaption></figure>
+    <figure><img src="/assets/shopwise/watch-3.webp" alt="" loading="lazy" width="624" height="744"/><figcaption>How was your delivery?</figcaption></figure>
+  </div>
+  <div class="sw-console" data-panel="os-gm" hidden>
+    <img src="/assets/shopwise/gm-console.webp" alt="GM console: order SW-10482 held at the hub, store runs, delivery and what Shopwise earns" loading="lazy" width="1440" height="900"/>
+  </div>
+</section>
+
+<!-- 08 Try it -->
+<section class="sw-section" id="try">
+  <div class="sw-head"><p class="sw-kicker">08 / Try it</p><h2>Don’t take my word for it. <br/>Tap through it here.</h2></div>
+  <div class="sw-seg" role="tablist" aria-label="Live prototypes">
+    <button role="tab" aria-selected="true" data-live="customer" type="button">Customer app</button>
+    <button role="tab" aria-selected="false" data-live="gm" type="button">GM console</button>
+  </div>
+  <div class="sw-live" data-mode="customer">
+    <div class="sw-live-frame">
+      <div class="sw-live-screen">
+        <button class="sw-live-poster" type="button" aria-label="Load the live prototype">
+          <img src="/assets/shopwise/onb-3.webp" alt="" loading="lazy" width="585" height="1266"/>
+          <span class="sw-live-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><span>Live · tap to play</span></span>
+        </button>
+      </div>
+    </div>
+    <div class="sw-flows" aria-label="Start from a flow">
+      <p class="sw-flows-label">Start from</p>
+      <div class="sw-flow-grid">
+        <button type="button" data-flow="onboarding"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.2 5.6L20 9l-4.5 3.8L17 19l-5-3.2L7 19l1.5-6.2L4 9l5.8-.4z"/></svg><span>Onboarding</span></button>
+        <button type="button" data-flow="design"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M10 20v-5h4v5"/></svg><span>Design a room</span></button>
+        <button type="button" data-flow="change"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h13l-3-3M20 15H7l3 3"/></svg><span>Change a piece</span></button>
+        <button type="button" data-flow="checkout"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span>Checkout</span></button>
+        <button type="button" data-flow="delivery"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg><span>Delivery</span></button>
+        <button type="button" data-flow="ai"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l1.6 4.4L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.6zM18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg><span>Ask AI</span></button>
+      </div>
+      <a class="sw-pill" id="sw-open-full" href="https://jamiechou2004.github.io/ShopWise_CustomerSide/customer/" target="_blank" rel="noopener"><span>Open full screen</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5h6.5V10M12.5 3.5 4 12"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 09 Design system -->
+<section class="sw-section" id="system">
+  <div class="sw-head"><p class="sw-kicker">09 / Design system</p><h2>Warm white, one accent, <br/>one typeface.</h2></div>
+  <div class="sw-tokens" aria-hidden="true">
+    <span style="--c:#ffffff"></span><span style="--c:#f6f4f1"></span><span style="--c:#efeae4"></span><span style="--c:#f6e7dc"></span><span style="--c:#b36636"></span><span style="--c:#7d4423"></span><span style="--c:#171412"></span>
+    <b>Aa</b>
+  </div>
+  <div class="sw-reveal sw-ds">
+    <div class="sw-reveal-row"><h3>Lexend Deca · terracotta #B36636 · SF Symbols</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div>
+    <div class="sw-reveal-body">
+      <p>Primary actions are near-black, never terracotta. Terracotta is for brand text, progress and selection only.</p>
+      <a class="sw-ds-img" href="/assets/shopwise/foundations.webp" target="_blank" rel="noopener"><img src="/assets/shopwise/foundations.webp" alt="Shopwise UI foundations: color, typography, spacing and radius tokens" loading="lazy" width="1200" height="675"/></a>
+    </div>
+  </div>
+</section>
+
+<!-- 10 Reflection -->
+<section class="sw-section" id="reflection">
+  <div class="sw-head"><p class="sw-kicker">10 / Reflection</p><h2>The hardest AI decision <br/>is where it should stop.</h2></div>
+  <div class="sw-lessons">
+    <article class="sw-card sw-reveal"><span class="sw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4M6 4h11l-2 4 2 4H6"/></svg></span><div class="sw-reveal-row"><h3>Decide where AI stops</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">Most of the work was choosing what the assistant must not do: guess sizes, hide doubt, or spend money.</p></article>
+    <article class="sw-card sw-reveal"><span class="sw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg></span><div class="sw-reveal-row"><h3>Uncertainty can build trust</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">Marking an estimate and making it editable felt more trustworthy than a confident wrong answer.</p></article>
+    <article class="sw-card sw-reveal"><span class="sw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span><div class="sw-reveal-row"><h3>Next: build it for real</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">A coded React prototype for all five flows, and replace beyond the lamp.</p></article>
+  </div>
+</section>
+
+<footer class="sw-footer">
+  <div class="sw-next"><p>Next / AI product</p><a class="sw-next-title" href="/chance.html">Explore Chance AI</a><div class="sw-next-actions"><a class="sw-pill" href="/chance.html"><span>View case study</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9M8.75 4.25 12.5 8l-3.75 3.75"/></svg></a><a class="sw-text-link" href="/homepage.html">Back to selected work</a></div></div>
+  <a class="sw-top" href="#"><span class="sw-top-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 12.5v-9M4.25 7.25 8 3.5l3.75 3.75"/></svg></span><span>Back to top</span></a>
+</footer>
+</main>
+<script src="/portfolio-2027.js?v=20261105-rail"></script>
+<script src="/shopwise.js?v=20261128-1"></script>
+<script src="/i18n-zh.js?v=20261128-sw"></script><script src="/i18n.js?v=20261019-globe"></script>
+</body>
+</html>

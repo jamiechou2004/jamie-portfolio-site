@@ -85,6 +85,7 @@
   const projectLinks = [
     ["axel.html", "Axel SaaS"],
     ["chance.html", "Chance AI"],
+    ["shopwise.html", "Shopwise"],
     ["tiktok.html", "TikTok Design Test"],
     ["honda.html", "HondaConnect"],
     ["deloitte.html", "Deloitte x SCADpro"],
