@@ -6,7 +6,7 @@ window.GalleryGuideEffects={
  tap(actor){return actor.animate([{transform:'scale(1)'},{transform:'scale(1.06,.91)',offset:.25},{transform:'translateY(-7px) scale(.98,1.04)',offset:.6},{transform:'scale(1)'}],{duration:360,easing:'ease-out'});}
 };
 (()=>{'use strict';
-const root=document.querySelector('.gg-intro');if(!root)return;const actor=root.querySelector('.gg-character'),home=root.querySelector('.gg-home'),speech=root.querySelector('.gg-speech'),links=[...root.querySelectorAll('[data-project]')];let count=0,last=0,resetTimer,travelTimer,celebrateTimer,arrival=null,busy=false;
+const root=document.querySelector('.gg-intro');if(!root||!root.querySelector('.gg-home'))return;const actor=root.querySelector('.gg-character'),home=root.querySelector('.gg-home'),speech=root.querySelector('.gg-speech'),links=[...root.querySelectorAll('[data-project]')];let count=0,last=0,resetTimer,travelTimer,celebrateTimer,arrival=null,busy=false;
 const recall=root.querySelector('.gg-recall');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)');const zh=()=>document.documentElement.dataset.language==='zh';
 const copy={away:['Out exploring.','正在探索中。'],recall:['Call back','召回小向导'],eyebrow:['Gallery / Small experiments','Gallery / 小小实验'],title:['A little <span class="gg-word">curiosity</span>.<br>Your next click.','一点<span class="gg-word">好奇心</span>。<br>从下一次点击开始。'],description:['Pick an experiment. I’ll show you around.','选一个实验，我带你逛逛。'],play:['Play','玩一玩'],reflect:['Reflect','想一想'],explore:['Explore','探索'],tonight:['Where Tonight','今晚去哪'],decide:['Decide','做决定'],hint:['Choose a project, or tap the little guide.','选一个项目，也可以戳戳小向导。']};
