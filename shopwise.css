@@ -297,3 +297,8 @@ body.sw-case .portfolio-rail, body.sw-case .site-header { background: #fff; }
 .sw-iphone-screen.is-light .sw-statusbar { color: #fff; }
 .sw-iphone-screen.is-light .sw-homebar { background: #fff; }
 .sw-iphone-screen.no-status .sw-statusbar { opacity: 0; }
+
+/* How-it-works video (05) */
+.sw-video { margin: 0 0 56px; border-radius: 32px; overflow: hidden; background: #FBF9F7; }
+.sw-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+@media (max-width: 720px) { .sw-video { border-radius: 20px; margin-bottom: 40px; } }
