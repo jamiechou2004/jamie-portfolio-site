@@ -387,53 +387,131 @@
     addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; card.style.visibility = ''; } }, { once: true });
   };
 
-  /* ---- E: Jamie's clay storyboard — walk in, peek into the hole, dive, land in front of the glowing project card ---- */
+  /* ---- E: Jamie's clay storyboard, animated: the clay guide (cut out of the frames) waddles in, a hole opens,
+     it stops and peeks, squashes, leaps, dives head-first, its feet kick, clay bits pop, the hole swallows the screen,
+     and it lands in the dark in front of the glowing project card. ---- */
   const TITLES = [['Axel', 'Axel'], ['Gallery', 'Gallery'], ['Chance AI', 'Chance AI']];
   const travelStory = (href, i) => {
-    const W = innerWidth, H = innerHeight, R = 941 / 1672;
-    const iw = Math.min(W, H / R), ih = iw * R, il = (W - iw) / 2, it = (H - ih) / 2;
-    const at = (fx, fy) => ({ x: il + iw * fx, y: it + ih * fy });
-    const src = (n) => `assets/transition/${n}.webp`;
+    const W = innerWidth, H = innerHeight, src = (n) => `assets/transition/${n}`;
+    const mh = Math.min(H * .3, W * .32, 250);           // mascot height
+    const hw = mh * 1.55, hh = hw * .27;                 // hole size
+    const hx = W * (W < 700 ? .62 : .58), hy = H * .64;  // hole centre
+    const ground = hy - hh * .12;
     const ov = document.createElement('div');
     ov.className = 'hf-travel hf-travel-e';
     ov.innerHTML = `<div class="hf-travel-veil"></div>
-      <img class="hf-f hf-f-walk" alt="" src="${src('walk')}"><img class="hf-f hf-f-peek" alt="" src="${src('peek')}"><img class="hf-f hf-f-dive" alt="" src="${src('dive')}">
-      <div class="hf-hole"></div>
-      <div class="hf-f-dark"><img class="hf-f hf-f-arrive" alt="" src="${src('arrive')}">${i === 0 ? '' : `<div class="hf-f-sign">${L(TITLES[i] || TITLES[0])}</div>`}<span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
+      <div class="hf-e-hole"></div>
+      <div class="hf-e-feet-clip"><img class="hf-e-feet" alt="" src="${src('guide-feet.png')}"></div>
+      <div class="hf-e-clip"><div class="hf-e-shadow"></div><div class="hf-e-m"><div class="hf-e-body"><img class="hf-e-walk" alt="" src="${src('guide-walk.png')}"><img class="hf-e-peek" alt="" src="${src('guide-peek.png')}"></div><span class="hf-e-bang">!</span></div></div>
+      <div class="hf-e-bits"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hf-e-puffs"><i></i><i></i><i></i><i></i></div>
+      <div class="hf-hole hf-e-swallow"></div>
+      <div class="hf-f-dark"><div class="hf-e-scene"><img class="hf-f-arrive" alt="" src="${src('arrive.webp')}"><div class="hf-e-glow"></div>${i === 0 ? '' : `<div class="hf-f-sign">${L(TITLES[i] || TITLES[0])}</div>`}</div><span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
     document.body.append(ov);
     actor.style.visibility = 'hidden';
-    const $o = (c) => ov.querySelector(c);
-    ov.querySelectorAll('.hf-f').forEach((im) => Object.assign(im.style, { left: `${il}px`, top: `${it}px`, width: `${iw}px`, height: `${ih}px` }));
+    const $o = (c) => ov.querySelector(c), all = (c) => [...ov.querySelectorAll(c)];
+    const A = (el, kf, o) => el.animate(kf, { fill: 'forwards', ...o });
+    const set = (el, st) => Object.assign(el.style, st);
+    const px = (v) => `${v}px`;
+
+    // layout
+    set($o('.hf-e-hole'), { left: px(hx - hw / 2), top: px(hy - hh / 2), width: px(hw), height: px(hh) });
+    set($o('.hf-e-feet-clip'), { left: px(hx - hw / 2), top: px(hy - hh * 2.2), width: px(hw), height: px(hh * 2.32), overflow: 'hidden' });
+    const fw = hw * .5; set($o('.hf-e-feet'), { width: px(fw), left: px(hw / 2 - fw / 2), top: px(hh * 2.32 - fw * .38) });
+    $o('.hf-e-clip').style.clipPath = `inset(0 0 ${H - hy}px 0)`; // nothing shows below the hole's mouth
+    const m = $o('.hf-e-m'), body = $o('.hf-e-body'), walk = $o('.hf-e-walk'), peek = $o('.hf-e-peek'), shadow = $o('.hf-e-shadow');
+    const mw = mh * (406 / 410);
+    set(m, { width: px(mw), height: px(mh), left: px(-mw / 2), top: px(-mh) });     // anchored at its feet
+    const stopX = hx - hw / 2 - mw * .32;                  // where it stops, toes at the rim
+    const startX = -mw;
+    set(shadow, { width: px(mw * .8), height: px(mh * .07), left: px(-mw * .4), top: px(-mh * .035) });
+    const place = (x, y) => `translate(${x}px, ${y}px)`;
+
+    A($o('.hf-travel-veil'), [{ opacity: 0 }, { opacity: 1 }], { duration: 260 });
+
+    // 1. waddle in (outer moves; body bobs + tilts each step)
+    const T0 = 150, walkMs = 1150, steps = 6;
+    const track = [{ transform: place(startX, ground) }, { transform: place(stopX, ground) }];
+    A(m, track, { duration: walkMs, delay: T0, easing: 'cubic-bezier(.3,.1,.4,1)' });
+    A(shadow, track, { duration: walkMs, delay: T0, easing: 'cubic-bezier(.3,.1,.4,1)' });
+    const bob = [];
+    for (let k = 0; k <= steps; k++) {
+      const t = k / steps, up = k % 2 ? -mh * .07 : 0, rot = k % 2 ? (k % 4 === 1 ? -5 : 5) : 0;
+      bob.push({ transform: `translateY(${up}px) rotate(${rot}deg) scale(${k % 2 ? '.98,1.03' : '1.03,.97'})`, offset: t });
+    }
+    bob[steps].transform = 'none';
+    A(body, bob, { duration: walkMs, delay: T0, easing: 'ease-in-out', fill: 'none' });
+    // dust puffs behind the feet
+    all('.hf-e-puffs i').forEach((p, k) => {
+      const t = T0 + walkMs * (.2 + k * .2), x = startX + (stopX - startX) * (.25 + k * .2) - mw * .2;
+      set(p, { left: px(x), top: px(ground - 10) });
+      A(p, [{ transform: 'scale(.2)', opacity: 0 }, { transform: 'scale(1)', opacity: .9, offset: .25 }, { transform: 'translate(-14px,-10px) scale(1.4)', opacity: 0 }], { duration: 600, delay: t, easing: 'ease-out' });
+    });
+
+    // 2. the hole opens in front of it
+    A($o('.hf-e-hole'), [{ transform: 'scale(0,.2)' }, { transform: 'scale(1.08,1.1)', offset: .7 }, { transform: 'scale(1)' }], { duration: 520, delay: T0 + walkMs - 450, easing: 'cubic-bezier(.34,1.5,.64,1)' });
+
+    // 3. stop, notice ("!"), swap to the peeking pose and lean over the edge
+    const T1 = T0 + walkMs;
+    A(body, [{ transform: 'none' }, { transform: 'scale(1.07,.92)' }, { transform: 'none' }], { duration: 220, delay: T1, easing: 'ease-out', fill: 'none' });
+    A(walk, [{ opacity: 1 }, { opacity: 0 }], { duration: 90, delay: T1 + 120 });
+    A(peek, [{ opacity: 0 }, { opacity: 1 }], { duration: 90, delay: T1 + 120 });
+    A($o('.hf-e-bang'), [{ transform: 'translate(-50%,0) scale(0)', opacity: 0 }, { transform: 'translate(-50%,-10px) scale(1.2)', opacity: 1, offset: .3 }, { transform: 'translate(-50%,-6px) scale(1)', opacity: 1, offset: .75 }, { transform: 'translate(-50%,-6px) scale(1)', opacity: 0 }], { duration: 700, delay: T1 + 60 });
+    A(body, [{ transform: 'none' }, { transform: 'rotate(6deg)', offset: .4 }, { transform: 'rotate(4deg)', offset: .6 }, { transform: 'rotate(8deg)' }], { duration: 650, delay: T1 + 220, easing: 'ease-in-out' });
+
+    // 4. squash, leap, flip head-first into the hole (clipped at the hole's mouth)
+    const T2 = T1 + 900;
+    A(body, [{ transform: 'rotate(8deg)' }, { transform: 'rotate(4deg) scale(1.12,.84)' }], { duration: 160, delay: T2, easing: 'ease-in' });
+    A(shadow, [{ opacity: 1 }, { opacity: 0 }], { duration: 200, delay: T2 + 160 });
+    const apexX = (stopX + hx) / 2, apexY = ground - mh * .85;
+    A(m, [
+      { transform: place(stopX, ground) },
+      { transform: `${place(apexX, apexY)} rotate(70deg)`, offset: .45 },
+      { transform: `${place(hx, hy - mh * .2)} rotate(165deg)`, offset: .75 },
+      { transform: `${place(hx, hy + mh * 1.3)} rotate(180deg)` },
+    ], { duration: 720, delay: T2 + 160, easing: 'cubic-bezier(.3,0,.6,1)' });
+    A(body, [{ transform: 'rotate(4deg) scale(1.12,.84)' }, { transform: 'rotate(0) scale(.9,1.14)', offset: .3 }, { transform: 'scale(.86,1.18)' }], { duration: 720, delay: T2 + 160 });
+
+    // 5. splash: clay bits pop, the feet poke out and kick
+    const T3 = T2 + 160 + 560;
+    const cols = ['#2b2b2b', '#bdbdbd', '#6f9fd8', '#1f1f1f', '#9a9a9a'];
+    all('.hf-e-bits i').forEach((b, k) => {
+      const ang = -150 + k * 30, d = mh * (.45 + (k % 2) * .15);
+      set(b, { left: px(hx), top: px(hy - hh * .2), background: cols[k] });
+      A(b, [{ transform: 'translate(-50%,-50%) scale(.2)', opacity: 0 },
+        { transform: `translate(calc(-50% + ${Math.cos(ang * Math.PI / 180) * d}px), calc(-50% + ${Math.sin(ang * Math.PI / 180) * d}px)) rotate(${ang + 90}deg) scale(1)`, opacity: 1, offset: .45 },
+        { transform: `translate(calc(-50% + ${Math.cos(ang * Math.PI / 180) * d * 1.15}px), calc(-50% + ${Math.sin(ang * Math.PI / 180) * d * .6 + mh * .35}px)) rotate(${ang + 150}deg) scale(.8)`, opacity: 0 }],
+        { duration: 900, delay: T3 + k * 25, easing: 'cubic-bezier(.2,.8,.4,1)' });
+    });
+    const feet = $o('.hf-e-feet');
+    A(feet, [{ transform: 'translateY(120%)' }, { transform: 'translateY(-6%) scaleY(1.08)', offset: .4 }, { transform: 'translateY(0)', offset: .55 },
+      { transform: 'translateY(0) rotate(-6deg)', offset: .68 }, { transform: 'translateY(0) rotate(6deg)', offset: .8 }, { transform: 'translateY(0) rotate(0)', offset: .88 }, { transform: 'translateY(130%)' }],
+      { duration: 1000, delay: T3, easing: 'ease-in-out' });
+
+    // 6. the hole swallows the screen
+    const T4 = T3 + 950;
+    const sw = $o('.hf-e-swallow');
+    set(sw, { left: px(hx), top: px(hy), width: px(hw), height: px(hh) });
+    const big = Math.hypot(W, H) * 2.4 / hw;
+    A(sw, [{ transform: 'translate(-50%,-50%) scale(1)', opacity: 1 }, { transform: 'translate(-50%,-50%) scale(1.06,1.4)', offset: .2 }, { transform: `translate(-50%,-50%) scale(${big}, ${big * 3.6})`, opacity: 1 }],
+      { duration: 650, delay: T4, easing: 'cubic-bezier(.7,0,.3,1)' });
+
+    // 7. lands in the dark, the project card glows
+    const T5 = T4 + 600;
+    const R = 941 / 1672, narrow = W / H < 1, iw = narrow ? W / .52 : Math.max(W, H / R), ih = iw * R;  // cover; on portrait screens show the guide + card strip
+    const scene = $o('.hf-e-scene'), arrive = scene;
+    // phones: keep the card in view (anchor the crop on the card side)
+    const ox = narrow ? -iw * .22 : (W - iw) / 2;
+    set(scene, { left: px(ox), top: px((H - ih) / 2), width: px(iw), height: px(ih) });
     const sign = $o('.hf-f-sign');
-    if (sign) { const a = at(.548, .415); Object.assign(sign.style, { left: `${a.x}px`, top: `${a.y}px`, width: `${iw * .208}px`, height: `${ih * .31}px`, borderRadius: `${ih * .03}px`, fontSize: `${ih * (i === 2 ? .068 : .08)}px` }); }
-    const dots = $o('.hf-travel-dots'); dots.style.top = `${it + ih * .86}px`;
-    const fade = (el, a, b, d, delay = 0) => el.animate([{ opacity: a }, { opacity: b }], { duration: d, delay, fill: 'forwards', easing: 'ease' });
-    const walk = $o('.hf-f-walk'), peek = $o('.hf-f-peek'), dive = $o('.hf-f-dive'), dark = $o('.hf-f-dark'), hole = $o('.hf-hole');
-    fade($o('.hf-travel-veil'), 0, 1, 280);
-    // 1. walks in from the left, bobbing, to where it will peek (0.5 → 0.34 across the frame)
-    fade(walk, 0, 1, 200, 120);
-    walk.animate([
-      { transform: `translate(${-iw * .45}px, ${ih * .04}px)` }, { transform: `translate(${-iw * .36}px, ${ih * .02}px) rotate(-2deg)` },
-      { transform: `translate(${-iw * .27}px, ${ih * .05}px)` }, { transform: `translate(${-iw * .2}px, ${ih * .03}px) rotate(2deg)` },
-      { transform: `translate(${-iw * .16}px, ${ih * .05}px)` },
-    ], { duration: 1000, delay: 120, easing: 'linear', fill: 'forwards' });
-    // 2. stops at the edge and peeks in
-    fade(walk, 1, 0, 220, 1120); fade(peek, 0, 1, 220, 1120);
-    peek.animate([{ transform: 'none' }, { transform: 'translateY(-4px)' }, { transform: 'none' }], { duration: 600, delay: 1350, easing: 'ease-in-out' });
-    // 3. dives in, feet sticking out, little clay bits pop
-    fade(peek, 1, 0, 160, 1950); fade(dive, 0, 1, 160, 1950);
-    dive.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.015,.985)' }, { transform: 'scale(1)' }], { duration: 300, delay: 2000 });
-    // 4. the hole opens over everything
-    const hc = at(.533, .717);
-    Object.assign(hole.style, { left: `${hc.x}px`, top: `${hc.y}px`, width: `${iw * .335}px`, height: `${ih * .17}px` });
-    const big = Math.hypot(W, H) * 2.2 / (iw * .335);
-    hole.animate([{ transform: 'translate(-50%,-50%) scale(1)', opacity: 0 }, { transform: 'translate(-50%,-50%) scale(1)', opacity: 1, offset: .05 }, { transform: `translate(-50%,-50%) scale(${big}, ${big * 2})`, opacity: 1 }],
-      { duration: 620, delay: 2550, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' });
-    // 5. lands in the dark in front of the glowing project card
-    fade(dark, 0, 1, 500, 3150);
-    $o('.hf-f-arrive').animate([{ transform: 'scale(1.08)' }, { transform: 'scale(1)' }], { duration: 1400, delay: 3150, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' });
-    try { sessionStorage.setItem('hf-arrive', String(Date.now() + 3000)); } catch {}
-    setTimeout(() => { location.href = href; }, 4300);
+    if (sign) set(sign, { left: '54.8%', top: '41.5%', width: '20.8%', height: '31%', borderRadius: px(ih * .03), fontSize: px(ih * (i === 2 ? .068 : .08)) });
+    set($o('.hf-e-glow'), { left: '65%', top: '57%', width: px(iw * .5), height: px(iw * .5) });
+    $o('.hf-f-dark .hf-travel-dots').style.top = px(H * .86);
+    A($o('.hf-f-dark'), [{ opacity: 0 }, { opacity: 1 }], { duration: 500, delay: T5 });
+    A(arrive, [{ transform: 'scale(1.12) translateY(2%)' }, { transform: 'scale(1)' }], { duration: 1500, delay: T5, easing: 'cubic-bezier(.22,1,.36,1)' });
+    A($o('.hf-e-glow'), [{ opacity: 0, transform: 'translate(-50%,-50%) scale(.6)' }, { opacity: .9, transform: 'translate(-50%,-50%) scale(1.05)', offset: .5 }, { opacity: .55, transform: 'translate(-50%,-50%) scale(1)' }], { duration: 1200, delay: T5 + 250, easing: 'ease-out' });
+    try { sessionStorage.setItem('hf-arrive', String(Date.now() + 4000)); } catch {}
+    setTimeout(() => { location.href = href; }, T5 + 1350);
     addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; } }, { once: true });
   };
 
