@@ -151,16 +151,16 @@ body .chance-page #interaction .cp-details > summary {
   width: fit-content;
   min-height: 40px;
   padding: 9px 16px 9px 18px;
-  border: 1px solid #d6dbe1;
+  border: 1px solid #111;
   border-radius: 999px;
-  background: #fff;
-  color: var(--cs-text) !important;
+  background: #111;
+  color: #fff !important;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2;
   list-style: none;
   cursor: pointer;
-  transition: background-color .15s ease, border-color .15s ease;
+  transition: background-color .15s ease, border-color .15s ease, transform .1s ease;
 }
 body .chance-page #interaction .cp-details > summary::-webkit-details-marker { display: none; }
 body .chance-page #interaction .cp-details > summary::marker { content: ""; }
@@ -175,15 +175,15 @@ body .chance-page #interaction .cp-details > summary::after {
   transition: transform .2s ease, margin .2s ease;
 }
 body .chance-page #interaction .cp-details[open] > summary::after { transform: rotate(-135deg); margin-top: 3px; }
-body .chance-page #interaction .cp-details > summary:hover { background: #f4f6f8; border-color: #c4cbd3; }
-body .chance-page #interaction .cp-details > summary:active { background: #eceff2; }
+body .chance-page #interaction .cp-details > summary:hover { background: #2b2d31; border-color: #2b2d31; }
+body .chance-page #interaction .cp-details > summary:active { background: #000; transform: scale(.98); }
 body .chance-page #interaction .cp-details > summary:focus-visible {
   outline: 2px solid var(--cs-accent) !important;
   outline-offset: 3px;
   border-radius: 999px;
 }
 body .chance-page #interaction .cp-details[open] { padding-bottom: 0; }
-body .chance-page #interaction .cp-details[open] > summary { background: var(--cs-accent-tint); border-color: #c9dbef; color: var(--cs-accent) !important; }
+body .chance-page #interaction .cp-details[open] > summary { background: #fff; border-color: #111; color: #111 !important; }
 
 /* Expanded flow: same frame language, smaller */
 body .chance-page #interaction .cp-gallery { margin-top: 24px; gap: 20px; }
