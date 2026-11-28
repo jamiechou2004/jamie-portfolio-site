@@ -1,5 +1,5 @@
 /* About hero (Nov 28 2026): hand-drawn marks on the lede + the résumé capsule.
-   Tap the capsule: the guide reacts, "types", answers, then the capsule grows into the résumé page. */
+   Tap the capsule: the guide reacts, "types", answers, then the capsule grows to fill the screen, then opens the résumé (Google Drive). */
 (() => {
   'use strict';
   const intro = document.querySelector('.ab-intro');
@@ -59,7 +59,6 @@
       { transform: pos(W / 2, H / 2 - 100, .9) },
     ], { duration: 900, easing: 'cubic-bezier(.45,.05,.35,1)', fill: 'forwards' });
     setTimeout(() => { label.style.top = `${H / 2 - 20}px`; label.classList.add('is-on'); g.dataset.state = 'Guiding'; }, 700);
-    try { sessionStorage.setItem('hf-arrive', String(Date.now())); } catch {}
     setTimeout(() => { location.href = href; }, 1650);
     addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); cap.style.visibility = ''; busy = false; fx.set(actor, 'Waiting'); text.textContent = L(copy.idle); } }, { once: true });
   };
