@@ -97,7 +97,9 @@
     const u = new URL(t.href, location.href); u.searchParams.set('lang', zh() ? 'zh' : 'en');
     $('.hf-confirm').href = u.href;
     root.querySelectorAll('.hf-dots i').forEach((d, n) => d.classList.toggle('is-on', n === i));
-    $('.hf-next').setAttribute('aria-label', zh() ? '下一个' : 'Next theme');
+    const last = i === themes.length - 1, nx = $('.hf-next');
+    nx.classList.toggle('is-back', last);
+    nx.setAttribute('aria-label', last ? (zh() ? '回到第一个' : 'Back to the first theme') : (zh() ? '下一个' : 'Next theme'));
   };
   const restart = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
 
@@ -153,7 +155,10 @@
   fold.addEventListener('click', close);
   // Next arrow + swipe on the card cycle through the three themes.
   const step3 = (d) => pick((active + d + 3) % 3, d);
-  $('.hf-next').addEventListener('click', () => step3(1));
+  $('.hf-next').addEventListener('click', (e) => {
+    if (e.detail) e.currentTarget.blur(); // no lingering focus ring after a mouse/touch click
+    if (active === themes.length - 1) pick(0, -1); else step3(1);
+  });
   let sx = null, sy = 0;
   card.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') return; sx = e.clientX; sy = e.clientY; });
   card.addEventListener('pointerup', (e) => {
@@ -163,7 +168,7 @@
   });
   card.addEventListener('pointercancel', () => { sx = null; });
   pills.forEach((p, i) => {
-    p.addEventListener('click', () => pick(i, active < 0 ? 0 : i > active ? 1 : -1));
+    p.addEventListener('click', (e) => { if (e.detail) p.blur(); pick(i, active < 0 ? 0 : i > active ? 1 : -1); });
     const preview = () => { lookAt(p); if (active < 0) mood(themes[i].state); };
     const leave = () => { fx.resetGaze(actor); mood(active < 0 ? 'Waiting' : themes[active].state); };
     p.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') preview(); });
@@ -179,8 +184,58 @@
     e.preventDefault();
     const href = confirm.href;
     mood('Celebrating'); say(copy.go, { typing: false }); squash();
-    setTimeout(() => { location.href = href; }, 380);
+    setTimeout(() => travel(href, active), 420);
   });
+
+  /* ---- "Let's go" → the guide hops out of the capsule, leads you into a portal, the portal swallows the screen ---- */
+  const DEST = [['Axel', 'Axel'], ['Gallery', 'Gallery'], ['Chance AI · details', 'Chance AI · 细节']];
+  const travel = (href, i) => {
+    const av = actor.getBoundingClientRect();
+    const W = innerWidth, H = innerHeight;
+    const ov = document.createElement('div');
+    ov.className = 'hf-travel';
+    ov.innerHTML = `<div class="hf-travel-veil"></div><div class="hf-portal"></div><div class="hf-travel-label"><span>${zh() ? '小向导带你去' : 'Taking you to'}</span><strong>${L(DEST[i] || DEST[0])}</strong><span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
+    const g = actor.cloneNode(true);
+    g.removeAttribute('id'); g.tabIndex = -1; g.setAttribute('aria-hidden', 'true'); g.dataset.state = 'Guiding';
+    g.className = 'gg-character hf-travel-guide';
+    ov.append(g);
+    document.body.append(ov);
+    actor.style.visibility = 'hidden';
+    const size = 160, start = { x: av.left + av.width / 2, y: av.top + av.height / 2 };
+    const portal = { x: W * 0.72, y: H * 0.56 };
+    const s0 = av.width / size, s1 = Math.min(1.1, Math.max(.75, W / 1400));
+    const at = (p, sc, extra = '') => `translate(${p.x - size / 2}px, ${p.y - size / 2}px) scale(${sc}) ${extra}`;
+    const mid = (t, lift) => ({ x: start.x + (portal.x - start.x) * t, y: start.y + (portal.y - start.y) * t - lift });
+    const pd = ov.querySelector('.hf-portal');
+    pd.style.left = `${portal.x}px`; pd.style.top = `${portal.y + 34}px`;
+    // 1. veil fades in, guide grows out of the capsule
+    ov.querySelector('.hf-travel-veil').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, fill: 'forwards' });
+    const hop = g.animate([
+      { transform: at(start, s0), offset: 0 },
+      { transform: at(mid(0, 40), s1 * .9, 'rotate(-6deg)'), offset: .14 },
+      { transform: at(mid(.33, 0), s1, 'scale(1.08,.9)'), offset: .3 },
+      { transform: at(mid(.55, 90), s1, 'rotate(6deg)'), offset: .44 },
+      { transform: at(mid(.75, 0), s1, 'scale(1.08,.9)'), offset: .58 },
+      { transform: at(mid(.9, 60), s1, 'rotate(-4deg)'), offset: .68 },
+      { transform: at(portal, s1, 'scale(1.05,.94)'), offset: .78 },
+      { transform: at({ x: portal.x, y: portal.y + 30 }, s1 * .2, 'rotate(20deg)'), offset: 1 },
+    ], { duration: 1500, easing: 'cubic-bezier(.4,.1,.4,1)', fill: 'forwards' });
+    // 2. portal opens on the floor while the guide is on its way
+    pd.animate([{ transform: 'translate(-50%,-50%) scale(0,0)' }, { transform: 'translate(-50%,-50%) scale(1,.32)', offset: .6 }, { transform: 'translate(-50%,-50%) scale(1,.3)' }],
+      { duration: 900, delay: 500, easing: 'cubic-bezier(.34,1.4,.64,1)', fill: 'forwards' });
+    // 3. guide jumps in, portal swallows the screen, label + loading dots
+    hop.finished.then(() => {
+      g.remove();
+      const R = Math.hypot(Math.max(portal.x, W - portal.x), Math.max(portal.y, H - portal.y)) * 2.3 / 180;
+      pd.animate([{ transform: 'translate(-50%,-50%) scale(1,.3)' }, { transform: 'translate(-50%,-50%) scale(1.25,.42)', offset: .25 }, { transform: `translate(-50%,-50%) scale(${R})` }],
+        { duration: 650, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' });
+      ov.classList.add('is-through');
+      try { sessionStorage.setItem('hf-arrive', String(Date.now())); } catch {}
+      setTimeout(() => { location.href = href; }, 1050);
+    }).catch(() => { location.href = href; });
+    // safety: if you come back with the back button, clean up
+    addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; } }, { once: true });
+  };
 
   // Tapping the guide itself: the old escalation (tickled → needs space → grumpy), said in the capsule.
   actor.addEventListener('click', (e) => {
