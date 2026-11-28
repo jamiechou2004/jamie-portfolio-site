@@ -23,8 +23,8 @@
     fold: ['Fold the guide away', '收起小向导'],
   };
   const items = [
-    { verb: ['Play', '玩一玩'], name: ['The Awakening Loop', 'The Awakening Loop'], state: 'Happy', say: ['Let’s play!', '一起玩吧！'] },
-    { verb: ['Reflect', '想一想'], name: ['MoodLog', 'MoodLog'], state: 'Celebrating', say: ['Time to slow down.', '慢下来想一想。'] },
+    { verb: ['Play', '玩一玩'], name: ['The Awakening Loop', 'The Awakening Loop'], state: 'Happy', say: ['Let’s play!', '一起玩吧！'], intro: 'awakening.html', play: 'https://the-awakening-loop.vercel.app/', playLabel: ['Play the game', '直接玩游戏'] },
+    { verb: ['Reflect', '想一想'], name: ['MoodLog', 'MoodLog'], state: 'Celebrating', say: ['Time to slow down.', '慢下来想一想。'], intro: 'moodlog.html', play: 'experiments/moodlog/', playLabel: ['Try the app', '直接试用'] },
   ];
 
   let step = 'idle', active = -1, current = copy.idle, sayTicket = 0, widthAnim = null, tapAnim = null, taps = 0, lastTap = 0, tapTimer = null;
@@ -69,6 +69,7 @@
   const close = async () => {
     active = -1; step = 'idle'; root.dataset.step = step;
     pills.forEach((p) => p.setAttribute('aria-pressed', 'false'));
+    resetChoice(); choice.hidden = true;
     talk.setAttribute('aria-expanded', 'false');
     mood('Waiting'); fx.resetGaze(actor);
     if (!pillsBox.hidden) {
@@ -79,20 +80,55 @@
     if (step === 'idle') say(copy.idle, { typing: false });
     talk.focus({ preventScroll: true });
   };
+  // After a pick: two ways in (read the intro page, or play it now). Choose one → it gets a tick → confirm appears.
+  const choice = document.createElement('div');
+  choice.className = 'gl-choice'; choice.hidden = true; choice.setAttribute('role', 'group');
+  choice.innerHTML = `<button type="button" class="gl-opt" data-way="intro" aria-pressed="false"><span class="gl-box"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg></span><span class="gl-opt-icon"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64ZM160,88h40a8,8,0,0,1,0,16H160a8,8,0,0,1,0-16Zm48,40a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,128Zm0,32a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,160Z"/></svg></span><span class="gl-opt-label"></span></button>`
+    + `<button type="button" class="gl-opt" data-way="play" aria-pressed="false"><span class="gl-box"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg></span><span class="gl-opt-icon"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></svg></span><span class="gl-opt-label"></span></button>`
+    + `<a class="gl-go" hidden><span class="gl-go-label"></span><span class="gl-go-icon"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a>`;
+  dock.after(choice);
+  const opts = [...choice.querySelectorAll('.gl-opt')], go = choice.querySelector('.gl-go');
+  let way = null;
+  const fillChoice = () => {
+    if (active < 0) return;
+    const it = items[active];
+    opts[0].querySelector('.gl-opt-label').textContent = zh() ? '看项目介绍' : 'See the project';
+    opts[1].querySelector('.gl-opt-label').textContent = L(it.playLabel);
+    go.querySelector('.gl-go-label').textContent = zh() ? '确认' : 'Confirm';
+    choice.setAttribute('aria-label', zh() ? `怎么进入 ${L(it.name)}` : `How to open ${L(it.name)}`);
+    if (way) {
+      const href = way === 'intro' ? it.intro : it.play;
+      go.href = href;
+      const external = /^https?:/.test(href);
+      if (external) { go.target = '_blank'; go.rel = 'noopener'; } else { go.removeAttribute('target'); go.removeAttribute('rel'); }
+    }
+  };
+  const choose = (w) => {
+    way = w;
+    opts.forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.way === w)));
+    fillChoice();
+    if (go.hidden) { go.hidden = false; }
+    mood('Celebrating');
+    say(w === 'intro' ? ['Read the story first?', '先看看介绍？'] : ['Straight in!', '直接上手！'], { typing: false });
+  };
+  const resetChoice = () => { way = null; opts.forEach((o) => o.setAttribute('aria-pressed', 'false')); go.hidden = true; };
+  opts.forEach((o) => {
+    o.addEventListener('click', (e) => { if (e.detail) o.blur(); choose(o.dataset.way); });
+    o.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') lookAt(o); });
+    o.addEventListener('pointerleave', () => fx.resetGaze(actor));
+  });
+  go.addEventListener('pointerenter', () => { lookAt(go); mood('Celebrating'); });
+  go.addEventListener('click', () => { mood('Guiding'); say(['Let’s go!', '出发！'], { typing: false }); squash(); });
+
   const pick = (i) => {
+    if (i === active) return;
     active = i; step = 'pick'; root.dataset.step = step;
     pills.forEach((p, n) => p.setAttribute('aria-pressed', String(n === i)));
     mood(items[i].state);
     say(items[i].say);
     status.textContent = L(items[i].name);
-    const target = document.querySelector(pills[i].dataset.target);
-    if (!target) return;
-    setTimeout(() => {
-      history.replaceState(null, '', pills[i].dataset.target);
-      target.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
-      const h = target.querySelector('h2');
-      if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
-    }, reduce.matches ? 0 : 750);
+    resetChoice(); fillChoice();
+    if (choice.hidden) { choice.hidden = false; } else if (!reduce.matches) { choice.animate([{ opacity: .3, transform: 'translateY(-4px)' }, { opacity: 1, transform: 'none' }], { duration: 300, easing: 'cubic-bezier(.22,1,.36,1)' }); }
   };
 
   talk.addEventListener('click', open);
@@ -141,6 +177,7 @@
     fold.setAttribute('aria-label', L(copy.fold));
     actor.setAttribute('aria-label', zh() ? '和小向导打招呼' : 'Say hello to the little guide');
     text.textContent = L(current);
+    if (active >= 0) fillChoice();
     // card copy the old gallery guide used to translate
     const tt = document.querySelector('[data-tt-card]');
     if (tt) tt.textContent = zh() ? '在 TikTok 上发现餐厅，却要离开去做决定。一个让决定留在 TikTok 里的店铺页。' : 'People find restaurants on TikTok, then leave to decide. A place page that keeps the decision in the app.';

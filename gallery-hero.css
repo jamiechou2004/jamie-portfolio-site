@@ -34,3 +34,27 @@ html body .gl .gl-sub{font-size:clamp(22px,2.4vw,34px);line-height:1.24;letter-s
   .gl .hf-pill small{display:none}
 }
 @media(prefers-reduced-motion:reduce){.gl-mark svg{clip-path:none;animation:none}}
+
+/* After a pick: two ways in + confirm (8px under the capsule) */
+.gl-choice{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px;animation:gl-choice-in .4s cubic-bezier(.22,1,.36,1) both}
+.gl-choice[hidden]{display:none}
+@keyframes gl-choice-in{from{opacity:0;transform:translateY(-6px)}}
+.gl-opt{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px 0 12px;border:0;border-radius:999px;background:#fff;color:#1d1d1f;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);font:inherit;font-size:16px;font-weight:600;letter-spacing:-.01em;cursor:pointer;white-space:nowrap;
+  transition:box-shadow .2s,transform .2s}
+.gl-opt:hover{box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+.gl-opt:active{transform:scale(.97)}
+.gl-opt[aria-pressed=true]{box-shadow:inset 0 0 0 2px #000}
+.gl-box{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:6px;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.25);color:#fff;padding:3px;transition:background .2s,box-shadow .2s}
+.gl-box svg{opacity:0;transform:scale(.4);transition:opacity .2s,transform .3s cubic-bezier(.34,1.56,.64,1)}
+.gl-opt[aria-pressed=true] .gl-box{background:#000;box-shadow:none}
+.gl-opt[aria-pressed=true] .gl-box svg{opacity:1;transform:none}
+.gl-opt-icon{display:inline-flex;width:18px;height:18px}
+.gl-go{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 16px 0 20px;border-radius:999px;background:#000;color:#fff!important;font-size:16px;font-weight:600;text-decoration:none!important;
+  animation:hf-pop .32s cubic-bezier(.34,1.56,.64,1) both;transition:background .2s}
+.gl-go[hidden]{display:none}
+.gl-go:hover{background:#1f1f22}
+.gl-go-icon{display:inline-flex;width:18px;height:18px;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.gl-go:hover .gl-go-icon{transform:translateX(3px)}
+.gl-choice svg{width:100%;height:100%;display:block}
+@media(max-width:600px){.gl-opt,.gl-go{height:44px;font-size:15px}.gl-opt{padding:0 14px 0 10px}}
