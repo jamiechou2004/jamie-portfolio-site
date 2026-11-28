@@ -1,0 +1,227 @@
+/* Chance AI case study · v2 (Nov 2026)
+   Direction approved in Figma ("Portfolio site · Case study refinement", page 02):
+   white page, no grey panels, depth from soft shadows only, text hidden until the
+   reader asks for it (+ toggles, hover labels). Loaded last on chance.html. */
+
+:root {
+  --cv2-ink: #111111;
+  --cv2-muted: #6e737a;
+  --cv2-shadow: 0 1px 2px rgba(15, 20, 30, .04), 0 8px 24px rgba(15, 20, 30, .06), 0 32px 64px -16px rgba(15, 20, 30, .12);
+  --cv2-shadow-hover: 0 1px 2px rgba(15, 20, 30, .05), 0 12px 32px rgba(15, 20, 30, .08), 0 40px 80px -20px rgba(15, 20, 30, .16);
+}
+
+/* ---------- 1. No grey panels anywhere on the page ---------- */
+body .chance-page :is(.cp-stage, .cp-frame, .delivery-summary, .delivery-feature, .cp-follow-close, .cp-steps, .cp-lego, .re-feature, .re-next, .cp-input-group) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body .chance-page .cp-frame { padding: 0 !important; }
+
+/* Screens: white, rounded, lifted by shadow */
+body .chance-page .cp-image {
+  border: 0 !important;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--cv2-shadow) !important;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+body .chance-page .cp-image:hover { box-shadow: var(--cv2-shadow-hover) !important; transform: translateY(-3px); }
+body .chance-page #interaction .cp-state-grid .cp-image { border: 0 !important; background: #fff; }
+body .chance-page #interaction .cp-state-grid .cp-image:hover { border: 0 !important; box-shadow: var(--cv2-shadow-hover) !important; }
+
+/* ---------- 2. Less text: section sub-paragraphs, eyebrows and captions go ---------- */
+body .chance-page :is(.cp-head > p:not(.cc-kicker), .re-intro > p:not(.cc-kicker), .cp-eyebrow, .cp-tail, .cp-path-hint, .cp-lego-note, .cp-rules, .cp-steps, .cp-follow-close > .cp-shared) { display: none !important; }
+body .chance-page .cp-path article > span:first-child { display: none; }
+
+/* ---------- 3. Hero: headline → floating screens → delivered tiles ---------- */
+body .chance-page .cp-hero { display: flex; flex-direction: column; }
+body .chance-page .cp-hero > .cp-top { order: 0; }
+body .chance-page .cp-hero > .cp-intro { order: 1; }
+body .chance-page .cp-hero > .cp-stage { order: 2; }
+body .chance-page .cp-hero > .delivery-summary { order: 3; }
+body .chance-page .cp-hero > #contribution { order: 4; }
+
+body .chance-page .cp-stage { padding: 56px 0 72px !important; gap: 56px; align-items: flex-start; }
+body .chance-page .cp-stage figure { margin: 0; }
+body .chance-page .cp-stage figcaption { display: none; }
+body .chance-page .cp-stage .cp-secondary { margin-top: 120px !important; }
+
+body .chance-page .delivery-summary { margin: 0 !important; padding: 0 !important; }
+body .chance-page .delivery-intro { display: none !important; }
+body .chance-page .delivery-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px !important; }
+body .chance-page .delivery-grid article {
+  position: relative;
+  padding: 28px !important;
+  border-radius: 24px;
+  background: #fff !important;
+  border: 0 !important;
+  box-shadow: var(--cv2-shadow) !important;
+}
+body .chance-page .delivery-grid .delivery-visual { width: 112px !important; height: 112px !important; margin: 0 0 20px !important; }
+body .chance-page .delivery-grid .delivery-label span { display: none; }
+body .chance-page .delivery-grid .delivery-label { margin: 0; }
+body .chance-page .delivery-grid h3 { margin: 0 !important; font-size: 20px !important; color: var(--cv2-ink); }
+
+/* ---------- 4. Reveal toggles (+), built by chance-v2.js ---------- */
+.cv2-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; }
+.cv2-row > :first-child { margin: 0 !important; }
+.cv2-toggle {
+  flex: none;
+  position: relative;
+  width: 40px; height: 40px;
+  border: 0; border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--cv2-shadow);
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.cv2-toggle::before, .cv2-toggle::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 14px; height: 1.75px; margin: -.875px 0 0 -7px;
+  border-radius: 2px; background: var(--cv2-ink);
+  transition: transform .25s ease, background-color .2s ease;
+}
+.cv2-toggle::after { transform: rotate(90deg); }
+.cv2-row:hover .cv2-toggle { box-shadow: var(--cv2-shadow-hover); transform: scale(1.06); }
+.cv2-item.is-open .cv2-toggle { background: var(--cv2-ink); }
+.cv2-item.is-open .cv2-toggle::before, .cv2-item.is-open .cv2-toggle::after { background: #fff; }
+.cv2-item.is-open .cv2-toggle::after { transform: rotate(0deg); }
+.cv2-toggle:focus-visible { outline: 2px solid #075eae; outline-offset: 3px; }
+
+html.cv2 .cv2-item .cv2-body { display: none !important; }
+html.cv2 .cv2-item.is-open .cv2-body { display: block !important; animation: cv2-in .28s ease both; }
+@keyframes cv2-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.cv2-item .cv2-body { margin: 14px 0 0 !important; max-width: 46ch; color: var(--cv2-muted) !important; font-size: 16px !important; line-height: 1.6 !important; }
+
+/* ---------- 5. Problem: three questions as reveal rows ---------- */
+body .chance-page .cp-split { gap: 96px; align-items: center; }
+body .chance-page .cp-old figcaption { display: none; }
+body .chance-page .cp-notes { gap: 0 !important; }
+body .chance-page .cp-notes article { border: 0 !important; padding: 26px 0 !important; }
+body .chance-page .cp-notes small { display: none; }
+body .chance-page .cp-notes h3 { font-size: clamp(26px, 3vw, 36px) !important; letter-spacing: -.02em; line-height: 1.15; color: var(--cv2-ink); }
+
+/* ---------- 6. Design direction: images + one label ---------- */
+body .chance-page .cp-path { gap: 24px; }
+body .chance-page .cp-path article { border: 0 !important; padding: 0 !important; display: flex; flex-direction: column-reverse; gap: 20px; }
+body .chance-page .cp-path .cp-image { height: 240px; margin: 0 !important; border-radius: 24px; }
+body .chance-page .cp-path strong { margin: 0 !important; font-size: 20px; color: var(--cv2-ink); }
+
+/* ---------- 7. Response structure: segmented Before / After, both screens visible ---------- */
+body .chance-page .cp-compare-controls {
+  display: inline-flex !important;
+  gap: 4px; padding: 4px; margin: 0 0 40px;
+  border-radius: 999px; background: #fff; box-shadow: var(--cv2-shadow);
+}
+body .chance-page .cp-compare-controls button {
+  min-height: 40px; padding: 8px 22px;
+  border: 0 !important; border-radius: 999px;
+  background: transparent !important; color: var(--cv2-muted) !important;
+  font-weight: 500; cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+body .chance-page .cp-compare-controls button[aria-pressed=true] { background: var(--cv2-ink) !important; color: #fff !important; }
+body .chance-page #structure .cp-pair figcaption { display: none; }
+body .chance-page #structure .cp-pair > figure { transition: opacity .35s ease, transform .35s ease, filter .35s ease; }
+@media (min-width: 701px) {
+  body .chance-page #structure .cp-pair > figure { display: block !important; }
+  body .chance-page #structure[data-compare=before] .cp-pair > figure:nth-child(2),
+  body .chance-page #structure[data-compare=after] .cp-pair > figure:nth-child(1) { opacity: .35; transform: scale(.96); filter: saturate(.6); }
+}
+
+/* ---------- 8. Follow-up: hover labels + black pill ---------- */
+body .chance-page :is(#followup .cp-follow, #lego .cp-lego) figure { position: relative; }
+body .chance-page #followup .cp-follow figcaption {
+  position: absolute; left: 50%; bottom: 16px; z-index: 2;
+  max-width: calc(min(100%, 340px) - 32px);
+  margin: 0 !important; padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, .88);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  color: #fff !important; font-size: 13px !important; line-height: 1.3; text-align: center;
+  pointer-events: none;
+  opacity: 0; transform: translate(-50%, 6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+body .chance-page #followup .cp-follow figure:is(:hover, :focus-within) figcaption { opacity: 1; transform: translate(-50%, 0); }
+body .chance-page .cp-follow-close { margin-top: 40px !important; padding: 0 !important; }
+body .chance-page .cp-sent-results figcaption { display: none; }
+
+/* Black pill disclosure everywhere on the page (matches the approved Input & recovery button) */
+body .chance-page .cp-details { border: 0 !important; padding: 0 !important; margin-top: 32px; }
+body .chance-page .cp-details > summary {
+  display: inline-flex; align-items: center; gap: 10px;
+  width: fit-content; min-height: 44px;
+  padding: 10px 18px 10px 20px !important;
+  border: 1px solid var(--cv2-ink); border-radius: 999px;
+  background: var(--cv2-ink); color: #fff !important;
+  font-size: 15px !important; font-weight: 500; line-height: 1.2;
+  list-style: none; cursor: pointer;
+  transition: background-color .15s ease, transform .1s ease;
+}
+body .chance-page .cp-details > summary::-webkit-details-marker { display: none; }
+body .chance-page .cp-details > summary::marker { content: ""; }
+body .chance-page .cp-details > summary::after {
+  content: ""; width: 12px; height: 12px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.25 6 7.75l3.5-3.5' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.25 6 7.75l3.5-3.5' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform .2s ease;
+}
+body .chance-page .cp-details[open] > summary::after { transform: rotate(180deg); }
+body .chance-page .cp-details > summary:hover { background: #2b2d31; border-color: #2b2d31; }
+body .chance-page .cp-details > summary:active { transform: scale(.98); }
+body .chance-page .cp-details[open] > summary { background: #fff; color: var(--cv2-ink) !important; }
+body .chance-page .cp-details[open] > :not(summary) { animation: cv2-in .3s ease both; }
+
+/* ---------- 9. Response cards ---------- */
+body .chance-page .cp-lego { padding: 0 !important; gap: 24px !important; }
+body .chance-page .cp-lego figcaption { margin-top: 18px !important; font-size: 18px !important; font-weight: 600; color: var(--cv2-ink) !important; }
+
+/* ---------- 10. Reflection: lessons as reveal rows ---------- */
+body .chance-page .re-feature { display: block !important; padding: 0 !important; margin: 0 !important; }
+body .chance-page .re-composition, body .chance-page .re-icon, body .chance-page .re-section .cc-kicker:not(.re-intro .cc-kicker) { display: none !important; }
+body .chance-page :is(.re-feature-copy, .re-lessons article) { padding: 26px 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
+body .chance-page .re-lessons { display: block !important; margin: 0 !important; }
+body .chance-page :is(.re-feature-copy, .re-lessons article) h3 { font-size: clamp(26px, 3vw, 36px) !important; letter-spacing: -.02em; line-height: 1.15; color: var(--cv2-ink); }
+body .chance-page .re-next { margin-top: 72px !important; padding: 0 !important; display: block !important; }
+body .chance-page .re-next h3 { font-size: 28px !important; margin: 0 0 24px !important; }
+body .chance-page .re-next ol { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+body .chance-page .re-next li { padding: 24px 24px 24px 28px !important; border: 0 !important; border-radius: 24px; background: #fff; box-shadow: var(--cv2-shadow); }
+body .chance-page .re-next li > span { display: none; }
+body .chance-page .re-next h4 { font-size: 18px !important; color: var(--cv2-ink); }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  body .chance-page .delivery-grid, body .chance-page .re-next ol { grid-template-columns: 1fr; gap: 16px !important; }
+  body .chance-page .cp-split { gap: 40px; }
+  body .chance-page .cp-stage { padding: 32px 0 48px !important; gap: 28px; }
+  body .chance-page .cp-stage .cp-secondary { margin-top: 0 !important; }
+  body .chance-page .cp-path .cp-image { height: 160px; }
+  body .chance-page #followup .cp-follow figcaption { position: static; opacity: 1; transform: none; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--cv2-ink) !important; padding: 12px 0 0; text-align: left; max-width: none; }
+}
+@media (hover: none) {
+  body .chance-page #followup .cp-follow figcaption { position: static; opacity: 1; transform: none; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--cv2-ink) !important; padding: 12px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .chance-page *, .cv2-toggle, .cv2-toggle::before, .cv2-toggle::after { transition: none !important; animation: none !important; }
+}
+
+/* ---------- 11. Footer: next case ---------- */
+body .chance-page .cc-footer { border: 0 !important; padding: 120px 0 0 !important; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+body .chance-page .cc-footer > p { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--cv2-muted); margin: 0; }
+body .chance-page .cc-footer > a:first-of-type { font-size: clamp(48px, 7vw, 88px) !important; font-weight: 600; letter-spacing: -.035em; line-height: 1; color: var(--cv2-ink) !important; text-decoration: none; }
+body .chance-page .cc-footer > a:first-of-type span { display: none; }
+
+/* ---------- fixes after first render ---------- */
+body .chance-page .cp-hero > .delivery-summary { width: 100%; display: block !important; }
+body .chance-page .delivery-grid article { display: block !important; min-width: 0; }
+body .chance-page .cp-stage .cp-secondary { width: 300px !important; }
+body .chance-page .cp-stage .cp-secondary .cp-image { aspect-ratio: 300 / 430 !important; }
+body .chance-page .re-lessons article, body .chance-page .re-feature-copy { margin: 0 !important; }
+body .chance-page .re-next li { display: flex !important; align-items: center; }
+body .chance-page .re-next li > div { flex: 1; min-width: 0; }
+body .chance-page .cc-footer > a:first-of-type > * { display: none !important; }
+body .chance-page .re-lessons { padding: 0 !important; gap: 0 !important; }
+body .chance-page :is(.re-feature, .re-feature-copy, .re-lessons, .re-lessons article) { width: 100% !important; max-width: none !important; box-sizing: border-box; }
+body .chance-page .re-feature { min-height: 0 !important; }
