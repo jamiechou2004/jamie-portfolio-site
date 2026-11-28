@@ -187,80 +187,55 @@
     setTimeout(() => travel(href, active), 420);
   });
 
-  /* ---- "Let's go": the card's clay illustration lifts to centre stage, the guide hops out of the capsule
-     into the picture (onto its clay twin), then the camera pushes in through the guide into black. ---- */
+  /* ---- "Let's go" → the guide hops out of the capsule, leads you into a portal, the portal swallows the screen ---- */
   const DEST = [['Axel', 'Axel'], ['Gallery', 'Gallery'], ['Chance AI · details', 'Chance AI · 细节']];
-  const GUIDE_AT = [[.83, .56], [.87, .56], [.85, .6]]; // where the clay guide sits in each illustration
   const travel = (href, i) => {
+    const av = actor.getBoundingClientRect();
     const W = innerWidth, H = innerHeight;
-    const from = art.getBoundingClientRect(), av = actor.getBoundingClientRect();
-    const ratio = (art.naturalHeight || 1024) / (art.naturalWidth || 1536);
-    const w = Math.min(W * (W < 700 ? .92 : .62), 920), h = w * ratio;
-    const to = { left: (W - w) / 2, top: (H - h) / 2 - H * .04 };
-    // object-fit: contain inside the card's art box → real drawn rect
-    const fs = Math.min(from.width / (art.naturalWidth || 1536), from.height / (art.naturalHeight || 1024));
-    const fw = (art.naturalWidth || 1536) * fs, fh = (art.naturalHeight || 1024) * fs;
-    const fl = from.left + (from.width - fw) / 2, ft = from.top + (from.height - fh) / 2;
-
     const ov = document.createElement('div');
     ov.className = 'hf-travel';
-    ov.innerHTML = `<div class="hf-travel-veil"></div><div class="hf-scene"><img alt="" src="${art.src}"></div><div class="hf-hole"></div>
-      <div class="hf-travel-label"><span>${zh() ? '小向导带你去' : 'Taking you to'}</span><strong>${L(DEST[i] || DEST[0])}</strong><span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
-    const scene = ov.querySelector('.hf-scene'), hole = ov.querySelector('.hf-hole'), label = ov.querySelector('.hf-travel-label');
-    Object.assign(scene.style, { left: `${to.left}px`, top: `${to.top}px`, width: `${w}px`, height: `${h}px` });
-    label.style.top = `${to.top + h + 8}px`;
+    ov.innerHTML = `<div class="hf-travel-veil"></div><div class="hf-portal"></div><div class="hf-travel-label"><span>${zh() ? '小向导带你去' : 'Taking you to'}</span><strong>${L(DEST[i] || DEST[0])}</strong><span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
     const g = actor.cloneNode(true);
-    g.tabIndex = -1; g.setAttribute('aria-hidden', 'true'); g.dataset.state = 'Happy';
+    g.removeAttribute('id'); g.tabIndex = -1; g.setAttribute('aria-hidden', 'true'); g.dataset.state = 'Guiding';
     g.className = 'gg-character hf-travel-guide';
     ov.append(g);
     document.body.append(ov);
     actor.style.visibility = 'hidden';
-    art.style.visibility = 'hidden';
-
-    const [gx, gy] = GUIDE_AT[i] || GUIDE_AT[0];
-    const land = { x: to.left + w * gx, y: to.top + h * gy };
-    const ease = 'cubic-bezier(.22,1,.36,1)';
-
-    // 1. veil + the illustration lifts out of the card to centre stage
-    ov.querySelector('.hf-travel-veil').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 320, fill: 'forwards' });
-    scene.animate([
-      { transform: `translate(${fl - to.left}px, ${ft - to.top}px) scale(${fw / w})`, borderRadius: '20px' },
-      { transform: 'translate(0,0) scale(1.02)', offset: .8 },
-      { transform: 'none' },
-    ], { duration: 700, easing: ease, fill: 'both' });
-
-    // 2. the guide hops out of the capsule into the picture, onto its clay twin
-    const size = 160, s0 = av.width / size, s1 = (w * .13) / 80; // clay guide ≈ 13% of the picture's width
-    const pos = (x, y, sc, extra = '') => `translate(${x - size / 2}px, ${y - size / 2}px) scale(${sc}) ${extra}`;
-    const sx = av.left + av.width / 2, sy = av.top + av.height / 2;
+    const size = 160, start = { x: av.left + av.width / 2, y: av.top + av.height / 2 };
+    const portal = { x: W * 0.72, y: H * 0.56 };
+    const s0 = av.width / size, s1 = Math.min(1.1, Math.max(.75, W / 1400));
+    const at = (p, sc, extra = '') => `translate(${p.x - size / 2}px, ${p.y - size / 2}px) scale(${sc}) ${extra}`;
+    const mid = (t, lift) => ({ x: start.x + (portal.x - start.x) * t, y: start.y + (portal.y - start.y) * t - lift });
+    const pd = ov.querySelector('.hf-portal');
+    pd.style.left = `${portal.x}px`; pd.style.top = `${portal.y + 34}px`;
+    // 1. veil fades in, guide grows out of the capsule
+    ov.querySelector('.hf-travel-veil').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, fill: 'forwards' });
     const hop = g.animate([
-      { transform: pos(sx, sy, s0), opacity: 1 },
-      { transform: pos(sx + (land.x - sx) * .3, Math.min(sy, land.y) - 120, s0 * 1.6, 'rotate(-8deg)'), offset: .35 },
-      { transform: pos(sx + (land.x - sx) * .7, Math.min(sy, land.y) - 160, s1 * 1.1, 'rotate(8deg)'), offset: .65 },
-      { transform: pos(land.x, land.y, s1, 'scale(1.12,.86)'), opacity: 1, offset: .9 },
-      { transform: pos(land.x, land.y, s1), opacity: 0 },
-    ], { duration: 900, delay: 380, easing: 'cubic-bezier(.45,.05,.4,1)', fill: 'both' });
-
+      { transform: at(start, s0), offset: 0 },
+      { transform: at(mid(0, 40), s1 * .9, 'rotate(-6deg)'), offset: .14 },
+      { transform: at(mid(.33, 0), s1, 'scale(1.08,.9)'), offset: .3 },
+      { transform: at(mid(.55, 90), s1, 'rotate(6deg)'), offset: .44 },
+      { transform: at(mid(.75, 0), s1, 'scale(1.08,.9)'), offset: .58 },
+      { transform: at(mid(.9, 60), s1, 'rotate(-4deg)'), offset: .68 },
+      { transform: at(portal, s1, 'scale(1.05,.94)'), offset: .78 },
+      { transform: at({ x: portal.x, y: portal.y + 30 }, s1 * .2, 'rotate(20deg)'), offset: 1 },
+    ], { duration: 1500, easing: 'cubic-bezier(.4,.1,.4,1)', fill: 'forwards' });
+    // 2. portal opens on the floor while the guide is on its way
+    pd.animate([{ transform: 'translate(-50%,-50%) scale(0,0)' }, { transform: 'translate(-50%,-50%) scale(1,.32)', offset: .6 }, { transform: 'translate(-50%,-50%) scale(1,.3)' }],
+      { duration: 900, delay: 500, easing: 'cubic-bezier(.34,1.4,.64,1)', fill: 'forwards' });
+    // 3. guide jumps in, portal swallows the screen, label + loading dots
     hop.finished.then(() => {
       g.remove();
-      // the clay picture "catches" the guide
-      scene.animate([{ transform: 'none' }, { transform: 'scale(1.025,.975)' }, { transform: 'none' }], { duration: 300, easing: 'ease-out' });
-      label.classList.add('is-on');
-      // 3. push in through the clay guide into black
-      setTimeout(() => {
-        label.classList.remove('is-on'); label.classList.add('is-off');
-        scene.style.transformOrigin = `${gx * 100}% ${gy * 100}%`;
-        scene.animate([{ transform: 'none', filter: 'blur(0)' }, { transform: 'scale(7)', filter: 'blur(2px)' }], { duration: 800, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' });
-        Object.assign(hole.style, { left: `${land.x}px`, top: `${land.y}px` });
-        const R = Math.hypot(Math.max(land.x, W - land.x), Math.max(land.y, H - land.y)) / 50;
-        hole.animate([{ transform: 'translate(-50%,-50%) scale(0)' }, { transform: `translate(-50%,-50%) scale(${R})` }], { duration: 700, delay: 220, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' });
-        try { sessionStorage.setItem('hf-arrive', String(Date.now())); } catch {}
-        setTimeout(() => { location.href = href; }, 960);
-      }, 650);
+      const R = Math.hypot(Math.max(portal.x, W - portal.x), Math.max(portal.y, H - portal.y)) * 2.3 / 180;
+      pd.animate([{ transform: 'translate(-50%,-50%) scale(1,.3)' }, { transform: 'translate(-50%,-50%) scale(1.25,.42)', offset: .25 }, { transform: `translate(-50%,-50%) scale(${R})` }],
+        { duration: 650, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' });
+      ov.classList.add('is-through');
+      try { sessionStorage.setItem('hf-arrive', String(Date.now())); } catch {}
+      setTimeout(() => { location.href = href; }, 1050);
     }).catch(() => { location.href = href; });
-    addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; art.style.visibility = ''; } }, { once: true });
+    // safety: if you come back with the back button, clean up
+    addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; } }, { once: true });
   };
-
 
   // Tapping the guide itself: the old escalation (tickled → needs space → grumpy), said in the capsule.
   actor.addEventListener('click', (e) => {
