@@ -265,6 +265,7 @@ window.JAMIE_ZH = {
   "Make interruptions understandable.": "让中断可以被理解。",
   "Review before sending. Distinguish an input limit, an upload in progress, and a failure.": "发送前可以检查，并明确区分输入数量限制、上传中与失败状态。",
   "Select → Review → Send": "选择 → 检查 → 发送",
+  "Select": "选择",
   "Text and images form one request. The user controls when it is sent.": "文字与图片组成同一个请求，由用户决定何时发送。",
   "Selection limit": "选择数量限制",
   "Show the 10-image limit while selecting.": "在选择过程中显示最多十张图片的限制。",
