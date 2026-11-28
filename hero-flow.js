@@ -189,7 +189,7 @@
 
   /* ---- "Let's go" → the guide hops out of the capsule, leads you into a portal, the portal swallows the screen ---- */
   const DEST = [['Axel', 'Axel'], ['Gallery', 'Gallery'], ['Chance AI · details', 'Chance AI · 细节']];
-  const travel = (href, i) => {
+  const travelPortal = (href, i) => {
     const av = actor.getBoundingClientRect();
     const W = innerWidth, H = innerHeight;
     const ov = document.createElement('div');
@@ -236,6 +236,221 @@
     // safety: if you come back with the back button, clean up
     addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; } }, { once: true });
   };
+  /* ---- "Let's go": the card's clay illustration lifts to centre stage, the guide hops out of the capsule
+     into the picture (onto its clay twin), then the camera pushes in through the guide into black. ---- */
+  const GUIDE_AT = [[.83, .56], [.87, .56], [.85, .6]]; // where the clay guide sits in each illustration
+  const travelPicture = (href, i) => {
+    const W = innerWidth, H = innerHeight;
+    const from = art.getBoundingClientRect(), av = actor.getBoundingClientRect();
+    const ratio = (art.naturalHeight || 1024) / (art.naturalWidth || 1536);
+    const w = Math.min(W * (W < 700 ? .92 : .62), 920), h = w * ratio;
+    const to = { left: (W - w) / 2, top: (H - h) / 2 - H * .04 };
+    // object-fit: contain inside the card's art box → real drawn rect
+    const fs = Math.min(from.width / (art.naturalWidth || 1536), from.height / (art.naturalHeight || 1024));
+    const fw = (art.naturalWidth || 1536) * fs, fh = (art.naturalHeight || 1024) * fs;
+    const fl = from.left + (from.width - fw) / 2, ft = from.top + (from.height - fh) / 2;
+
+    const ov = document.createElement('div');
+    ov.className = 'hf-travel hf-travel-b';
+    ov.innerHTML = `<div class="hf-travel-veil"></div><div class="hf-scene"><img alt="" src="${art.src}"></div><div class="hf-hole"></div>
+      <div class="hf-travel-label"><span>${zh() ? '小向导带你去' : 'Taking you to'}</span><strong>${L(DEST[i] || DEST[0])}</strong><span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
+    const scene = ov.querySelector('.hf-scene'), hole = ov.querySelector('.hf-hole'), label = ov.querySelector('.hf-travel-label');
+    Object.assign(scene.style, { left: `${to.left}px`, top: `${to.top}px`, width: `${w}px`, height: `${h}px` });
+    label.style.top = `${to.top + h + 8}px`;
+    const g = actor.cloneNode(true);
+    g.tabIndex = -1; g.setAttribute('aria-hidden', 'true'); g.dataset.state = 'Happy';
+    g.className = 'gg-character hf-travel-guide';
+    ov.append(g);
+    document.body.append(ov);
+    actor.style.visibility = 'hidden';
+    art.style.visibility = 'hidden';
+
+    const [gx, gy] = GUIDE_AT[i] || GUIDE_AT[0];
+    const land = { x: to.left + w * gx, y: to.top + h * gy };
+    const ease = 'cubic-bezier(.22,1,.36,1)';
+
+    // 1. veil + the illustration lifts out of the card to centre stage
+    ov.querySelector('.hf-travel-veil').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 320, fill: 'forwards' });
+    scene.animate([
+      { transform: `translate(${fl - to.left}px, ${ft - to.top}px) scale(${fw / w})`, borderRadius: '20px' },
+      { transform: 'translate(0,0) scale(1.02)', offset: .8 },
+      { transform: 'none' },
+    ], { duration: 700, easing: ease, fill: 'both' });
+
+    // 2. the guide hops out of the capsule into the picture, onto its clay twin
+    const size = 160, s0 = av.width / size, s1 = (w * .13) / 80; // clay guide ≈ 13% of the picture's width
+    const pos = (x, y, sc, extra = '') => `translate(${x - size / 2}px, ${y - size / 2}px) scale(${sc}) ${extra}`;
+    const sx = av.left + av.width / 2, sy = av.top + av.height / 2;
+    const hop = g.animate([
+      { transform: pos(sx, sy, s0), opacity: 1 },
+      { transform: pos(sx + (land.x - sx) * .3, Math.min(sy, land.y) - 120, s0 * 1.6, 'rotate(-8deg)'), offset: .35 },
+      { transform: pos(sx + (land.x - sx) * .7, Math.min(sy, land.y) - 160, s1 * 1.1, 'rotate(8deg)'), offset: .65 },
+      { transform: pos(land.x, land.y, s1, 'scale(1.12,.86)'), opacity: 1, offset: .9 },
+      { transform: pos(land.x, land.y, s1), opacity: 0 },
+    ], { duration: 900, delay: 380, easing: 'cubic-bezier(.45,.05,.4,1)', fill: 'both' });
+
+    hop.finished.then(() => {
+      g.remove();
+      // the clay picture "catches" the guide
+      scene.animate([{ transform: 'none' }, { transform: 'scale(1.025,.975)' }, { transform: 'none' }], { duration: 300, easing: 'ease-out' });
+      label.classList.add('is-on');
+      // 3. push in through the clay guide into black
+      setTimeout(() => {
+        label.classList.remove('is-on'); label.classList.add('is-off');
+        scene.style.transformOrigin = `${gx * 100}% ${gy * 100}%`;
+        scene.animate([{ transform: 'none', filter: 'blur(0)' }, { transform: 'scale(7)', filter: 'blur(2px)' }], { duration: 800, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' });
+        Object.assign(hole.style, { left: `${land.x}px`, top: `${land.y}px` });
+        const R = Math.hypot(Math.max(land.x, W - land.x), Math.max(land.y, H - land.y)) / 50;
+        hole.animate([{ transform: 'translate(-50%,-50%) scale(0)' }, { transform: `translate(-50%,-50%) scale(${R})` }], { duration: 700, delay: 220, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' });
+        try { sessionStorage.setItem('hf-arrive', String(Date.now())); } catch {}
+        setTimeout(() => { location.href = href; }, 960);
+      }, 650);
+    }).catch(() => { location.href = href; });
+    addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; art.style.visibility = ''; } }, { once: true });
+  };
+  /* ---- C: the black capsule itself grows to fill the screen (Dynamic-Island style), the guide rides inside ---- */
+  const travelCapsule = (href, i) => {
+    const W = innerWidth, H = innerHeight, r = cap.getBoundingClientRect(), av = actor.getBoundingClientRect();
+    const ov = document.createElement('div');
+    ov.className = 'hf-travel hf-travel-c';
+    ov.innerHTML = `<div class="hf-blob"></div><div class="hf-travel-label hf-on-dark"><span>${zh() ? '小向导带你去' : 'Taking you to'}</span><strong>${L(DEST[i] || DEST[0])}</strong><span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
+    const blob = ov.querySelector('.hf-blob'), label = ov.querySelector('.hf-travel-label');
+    Object.assign(blob.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+    const g = actor.cloneNode(true); g.tabIndex = -1; g.setAttribute('aria-hidden', 'true'); g.dataset.state = 'Happy'; g.className = 'gg-character hf-travel-guide hf-guide-light';
+    ov.append(g); document.body.append(ov); actor.style.visibility = 'hidden';
+    const size = 160, s0 = av.width / size, s1 = Math.min(1.2, W / 1200);
+    const pos = (x, y, sc, extra = '') => `translate(${x - size / 2}px, ${y - size / 2}px) scale(${sc}) ${extra}`;
+    const sx = av.left + av.width / 2, sy = av.top + av.height / 2, cx = W / 2, cy = H / 2 - 40;
+    // squash, then the pill swells to cover everything
+    const sxS = W / r.width + .2, syS = H / r.height * 1.6;
+    blob.animate([
+      { transform: 'none', borderRadius: '999px' },
+      { transform: 'scale(.97,.9)', borderRadius: '999px', offset: .12 },
+      { transform: `translate(${cx - r.left - r.width / 2}px, ${cy - r.top - r.height / 2}px) scale(${Math.min(sxS, 3)}, ${Math.min(syS, 3)})`, borderRadius: '60px', offset: .5 },
+      { transform: `translate(${cx - r.left - r.width / 2}px, ${H / 2 - r.top - r.height / 2}px) scale(${sxS}, ${syS})`, borderRadius: '0px' },
+    ], { duration: 900, easing: 'cubic-bezier(.65,0,.25,1)', fill: 'forwards' });
+    g.animate([
+      { transform: pos(sx, sy, s0) },
+      { transform: pos(sx, sy, s0 * .9, 'scale(1.1,.85)'), offset: .12 },
+      { transform: pos(cx, cy - 140, s1 * .9, 'rotate(-8deg)'), offset: .55 },
+      { transform: pos(cx, cy - 70, s1, 'scale(1.1,.88)'), offset: .8 },
+      { transform: pos(cx, cy - 70, s1) },
+    ], { duration: 1100, easing: 'cubic-bezier(.45,.05,.35,1)', fill: 'forwards' }).finished.then(() => {
+      g.dataset.state = 'Guiding'; label.style.top = `${cy + 30}px`; label.classList.add('is-on');
+      try { sessionStorage.setItem('hf-arrive', String(Date.now())); } catch {}
+      setTimeout(() => {
+        g.animate([{ transform: pos(cx, cy - 70, s1) }, { transform: pos(W + 120, cy - 70, s1, 'rotate(10deg)') }], { duration: 500, easing: 'cubic-bezier(.6,0,.8,.4)', fill: 'forwards' });
+        label.classList.add('is-off');
+        setTimeout(() => { location.href = href; }, 420);
+      }, 700);
+    }).catch(() => { location.href = href; });
+    addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; } }, { once: true });
+  };
+
+  /* ---- D: the card lifts and grows into the next page; the guide hops onto it and rides along ---- */
+  const travelCard = (href, i) => {
+    const W = innerWidth, H = innerHeight, r = card.getBoundingClientRect(), av = actor.getBoundingClientRect();
+    const ov = document.createElement('div');
+    ov.className = 'hf-travel hf-travel-d';
+    ov.innerHTML = `<div class="hf-travel-veil"></div><div class="hf-sheet"></div><div class="hf-travel-label"><span>${zh() ? '小向导带你去' : 'Taking you to'}</span><strong>${L(DEST[i] || DEST[0])}</strong><span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
+    const sheet = ov.querySelector('.hf-sheet'), label = ov.querySelector('.hf-travel-label');
+    Object.assign(sheet.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+    sheet.append(card.cloneNode(true));
+    const g = actor.cloneNode(true); g.tabIndex = -1; g.setAttribute('aria-hidden', 'true'); g.dataset.state = 'Happy'; g.className = 'gg-character hf-travel-guide';
+    ov.append(g); document.body.append(ov); actor.style.visibility = 'hidden'; card.style.visibility = 'hidden';
+    ov.querySelector('.hf-travel-veil').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, fill: 'forwards' });
+    const size = 160, s0 = av.width / size, s1 = .7;
+    const pos = (x, y, sc, extra = '') => `translate(${x - size / 2}px, ${y - size / 2}px) scale(${sc}) ${extra}`;
+    const sx = av.left + av.width / 2, sy = av.top + av.height / 2;
+    const perch = { x: r.right - 90, y: r.top - 40 };
+    // guide hops onto the card's top edge
+    g.animate([
+      { transform: pos(sx, sy, s0) },
+      { transform: pos((sx + perch.x) / 2, Math.min(sy, perch.y) - 110, s1 * .8, 'rotate(8deg)'), offset: .5 },
+      { transform: pos(perch.x, perch.y, s1, 'scale(1.12,.86)'), offset: .85 },
+      { transform: pos(perch.x, perch.y, s1) },
+    ], { duration: 700, easing: 'cubic-bezier(.45,.05,.35,1)', fill: 'forwards' }).finished.then(() => {
+      sheet.animate([{ transform: 'none' }, { transform: 'translateY(6px) scale(.99)' }, { transform: 'none' }], { duration: 260 });
+      setTimeout(() => {
+        // card grows into the next page; the guide rides up and out
+        const sc = Math.max(W / r.width, H / r.height) * 1.05;
+        sheet.animate([{ transform: 'none', borderRadius: '28px' }, { transform: `translate(${W / 2 - r.left - r.width / 2}px, ${H / 2 - r.top - r.height / 2}px) scale(${sc})`, borderRadius: '0px' }],
+          { duration: 750, easing: 'cubic-bezier(.7,0,.25,1)', fill: 'forwards' });
+        sheet.firstChild.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, fill: 'forwards' });
+        g.animate([{ transform: pos(perch.x, perch.y, s1) }, { transform: pos(W / 2, H / 2 - 120, 1, 'rotate(-6deg)'), offset: .6 }, { transform: pos(W / 2, H / 2 - 90, 1) }],
+          { duration: 750, easing: 'cubic-bezier(.45,.05,.35,1)', fill: 'forwards' });
+        setTimeout(() => { label.style.top = `${H / 2 - 10}px`; label.classList.add('is-on'); g.dataset.state = 'Guiding'; }, 650);
+        try { sessionStorage.setItem('hf-arrive', String(Date.now())); } catch {}
+        setTimeout(() => { location.href = href; }, 1700);
+      }, 260);
+    }).catch(() => { location.href = href; });
+    addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; card.style.visibility = ''; } }, { once: true });
+  };
+
+  /* ---- E: Jamie's clay storyboard — walk in, peek into the hole, dive, land in front of the glowing project card ---- */
+  const TITLES = [['Axel', 'Axel'], ['Gallery', 'Gallery'], ['Chance AI', 'Chance AI']];
+  const travelStory = (href, i) => {
+    const W = innerWidth, H = innerHeight, R = 941 / 1672;
+    const iw = Math.min(W, H / R), ih = iw * R, il = (W - iw) / 2, it = (H - ih) / 2;
+    const at = (fx, fy) => ({ x: il + iw * fx, y: it + ih * fy });
+    const src = (n) => `assets/transition/${n}.webp`;
+    const ov = document.createElement('div');
+    ov.className = 'hf-travel hf-travel-e';
+    ov.innerHTML = `<div class="hf-travel-veil"></div>
+      <img class="hf-f hf-f-walk" alt="" src="${src('walk')}"><img class="hf-f hf-f-peek" alt="" src="${src('peek')}"><img class="hf-f hf-f-dive" alt="" src="${src('dive')}">
+      <div class="hf-hole"></div>
+      <div class="hf-f-dark"><img class="hf-f hf-f-arrive" alt="" src="${src('arrive')}">${i === 0 ? '' : `<div class="hf-f-sign">${L(TITLES[i] || TITLES[0])}</div>`}<span class="hf-travel-dots"><i></i><i></i><i></i></span></div>`;
+    document.body.append(ov);
+    actor.style.visibility = 'hidden';
+    const $o = (c) => ov.querySelector(c);
+    ov.querySelectorAll('.hf-f').forEach((im) => Object.assign(im.style, { left: `${il}px`, top: `${it}px`, width: `${iw}px`, height: `${ih}px` }));
+    const sign = $o('.hf-f-sign');
+    if (sign) { const a = at(.548, .415); Object.assign(sign.style, { left: `${a.x}px`, top: `${a.y}px`, width: `${iw * .208}px`, height: `${ih * .31}px`, borderRadius: `${ih * .03}px`, fontSize: `${ih * (i === 2 ? .068 : .08)}px` }); }
+    const dots = $o('.hf-travel-dots'); dots.style.top = `${it + ih * .86}px`;
+    const fade = (el, a, b, d, delay = 0) => el.animate([{ opacity: a }, { opacity: b }], { duration: d, delay, fill: 'forwards', easing: 'ease' });
+    const walk = $o('.hf-f-walk'), peek = $o('.hf-f-peek'), dive = $o('.hf-f-dive'), dark = $o('.hf-f-dark'), hole = $o('.hf-hole');
+    fade($o('.hf-travel-veil'), 0, 1, 280);
+    // 1. walks in from the left, bobbing, to where it will peek (0.5 → 0.34 across the frame)
+    fade(walk, 0, 1, 200, 120);
+    walk.animate([
+      { transform: `translate(${-iw * .45}px, ${ih * .04}px)` }, { transform: `translate(${-iw * .36}px, ${ih * .02}px) rotate(-2deg)` },
+      { transform: `translate(${-iw * .27}px, ${ih * .05}px)` }, { transform: `translate(${-iw * .2}px, ${ih * .03}px) rotate(2deg)` },
+      { transform: `translate(${-iw * .16}px, ${ih * .05}px)` },
+    ], { duration: 1000, delay: 120, easing: 'linear', fill: 'forwards' });
+    // 2. stops at the edge and peeks in
+    fade(walk, 1, 0, 220, 1120); fade(peek, 0, 1, 220, 1120);
+    peek.animate([{ transform: 'none' }, { transform: 'translateY(-4px)' }, { transform: 'none' }], { duration: 600, delay: 1350, easing: 'ease-in-out' });
+    // 3. dives in, feet sticking out, little clay bits pop
+    fade(peek, 1, 0, 160, 1950); fade(dive, 0, 1, 160, 1950);
+    dive.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.015,.985)' }, { transform: 'scale(1)' }], { duration: 300, delay: 2000 });
+    // 4. the hole opens over everything
+    const hc = at(.533, .717);
+    Object.assign(hole.style, { left: `${hc.x}px`, top: `${hc.y}px`, width: `${iw * .335}px`, height: `${ih * .17}px` });
+    const big = Math.hypot(W, H) * 2.2 / (iw * .335);
+    hole.animate([{ transform: 'translate(-50%,-50%) scale(1)', opacity: 0 }, { transform: 'translate(-50%,-50%) scale(1)', opacity: 1, offset: .05 }, { transform: `translate(-50%,-50%) scale(${big}, ${big * 2})`, opacity: 1 }],
+      { duration: 620, delay: 2550, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' });
+    // 5. lands in the dark in front of the glowing project card
+    fade(dark, 0, 1, 500, 3150);
+    $o('.hf-f-arrive').animate([{ transform: 'scale(1.08)' }, { transform: 'scale(1)' }], { duration: 1400, delay: 3150, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' });
+    try { sessionStorage.setItem('hf-arrive', String(Date.now() + 3000)); } catch {}
+    setTimeout(() => { location.href = href; }, 4300);
+    addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; } }, { once: true });
+  };
+
+  // Which transition plays: ?transition=a|b|c|d (preview only), default A (portal).
+  const VARIANT = (new URLSearchParams(location.search).get('transition') || 'a').toLowerCase();
+  const travel = (href, i) => {
+    if (VARIANT !== 'a') { try { const u = new URL(href); u.searchParams.set('transition', VARIANT); href = u.href; } catch {} }
+    ({ b: travelPicture, c: travelCapsule, d: travelCard, e: travelStory }[VARIANT] || travelPortal)(href, i);
+  };
+  // Small switcher while previewing
+  if (new URLSearchParams(location.search).has('transition')) {
+    const bar = document.createElement('div');
+    bar.className = 'hf-variant-bar';
+    bar.innerHTML = '<span>Transition</span>' + [['a', 'A · Portal'], ['b', 'B · Picture'], ['c', 'C · Capsule'], ['d', 'D · Card'], ['e', 'E · Clay story']].map(([k, n]) => `<a href="?transition=${k}" class="${k === VARIANT ? 'is-on' : ''}">${n}</a>`).join('');
+    document.body.append(bar);
+  }
+
 
   // Tapping the guide itself: the old escalation (tickled → needs space → grumpy), said in the capsule.
   actor.addEventListener('click', (e) => {

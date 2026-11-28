@@ -187,3 +187,38 @@ html body .hf #home-title.hf-hello,html#sf-rounded-site body .hf #home-title.hf-
 .hf-travel-dots i:nth-child(2){animation-delay:.15s}.hf-travel-dots i:nth-child(3){animation-delay:.3s}
 /* seam between the capsule and its sub-pill */
 .hf-sub{margin-top:-1px}
+
+/* Preview variants (B picture, C capsule, D card) */
+.hf-scene{position:absolute;transform-origin:0 0;z-index:1;will-change:transform}
+.hf-scene img{width:100%;height:100%;display:block;object-fit:contain}
+.hf-hole{position:absolute;width:100px;height:100px;border-radius:50%;background:#000;transform:translate(-50%,-50%) scale(0);z-index:4}
+.hf-travel-label.is-on{opacity:1;transform:none}
+.hf-travel-label.is-off{opacity:0;transform:translateY(-6px);transition-duration:.2s}
+.hf-travel-c .hf-blob{position:absolute;background:#000;border-radius:999px;transform-origin:50% 50%;z-index:1}
+.hf-guide-light .gg-body,.hf-guide-light .gg-foot{background:#fff!important}
+.hf-guide-light .gg-eye{background:#000!important}
+.hf-travel-d .hf-travel-label strong{color:#000}.hf-travel-d .hf-travel-dots i{background:#000}
+.hf-travel-d .hf-sheet{position:absolute;z-index:1;border-radius:28px;background:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.35);transform-origin:50% 50%;overflow:hidden}
+.hf-travel-d .hf-sheet .hf-card{margin:0;box-shadow:none;border:0;animation:none}
+.hf-variant-bar{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:9000;display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;background:#000;color:#fff;font-size:13px;box-shadow:0 12px 30px -12px rgba(0,0,0,.5)}
+.hf-variant-bar span{padding:0 10px;color:#8e8e93}
+.hf-variant-bar a{padding:8px 12px;border-radius:999px;color:#c7c7cc!important;text-decoration:none!important;white-space:nowrap}
+.hf-variant-bar a.is-on{background:#fff;color:#000!important}
+.hf-travel-b .hf-travel-label,.hf-travel-c .hf-travel-label,.hf-travel-d .hf-travel-label{left:0;right:0;transform:translateY(10px);gap:6px;transition:opacity .35s ease,transform .45s cubic-bezier(.22,1,.36,1)}
+.hf-travel-b .hf-travel-label.is-on,.hf-travel-c .hf-travel-label.is-on,.hf-travel-d .hf-travel-label.is-on{opacity:1;transform:none}
+.hf-travel-b .hf-travel-label.is-off,.hf-travel-c .hf-travel-label.is-off,.hf-travel-d .hf-travel-label.is-off{opacity:0;transform:translateY(-6px);transition-duration:.2s}
+.hf-travel-b .hf-travel-label strong,.hf-travel-d .hf-travel-label strong{color:#000}
+.hf-travel-b .hf-travel-dots i,.hf-travel-d .hf-travel-dots i{background:#000}
+.hf-travel-b .hf-travel-veil{background:#fff}
+
+/* E: clay storyboard */
+.hf-travel-e .hf-travel-veil{background:#fefefe}
+.hf-travel-e .hf-f{position:absolute;object-fit:contain;opacity:0;z-index:1;transform-origin:50% 80%}
+.hf-travel-e .hf-hole{position:absolute;border-radius:50%;background:#000;z-index:3;opacity:0;transform:translate(-50%,-50%)}
+.hf-travel-e .hf-f-dark{position:absolute;inset:0;background:#080a12;z-index:4;opacity:0;overflow:hidden}
+.hf-travel-e .hf-f-dark .hf-f{opacity:1}
+.hf-travel-e .hf-f-sign{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;border-radius:10px;
+  background:radial-gradient(ellipse at 50% 60%,#fffaea 0%,#fbf2df 55%,#f3e6cf 100%);color:#1d1d1f;
+  font-family:"SF Pro Rounded",ui-rounded,system-ui,sans-serif!important;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.hf-travel-e .hf-travel-dots{position:absolute;left:0;right:0;justify-content:center;z-index:3}
+.hf-travel-e .hf-travel-dots i{background:#fff}
