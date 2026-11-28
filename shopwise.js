@@ -34,6 +34,34 @@
     }));
   });
 
+  // Before / After: tap a tag or the card behind, and it deals to the front
+  page.querySelectorAll('.sw-pair-phones').forEach(stack => {
+    const show = side => {
+      if (stack.dataset.front === side) return;
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      stack.querySelectorAll('.sw-pc').forEach(card => {
+        card.classList.remove('to-front', 'to-back');
+        if (!reduce) { void card.offsetWidth; card.classList.add(card.dataset.side === side ? 'to-front' : 'to-back'); }
+      });
+      stack.dataset.front = side;
+      stack.querySelectorAll('.sw-tag').forEach(t => t.setAttribute('aria-pressed', String(t.dataset.show === side)));
+    };
+    stack.querySelectorAll('.sw-pc').forEach(card => card.addEventListener('click', e => {
+      const tag = e.target.closest('.sw-tag');
+      show(tag ? tag.dataset.show : card.dataset.side);
+    }));
+  });
+
+  // Aa: show the type scale as capsules
+  const aa = page.querySelector('.sw-aa');
+  const cloud = document.getElementById('sw-type-cloud');
+  if (aa && cloud) aa.addEventListener('click', () => {
+    const open = cloud.hidden;
+    cloud.hidden = !open;
+    aa.setAttribute('aria-expanded', String(open));
+    aa.setAttribute('aria-label', open ? 'Hide the type scale' : 'Show the type scale');
+  });
+
   // Storyboards toggle
   const sbBtn = page.querySelector('.sw-pill-toggle');
   const sb = document.getElementById('sw-storyboards');

@@ -10,7 +10,8 @@
 <link href="/portfolio-2027.css?v=cursor-small-20260927" rel="stylesheet"/>
 <link href="/site-typography.css?v=20261004-sf1" rel="stylesheet"/>
 <link href="/i18n.css?v=20261019-globe" rel="stylesheet"/>
-<link href="/shopwise.css?v=20261128-2" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="/shopwise.css?v=20261128-3" rel="stylesheet"/>
 </head>
 <body class="case-study-page sw-case">
 <div aria-hidden="true" class="scroll-progress"></div>
@@ -135,23 +136,23 @@
   <div class="sw-head"><p class="sw-kicker">04 / What testing changed</p><h2>Two sessions. <br/>Three fixes.</h2></div>
   <div class="sw-pairs">
     <article class="sw-pair">
-      <div class="sw-pair-phones">
-        <div class="sw-phone sw-phone-back"><img src="/assets/shopwise/wf-costs.webp" alt="Wireframe: one total before buying" loading="lazy" width="585" height="1266"/><span class="sw-tag">Before</span></div>
-        <div class="sw-phone"><img src="/assets/shopwise/checkout-2.webp" alt="Hi-fi: each cost on its own line, $2,807 of $3,000" loading="lazy" width="585" height="1266"/><span class="sw-tag dark">After</span></div>
+      <div class="sw-pair-phones" data-front="after">
+        <div class="sw-phone sw-pc" data-side="before"><img src="/assets/shopwise/wf-costs.webp" alt="Wireframe: one total before buying" loading="lazy" width="585" height="1266"/><button class="sw-tag" type="button" data-show="before" aria-pressed="false">Before</button></div>
+        <div class="sw-phone sw-pc" data-side="after"><img src="/assets/shopwise/checkout-2.webp" alt="Hi-fi: each cost on its own line, $2,807 of $3,000" loading="lazy" width="585" height="1266"/><button class="sw-tag" type="button" data-show="after" aria-pressed="true">After</button></div>
       </div>
       <div class="sw-reveal"><div class="sw-reveal-row"><h3>Every charge listed</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">P2 saw a total over budget and couldn’t tell why. Now each cost has its own line, with what’s left of the budget.</p></div>
     </article>
     <article class="sw-pair">
-      <div class="sw-pair-phones">
-        <div class="sw-phone sw-phone-back"><img src="/assets/shopwise/wf-lamp.webp" alt="Wireframe: lamp detail" loading="lazy" width="585" height="1266"/><span class="sw-tag">Before</span></div>
-        <div class="sw-phone"><img src="/assets/shopwise/change-1.webp" alt="Hi-fi: Replace button on the selected lamp" loading="lazy" width="585" height="1266"/><span class="sw-tag dark">After</span></div>
+      <div class="sw-pair-phones" data-front="after">
+        <div class="sw-phone sw-pc" data-side="before"><img src="/assets/shopwise/wf-lamp.webp" alt="Wireframe: lamp detail" loading="lazy" width="585" height="1266"/><button class="sw-tag" type="button" data-show="before" aria-pressed="false">Before</button></div>
+        <div class="sw-phone sw-pc" data-side="after"><img src="/assets/shopwise/change-1.webp" alt="Hi-fi: Replace button on the selected lamp" loading="lazy" width="585" height="1266"/><button class="sw-tag" type="button" data-show="after" aria-pressed="true">After</button></div>
       </div>
       <div class="sw-reveal"><div class="sw-reveal-row"><h3>Replace sits on the item</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">P2 couldn’t find where to swap a piece. Replace moved onto the selected item.</p></div>
     </article>
     <article class="sw-pair">
-      <div class="sw-pair-phones">
-        <div class="sw-phone sw-phone-back"><img src="/assets/shopwise/wf-add.webp" alt="Wireframe: sofa detail without an add action" loading="lazy" width="585" height="1266"/><span class="sw-tag">Before</span></div>
-        <div class="sw-phone"><img src="/assets/shopwise/hf-add.webp" alt="Hi-fi: Add to plan on the sofa" loading="lazy" width="585" height="1266"/><span class="sw-tag dark">After</span></div>
+      <div class="sw-pair-phones" data-front="after">
+        <div class="sw-phone sw-pc" data-side="before"><img src="/assets/shopwise/wf-add.webp" alt="Wireframe: sofa detail without an add action" loading="lazy" width="585" height="1266"/><button class="sw-tag" type="button" data-show="before" aria-pressed="false">Before</button></div>
+        <div class="sw-phone sw-pc" data-side="after"><img src="/assets/shopwise/hf-add.webp" alt="Hi-fi: Add to plan on the sofa" loading="lazy" width="585" height="1266"/><button class="sw-tag" type="button" data-show="after" aria-pressed="true">After</button></div>
       </div>
       <div class="sw-reveal"><div class="sw-reveal-row"><h3>Add to plan, on the item</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div><p class="sw-reveal-body">P1 liked a piece but had no way to add it. Add to plan now sits on the item.</p></div>
     </article>
@@ -257,10 +258,34 @@
 <!-- 09 Design system -->
 <section class="sw-section" id="system">
   <div class="sw-head"><p class="sw-kicker">09 / Design system</p><h2>Warm white, one accent, <br/>one typeface.</h2></div>
-  <div class="sw-tokens" aria-hidden="true">
-    <span style="--c:#ffffff"></span><span style="--c:#f6f4f1"></span><span style="--c:#efeae4"></span><span style="--c:#f6e7dc"></span><span style="--c:#b36636"></span><span style="--c:#7d4423"></span><span style="--c:#171412"></span>
-    <b>Aa</b>
+  <div class="sw-tokens">
+    <span style="--c:#ffffff" data-hex="#FFFFFF"></span><span style="--c:#f6f4f1" data-hex="#F6F4F1"></span><span style="--c:#efeae4" data-hex="#EFEAE4"></span><span style="--c:#f6e7dc" data-hex="#F6E7DC"></span><span style="--c:#b36636" data-hex="#B36636"></span><span style="--c:#7d4423" data-hex="#7D4423"></span><span style="--c:#171412" data-hex="#171412"></span>
+    <button class="sw-aa" type="button" aria-expanded="false" aria-controls="sw-type-cloud" aria-label="Show the type scale">Aa</button>
   </div>
+  <ul class="sw-type-cloud" id="sw-type-cloud" hidden>
+    <li class="sw-cap" style="--i:0;--fw:400;--fs:34px;--lh:41px"><span class="sw-cap-name">Display</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Regular 34 / 41</span></li>
+    <li class="sw-cap" style="--i:1;--fw:300;--fs:56px;--lh:1"><span class="sw-cap-name">Number XL</span><span class="sw-cap-sample">$2,850</span><span class="sw-cap-spec">Light 56 / auto</span></li>
+    <li class="sw-cap" style="--i:2;--fw:400;--fs:30px;--lh:1"><span class="sw-cap-name">Number L</span><span class="sw-cap-sample">$2,850</span><span class="sw-cap-spec">Regular 30 / auto</span></li>
+    <li class="sw-cap" style="--i:3;--fw:400;--fs:28px;--lh:34px"><span class="sw-cap-name">Title 1</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Regular 28 / 34</span></li>
+    <li class="sw-cap" style="--i:4;--fw:500;--fs:20px;--lh:1.3"><span class="sw-cap-name">Title 2</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Medium 20 / auto</span></li>
+    <li class="sw-cap" style="--i:5;--fw:500;--fs:18px;--lh:1.3"><span class="sw-cap-name">Title 3</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Medium 18 / auto</span></li>
+    <li class="sw-cap" style="--i:6;--fw:500;--fs:17px;--lh:1.3"><span class="sw-cap-name">Headline</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Medium 17 / auto</span></li>
+    <li class="sw-cap" style="--i:7;--fw:400;--fs:16px;--lh:1.4"><span class="sw-cap-name">Body L</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Regular 16 / auto</span></li>
+    <li class="sw-cap" style="--i:8;--fw:500;--fs:16px;--lh:1.4"><span class="sw-cap-name">Button</span><span class="sw-cap-sample">Continue to pay</span><span class="sw-cap-spec">Medium 16 / auto</span></li>
+    <li class="sw-cap" style="--i:9;--fw:400;--fs:15px;--lh:1.4"><span class="sw-cap-name">Body</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Regular 15 / auto</span></li>
+    <li class="sw-cap" style="--i:10;--fw:500;--fs:15px;--lh:1.4"><span class="sw-cap-name">Body Strong</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Medium 15 / auto</span></li>
+    <li class="sw-cap" style="--i:11;--fw:600;--fs:15px;--lh:1.4"><span class="sw-cap-name">Body Emphasis</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">SemiBold 15 / auto</span></li>
+    <li class="sw-cap" style="--i:12;--fw:400;--fs:14px;--lh:1.4"><span class="sw-cap-name">Callout</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Regular 14 / auto</span></li>
+    <li class="sw-cap" style="--i:13;--fw:500;--fs:14px;--lh:1.4"><span class="sw-cap-name">Callout Strong</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Medium 14 / auto</span></li>
+    <li class="sw-cap" style="--i:14;--fw:600;--fs:14px;--lh:1.4"><span class="sw-cap-name">Counter</span><span class="sw-cap-sample">3 / 4</span><span class="sw-cap-spec">SemiBold 14 / auto</span></li>
+    <li class="sw-cap" style="--i:15;--fw:400;--fs:13px;--lh:1.4"><span class="sw-cap-name">Footnote</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Regular 13 / auto</span></li>
+    <li class="sw-cap" style="--i:16;--fw:500;--fs:13px;--lh:1.4"><span class="sw-cap-name">Footnote Strong</span><span class="sw-cap-sample">A home that feels like you</span><span class="sw-cap-spec">Medium 13 / auto</span></li>
+    <li class="sw-cap" style="--i:17;--fw:400;--fs:12px;--lh:1.4"><span class="sw-cap-name">Caption</span><span class="sw-cap-sample">$193 under budget</span><span class="sw-cap-spec">Regular 12 / auto</span></li>
+    <li class="sw-cap" style="--i:18;--fw:500;--fs:12px;--lh:1.4"><span class="sw-cap-name">Caption Strong</span><span class="sw-cap-sample">$193 under budget</span><span class="sw-cap-spec">Medium 12 / auto</span></li>
+    <li class="sw-cap" style="--i:19;--fw:400;--fs:11px;--lh:1.4"><span class="sw-cap-name">Tab label</span><span class="sw-cap-sample">My Plan</span><span class="sw-cap-spec">Regular 11 / auto</span></li>
+    <li class="sw-cap" style="--i:20;--fw:500;--fs:11px;--lh:1.4"><span class="sw-cap-name">Tab label active</span><span class="sw-cap-sample">Home</span><span class="sw-cap-spec">Medium 11 / auto</span></li>
+    <li class="sw-cap" style="--i:21;--fw:600;--fs:13px;--lh:1.4;--ls:.12em"><span class="sw-cap-name">Overline</span><span class="sw-cap-sample">SHOPWISE</span><span class="sw-cap-spec">SemiBold 13 / auto</span></li>
+  </ul>
   <div class="sw-reveal sw-ds">
     <div class="sw-reveal-row"><h3>Lexend Deca · terracotta #B36636 · SF Symbols</h3><button class="sw-plus" type="button" aria-expanded="false" aria-label="Show details"></button></div>
     <div class="sw-reveal-body">
@@ -286,7 +311,7 @@
 </footer>
 </main>
 <script src="/portfolio-2027.js?v=20261105-rail"></script>
-<script src="/shopwise.js?v=20261128-1"></script>
+<script src="/shopwise.js?v=20261128-3"></script>
 <script src="/i18n-zh.js?v=20261128-sw"></script><script src="/i18n.js?v=20261019-globe"></script>
 </body>
 </html>
