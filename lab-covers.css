@@ -16,7 +16,7 @@
 .gallery-page .gx-card.lc:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px #e6e8eb, 0 40px 70px -40px rgba(0, 0, 0, 0.32); }
 .gallery-page .gx-card.lc:focus-within { box-shadow: 0 0 0 2px #9eafff; }
 
-.lc-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: inherit; }
+.lc-art { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; border-radius: inherit; }
 .lc-stage { position: absolute; right: 0; top: 0; width: 640px; height: 460px; transform-origin: top right; }
 
 .lc-ghost {
@@ -31,7 +31,9 @@
 .lc-l { position: absolute; transition: transform 0.7s cubic-bezier(.2,.8,.2,1); }
 
 /* Copy */
-.lc-copy { position: absolute; left: 48px; bottom: 44px; z-index: 2; max-width: 420px; display: grid; justify-items: start; }
+/* Copy stays unpositioned so the title link's ::after (gx-cover-link) spans the whole card, not just the copy block */
+.gallery-page .gx-card.lc { display: flex; flex-direction: column; justify-content: flex-end; }
+.lc-copy { position: static; padding: 0 48px 44px; max-width: 516px; display: grid; justify-items: start; }
 .lc-kicker {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 7px 12px; border-radius: 999px;
@@ -103,9 +105,9 @@ body .gallery-page .gx-card.lc .gallery-heading h2 {
 /* Narrower screens: art on top (stage scaled, centred), copy below */
 @media (max-width: 1100px) {
   .gallery-page .gx-card.lc { height: auto; }
-  .lc-art { position: relative; inset: auto; height: 340px; }
+  .lc-art { position: relative; inset: auto; height: 340px; flex: none; }
   .lc-stage { right: auto; left: 50%; transform: translateX(-50%) scale(0.72); transform-origin: top center; }
-  .lc-copy { position: relative; left: auto; bottom: auto; max-width: none; padding: 0 40px 36px; }
+  .lc-copy { max-width: none; padding: 0 40px 36px; }
 }
 @media (max-width: 720px) {
   .gallery-page .gx-card.lc { border-radius: 26px; }
