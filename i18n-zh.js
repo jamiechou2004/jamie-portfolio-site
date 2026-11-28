@@ -438,6 +438,8 @@ window.JAMIE_ZH = {
   "Before / Technical identifier exposed to the user": "改版前 / 向用户暴露技术标识",
   "Next / Complex systems": "下一个项目 / 复杂系统",
   "Explore Axel": "探索 Axel",
+  "Next / Consumer app": "下一个项目 / 消费级应用",
+  "Explore Shopwise": "探索 Shopwise",
   "01 / Overview and contribution": "01 / 概览与贡献",
   "Overview and contribution / Original Chinese design board · Scroll to explore · Open full size ↗": "概览与贡献 / 原始中文设计稿 · 滚动浏览 · 查看大图 ↗",
   "02 / Understanding and decisions": "02 / 理解与决策",

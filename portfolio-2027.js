@@ -46,6 +46,7 @@
     "about.html",
     "axel.html",
     "chance.html",
+    "shopwise.html",
     "deloitte.html",
   ]);
 
@@ -83,9 +84,9 @@
     ["lab.html", "Gallery"],
   ];
   const projectLinks = [
-    ["axel.html", "Axel SaaS"],
     ["chance.html", "Chance AI"],
     ["shopwise.html", "Shopwise"],
+    ["axel.html", "Axel SaaS"],
     ["tiktok.html", "TikTok Design Test"],
     ["honda.html", "HondaConnect"],
     ["deloitte.html", "Deloitte x SCADpro"],
@@ -736,8 +737,8 @@ const shapes={
 for(const a of document.querySelectorAll('.portfolio-rail__link')){
  const href=a.getAttribute('href')||'';let key=href.split('/').pop();if(a.dataset.label==='Resume'||href.includes('Resume'))key='resume';if(href.includes('linkedin'))key='linkedin';if(href.includes('github.com'))key='github';if(a.hasAttribute('data-contact-open'))key='email';
  const icon=document.createElement('span');icon.className='np-icon';icon.setAttribute('aria-hidden','true');
- icon.innerHTML=shapes[key]?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${shapes[key]}</svg>`:({ 'axel.html':'01','chance.html':'02','tiktok.html':'03','honda.html':'04','deloitte.html':'05'}[key]||a.querySelector('.portfolio-rail__index')?.textContent.trim()||'•');a.prepend(icon);
- if(['axel.html','chance.html','tiktok.html','honda.html','deloitte.html'].includes(key)||href.startsWith('#')){a.classList.add('np-project');icon.classList.add('np-project-number');}
+ icon.innerHTML=shapes[key]?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${shapes[key]}</svg>`:({ 'chance.html':'01','shopwise.html':'02','axel.html':'03','tiktok.html':'04','honda.html':'05','deloitte.html':'06'}[key]||a.querySelector('.portfolio-rail__index')?.textContent.trim()||'•');a.prepend(icon);
+ if(['chance.html','shopwise.html','axel.html','tiktok.html','honda.html','deloitte.html'].includes(key)||href.startsWith('#')){a.classList.add('np-project');icon.classList.add('np-project-number');}
  if(!a.hasAttribute('aria-label'))a.setAttribute('aria-label',a.dataset.label||a.textContent.trim());
 
 }
