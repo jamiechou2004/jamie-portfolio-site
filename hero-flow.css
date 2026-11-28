@@ -57,7 +57,7 @@ body .hf #home-title,body[data-home-motion] .hf #home-title{font-size:clamp(56px
   transition:background .2s,color .2s,transform .2s}
 .hf-pill-short{display:none}
 .hf-pill-icon{display:inline-flex;width:18px;height:18px;flex:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
-.hf-pill:hover{color:#fff;background:#1c1c1e}
+@media(hover:hover){.hf-pill:hover{color:#fff;background:#1c1c1e}}
 .hf-pill:hover .hf-pill-icon{transform:scale(1.12)}
 .hf-pill:active{transform:scale(.96)}
 .hf-pill[aria-pressed=true]{background:#fff;color:#000}
@@ -67,7 +67,7 @@ body .hf #home-title,body[data-home-motion] .hf #home-title{font-size:clamp(56px
 .hf-stage{margin-top:20px;max-width:720px}
 .hf-stage[hidden]{display:none}
 .hf-card{display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:center;padding:20px 28px 20px 20px;border-radius:28px;
-  background:var(--surface-subtle,#f6f7f8);border:1px solid var(--border-subtle,#e6e8eb);animation:hf-card-in .55s cubic-bezier(.22,1,.36,1) both}
+  background:#fff;border:1px solid rgba(0,0,0,.07);box-shadow:0 1px 2px rgba(0,0,0,.04),0 18px 40px -24px rgba(0,0,0,.22);touch-action:pan-y;animation:hf-card-in .55s cubic-bezier(.22,1,.36,1) both}
 .hf-card.is-swapping{animation:hf-card-swap .5s cubic-bezier(.22,1,.36,1) both}
 @keyframes hf-card-in{from{opacity:0;transform:translateY(-14px);clip-path:inset(0 0 100% 0 round 28px)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0 round 28px)}}
 @keyframes hf-card-swap{0%{opacity:.4;transform:translateX(-10px)}100%{opacity:1;transform:none}}
@@ -120,3 +120,53 @@ body .hf #home-title,body[data-home-motion] .hf #home-title{font-size:clamp(56px
   .hf-title{font-size:28px}
 }
 @media(prefers-reduced-motion:reduce){.hf *{animation:none!important;transition:none!important}}
+
+/* ---------- v4: white card, next arrow + dots, swipe ---------- */
+.hf-confirm{padding:0 22px}
+.hf-next{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;padding:13px;border-radius:50%;border:1px solid rgba(0,0,0,.12);background:#fff;color:#000;cursor:pointer;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .2s,border-color .2s}
+.hf-next:hover{background:#f5f5f7;border-color:rgba(0,0,0,.2)}
+.hf-next:hover svg{transform:translateX(2px)}
+.hf-next svg{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.hf-next:active{transform:scale(.92)}
+.hf-dots{display:inline-flex;gap:5px;margin-left:6px}
+.hf-dots i{width:6px;height:6px;border-radius:3px;background:rgba(0,0,0,.15);transition:width .35s cubic-bezier(.22,1,.36,1),background .25s}
+.hf-dots i.is-on{width:18px;background:#000}
+.hf-card.is-swapping.from-right{animation:hf-from-right .5s cubic-bezier(.22,1,.36,1) both}
+.hf-card.is-swapping.from-left{animation:hf-from-left .5s cubic-bezier(.22,1,.36,1) both}
+@keyframes hf-from-right{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
+@keyframes hf-from-left{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+
+/* ---------- v4: the hello gets character ---------- */
+html body .hf #home-title.hf-hello,html#sf-rounded-site body .hf #home-title.hf-hello{font-family:"Bricolage Grotesque","SF Pro Rounded",ui-rounded,system-ui,sans-serif!important;
+  font-variation-settings:"opsz" 96!important;font-weight:800!important;letter-spacing:-.028em!important;line-height:.95!important;cursor:pointer;user-select:none;-webkit-user-select:none;width:max-content;max-width:100%;position:relative;z-index:3}
+.hf-dot{display:inline-block;color:#ee9a5d;transform-origin:50% 80%;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.hf-hello:hover .hf-dot{transform:translateY(-6px) scale(1.15) rotate(-8deg)}
+.hf-hello:active{transform:scale(.99)}
+.hf-intro{position:relative}
+
+/* ---------- v4: "clear" and "intuitive" get hand-drawn marks ---------- */
+.hf-subline{color:#8a8f98}
+.hf-mark{position:relative;display:inline-block;color:var(--text-strong,#1d1d1f);font-weight:600;white-space:nowrap}
+.hf-mark svg{position:absolute;pointer-events:none;overflow:visible;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hf-mark path{stroke-dasharray:1;stroke-dashoffset:1;animation:hf-draw .9s cubic-bezier(.65,0,.35,1) forwards;vector-effect:non-scaling-stroke}
+.hf-mark-clear svg{left:-2%;right:-2%;width:104%;bottom:-.18em;height:.42em}
+.hf-mark-clear path{stroke:#8fb07c;stroke-width:4;animation-delay:.5s}
+.hf-mark-intuitive svg{left:-9%;top:-14%;width:118%;height:128%}
+.hf-mark-intuitive path{stroke:#ee9a5d;stroke-width:2.5;animation-delay:1s}
+@keyframes hf-draw{to{stroke-dashoffset:0}}
+
+/* ---------- v4: flowers ---------- */
+.hf-bloom{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:visible}
+.hf-flower{position:absolute;width:var(--s);height:calc(var(--s) * 1.375);margin-left:calc(var(--s) / -2);margin-top:calc(var(--s) * -1.2);
+  transform-origin:50% 100%;animation:hf-flower 2.4s cubic-bezier(.22,1,.36,1) var(--d) both}
+.hf-flower svg{width:100%;height:100%;overflow:visible}
+.hf-flower :is(path,circle,ellipse){stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.hf-flower .st{fill:none}
+.hf-flower .pt,.hf-flower .ct,.hf-flower .lf{transform-box:fill-box;transform-origin:center;animation:hf-petal .5s cubic-bezier(.34,1.56,.64,1) calc(var(--d) + 120ms) both}
+.hf-flower .lf{animation-delay:calc(var(--d) + 60ms)}
+.hf-flower .ct{animation-delay:calc(var(--d) + 260ms)}
+@keyframes hf-flower{0%{opacity:0;transform:rotate(var(--r)) scale(.2) translateY(14px)}14%{opacity:1;transform:rotate(var(--r)) scale(1.06)}24%{transform:rotate(var(--r)) scale(1)}72%{opacity:1;transform:rotate(calc(var(--r) * 1.4)) translateY(0)}100%{opacity:0;transform:rotate(calc(var(--r) * 1.8)) translateY(var(--fall)) scale(.92)}}
+@keyframes hf-petal{from{transform:scale(0)}}
+@media(max-width:600px){.hf-next{width:42px;height:42px;padding:12px}.hf-confirm{height:42px}}
+@media(prefers-reduced-motion:reduce){.hf-mark path{stroke-dashoffset:0}}

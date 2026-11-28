@@ -27,7 +27,6 @@
     go: ['Let’s go!', '出发！'],
     pills: [['How I think', '我的思考方式'], ['How I explore', '我的探索方式'], ['What I notice', '我注意到的事']],
     short: [['Think', '思考'], ['Explore', '探索'], ['Notice', '细节']],
-    back: ['Pick another', '换一个'],
     fold: ['Fold the guide away', '收起小向导'],
   };
   const themes = [
@@ -97,7 +96,8 @@
     $('.hf-confirm-label').textContent = L(t.cta);
     const u = new URL(t.href, location.href); u.searchParams.set('lang', zh() ? 'zh' : 'en');
     $('.hf-confirm').href = u.href;
-    $('.hf-back').textContent = L(copy.back);
+    root.querySelectorAll('.hf-dots i').forEach((d, n) => d.classList.toggle('is-on', n === i));
+    $('.hf-next').setAttribute('aria-label', zh() ? '下一个' : 'Next theme');
   };
   const restart = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
 
@@ -113,7 +113,7 @@
     showPills();
     status.textContent = zh() ? '已展开三个选项。' : 'Three options opened.';
   };
-  const pick = (i) => {
+  const pick = (i, dir = 0) => {
     if (i === active) return;
     const first = active < 0;
     active = i; step = 'card'; root.dataset.step = step;
@@ -123,8 +123,8 @@
     fillCard(i);
     stage.hidden = false;
     // First time: the card wipes in from the left (CSS default). Switching themes: a softer swap.
-    if (first) card.classList.remove('is-swapping');
-    else restart(card, 'is-swapping');
+    card.classList.remove('is-swapping', 'from-left', 'from-right');
+    if (!first) { void card.offsetWidth; card.classList.add('is-swapping'); if (dir) card.classList.add(dir > 0 ? 'from-right' : 'from-left'); }
     status.textContent = L(themes[i].title);
   };
   const unpick = () => {
@@ -151,9 +151,19 @@
   /* ---- wiring ---- */
   talk.addEventListener('click', open);
   fold.addEventListener('click', close);
-  $('.hf-back').addEventListener('click', unpick);
+  // Next arrow + swipe on the card cycle through the three themes.
+  const step3 = (d) => pick((active + d + 3) % 3, d);
+  $('.hf-next').addEventListener('click', () => step3(1));
+  let sx = null, sy = 0;
+  card.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') return; sx = e.clientX; sy = e.clientY; });
+  card.addEventListener('pointerup', (e) => {
+    if (sx === null) return;
+    const dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) step3(dx < 0 ? 1 : -1);
+  });
+  card.addEventListener('pointercancel', () => { sx = null; });
   pills.forEach((p, i) => {
-    p.addEventListener('click', () => pick(i));
+    p.addEventListener('click', () => pick(i, active < 0 ? 0 : i > active ? 1 : -1));
     const preview = () => { lookAt(p); if (active < 0) mood(themes[i].state); };
     const leave = () => { fx.resetGaze(actor); mood(active < 0 ? 'Waiting' : themes[active].state); };
     p.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') preview(); });
@@ -208,9 +218,53 @@
     else if (step === 'choose') { e.preventDefault(); close(); }
   });
 
+
+  /* ---- Tap the hello: hand-drawn flowers bloom where you tapped ---- */
+  const bloom = $('.hf-bloom'), title = $('#home-title');
+  const INK = '#2a2a2a';
+  const FLOWERS = [
+    // daisy
+    (c) => `<svg viewBox="0 0 80 110"><path class="st" d="M40 58c-2 16 3 32-1 48"/><path class="lf" fill="${c.leaf}" d="M39 86c-10-2-17-9-18-17 9 0 16 6 18 17z"/>${[0,51,103,154,206,257,309].map(a=>`<g transform="rotate(${a} 40 38)"><ellipse class="pt" fill="${c.petal}" cx="40" cy="22" rx="7.5" ry="15"/></g>`).join('')}<circle class="ct" fill="${c.mid}" cx="40.5" cy="38.5" r="7"/></svg>`,
+    // tulip
+    (c) => `<svg viewBox="0 0 80 110"><path class="st" d="M40 52c1 18-3 36 1 54"/><path class="lf" fill="${c.leaf}" d="M41 92c4-14 14-20 24-21-2 11-11 19-24 21z"/><path class="pt" fill="${c.petal}" d="M22 22c2 18 8 30 18 30s17-12 18-30c-6 4-10 8-12 13-2-8-4-15-6-19-3 4-5 11-6 19-3-6-7-10-12-13z"/></svg>`,
+    // loopy five-petal
+    (c) => `<svg viewBox="0 0 80 110"><path class="st" d="M40 56c-3 14 2 30-2 50"/><path class="lf" fill="${c.leaf}" d="M39 80c-12 1-19-5-21-13 10-1 18 4 21 13z"/><path class="pt" fill="${c.petal}" d="M40 37c-9-11-6-27 1-27s10 15-1 27c10-8 26-6 27 2s-15 11-27 1c11 9 9 25 2 26s-12-13-2-26c-8 11-24 13-26 6s9-14 26-9c-13-1-19-12-15-17s15-1 15 17z"/><circle class="ct" fill="${c.mid}" cx="40" cy="38" r="5"/></svg>`,
+    // sprig with buds
+    (c) => `<svg viewBox="0 0 80 110"><path class="st" d="M38 106c4-26 0-52 6-82M41 70c-9-6-14-14-15-24M42 52c8-5 13-12 14-22"/><circle class="pt" fill="${c.petal}" cx="44" cy="18" r="8"/><circle class="pt" fill="${c.mid}" cx="25" cy="42" r="6"/><circle class="pt" fill="${c.petal}" cx="57" cy="27" r="6"/><path class="lf" fill="${c.leaf}" d="M40 88c-11-3-15-10-15-17 9 2 14 8 15 17z"/></svg>`,
+  ];
+  const PALETTES = [
+    { petal: '#f6b7a6', mid: '#f2c94c', leaf: '#a9c49a' },
+    { petal: '#f2a65a', mid: '#f7dd8a', leaf: '#9fbf8f' },
+    { petal: '#c9b8ef', mid: '#f2c94c', leaf: '#b3cfa1' },
+    { petal: '#f7d774', mid: '#ee9a5d', leaf: '#a9c49a' },
+    { petal: '#9dc3e6', mid: '#f7dd8a', leaf: '#9fbf8f' },
+  ];
+  let bloomCount = 0;
+  const plant = (x, y) => {
+    const host = root.querySelector('.hf-intro').getBoundingClientRect();
+    const n = 3 + Math.floor(Math.random() * 2);
+    for (let k = 0; k < n; k++) {
+      const f = document.createElement('span');
+      f.className = 'hf-flower';
+      const pal = PALETTES[(bloomCount + k) % PALETTES.length];
+      f.innerHTML = FLOWERS[(bloomCount + k * 3) % FLOWERS.length](pal);
+      const size = 46 + Math.random() * 30;
+      const spread = (k - (n - 1) / 2) * 34 + (Math.random() * 16 - 8);
+      f.style.cssText = `left:${x - host.left + spread}px;top:${y - host.top}px;--s:${size}px;--r:${(Math.random() * 36 - 18).toFixed(1)}deg;--d:${k * 70}ms;--fall:${(18 + Math.random() * 24).toFixed(0)}px`;
+      f.querySelectorAll('path,circle,ellipse').forEach((el) => { el.setAttribute('stroke', INK); });
+      bloom.append(f);
+      setTimeout(() => f.remove(), 2600 + k * 70);
+    }
+    bloomCount += n;
+    if (bloom.childElementCount > 40) [...bloom.children].slice(0, 12).forEach((c) => c.remove());
+  };
+  title.addEventListener('click', (e) => { if (!reduce.matches) plant(e.clientX, e.clientY); });
+
   const language = () => {
-    $('#home-title').textContent = zh() ? '你好，我是 Jamie。' : 'Hi, I’m Jamie.';
-    $('.hf-subline').textContent = zh() ? '为复杂系统，设计清晰、直观的体验。' : 'Designing clear, intuitive experiences for complex systems.';
+    $('#home-title').innerHTML = zh() ? '你好，我是 Jamie<span class="hf-dot">。</span>' : 'Hi, I’m Jamie<span class="hf-dot">.</span>';
+    const clear = `<span class="hf-mark hf-mark-clear">${zh() ? '清晰' : 'clear'}<svg viewBox="0 0 120 14" preserveAspectRatio="none"><path pathLength="1" d="M3 9c14-5 25 3 39-1s24-5 38-1 22 3 37-2"/></svg></span>`;
+    const intuitive = `<span class="hf-mark hf-mark-intuitive">${zh() ? '直观' : 'intuitive'}<svg viewBox="0 0 200 60" preserveAspectRatio="none"><path pathLength="1" d="M150 8C110 1 40 3 14 18 -4 30 12 50 70 54s118-4 124-22C199 16 160 6 120 7"/></svg></span>`;
+    $('.hf-subline').innerHTML = zh() ? `为复杂系统，设计${clear}、${intuitive}的体验。` : `Designing ${clear}, ${intuitive} experiences for complex systems.`;
     pills.forEach((p, i) => { p.querySelector('.hf-pill-label').textContent = L(copy.pills[i]); p.querySelector('.hf-pill-short').textContent = L(copy.short[i]); });
     fold.setAttribute('aria-label', L(copy.fold));
     actor.setAttribute('aria-label', zh() ? '和小向导打招呼' : 'Say hello to the little guide');
