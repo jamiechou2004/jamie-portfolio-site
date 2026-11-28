@@ -154,6 +154,60 @@
     recs.forEach(v => vio.observe(v));
   }
 
+  // Apple Watch: three live screens from the same delivery
+  page.querySelectorAll('.sw-watch').forEach(w => {
+    const views = [...w.querySelectorAll('.sw-w-view')];
+    let resetT = 0;
+    const go = name => {
+      views.forEach(v => v.classList.toggle('is-on', v.dataset.view === name));
+      clearTimeout(resetT);
+      if (name !== 'ask') resetT = setTimeout(() => go('ask'), name === 'call' || name === 'rate' ? 6000 : 2600);
+    };
+    w.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => go(b.dataset.go)));
+    const stars = [...w.querySelectorAll('[data-star]')];
+    stars.forEach(b => b.addEventListener('click', () => {
+      const n = +b.dataset.star;
+      stars.forEach(s => s.classList.toggle('is-lit', +s.dataset.star <= n));
+      clearTimeout(resetT);
+      resetT = setTimeout(() => { go('thanks'); stars.forEach(s => s.classList.remove('is-lit')); }, 500);
+    }));
+    stars.forEach(b => b.addEventListener('mouseenter', () => stars.forEach(s => s.classList.toggle('is-lit', +s.dataset.star <= +b.dataset.star))));
+    const bar = w.querySelector('[data-progress]'), eta = w.querySelector('[data-eta]'), clock = w.querySelector('[data-clock]');
+    if (bar && eta) {
+      let m = 25, tick = 0;
+      const step = () => {
+        m = m <= 1 ? 25 : m - 1;
+        eta.textContent = m;
+        bar.style.setProperty('--p', `${Math.round(30 + (25 - m) / 24 * 66)}%`);
+        const t = 40 + (25 - m); if (clock) clock.textContent = t < 60 ? `9:${t}` : `10:${String(t - 60).padStart(2, '0')}`;
+      };
+      bar.style.setProperty('--p', '30%');
+      const vis = new IntersectionObserver(es => es.forEach(e => {
+        clearInterval(tick);
+        if (e.isIntersecting && !matchMedia('(prefers-reduced-motion: reduce)').matches) tick = setInterval(step, 1200);
+      }));
+      vis.observe(w);
+    }
+  });
+
+  // GM console: load the live console into the browser frame when its tab opens
+  const gmTab = page.querySelector('[data-tab="os-gm"]');
+  const gmScreen = page.querySelector('.sw-gmwin-screen');
+  if (gmTab && gmScreen) {
+    let gmLive = null;
+    const fitGM = () => { if (gmLive) gmLive.style.transform = `scale(${gmScreen.clientWidth / 1440})`; };
+    gmTab.addEventListener('click', () => {
+      if (!gmLive) {
+        gmLive = document.createElement('iframe');
+        gmLive.title = 'Shopwise GM console, live prototype';
+        gmLive.src = '/shopwise-gm/';
+        gmScreen.appendChild(gmLive);
+      }
+      requestAnimationFrame(fitGM);
+    });
+    addEventListener('resize', fitGM);
+  }
+
   // Storyboards toggle
   const sbBtn = page.querySelector('.sw-pill-toggle');
   const sb = document.getElementById('sw-storyboards');

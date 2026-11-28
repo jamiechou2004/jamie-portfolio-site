@@ -170,9 +170,57 @@ body.sw-case .portfolio-rail, body.sw-case .site-header { background: #fff; }
 
 /* ---------- 08 Other side ---------- */
 .sw-watches { display: grid; grid-template-columns: repeat(3, minmax(0, 280px)); justify-content: center; gap: 40px; }
-.sw-watches figure { position: relative; }
-.sw-watches img { filter: drop-shadow(0 24px 40px rgba(15, 20, 30, .16)); }
-.sw-console { border-radius: 20px; overflow: hidden; box-shadow: var(--sw-shadow); }
+.sw-watches figure { position: relative; margin: 0; }
+/* Apple Watch Series 11 46mm (watchOS 26 library bezel): 280x440 around a 208x248 screen at (36, 96) */
+.sw-watch-dev { position: relative; aspect-ratio: 280 / 440; filter: drop-shadow(0 24px 40px rgba(15, 20, 30, .16)); }
+.sw-watch-bezel { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+.sw-watch-screen { --pt: calc(100cqw / 208); position: absolute; left: 12.857%; top: 21.818%; width: 74.286%; height: 56.364%; container-type: inline-size; overflow: hidden; background: #000; border-radius: 21% / 17.6%; color: #fff; font-family: ui-rounded, "SF Compact Rounded", "SF Pro Rounded", -apple-system, system-ui, sans-serif; z-index: 1; }
+.sw-watch-screen p { margin: 0; }
+.sw-w-view { position: absolute; inset: 0; padding: calc(10 * var(--pt)) calc(7 * var(--pt)); display: flex; flex-direction: column; gap: calc(6 * var(--pt)); opacity: 0; transform: scale(.96); transition: opacity .35s ease, transform .45s var(--sw-ease); pointer-events: none; }
+.sw-w-view.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.sw-w-top { display: flex; justify-content: space-between; align-items: baseline; padding: 0 calc(10 * var(--pt)); font-size: calc(14 * var(--pt)); color: rgba(255,255,255,.7); font-weight: 500; letter-spacing: .01em; }
+.sw-w-top b { font-size: calc(16 * var(--pt)); color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+.sw-w-top-r { justify-content: flex-end; }
+.sw-w-card { position: relative; border-radius: calc(18 * var(--pt)); background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.08)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); padding: calc(10 * var(--pt)) calc(10 * var(--pt)); font-size: calc(15 * var(--pt)); line-height: 1.2; }
+.sw-w-live p { font-size: calc(16 * var(--pt)); font-weight: 600; }
+.sw-w-orange { color: #e3a07a; }
+.sw-w-live .sw-w-app { position: absolute; right: calc(9 * var(--pt)); top: calc(9 * var(--pt)); width: calc(20 * var(--pt)); height: calc(20 * var(--pt)); border-radius: 50%; }
+.sw-w-track { position: relative; height: calc(10 * var(--pt)); margin-top: calc(8 * var(--pt)); border-radius: 99px; background: rgba(255,255,255,.16); }
+.sw-w-track i { position: absolute; left: 0; top: 0; bottom: 0; width: var(--p, 30%); border-radius: 99px; background: #d98b62; transition: width 1s linear; }
+.sw-w-track i::after { content: ""; position: absolute; right: calc(-6 * var(--pt)); top: 50%; width: calc(13 * var(--pt)); height: calc(13 * var(--pt)); border-radius: 50%; background: #fff; transform: translateY(-50%); box-shadow: 0 0 0 calc(2 * var(--pt)) #d98b62; }
+.sw-w-mini p { font-size: calc(14 * var(--pt)); font-weight: 600; }
+.sw-w-dim { color: rgba(255,255,255,.6); font-size: calc(13 * var(--pt)); font-weight: 500; }
+.sw-w-mini .sw-w-dim { font-size: calc(12 * var(--pt)); }
+.sw-w-note { padding-top: calc(19 * var(--pt)); margin-top: calc(10 * var(--pt)); }
+.sw-w-note .sw-w-app { position: absolute; left: calc(8 * var(--pt)); top: calc(-13 * var(--pt)); width: calc(24 * var(--pt)); height: calc(24 * var(--pt)); border-radius: 50%; }
+.sw-w-now { position: absolute; right: calc(10 * var(--pt)); top: calc(5 * var(--pt)); font-size: calc(12 * var(--pt)); color: rgba(255,255,255,.55); }
+.sw-w-strong { font-weight: 700; font-size: calc(15 * var(--pt)); letter-spacing: .01em; }
+.sw-w-btn { flex: none; height: calc(34 * var(--pt)); border: 0; border-radius: 99px; background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.09)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); color: #fff; font: inherit; font-size: calc(15 * var(--pt)); font-weight: 600; letter-spacing: .02em; cursor: pointer; transition: transform .15s ease, filter .15s ease; }
+.sw-w-btn.is-accent { background: #d98b62; color: #2a1a10; box-shadow: none; }
+.sw-w-btn:hover { filter: brightness(1.15); }
+.sw-w-btn:active, .sw-w-end:active, .sw-w-stars button:active { transform: scale(.94); }
+.sw-w-center { text-align: center; }
+.sw-w-big { font-size: calc(26 * var(--pt)); font-weight: 600; }
+.sw-w-view[data-view="call"], .sw-w-view[data-view="done"], .sw-w-view[data-view="thanks"], .sw-w-view[data-view="later"], .sw-w-view[data-view="rate"] { justify-content: center; }
+.sw-w-end { align-self: center; margin-top: calc(10 * var(--pt)); width: calc(50 * var(--pt)); height: calc(50 * var(--pt)); border: 0; border-radius: 50%; background: #ff453a; color: #fff; display: grid; place-items: center; cursor: pointer; transition: transform .15s ease; }
+.sw-w-end svg { width: 55%; height: 55%; }
+.sw-w-check { align-self: center; width: calc(46 * var(--pt)); height: calc(46 * var(--pt)); border-radius: 50%; background: rgba(255,255,255,.14); color: #fff; display: grid; place-items: center; margin-bottom: calc(4 * var(--pt)); }
+.sw-w-check.is-accent { background: #d98b62; color: #2a1a10; }
+.sw-w-check svg { width: 55%; height: 55%; }
+.sw-w-stars { display: flex; justify-content: center; gap: calc(2 * var(--pt)); }
+.sw-w-stars button { width: calc(34 * var(--pt)); height: calc(34 * var(--pt)); padding: 0; border: 0; background: none; color: rgba(255,255,255,.22); cursor: pointer; transition: color .15s ease, transform .15s ease; }
+.sw-w-stars button.is-lit { color: #e3a07a; }
+.sw-w-stars svg { width: 100%; height: 100%; }
+.sw-watch-screen button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.sw-watches figcaption { z-index: 3; bottom: 6%; }
+.sw-console { max-width: 1100px; margin: 0 auto; }
+.sw-gmwin { border-radius: 16px; overflow: hidden; background: #fff; box-shadow: var(--sw-shadow-hover); }
+.sw-gmwin .sw-browser-bar { position: relative; }
+.sw-gm-open { margin-left: auto; font-size: 13px; font-weight: 500; color: #111; text-decoration: none; padding: 6px 12px; border-radius: 99px; background: #f3f3f3; }
+.sw-gm-open:hover { background: #111; color: #fff; }
+.sw-gmwin-screen { position: relative; aspect-ratio: 1440 / 900; overflow: hidden; }
+.sw-gmwin-screen img { display: block; width: 100%; height: 100%; }
+.sw-gmwin-screen iframe { position: absolute; left: 0; top: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; background: #fff; }
 
 /* ---------- 08 Try it ---------- */
 .sw-live { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 72px; align-items: center; }
@@ -285,7 +333,9 @@ body.sw-case .portfolio-rail, body.sw-case .site-header { background: #fff; }
   .sw-rules { grid-template-columns: 1fr 1fr; gap: 14px; }
   .sw-rule { padding: 12px 12px 16px; border-radius: 18px; }
   .sw-rule h3 { font-size: 15px; }
-  .sw-watches { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .sw-watches { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 66%; justify-content: start; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 32px 17% 48px; margin: -24px -16px 0; scrollbar-width: none; }
+  .sw-watches::-webkit-scrollbar { display: none; }
+  .sw-watches figure { scroll-snap-align: center; }
   .sw-device { width: min(320px, 100%); }
   .sw-iphone { width: 100%; }
   .sw-flow-grid { grid-template-columns: repeat(2, 1fr); }
