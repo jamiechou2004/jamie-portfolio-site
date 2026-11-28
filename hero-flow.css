@@ -1,0 +1,117 @@
+/* Homepage hero flow (Nov 28 2026)
+   capsule (guide talks) → three split pills pop out → pick → card with visual → confirm.
+   The guide never leaves the capsule; it reacts, looks and talks from there. */
+body .ha-hero.hf{padding:40px 48px 72px;max-width:none;overflow:visible;position:relative}
+.hf *{box-sizing:border-box}
+.hf-intro{max-width:760px}
+body .hf #home-title,body[data-home-motion] .hf #home-title{font-size:clamp(56px,7.8vw,112px);line-height:1;letter-spacing:-.04em;font-weight:700;margin:0;max-width:none}
+.hf-subline{font-size:clamp(22px,2.4vw,34px);line-height:1.24;letter-spacing:-.015em;font-weight:500;color:var(--text-muted);margin:20px 0 48px;max-width:18.5em}
+
+/* ---------- Capsule ---------- */
+.hf-capsule{--h:64px;display:inline-flex;align-items:center;gap:4px;height:var(--h);padding:8px;border-radius:999px;background:#000;color:#fff;
+  position:relative;max-width:100%;transform-origin:left center;transition:box-shadow .25s ease,translate .25s ease}
+.hf-capsule:hover{translate:0 -2px;box-shadow:0 14px 28px -16px rgba(0,0,0,.55)}
+.hf-avatar{width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#fff;position:relative;overflow:visible}
+.hf-avatar .gg-character{position:absolute;left:-56px;top:-80px;scale:.42;z-index:2;cursor:pointer;display:block!important;visibility:visible!important;transform-origin:center 75%}
+.hf-avatar .gg-shadow{display:none}
+.hf-talk{display:flex;align-items:center;gap:10px;height:48px;padding:0 10px 0 12px;border:0;background:none;color:inherit;font:inherit;cursor:pointer;border-radius:999px;min-width:0}
+.hf-line{display:flex;align-items:center;gap:8px;min-width:0;white-space:nowrap}
+.hf-text{font-size:20px;line-height:24px;font-weight:600;letter-spacing:-.005em;overflow:hidden;text-overflow:ellipsis}
+.hf-spark{display:inline-flex;width:14px;height:14px;color:#fff;opacity:.9;flex:none}
+.hf-spark svg,.hf-go svg,.hf-fold svg,.hf-pill-icon svg,.hf-confirm svg{width:100%;height:100%;display:block}
+.hf-go{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#1f1f22;color:#fff;flex:none;padding:8px;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),background .2s}
+.hf-talk:hover .hf-go{transform:translateX(3px);background:#2c2c30}
+.hf:not([data-step=idle]) .hf-go{display:none}
+.hf-fold{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin-left:2px;padding:10px;border:0;border-radius:50%;background:#1f1f22;color:#bfc3ca;cursor:pointer;flex:none;
+  animation:hf-pop .32s cubic-bezier(.34,1.56,.64,1) both;transition:background .2s,color .2s}
+.hf-fold:hover{background:#2c2c30;color:#fff}
+.hf-fold[hidden]{display:none}
+/* typing dots: the guide "thinks" for a beat before each line */
+.hf-typing{display:none;gap:4px;align-items:center;padding:0 4px}
+.hf-typing i{width:6px;height:6px;border-radius:50%;background:#fff;opacity:.35;animation:hf-dot 1s infinite ease-in-out}
+.hf-typing i:nth-child(2){animation-delay:.15s}.hf-typing i:nth-child(3){animation-delay:.3s}
+.hf-capsule.is-typing .hf-typing{display:inline-flex}
+.hf-capsule.is-typing .hf-line{display:none}
+@keyframes hf-dot{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+/* each new line wipes in from left to right */
+.hf-line.is-writing{animation:hf-wipe .62s cubic-bezier(.22,1,.36,1) both}
+@keyframes hf-wipe{from{clip-path:inset(0 100% 0 0);opacity:.2;translate:-6px 0}to{clip-path:inset(0 0 0 0);opacity:1;translate:0 0}}
+.hf-line.is-writing .hf-spark{animation:hf-twinkle .7s ease-out both}
+@keyframes hf-twinkle{0%{transform:scale(.2) rotate(-90deg);opacity:0}60%{transform:scale(1.25) rotate(10deg);opacity:1}100%{transform:none}}
+
+/* ---------- Three split pills ---------- */
+.hf-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;padding-left:28px;position:relative}
+.hf-pills[hidden]{display:none}
+/* a thin hairline hints the pills come out of the capsule */
+.hf-pills::before{content:'';position:absolute;left:31px;top:-14px;width:1.5px;height:14px;background:linear-gradient(#000,rgba(0,0,0,.15));transform-origin:top;animation:hf-line-grow .3s ease-out both}
+@keyframes hf-line-grow{from{transform:scaleY(0)}}
+.hf-pill{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px 0 14px;border-radius:999px;border:1.5px solid #000;background:#fff;color:#000;
+  font:inherit;font-size:17px;font-weight:600;letter-spacing:-.005em;cursor:pointer;
+  animation:hf-pill-in .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i) * 80ms + 40ms);
+  transition:background .2s,color .2s,transform .25s cubic-bezier(.34,1.56,.64,1),opacity .25s}
+.hf-pill-icon{display:inline-flex;width:18px;height:18px;flex:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.hf-pill:hover{transform:translateY(-2px)}
+.hf-pill:hover .hf-pill-icon{transform:rotate(-10deg) scale(1.12)}
+.hf-pill:active{transform:scale(.96)}
+.hf-pill[aria-pressed=true]{background:#000;color:#fff}
+.hf[data-step=card] .hf-pill:not([aria-pressed=true]){opacity:.5}
+.hf[data-step=card] .hf-pill:not([aria-pressed=true]):hover{opacity:1}
+@keyframes hf-pill-in{from{opacity:0;transform:translate(-18px,-10px) scale(.6)}to{opacity:1;transform:none}}
+.hf-pills.is-leaving .hf-pill{animation:hf-pill-out .22s ease-in both;animation-delay:calc((2 - var(--i)) * 50ms)}
+@keyframes hf-pill-out{to{opacity:0;transform:translate(-12px,-8px) scale(.7)}}
+@keyframes hf-pop{from{opacity:0;transform:scale(.4)}}
+
+/* ---------- Card ---------- */
+.hf-stage{margin-top:24px;max-width:720px}
+.hf-stage[hidden]{display:none}
+.hf-card{display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:center;padding:20px 28px 20px 20px;border-radius:28px;
+  background:var(--surface-subtle,#f6f7f8);border:1px solid var(--border-subtle,#e6e8eb);animation:hf-card-in .55s cubic-bezier(.22,1,.36,1) both}
+.hf-card.is-swapping{animation:hf-card-swap .5s cubic-bezier(.22,1,.36,1) both}
+@keyframes hf-card-in{from{opacity:0;transform:translateX(-24px);clip-path:inset(0 100% 0 0 round 28px)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0 round 28px)}}
+@keyframes hf-card-swap{0%{opacity:.4;transform:translateX(-10px)}100%{opacity:1;transform:none}}
+.hf-art{background:#fff;border-radius:20px;height:180px;display:flex;align-items:center;justify-content:center;padding:14px;overflow:hidden}
+.hf-art img{width:100%;height:100%;object-fit:contain;transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.hf-card:hover .hf-art img{transform:translateY(-5px) rotate(-3deg)}
+.hf-card[data-i="1"]:hover .hf-art img{transform:translateY(-5px) rotate(3deg)}
+.hf-card[data-i="2"]:hover .hf-art img{transform:translateY(-3px) scale(1.05)}
+.hf-card.is-swapping .hf-art img{animation:hf-art-in .55s cubic-bezier(.34,1.56,.64,1) both}
+.hf-card .hf-art img{animation:hf-art-in .6s .08s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes hf-art-in{from{opacity:0;transform:translateY(10px) scale(.9) rotate(-4deg)}}
+.hf-number{font-size:13px;letter-spacing:.06em;font-weight:600;color:var(--text-muted)}
+.hf-title{font-size:34px;line-height:1.1;letter-spacing:-.02em;font-weight:700;margin:8px 0 10px;color:var(--text-strong)}
+.hf-copy{font-size:17px;line-height:1.5;color:var(--text-muted);margin:0 0 20px;max-width:360px}
+.hf-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hf-confirm{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 18px 0 22px;border-radius:999px;background:#000;color:#fff!important;font-size:16px;font-weight:600;text-decoration:none!important;transition:background .2s}
+.hf-confirm svg{width:16px;height:16px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.hf-confirm:hover{background:#26262a}
+.hf-confirm:hover svg{transform:translateX(4px)}
+.hf-back{height:46px;padding:0 16px;border:0;border-radius:999px;background:none;color:var(--text-muted);font:inherit;font-size:15px;font-weight:500;cursor:pointer}
+.hf-back:hover{color:var(--text-strong);background:rgba(0,0,0,.05)}
+
+.hf :is(button,a):focus-visible{outline:3px solid var(--link-blue,#2f6fde);outline-offset:3px}
+.hf .ha-status{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+/* guide's "Curious" face, carried over from the old hero */
+.hf .gg-character[data-state=Curious] .gg-curious{opacity:0}
+.hf .gg-character[data-state=Curious] :is(.gg-body,.gg-eye,.gg-foot){opacity:1}
+.hf .gg-character[data-state=Curious] .gg-left{width:9px;height:17px;top:62px}
+.hf .gg-character[data-state=Curious] .gg-right{height:9px;top:74px}
+
+@media(max-width:600px){
+  body .ha-hero.hf{padding:20px 20px 40px}
+  body .hf #home-title,body[data-home-motion] .hf #home-title{font-size:56px}
+  .hf-subline{font-size:22px;margin:16px 0 32px}
+  .hf-capsule{--h:auto;height:auto;min-height:56px;padding:6px;border-radius:30px}
+  .hf-avatar{width:44px;height:44px;flex-basis:44px}
+  .hf-avatar .gg-character{left:-58px;top:-84px;scale:.38}
+  .hf-talk{height:auto;min-height:44px;padding:6px 8px 6px 10px}
+  .hf-line{white-space:normal}
+  .hf-text{font-size:16px;line-height:21px;text-align:left}
+  .hf-pills{padding-left:16px;gap:8px}
+  .hf-pills::before{left:19px}
+  .hf-pill{height:42px;font-size:15px;padding:0 14px 0 11px}
+  .hf-card{grid-template-columns:1fr;gap:16px;padding:16px}
+  .hf-art{height:150px}
+  .hf-title{font-size:28px}
+}
+@media(prefers-reduced-motion:reduce){.hf *{animation:none!important;transition:none!important}}
