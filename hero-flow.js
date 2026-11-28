@@ -515,10 +515,10 @@
     addEventListener('pageshow', (ev) => { if (ev.persisted) { ov.remove(); actor.style.visibility = ''; } }, { once: true });
   };
 
-  // Which transition plays: ?transition=a|b|c|d (preview only), default A (portal).
-  const VARIANT = (new URLSearchParams(location.search).get('transition') || 'a').toLowerCase();
+  // Which transition plays: ?transition=a|b|c|d (preview only), default D (card).
+  const VARIANT = (new URLSearchParams(location.search).get('transition') || 'd').toLowerCase();
   const travel = (href, i) => {
-    if (VARIANT !== 'a') { try { const u = new URL(href); u.searchParams.set('transition', VARIANT); href = u.href; } catch {} }
+    if (new URLSearchParams(location.search).has('transition')) { try { const u = new URL(href); u.searchParams.set('transition', VARIANT); href = u.href; } catch {} }
     ({ b: travelPicture, c: travelCapsule, d: travelCard, e: travelStory }[VARIANT] || travelPortal)(href, i);
   };
   // Small switcher while previewing
