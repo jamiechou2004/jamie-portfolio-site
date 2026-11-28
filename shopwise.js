@@ -62,6 +62,15 @@
     aa.setAttribute('aria-label', open ? 'Hide the type scale' : 'Show the type scale');
   });
 
+  // AI screen recordings play only while on screen
+  const recs = [...page.querySelectorAll('video.sw-rec')];
+  if (recs.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const vio = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.preload = 'auto'; e.target.play().catch(() => {}); } else e.target.pause();
+    }), { threshold: 0.35 });
+    recs.forEach(v => vio.observe(v));
+  }
+
   // Storyboards toggle
   const sbBtn = page.querySelector('.sw-pill-toggle');
   const sb = document.getElementById('sw-storyboards');
@@ -73,86 +82,103 @@
     if (open) sb.scrollIntoView({ block: 'start', behavior: 'smooth' });
   });
 
-  // Live prototypes
-  const CODED = {
-    customer: 'https://jamiechou2004.github.io/ShopWise_CustomerSide/customer/',
-    gm: 'https://jamiechou2004.github.io/ShopWise_CustomerSide/gm-console/'
-  };
-  const FILE = '9PlQMFsLfdYTDK8qfViN96';
+  // Live prototypes: the coded customer app and GM console are hosted on this site,
+  // so each flow can start from the right saved state (same-origin localStorage).
+  const KEY = 'shopwise-prototype-v1';
+  const ANSWERS = { goal: 'home', floorPlan: false, rooms: [{ name: 'Bedrooms', count: 1 }, { name: 'Living rooms', count: 1 }, { name: 'Bathrooms', count: 1 }], size: '800–1,199', planRooms: 'living-bedroom', planRoomsCustom: '', furniture: 'fresh', keeping: [], livingWith: ['Just me'], everyDay: ['Work from home', 'Hosting', 'Storage'], style: 'warm', budget: 3000, location: 'New York, NY', timing: 'two-weeks', timingNote: '' };
+  const PROFILE = { signUpMethod: 'apple', name: 'Alex', homeType: 'apartment', onboardedAt: '2026-10-18T10:00:00.000Z' };
+  const plan = lampId => ({ status: 'ready', lampId, stepsDone: 10, answers: ANSWERS, updatedAt: '2026-10-18T10:00:00.000Z' });
+  const ORDER = { id: 'SW-10482', lines: [
+    { id: 'linen-sofa', name: 'Linen sofa', price: 700, image: './img/sofa.png' },
+    { id: 'coffee-table', name: 'Coffee table', price: 150, image: './img/table.png' },
+    { id: 'mini-globe', name: 'Mini globe lamp', price: 80, image: './img/lamp-mini-room.png' },
+    { id: 'queen-bed', name: 'Queen bed', price: 900, image: './img/bed.png' },
+    { id: 'wardrobe', name: 'Wardrobe', price: 300, image: './img/wardrobe.png' },
+    { id: 'desk', name: 'Desk', price: 200, image: './img/desk.png' },
+    { id: 'desk-chair', name: 'Desk chair', price: 150, image: './img/chair.png' }
+  ], total: 2807, slot: 'thu', status: 'buying' };
   const FLOWS = {
-    onboarding: ['1398:2648', '1398:2649'],
-    design: ['1398:2970', '1398:2971'],
-    change: ['1398:3517', '1398:3518'],
-    checkout: ['1398:4708', '1398:4709'],
-    delivery: ['1398:5189', '1398:5190'],
-    ai: ['1398:3846', '1398:3847']
+    home: { seed: { profile: PROFILE, plan: plan('shade-floor') }, hash: '/home' },
+    onboarding: { seed: {}, hash: '/' },
+    design: { seed: { profile: PROFILE }, hash: '/setup/1' },
+    change: { seed: { profile: PROFILE, plan: plan('shade-floor') }, hash: '/plan' },
+    checkout: { seed: { profile: PROFILE, plan: plan('mini-globe') }, hash: '/checkout' },
+    delivery: { seed: { profile: PROFILE, plan: plan('mini-globe'), order: ORDER }, hash: '/notify' },
+    ai: { seed: { profile: PROFILE, plan: plan('shade-floor') }, hash: '/ai/plan' }
   };
-  const proto = (host, [pageId, nodeId], extra = '') =>
-    `https://${host}/proto/${FILE}/Shopwise?page-id=${encodeURIComponent(pageId)}&node-id=${nodeId.replace(':', '-')}` +
-    `&starting-point-node-id=${encodeURIComponent(nodeId)}&scaling=scale-down&content-scaling=fixed${extra}`;
+  const APP = '/shopwise-app/';
+  const GM = '/shopwise-gm/';
 
   const live = page.querySelector('.sw-live');
   if (!live) return;
-  const screen = live.querySelector('.sw-live-screen');
-  const poster = live.querySelector('.sw-live-poster');
+  const phone = live.querySelector('.sw-iphone-screen');
+  const browser = live.querySelector('.sw-browser-screen');
   const openFull = document.getElementById('sw-open-full');
   const flowBtns = [...live.querySelectorAll('[data-flow]')];
   const modeBtns = [...page.querySelectorAll('#try [data-live]')];
-  let iframe = null;
+  let appFrame = null, gmFrame = null, flow = 'home', mode = 'customer';
 
   const fit = () => {
-    if (!iframe) return;
-    const baseW = live.dataset.mode === 'gm' ? 1440 : 390;
-    iframe.style.transform = `scale(${screen.clientWidth / baseW})`;
+    if (appFrame) appFrame.style.transform = `scale(${phone.clientWidth / 402})`;
+    if (gmFrame) gmFrame.style.transform = `scale(${browser.clientWidth / 1440})`;
   };
   addEventListener('resize', fit);
 
-  const load = (src, title) => {
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.setAttribute('loading', 'lazy');
-      screen.append(iframe);
+  const makeFrame = (host, title) => {
+    const f = document.createElement('iframe');
+    f.title = title;
+    host.prepend(f);
+    return f;
+  };
+
+  const startFlow = name => {
+    const f = FLOWS[name];
+    try { localStorage.setItem(KEY, JSON.stringify(f.seed)); } catch (e) { /* storage blocked: app starts fresh */ }
+    if (!appFrame) {
+      appFrame = makeFrame(phone, 'Shopwise customer app, live prototype');
+      // Match the status bar to the screen underneath (same list as the app's own Device frame)
+      const LIGHT = [/^\/$/, /^\/style\//, /^\/setup\/generating/, /^\/plan$/, /^\/plan\/lamp(\/replace|\/try\/.*)?$/, /^\/notify$/, /^\/check-in$/];
+      const sync = () => {
+        try {
+          const path = appFrame.contentWindow.location.hash.replace(/^#/, '') || '/';
+          phone.classList.toggle('is-light', LIGHT.some(r => r.test(path)));
+          phone.classList.toggle('no-status', path === '/notify');
+        } catch (e) { /* cross-origin: keep defaults */ }
+      };
+      appFrame.addEventListener('load', () => {
+        sync();
+        try { appFrame.contentWindow.addEventListener('hashchange', sync); } catch (e) {}
+      });
     }
-    iframe.title = title;
-    iframe.src = src;
-    poster.hidden = true;
+    appFrame.src = `${APP}?flow=${name}&t=${Date.now()}#${f.hash}`;
+    openFull.href = `${APP}#${f.hash}`;
+    fit();
+  };
+  const showGM = () => {
+    if (!gmFrame) { gmFrame = makeFrame(browser, 'Shopwise GM console, live prototype'); gmFrame.src = GM; }
+    openFull.href = GM;
     fit();
   };
 
-  const state = { mode: 'customer', flow: null };
-  const current = () => {
-    if (state.mode === 'gm') return { src: CODED.gm, full: CODED.gm, title: 'Shopwise GM console, live prototype' };
-    if (state.flow) {
-      const f = FLOWS[state.flow];
-      return {
-        src: proto('embed.figma.com', f, '&embed-host=share&hide-ui=1&footer=false&theme=light'),
-        full: proto('www.figma.com', f, '&hide-ui=1'),
-        title: `Shopwise Figma prototype: ${state.flow}`
-      };
-    }
-    return { src: CODED.customer, full: CODED.customer, title: 'Shopwise customer app, live prototype' };
-  };
-  const apply = (autoload) => {
-    const c = current();
-    openFull.href = c.full;
-    if (autoload || iframe) load(c.src, c.title);
-  };
-
-  poster.addEventListener('click', () => apply(true));
-  flowBtns.forEach(b => b.addEventListener('click', () => {
-    const same = state.flow === b.dataset.flow;
-    state.flow = same ? null : b.dataset.flow;
-    flowBtns.forEach(x => x.setAttribute('aria-pressed', String(x === b && !same)));
-    apply(true);
-  }));
   flowBtns.forEach(b => b.setAttribute('aria-pressed', 'false'));
-  modeBtns.forEach(b => b.addEventListener('click', () => {
-    state.mode = b.dataset.live;
-    live.dataset.mode = state.mode;
-    modeBtns.forEach(x => x.setAttribute('aria-selected', String(x === b)));
-    apply(state.mode === 'gm' || !!iframe);
+  flowBtns.forEach(b => b.addEventListener('click', () => {
+    flow = b.dataset.flow;
+    flowBtns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    startFlow(flow);
   }));
+  modeBtns.forEach(b => b.addEventListener('click', () => {
+    mode = b.dataset.live;
+    live.dataset.mode = mode;
+    modeBtns.forEach(x => x.setAttribute('aria-selected', String(x === b)));
+    if (mode === 'gm') showGM(); else { openFull.href = `${APP}#${FLOWS[flow].hash}`; if (!appFrame) startFlow(flow); }
+    requestAnimationFrame(fit);
+  }));
+
+  // Load the app once the section is close to the viewport
+  const io = new IntersectionObserver(entries => {
+    if (entries.some(e => e.isIntersecting)) { io.disconnect(); if (!appFrame) startFlow(flow); }
+  }, { rootMargin: '400px 0px' });
+  io.observe(live);
 
   // Back to top
   const top = page.querySelector('.sw-top');
