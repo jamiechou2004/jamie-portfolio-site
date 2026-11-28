@@ -299,6 +299,8 @@ body.sw-case .portfolio-rail, body.sw-case .site-header { background: #fff; }
 .sw-iphone-screen.no-status .sw-statusbar { opacity: 0; }
 
 /* How-it-works video (05) */
-.sw-video { margin: 0 0 56px; border-radius: 32px; overflow: hidden; background: #FBF9F7; }
-.sw-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
-@media (max-width: 720px) { .sw-video { border-radius: 20px; margin-bottom: 40px; } }
+
+/* Table of contents: same light-blue current state as Chance AI, no grey block */
+body.sw-case .portfolio-rail__link.is-current,body.sw-case .portfolio-rail__link[aria-current]{background:#eaf3fc!important;color:#075eae!important}
+body.sw-case .portfolio-rail__link.is-current :is(.portfolio-rail__label,.np-icon,.portfolio-rail__index){color:#075eae!important}
+body.sw-case .portfolio-rail__link:not(.is-current):hover{background:#f3f7fb}
