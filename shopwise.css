@@ -87,8 +87,8 @@ body.sw-case .portfolio-rail, body.sw-case .site-header { background: #fff; }
 /* ---------- 01 Hero ---------- */
 .sw-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 48px; align-items: center; padding: 48px 0 0; }
 .sw-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
-.sw-brand img { width: 44px; height: 44px; }
-.sw-brand span { font-size: 26px; font-weight: 600; letter-spacing: -.03em; color: var(--sw-accent); }
+.sw-brand img { width: 48px; height: 48px; filter: drop-shadow(0 4px 10px rgba(97, 76, 61, .18)); }
+.sw-brand span { font-size: 26px; font-weight: 600; letter-spacing: -.03em; color: #614c3d; }
 .sw-hero h1 { font-size: clamp(44px, 5.6vw, 76px); line-height: 1.02; letter-spacing: -.045em; font-weight: 600; }
 .sw-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; margin-top: 48px !important; padding: 28px; border-radius: 24px; background: #fff; box-shadow: var(--sw-shadow); max-width: 520px; }
 .sw-meta dt { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--sw-muted); margin-bottom: 4px; }
