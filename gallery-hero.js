@@ -25,7 +25,6 @@
   const items = [
     { verb: ['Play', '玩一玩'], name: ['The Awakening Loop', 'The Awakening Loop'], state: 'Happy', say: ['Let’s play!', '一起玩吧！'] },
     { verb: ['Reflect', '想一想'], name: ['MoodLog', 'MoodLog'], state: 'Celebrating', say: ['Time to slow down.', '慢下来想一想。'] },
-    { verb: ['Decide', '做决定'], name: ['TikTok Design Test', 'TikTok 设计测试'], state: 'Curious', say: ['Let’s make a call.', '来做个决定吧。'] },
   ];
 
   let step = 'idle', active = -1, current = copy.idle, sayTicket = 0, widthAnim = null, tapAnim = null, taps = 0, lastTap = 0, tapTimer = null;
